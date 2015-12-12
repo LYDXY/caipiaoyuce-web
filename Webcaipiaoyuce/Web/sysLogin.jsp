@@ -89,7 +89,7 @@
             </tr>
         </table>
     </form>
-    <p>技术支持：广东信航信息技术有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：0663-8763222</p>
+    
 </div>
 
 </body>
