@@ -6,7 +6,7 @@
 	<package name="SixOneAction" namespace="/web" extends="base_default">
 
 		<!-- 查询所有的 期数 -->
-		<action name="SixOneAction" class="com.web.action.SixOneAction"
+		<action name="SixOneActionGetSixOnes" class="com.web.action.SixOneAction"
 			method="getSixOnes">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result name="GETSIXONES_SUCCESS">/view/web/six-one/show_six_one.jsp</result>
