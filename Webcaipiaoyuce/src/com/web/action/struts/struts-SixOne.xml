@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="SixOneAction" namespace="/web" extends="base_default">
+
+		<!-- 查询所有的 期数 -->
+		<action name="index" class="com.web.action.SixOneAction"
+			method="getSixOnes">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result name="GETSIXONES_SUCCESS">/view/web/six-one/show_six_one.jsp</result>
+		</action>
+	</package>
+</struts>

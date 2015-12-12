@@ -1,17 +1,24 @@
-package com.web.mappers;
+package com.web.services;
 
 import java.util.List;
 
-import com.web.pojo.*;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.web.pojo.SixOne;
 
 /**
+ * 
  * @author 林尧
  * 
- *         2015年12月12日 这种配置方案的固定写法
+ *         2015年12月12日
+ * 
+ *         49 选 7 服务接口层
  */
-public interface SixOneMapper {
+// 添加 spirng 事务
+@Transactional
+public interface SixOneServices {
 
-
+	
 
 	// 查询多条
 	public List<SixOne> selectSixOnes(SixOne sixOne);

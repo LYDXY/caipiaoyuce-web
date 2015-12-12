@@ -3,7 +3,7 @@
 <configuration>
 
 	<typeAliases>
-      <!--   <typeAlias alias="User" type="com.system.pojo.User" />
+       <!--  <typeAlias alias="User" type="com.system.pojo.User" />
         <typeAlias alias="Catalog" type="com.system.pojo.Catalog" />
         <typeAlias alias="Module" type="com.system.pojo.Module" />
         <typeAlias alias="Role" type="com.system.pojo.Role" />
@@ -27,6 +27,8 @@
 		<typeAlias alias="OpinionPoll" type="com.system.pojo.OpinionPoll" />
 		<typeAlias alias="OpinionPollInfo" type="com.system.pojo.OpinionPollInfo" />
 		<typeAlias alias="RoleCatalog" type="com.system.pojo.RoleCatalog" /> -->
+		<!-- 49 选 7 2015-12-12添加-->
+		<typeAlias alias="SixOne" type="com.web.pojo.SixOne" />
 	</typeAliases>
 <plugins>
 	    <!-- com.github.pagehelper为PageHelper类所在包名 -->
@@ -54,7 +56,7 @@
 	    </plugin>
 	</plugins>
 	<mappers>
-        <!-- <mapper resource="com/system/mappers/UserMapper.xml" />
+       <!--  <mapper resource="com/system/mappers/UserMapper.xml" />
         <mapper resource="com/system/mappers/CatalogMapper.xml" />
         <mapper resource="com/system/mappers/ModuleMapper.xml" />
         <mapper resource="com/system/mappers/RoleModuleMapper.xml" />
@@ -76,6 +78,8 @@
 		<mapper resource="com/system/mappers/OpinionPollInfoMapper.xml" />
 		<mapper resource="com/system/mappers/RoleCatalogMapper.xml" />
 		<mapper resource="com/web/mappers/FrontSearchMapper.xml" /> -->
+		<!-- 49 选 7 2015-12-12添加-->
+		<mapper resource="com/web/mappers/SixOneMapper.xml" />
 	</mappers>
 	
 </configuration>		

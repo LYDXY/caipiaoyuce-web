@@ -23,7 +23,7 @@
         <property name="password" value="${jdbc.password}"/>
 	</bean>
 
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<!-- <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
@@ -32,7 +32,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-<!--     <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
         <property name="mapperInterface" value="com.system.mappers.UserMapper"/>
     </bean>
@@ -142,7 +142,7 @@
         <property name="mapperInterface" value="com.system.mappers.OpinionPollInfoMapper"/>
     </bean>
     
-    前台
+
     <bean id="frontSurveyMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
         <property name="mapperInterface" value="com.web.mappers.FrontSurveyMapper"/>
@@ -222,5 +222,13 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
         <property name="mapperInterface" value="com.web.mappers.FrontOpinionPollInfoMapper"/>
     </bean> -->
+    
+    
+	<!-- 49 选 7  2015-12-12 添加-->
+	<bean id="frontOpinionPollInfoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+        <!-- 给 org.mybatis.spring.mapper.MapperFactoryBean 注入 Mapper 接口对象-->
+        <property name="mapperInterface" value="com.web.mappers.SixOneMapper"/>
+    </bean>
 	
 </beans>
