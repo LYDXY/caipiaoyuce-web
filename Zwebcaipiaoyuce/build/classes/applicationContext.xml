@@ -33,6 +33,7 @@
 	</bean>
 
 	<!-- 49 选 7 2015-12-12 添加 -->
+    <!-- 此处的ID 命名  必须跟 属性名一致 ,需要注入 SixOneMapper 对象的 类才能 找到 -->
 	<bean id="sixonemapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 		<!-- 给 org.mybatis.spring.mapper.MapperFactoryBean 注入 Mapper 接口对象 -->
