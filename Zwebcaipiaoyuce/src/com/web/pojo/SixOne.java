@@ -8,69 +8,124 @@ package com.web.pojo;
 
 public class SixOne {
 	
-	private int id;//主键ID
-	private int qishu; // 期数
-	private int first; // 第一个号码
-	private int second;// 第二个号码
-	private int third; // 第三
-	private int fourth;// 第四
-	private int fifth;// 第五
-	private int sixth;// 第六
-	private int seventh;// 第七 号码
-	
-	public int getId() {
+	private Integer id;//主键ID
+	private Integer qishu; // 期数
+	private Integer first; // 第一个号码
+	private Integer second;// 第二个号码
+	private Integer third; // 第三
+	private Integer fourth;// 第四
+	private Integer fifth;// 第五
+	private Integer sixth;// 第六
+	private Integer seventh;// 第七 号码
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getQishu() {
+	/**
+	 * @return the qishu
+	 */
+	public Integer getQishu() {
 		return qishu;
 	}
-	public void setQishu(int qishu) {
+	/**
+	 * @param qishu the qishu to set
+	 */
+	public void setQishu(Integer qishu) {
 		this.qishu = qishu;
 	}
-	public int getFrist() {
+	/**
+	 * @return the first
+	 */
+	public Integer getFirst() {
 		return first;
 	}
-	public void setFrist(int frist) {
-		this.first = frist;
+	/**
+	 * @param first the first to set
+	 */
+	public void setFirst(Integer first) {
+		this.first = first;
 	}
-	public int getSecond() {
+	/**
+	 * @return the second
+	 */
+	public Integer getSecond() {
 		return second;
 	}
-	public void setSecond(int second) {
+	/**
+	 * @param second the second to set
+	 */
+	public void setSecond(Integer second) {
 		this.second = second;
 	}
-	public int getThird() {
+	/**
+	 * @return the third
+	 */
+	public Integer getThird() {
 		return third;
 	}
-	public void setThird(int third) {
+	/**
+	 * @param third the third to set
+	 */
+	public void setThird(Integer third) {
 		this.third = third;
 	}
-	public int getFourth() {
+	/**
+	 * @return the fourth
+	 */
+	public Integer getFourth() {
 		return fourth;
 	}
-	public void setFourth(int fourth) {
+	/**
+	 * @param fourth the fourth to set
+	 */
+	public void setFourth(Integer fourth) {
 		this.fourth = fourth;
 	}
-	public int getFifth() {
+	/**
+	 * @return the fifth
+	 */
+	public Integer getFifth() {
 		return fifth;
 	}
-	public void setFifth(int fifth) {
+	/**
+	 * @param fifth the fifth to set
+	 */
+	public void setFifth(Integer fifth) {
 		this.fifth = fifth;
 	}
-	public int getSixth() {
+	/**
+	 * @return the sixth
+	 */
+	public Integer getSixth() {
 		return sixth;
 	}
-	public void setSixth(int sixth) {
+	/**
+	 * @param sixth the sixth to set
+	 */
+	public void setSixth(Integer sixth) {
 		this.sixth = sixth;
 	}
-	public int getSeventh() {
+	/**
+	 * @return the seventh
+	 */
+	public Integer getSeventh() {
 		return seventh;
 	}
-	public void setSeventh(int seventh) {
+	/**
+	 * @param seventh the seventh to set
+	 */
+	public void setSeventh(Integer seventh) {
 		this.seventh = seventh;
 	}
+	
+
 	
 }

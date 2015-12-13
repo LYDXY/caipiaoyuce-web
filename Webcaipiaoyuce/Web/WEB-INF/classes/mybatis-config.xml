@@ -3,31 +3,7 @@
 <configuration>
 
 	<typeAliases>
-       <!--  <typeAlias alias="User" type="com.system.pojo.User" />
-        <typeAlias alias="Catalog" type="com.system.pojo.Catalog" />
-        <typeAlias alias="Module" type="com.system.pojo.Module" />
-        <typeAlias alias="Role" type="com.system.pojo.Role" />
-        <typeAlias alias="RoleModule" type="com.system.pojo.RoleModule" />
-        <typeAlias alias="Contents" type="com.system.pojo.Contents" />
-        <typeAlias alias="UserRole" type="com.system.pojo.UserRole" />
-        <typeAlias alias="FileInfo" type="com.system.pojo.FileInfo" />
-		<typeAlias alias="ZlCatalog" type="com.system.pojo.ZlCatalog" />
-		<typeAlias alias="ZlContents" type="com.system.pojo.ZlContents" />
-		<typeAlias alias="Titlepic" type="com.system.pojo.Titlepic" />
-		<typeAlias alias="Survey" type="com.system.pojo.Survey" />
-		<typeAlias alias="SurveyInfo" type="com.system.pojo.SurveyInfo" />
-		<typeAlias alias="Letter" type="com.system.pojo.Letter" />
-		<typeAlias alias="Video" type="com.system.pojo.Video" />
-		<typeAlias alias="AllClassBean" type="com.system.bean.AllClassBean" />
-		<typeAlias alias="Links" type="com.system.pojo.Links" />
-		<typeAlias alias="OpenCatalog" type="com.system.pojo.OpenCatalog" />
-		<typeAlias alias="OpenContents" type="com.system.pojo.OpenContents" />
-		<typeAlias alias="SearchVO" type="com.web.pojo.SearchVO" />
-		<typeAlias alias="Option" type="com.system.pojo.Option" />
-		<typeAlias alias="OpinionPoll" type="com.system.pojo.OpinionPoll" />
-		<typeAlias alias="OpinionPollInfo" type="com.system.pojo.OpinionPollInfo" />
-		<typeAlias alias="RoleCatalog" type="com.system.pojo.RoleCatalog" /> -->
-		<!-- 49 选 7 2015-12-12添加-->
+       
 		<typeAlias alias="SixOne" type="com.web.pojo.SixOne" />
 	</typeAliases>
 <plugins>
