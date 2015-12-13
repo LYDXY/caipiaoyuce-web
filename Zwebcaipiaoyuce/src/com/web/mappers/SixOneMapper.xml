@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.mappers.SixOneMapper">
+	<!-- 49选7 类型 -->
+	<resultMap type="SixOne" id="sixone">
+		<id property="id" column="id" />
+		<result property="qishu" column="qishu" />
+		<result property="first" column="first" />
+		<result property="second" column="second" />
+		<result property="third" column="third" />
+		<result property="fourth" column="fourth" />
+		<result property="fifth" column="fifth" />
+		<result property="sixth" column="sixth" />
+		<result property="seventh" column="seventh" />
+	</resultMap>
+
+	<!-- 查询所有数据 -->
+	<select id="way0" resultType="sixone">
+		select
+		t.id,t.qishu,t.first,t.second,t.third,t.fourth,t.fifth,t.sixth,t.seventh
+		from tb_caipiao_six_one t
+
+
+	</select>
+
+	<!-- 根据期数qishu查询整条数据 -->
+	<select id="way3" parameterType="Integer" resultType="sixone">
+		select *
+		from tb_caipiao_six_one t where t.qishu=#{qishu}
+	</select>
+</mapper>
