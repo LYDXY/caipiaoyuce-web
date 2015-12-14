@@ -11,13 +11,9 @@
 		<action name="SixOneActionGetSixOnes" class="com.web.action.SixOneAction"
 			method="getSixOnes">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
-			<result name="GETSIXONES_SUCCESS">/view/web/six-one/show_six_one.jsp</result>
+			<result name="GETSIXONES_SUCCESS">../jsp/sixone.jsp</result>
 		</action>
-		<action name="SixOneActionAddSixOne" class="com.web.action.SixOneAction"
-			method="addSixOne">
-			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
-			<result name="ADD_SIXONE_SUCCESS">/view/web/six-one/show_six_one.jsp</result>
-		</action>
+		
 	</package>
 
 

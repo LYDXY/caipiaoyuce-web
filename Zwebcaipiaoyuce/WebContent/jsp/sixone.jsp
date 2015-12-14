@@ -14,6 +14,96 @@
 </head>
 <body>
 
+	<!-- 表格部分 -->
+
+
+	<table class="sui-table table-bordered table-sideheader">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>新客户 uv</th>
+				<th>新客户转化率（％）</th>
+				<th>老客户 uv</th>
+				<th>老客户转化率（％）</th>
+				<th>老客户 uv</th>
+				<th>老客户转化率（％）</th>
+				<th>老客户转化率（％）</th>
+				<th>编辑</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>昨日</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>昨日</td>
+				<td>昨日</td>
+			</tr>
+			<tr>
+				<td>前日</td>
+				<td>1.0</td>
+				<td>0.0</td>
+				<td>0.0</td>
+				<td>0.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>昨日</td>
+				<td>昨日</td>
+			</tr>
+			<tr>
+				<td>前两天</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>0.0</td>
+				<td>0.0</td>
+				<td>1.0</td>
+				<td>昨日</td>
+				<td>1.0</td>
+				<td>昨日</td>
+			</tr>
+			<tr>
+				<td>行业平均</td>
+				<td>50.73</td>
+				<td>0.73</td>
+				<td>0.73</td>
+				<td>0.73</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>昨日</td>
+				<td>昨日</td>
+			</tr>
+			<tr>
+				<td>当前现状</td>
+				<td>低于平均</td>
+				<td>持平</td>
+				<td>高于平均</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>昨日</td>
+				<td>持平</td>
+				<td>昨日</td>
+			</tr>
+			<tr>
+				<td>当前现状</td>
+				<td>低于平均</td>
+				<td>持平</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>高于平均</td>
+				<td>持平</td>
+				<td>昨日</td>
+				<td>昨日</td>
+			</tr>
+			
+			
+		</tbody>
+	</table>
+
+
 
 	<!-- 打开对话框模块 -->
 	<button data-toggle="modal" data-target="#myModal"
