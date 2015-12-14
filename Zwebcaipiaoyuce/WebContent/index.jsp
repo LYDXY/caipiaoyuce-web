@@ -13,7 +13,7 @@
 <html>
 <head>
 <title>href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionGetSixOnes.action"</title>
-<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="css/style1.css" />
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
 
