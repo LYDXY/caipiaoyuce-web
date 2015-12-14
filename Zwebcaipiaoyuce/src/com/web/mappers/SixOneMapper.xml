@@ -19,7 +19,7 @@
 	<!--可重用的SQL代码段 -->
 	<sql id="sixone_column2">insert into tb_caipiao_six_one
 		(qishu,first,second,third,fourth,fifth,sixth,seventh)
-		from tb_caipiao_six_one
+		
 	</sql>
 
 	<!-- 查询所有数据 -->

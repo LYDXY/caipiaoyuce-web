@@ -8,6 +8,7 @@
 </head>
 <body>
 	
-	<a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionGetSixOnes.action">点我</a>
+	<a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionGetSixOnes.action">查询</a><br>
+	<a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionAddSixOne.action">添加</a>
 </body>
 </html>
