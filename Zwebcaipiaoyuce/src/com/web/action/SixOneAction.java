@@ -28,12 +28,10 @@ public class SixOneAction extends BaseAction {
 	private SixOne sixone;
 	public String getSixOnes(){
 		logger.info(TAG+"---"+"getSixOnes");
-		List<SixOne> all_sixones1=SixOneServices.way0();
-		sixone=new SixOne();
-		sixone.setId(1);
+		List<SixOne> all_sixones=SixOneServices.way0();
+		logger.info(TAG+"---该表格的数据总数"+all_sixones.size());
+		request.setAttribute("sixonelist", all_sixones);
 		
-		List<SixOne> all_sixones2=SixOneServices.way1(sixone);
-		logger.info(TAG+"---该表格的数据总数"+all_sixones1.size()+"+"+all_sixones2.size());
 		return "GETSIXONES_SUCCESS";
 	}
 	

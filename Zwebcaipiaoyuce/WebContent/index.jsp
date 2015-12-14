@@ -12,13 +12,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>后台模板管理系统</title>
+<title>href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionGetSixOnes.action"</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
 
 </head>
 <body>
+
 	<div class="top"></div>
 	<div id="header">
 		<div class="logo">***后台管理系统</div>
@@ -49,8 +50,8 @@
 						<span></span>49选7(6+1)
 					</h4>
 					<div class="list-item none">
-						<a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionGetSixOnes.action">查询</a>
-						
+
+						<a href="javascript:SixOneActionGetSixOnes();">查询</a>
 
 					</div>
 				</li>
@@ -134,10 +135,7 @@
 					<li><a href="#">最新公告</a></li>
 				</ul>
 			</div>
-			<div class="main">
-			
-			
-			</div>
+			<div class="main" id="main"></div>
 		</div>
 	</div>
 	<div class="bottom"></div>
@@ -147,4 +145,14 @@
 	</script>
 
 </body>
+
+<!-- 根据点击的不同,进行ajax 调用,切换右边的 内容 -->
+<script type="text/javascript">
+	function SixOneActionGetSixOnes() {
+		alert("234324");
+	}
+	$(document).ready(function() {
+
+	});
+</script>
 </html>
