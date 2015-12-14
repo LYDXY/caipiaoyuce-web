@@ -15,9 +15,9 @@
 <body>
 
 
-    <!-- 打开对话框模块 -->
+	<!-- 打开对话框模块 -->
 	<button data-toggle="modal" data-target="#myModal"
-		data-keyboard="false" class="sui-btn btn-primary btn-lg">对话框已写入html</button>
+		data-keyboard="false" class="sui-btn btn-primary btn-lg">添加</button>
 	<!-- Modal-->
 	<div id="myModal" tabindex="-1" role="dialog" data-hasfoot="false"
 		class="sui-modal hide fade">
@@ -26,24 +26,93 @@
 				<div class="modal-header">
 					<button type="button" data-dismiss="modal" aria-hidden="true"
 						class="sui-close">×</button>
-					<h4 id="myModalLabel" class="modal-title">Modal title</h4>
+					<h4 id="myModalLabel" class="modal-title">6+1(49选7) 当前期数
+						,由后台传过来$</h4>
 				</div>
-				<div class="modal-body">我是内容body</div>
+				<!-- 对话框主体 -->
+				<div class="modal-body">
+					<form class="sui-form form-horizontal sui-validate">
+						<div class="control-group">
+							<label for="first_number" class="control-label">球1:&nbsp;&nbsp;</label>
+							<div class="controls">
+								<input id="first_number" name="fifth_number" placeholder="1-49"
+									data-rules="required|number|lt=50" type="text">
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label for="second_number" class="control-label">球2:&nbsp;&nbsp;</label>
+							<div class="controls">
+								<input id="second_number" name="second_number"
+									placeholder="1-49" data-rules="required|number|lt=50"
+									type="text">
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label for="third_number" class="control-label">球1:&nbsp;&nbsp;</label>
+							<div class="controls">
+								<input id="third_number" name="third_number" placeholder="1-49"
+									data-rules="required|number|lt=50" type="text">
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label for="fourth_number" class="control-label">球1:&nbsp;&nbsp;</label>
+							<div class="controls">
+								<input id="fourth_number" name="fourth_number"
+									placeholder="1-49" data-rules="required|number|lt=50"
+									type="text">
+							</div>
+						</div>
+						<div class="control-group">
+							<label for="fifth_number" class="control-label">球1:&nbsp;&nbsp;</label>
+							<div class="controls">
+								<input id="fifth_number" name="fifth_number" placeholder="1-49"
+									data-rules="required|number|lt=50" type="text">
+							</div>
+						</div>
+						<div class="control-group">
+							<label for="sixth_number" class="control-label">球1:&nbsp;&nbsp;</label>
+							<div class="controls">
+								<input id="sixth_number" name="sixth_number" placeholder="1-49"
+									data-rules="required|number|lt=50" type="text">
+							</div>
+						</div>
+						<div class="control-group">
+							<label for="seventh_number" class="control-label">球1:&nbsp;&nbsp;</label>
+							<div class="controls">
+								<input id="seventh_number" name="seventh_number"
+									placeholder="1-49" data-rules="required|number|lt=50"
+									type="text">
+							</div>
+						</div>
+					</form>
+				</div>
 				<div class="modal-footer">
 					<button type="button" data-ok="modal"
-						class="sui-btn btn-primary btn-large">可自定ok</button>
+						class="sui-btn btn-primary btn-large">确定添加</button>
 					<button type="button" data-dismiss="modal"
-						class="sui-btn btn-default btn-large">可自定dismiss</button>
+						class="sui-btn btn-default btn-large">取消</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!--针对对话框的事件 -->
 	<script>
-      $('#myModal').on('okHide', function(e){console.log('okHide')})
-      $('#myModal').on('okHidden', function(e){console.log('okHidden')})
-      $('#myModal').on('cancelHide', function(e){console.log('cancelHide')})
-      $('#myModal').on('cancelHidden', function(e){console.log('cancelHidden')})
-    </script>
+		$('#myModal').on('okHide', function(e) {
+
+		})
+		$('#myModal').on('okHidden', function(e) {
+
+		})
+		$('#myModal').on('cancelHide', function(e) {
+
+		})
+		$('#myModal').on('cancelHidden', function(e) {
+
+		})
+	</script>
 
 
 </body>
