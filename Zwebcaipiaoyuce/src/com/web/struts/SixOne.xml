@@ -14,6 +14,14 @@
 			<result name="GETSIXONES_SUCCESS">../jsp/sixone.jsp</result>
 		</action>
 		
+		<action name="SixOneActionGetSixOnesByFenYe" class="com.web.action.SixOneAction"
+			method="GetSixOnesByFenYe">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result name="GETSIXONES_SUCCESS">../jsp/sixone.jsp</result>
+		</action>
+		
+		
+		
 	</package>
 
 

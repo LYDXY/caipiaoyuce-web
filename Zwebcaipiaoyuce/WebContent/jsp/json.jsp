@@ -29,7 +29,7 @@
         map.put("NUM", 1000+i+"");
         data.add(map);
     }
-
+    System.out.println("1111111--------------------------");
     // sort 要排序的列
     if ("XH".equals(sortName) || "ID".equals(sortName)) {
     	//升序
@@ -102,4 +102,5 @@
     jsonSb.append("]");
     jsonSb.append("}");
     out.print(jsonSb.toString());
+    System.out.println(jsonSb.toString());
 %>

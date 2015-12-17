@@ -51,8 +51,8 @@
 					</h4>
 					<div class="list-item none">
 
-						<a href="javascript:SixOneActionGetSixOnes();">查询</a>
-						<a href="jsp/sky_blue.html">查询</a>
+						<a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionGetSixOnes.action">查询</a>
+						<a href="jsp/sky_blue.jsp">查询</a>
 
 					</div>
 				</li>
