@@ -30,14 +30,15 @@
 <body style="background-color: #fff;">
 	<table id="searchTable">
 		<tr>
-			<th w_index="XH" width="5%;">XH</th>
-			<th w_index="ID" width="5%;">ID</th>
-			<th w_index="CHAR" w_align="left" width="15%;">CHAR</th>
-			<th w_index="TEXT" w_align="left" width="30%;">TEXT</th>
-			<th w_index="DATE" width="15%;">DATE</th>
-			<th w_index="TIME" width="15%;">TIME</th>
-			<th w_index="NUM" width="5%;">NUM</th>
-			<th w_render="operate" width="10%;">Operate</th>
+			<th w_index="XH" width="5%;">期数</th>
+			<th w_index="ID" width="5%;">球1</th>
+			<th w_index="CHAR" width="15%;">球2</th>
+			<th w_index="TEXT" width="15%;">球3</th>
+			<th w_index="TEXT" width="15%;">球4</th>
+			<th w_index="DATE" width="15%;">球5</th>
+			<th w_index="TIME" width="15%;">球6</th>
+			<th w_index="NUM" width="5%;">球7</th>
+			<th w_render="operate" width="10%;">操作</th>
 		</tr>
 	</table>
 	<script type="text/javascript">

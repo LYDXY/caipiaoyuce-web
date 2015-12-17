@@ -71,7 +71,10 @@ public class SixOneAction extends BaseAction {
 
 	// 分页查询
 	public void GetSixOnesByFenYe() throws IOException, java.io.IOException {
-
+        
+		List<SixOne> all_sixones = SixOneServices.way0();
+		logger.info(TAG + "---该表格的数据总数" + all_sixones.size());
+		
 		response.setContentType("text/html");
 		PrintWriter out;
 		out = response.getWriter();
@@ -91,22 +94,21 @@ public class SixOneAction extends BaseAction {
 		// 表数据
 		List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
 		// 总记录数
-		int totalRows = 11000;
+		int totalRows = all_sixones.size();
 	//	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	//	SimpleDateFormat dateFormat1 = new SimpleDateFormat("HH:mm:ss");
-		for (int i = 0; i < totalRows; i++) {
-			Date date = new Date();
+		for (int i = 0; i < all_sixones.size(); i++) {
+			
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("XH", i + 1 + "");
-			map.put("ID", i + "");
-			map.put("CHAR", "char_" + i);
-			map.put("TEXT", "文本" + i);
-			map.put("DATE", "喂不饱");
-			map.put("TIME", "中文");
-			map.put("NUM", 1000 + i + "");
+			map.put("XH", all_sixones.get(i).getQishu()+"");
+			map.put("ID", all_sixones.get(i).getFirst()+"");
+			map.put("CHAR", all_sixones.get(i).getSecond()+"");
+			map.put("TEXT",all_sixones.get(i).getThird()+"");
+			map.put("DATE", all_sixones.get(i).getFirst()+"");
+			map.put("TIME", all_sixones.get(i).getSixth()+"");
+			map.put("NUM", all_sixones.get(i).getSeventh()+"");
 			data.add(map);
 		}
-		System.out.println("1111111--------------------------");
 		// sort 要排序的列
 		if ("XH".equals(sortName) || "ID".equals(sortName)) {
 			// 升序
