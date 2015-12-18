@@ -100,18 +100,18 @@ public class SixOneAction extends BaseAction {
 		for (int i = 0; i < all_sixones.size(); i++) {
 			
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("XH", all_sixones.get(i).getQishu()+"");
+			map.put("qishu", all_sixones.get(i).getQishu()+"");
 			map.put("first", all_sixones.get(i).getFirst()+"");
-			map.put("CHAR", all_sixones.get(i).getSecond()+"");
-			map.put("TEXT",all_sixones.get(i).getThird()+"");
+			map.put("second", all_sixones.get(i).getSecond()+"");
+			map.put("third",all_sixones.get(i).getThird()+"");
 			map.put("fourth",all_sixones.get(i).getFourth()+"");
-			map.put("DATE", all_sixones.get(i).getFifth()+"");
-			map.put("TIME", all_sixones.get(i).getSixth()+"");
-			map.put("NUM", all_sixones.get(i).getSeventh()+"");
+			map.put("fifth", all_sixones.get(i).getFifth()+"");
+			map.put("sixth", all_sixones.get(i).getSixth()+"");
+			map.put("seventh", all_sixones.get(i).getSeventh()+"");
 			data.add(map);
 		}
 		// sort 要排序的列
-		if ("XH".equals(sortName) || "first".equals(sortName)) {
+		if ("qishu".equals(sortName) || "first".equals(sortName)) {
 			// 升序
 			if ("asc".equals(sortOrder)) {
 				Collections.sort(data, new Comparator<Map<String, Object>>() {
@@ -129,11 +129,11 @@ public class SixOneAction extends BaseAction {
 					}
 				});
 			}
-		} else if ("XH,first".equals(sortName)) {
+		} else if ("qishu,first".equals(sortName)) {
 			Collections.sort(data, new Comparator<Map<String, Object>>() {
 				public int compare(Map<String, Object> map1, Map<String, Object> map2) {
-					int xhCp = Integer.parseInt(map1.get("XH").toString())
-							- Integer.parseInt(map2.get("XH").toString());
+					int xhCp = Integer.parseInt(map1.get("qishu").toString())
+							- Integer.parseInt(map2.get("qishu").toString());
 					int idCp = Integer.parseInt(map1.get("first").toString())
 							- Integer.parseInt(map2.get("first").toString());
 
@@ -172,14 +172,14 @@ public class SixOneAction extends BaseAction {
 			}
 			Map<String, Object> map = data.get(i);
 			jsonSb.append("{");
-			jsonSb.append("\"XH\": ").append(map.get("XH")).append(",");
+			jsonSb.append("\"qishu\": ").append(map.get("qishu")).append(",");
 			jsonSb.append("\"first\": ").append(map.get("first")).append(",");
-			jsonSb.append("\"CHAR\": \"").append(map.get("CHAR")).append("\",");
-			jsonSb.append("\"TEXT\": \"").append(map.get("TEXT")).append("\",");
+			jsonSb.append("\"second\": \"").append(map.get("second")).append("\",");
+			jsonSb.append("\"third\": \"").append(map.get("third")).append("\",");
 			jsonSb.append("\"fourth\": \"").append(map.get("fourth")).append("\",");
-			jsonSb.append("\"DATE\": \"").append(map.get("DATE")).append("\",");
-			jsonSb.append("\"TIME\": \"").append(map.get("TIME")).append("\",");
-			jsonSb.append("\"NUM\": ").append(map.get("NUM"));
+			jsonSb.append("\"fifth\": \"").append(map.get("fifth")).append("\",");
+			jsonSb.append("\"sixth\": \"").append(map.get("sixth")).append("\",");
+			jsonSb.append("\"seventh\": ").append(map.get("seventh"));
 			jsonSb.append("}");
 		}
 

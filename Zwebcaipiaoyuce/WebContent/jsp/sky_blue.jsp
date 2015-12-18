@@ -5,8 +5,7 @@
 <!-- 获取数据的地方 -->
 <%
 	String path = request.getContextPath();
-	String domain = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort();
+	String domain = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
 	String basePath = domain + path;
 	String host = request.getScheme() + "://" + request.getServerName();
 	pageContext.setAttribute("ctx", path);
@@ -61,15 +60,15 @@
 	<!-- 表格模块 -->
 	<table id="searchTable">
 		<tr>
-			<th w_sort="XH,desc" w_index="XH" width="5%;">期数<a
-				class="sort sort-desc" sortname="XH" href="#"></a></th>
+			<th w_sort="qishu,desc" w_index="qishu" width="5%;">期数<a
+				class="sort sort-desc" sortname="qishu" href="#"></a></th>
 			<th w_index="first" width="5%;">球1</th>
-			<th w_index="CHAR" width="5%;">球2</th>
-			<th w_index="TEXT" width="5%;">球3</th>
+			<th w_index="second" width="5%;">球2</th>
+			<th w_index="third" width="5%;">球3</th>
 			<th w_index="fourth" width="5%;">球4</th>
-			<th w_index="DATE" width="5%;">球5</th>
-			<th w_index="TIME" width="5%;">球6</th>
-			<th w_index="NUM" width="5%;">球7</th>
+			<th w_index="fifth" width="5%;">球5</th>
+			<th w_index="sixth" width="5%;">球6</th>
+			<th w_index="seventh" width="5%;">球7</th>
 			<th w_index="ID" w_render="operate" width="10%;">操作</th>
 		</tr>
 	</table>
@@ -77,35 +76,38 @@
 	<div id="artDialog-gridForm" style="display: none;">
 		<form id="gridForm" class="bsgrid_form">
 			<table>
-				<tr showType="false">
-					<td class="formLabel">ID:</td>
-					<td class="formInput"><input name="ID" type="text" /></td>
+				<tr>
+					<td class="formLabel">期数</td>
+					<td class="formInput"><input name="qishu" type="text" /></td>
+				</tr>
+				<tr >
+					<td class="formLabel">球1</td>
+					<td class="formInput"><input name="first" type="text" /></td>
+				</tr>
+				
+				<tr>
+					<td class="formLabel">球2</td>
+					<td class="formInput"><input name="second" type="text" /></td>
 				</tr>
 				<tr>
-					<td class="formLabel"><span class="require">*</span>XH:</td>
-					<td class="formInput"><input name="XH" type="text"
-						editAble="false" /> <span class="inputTip" showType="add">Must
-							unique</span></td>
+					<td class="formLabel">球3</td>
+					<td class="formInput"><input name="third" type="text" /></td>
 				</tr>
 				<tr>
-					<td class="formLabel">CHAR:</td>
-					<td class="formInput"><input name="CHAR" type="text" /></td>
+					<td class="formLabel">球4</td>
+					<td class="formInput"><input name="fourth" type="text" /></td>
 				</tr>
 				<tr>
-					<td class="formLabel">TEXT:</td>
-					<td class="formInput"><textarea name="TEXT"></textarea></td>
+					<td class="formLabel">球5</td>
+					<td class="formInput"><input name="fifth" type="text" /></td>
 				</tr>
 				<tr>
-					<td class="formLabel">DATE:</td>
-					<td class="formInput"><input name="DATE" type="text" /></td>
+					<td class="formLabel">球6</td>
+					<td class="formInput"><input name="sixth" type="text" /></td>
 				</tr>
 				<tr>
-					<td class="formLabel">TIME:</td>
-					<td class="formInput"><input name="TIME" type="text" /></td>
-				</tr>
-				<tr>
-					<td class="formLabel">NUM:</td>
-					<td class="formInput"><input name="NUM" type="text" /></td>
+					<td class="formLabel">球7</td>
+					<td class="formInput"><input name="seventh" type="text" /></td>
 				</tr>
 				<tr>
 					<td colspan="2"
@@ -121,135 +123,147 @@
 
 	<!-- 脚本模块 -->
 	<script type="text/javascript">
-	var gridObj;
+		var gridObj;
 
-    var gridFormObject;
-    var gridFormDialog;
-    $(function () {
-        gridObj = $.fn.bsgrid.init('searchTable', {
-            url: '${ pageContext.request.contextPath }/SixOneAction/SixOneActionGetSixOnesByFenYe.action',
-            // autoLoad: false,
-            pageSizeSelect: true,
-            stripeRows: true,
-            pageSize: 10
-        });
-        if ($('#artDialog-gridForm').length == 1) {
-            var gridFormHtml = $("#artDialog-gridForm").html();
-            $("#artDialog-gridForm").html('');
-            gridFormDialog = $.dialog({
-                id: 'artDialog-gridForm-dialog',
-                title: 'Form',
-                width: 400,
-                height: 350,
-                padding: '0px 0px 0px 0px',
-                content: gridFormHtml,
-                lock: true,
-                fixed: true,
-                ok: false,
-                okValue: false,
-                cancel: function () {
-                    gridFormDialog.hidden();
-                    return false;
-                },
-                visible: false
-            });
-        }
+		var gridFormObject;
+		var gridFormDialog;
+		$(function() {
+			gridObj = $.fn.bsgrid
+					.init(
+							'searchTable',
+							{
+								url : '${ pageContext.request.contextPath }/SixOneAction/SixOneActionGetSixOnesByFenYe.action',
+								// autoLoad: false,
+								pageSizeSelect : true,
+								stripeRows : true,
+								pageSize : 10
+							});
+			if ($('#artDialog-gridForm').length == 1) {
+				var gridFormHtml = $("#artDialog-gridForm").html();
+				$("#artDialog-gridForm").html('');
+				gridFormDialog = $.dialog({
+					id : 'artDialog-gridForm-dialog',
+					title : 'Form',
+					width : 400,
+					height : 350,
+					padding : '0px 0px 0px 0px',
+					content : gridFormHtml,
+					lock : true,
+					fixed : true,
+					ok : false,
+					okValue : false,
+					cancel : function() {
+						gridFormDialog.hidden();
+						return false;
+					},
+					visible : false
+				});
+			}
 
-        // grid form obj, note grid form should init after artDialog
-        gridFormObject = $.fn.bsgrid_form.init('gridForm', {});
+			// grid form obj, note grid form should init after artDialog
+			gridFormObject = $.fn.bsgrid_form.init('gridForm', {});
 
-        doSearch();
-    });
+			doSearch();
+		});
 
-   /*  function operate(record, rowIndex, colIndex, options) {
-        return '<a href="#" onclick="alert(\'期数=' + gridObj.getRecordIndexValue(record, 'XH') + '\');">操作</a>';
-    } */
-    
-    function doSearch() {
-        console.log('Search params: [' + $('#searchForm').serialize() + ']');
-        gridObj.options.otherParames = $('#searchForm').serializeArray();
-        gridObj.page(1);
-    }
+		/*  function operate(record, rowIndex, colIndex, options) {
+		     return '<a href="#" onclick="alert(\'期数=' + gridObj.getRecordIndexValue(record, 'XH') + '\');">操作</a>';
+		 } */
 
-    function operate(record, rowIndex, colIndex, options, options) {
-        return '<a href="#" onclick="doView(' + rowIndex + ');">View</a>'
-                + '&emsp;<a href="#" onclick="doEdit(' + rowIndex + ');">Edit</a>'
-                + '&emsp;<a href="#" onclick="doDelete(' + rowIndex + ');">Delete</a>';
-    }
+		function doSearch() {
+			console
+					.log('Search params: [' + $('#searchForm').serialize()
+							+ ']');
+			gridObj.options.otherParames = $('#searchForm').serializeArray();
+			gridObj.page(1);
+		}
 
-    function doAdd() {
-        $('#gridForm')[0].reset();
-        showFormDialog('add');
-    }
+		function operate(record, rowIndex, colIndex, options, options) {
+			return '<a href="#" onclick="doView(' + rowIndex + ');">View</a>'
+					+ '&emsp;<a href="#" onclick="doEdit(' + rowIndex
+					+ ');">Edit</a>' + '&emsp;<a href="#" onclick="doDelete('
+					+ rowIndex + ');">Delete</a>';
+		}
 
-    function doView(rowIndex) {
-        fillDataAndShowFormDialog('view', rowIndex);
-    }
+		function doAdd() {
+			$('#gridForm')[0].reset();
+			showFormDialog('add');
+		}
 
-    function doEdit(rowIndex) {
-        fillDataAndShowFormDialog('edit', rowIndex);
-    }
- 
-    
-    
-    function fillDataAndShowFormDialog(type, rowIndex) {
-        // get record by rowIndex: gridObj.getRecord(rowIndex)
-        // get column value by record and index: gridObj.getRecordIndexValue(record, index)
-        // get column value by rowIndex and index: gridObj.getColumnValue(rowIndex, index)
-        var record = gridObj.getRecord(rowIndex);
-        $('#gridForm :input').each(function () {
-            var input_name = $.trim($(this).attr('name'));
-            if (input_name != '') {
-                var input_value = gridObj.getRecordIndexValue(record, input_name);
-                if ($(this).attr('type') == 'radio' || $(this).attr('type') == 'checkbox') {
-                    if ((',' + input_value + ',').indexOf(',' + $(this).val() + ',') > -1) {
-                        $.bsgrid.adaptAttrOrProp($(this), 'checked', true);
-                    } else {
-                        $.bsgrid.adaptAttrOrProp($(this), 'checked', false);
-                    }
-                } else {
-                    $(this).val(input_value);
-                }
-            }
-        });
-        showFormDialog(type);
-    }
+		function doView(rowIndex) {
+			fillDataAndShowFormDialog('view', rowIndex);
+		}
 
-    function showFormDialog(type) {
-        gridFormObject.showForm(type);
-        if (type == 'view') {
-            $('#gridForm :button[value=Save]').hide();
-        } else {
-            $('#gridForm :button[value=Save]').show();
-        }
-        gridFormDialog.title(type);
-        // hide artDialog footer
-        $('div[aria-labelledby=d-title-artDialog-gridForm-dialog] .d-footer').hide();
-        gridFormDialog.visible();
-    }
+		function doEdit(rowIndex) {
+			fillDataAndShowFormDialog('edit', rowIndex);
+		}
 
-    function doDelete(rowIndex) {
-        var id = gridObj.getColumnValue(rowIndex, 'ID');
-        $.confirm('Delete?', function () {
-            alert('delete. ID=' + id);
-        });
-    }
+		function fillDataAndShowFormDialog(type, rowIndex) {
+			// get record by rowIndex: gridObj.getRecord(rowIndex)
+			// get column value by record and index: gridObj.getRecordIndexValue(record, index)
+			// get column value by rowIndex and index: gridObj.getColumnValue(rowIndex, index)
+			var record = gridObj.getRecord(rowIndex);
+			$('#gridForm :input').each(
+					function() {
+						var input_name = $.trim($(this).attr('name'));
+						if (input_name != '') {
+							var input_value = gridObj.getRecordIndexValue(
+									record, input_name);
+							if ($(this).attr('type') == 'radio'
+									|| $(this).attr('type') == 'checkbox') {
+								if ((',' + input_value + ',').indexOf(','
+										+ $(this).val() + ',') > -1) {
+									$.bsgrid.adaptAttrOrProp($(this),
+											'checked', true);
+								} else {
+									$.bsgrid.adaptAttrOrProp($(this),
+											'checked', false);
+								}
+							} else {
+								$(this).val(input_value);
+							}
+						}
+					});
+			showFormDialog(type);
+		}
 
-    function doCommit() {
-        var type = gridFormObject.options.formType;;
-        if (type == 'view') {
-            alert('This is view.');
-        } else if (type == 'add') {
-            alert($('#gridForm').serialize() + '&amp;formType=' + type);
-        } else if (type == 'edit') {
-            // editAble false not commit
-            alert($('#gridForm :not([editAble="false"])').serialize() + '&amp;formType=' + type);
-        } else {
-            alert('None.');
-        }
-    }
-    
-    
-</script>
+		function showFormDialog(type) {
+			gridFormObject.showForm(type);
+			if (type == 'view') {
+				$('#gridForm :button[value=Save]').hide();
+			} else {
+				$('#gridForm :button[value=Save]').show();
+			}
+			gridFormDialog.title(type);
+			// hide artDialog footer
+			$(
+					'div[aria-labelledby=d-title-artDialog-gridForm-dialog] .d-footer')
+					.hide();
+			gridFormDialog.visible();
+		}
+
+		function doDelete(rowIndex) {
+			var id = gridObj.getColumnValue(rowIndex, 'ID');
+			$.confirm('Delete?', function() {
+				alert('delete. ID=' + id);
+			});
+		}
+
+		function doCommit() {
+			var type = gridFormObject.options.formType;
+			;
+			if (type == 'view') {
+				alert('This is view.');
+			} else if (type == 'add') {
+				alert($('#gridForm').serialize() + '&amp;formType=' + type);
+			} else if (type == 'edit') {
+				// editAble false not commit
+				alert($('#gridForm :not([editAble="false"])').serialize()
+						+ '&amp;formType=' + type);
+			} else {
+				alert('None.');
+			}
+		}
+	</script>
 </body>
 </html>
