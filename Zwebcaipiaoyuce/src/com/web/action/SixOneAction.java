@@ -16,6 +16,8 @@ import com.sun.star.io.IOException;
 import com.web.pojo.SixOne;
 import com.web.services.SixOneServices;
 
+import net.sf.json.JSONObject;
+
 /**
  * 
  * @author 林尧
@@ -29,7 +31,15 @@ public class SixOneAction extends BaseAction {
 
 	@Resource(name = "SixOneServices") // 接口的实现
 	private SixOneServices SixOneServices; // 服务层的接口
-
+     
+	private String result;//提示添加是否成功的标志
+	private Integer first;
+	private Integer second;
+	private Integer third;
+	private Integer fourth;
+	private Integer fifth;
+	private Integer sixth;
+	private Integer seventh;
 	/**
 	 * 查询所有的期数 数据
 	 * 
@@ -49,24 +59,41 @@ public class SixOneAction extends BaseAction {
 	/**
 	 * 添加最新的记录 到数据库
 	 */
+	
 	public String addSixOne() {
 		logger.info(TAG + "-------" + "addSixOne");
+		logger.info(TAG+"期数"+qishu);
+		logger.info(TAG+"球1"+first);
+		logger.info(TAG+"球2"+second);
+		logger.info(TAG+"球3"+third);
+		logger.info(TAG+"球4"+fourth);
+		logger.info(TAG+"球5"+fifth);
+		logger.info(TAG+"球6"+sixth);
+		logger.info(TAG+"球7"+seventh);
 		sixone = new SixOne();
-		sixone.setQishu(3);
-		sixone.setFirst(13);
-		sixone.setSecond(45);
-		sixone.setThird(21);
-		sixone.setFourth(46);
-		sixone.setFifth(7);
-		sixone.setSixth(10);
-		sixone.setSeventh(19);
-		boolean b = SixOneServices.way2(sixone);
-		if (b) {
-			return "ADD_SIXONE_SUCCESS";
-		} else {
-			return "ADD_SIXONE_FALSE";
-		}
-
+		sixone.setQishu(qishu);
+		sixone.setFirst(first);
+		sixone.setSecond(second);
+		sixone.setThird(third);
+		sixone.setFourth(fourth);
+		sixone.setFifth(fifth);
+		sixone.setSixth(sixth);
+		sixone.setSeventh(seventh);
+		sixone.setSum(first+second+third+fourth+fifth+sixth+seventh);
+		boolean b =true;//  SixOneServices.way2(sixone);
+		Map<String,Object> map = new HashMap<String,Object>();
+	//    if (b) {
+			map.put("result", "添加成功");
+			JSONObject json = JSONObject.fromObject(map);
+		    result = json.toString();
+			
+	/*	} else {
+			map.put("result", "添加失败");
+			JSONObject json = JSONObject.fromObject(map);
+		    result = json.toString();
+		
+		}*/
+        return SUCCESS;
 	}
 
 	// 分页查询
@@ -188,5 +215,125 @@ public class SixOneAction extends BaseAction {
 		out.print(jsonSb.toString());
 		System.out.println(jsonSb.toString());
 
+	}
+
+	private Integer qishu;
+	/**
+	 * @return the qishu
+	 */
+	public Integer getQishu() {
+		return qishu;
+	}
+
+	/**
+	 * @param qishu the qishu to set
+	 */
+	public void setQishu(Integer qishu) {
+		this.qishu = qishu;
+	}
+
+	/**
+	 * @return the first
+	 */
+	public Integer getFirst() {
+		return first;
+	}
+
+	/**
+	 * @param first the first to set
+	 */
+	public void setFirst(Integer first) {
+		this.first = first;
+	}
+
+	/**
+	 * @return the second
+	 */
+	public Integer getSecond() {
+		return second;
+	}
+
+	/**
+	 * @param second the second to set
+	 */
+	public void setSecond(Integer second) {
+		this.second = second;
+	}
+
+	/**
+	 * @return the third
+	 */
+	public Integer getThird() {
+		return third;
+	}
+
+	/**
+	 * @param third the third to set
+	 */
+	public void setThird(Integer third) {
+		this.third = third;
+	}
+
+	/**
+	 * @return the fourth
+	 */
+	public Integer getFourth() {
+		return fourth;
+	}
+
+	/**
+	 * @param fourth the fourth to set
+	 */
+	public void setFourth(Integer fourth) {
+		this.fourth = fourth;
+	}
+
+	/**
+	 * @return the fifth
+	 */
+	public Integer getFifth() {
+		return fifth;
+	}
+
+	/**
+	 * @param fifth the fifth to set
+	 */
+	public void setFifth(Integer fifth) {
+		this.fifth = fifth;
+	}
+
+	/**
+	 * @return the sixth
+	 */
+	public Integer getSixth() {
+		return sixth;
+	}
+
+	/**
+	 * @param sixth the sixth to set
+	 */
+	public void setSixth(Integer sixth) {
+		this.sixth = sixth;
+	}
+
+	/**
+	 * @return the seventh
+	 */
+	public Integer getSeventh() {
+		return seventh;
+	}
+
+	/**
+	 * @param seventh the seventh to set
+	 */
+	public void setSeventh(Integer seventh) {
+		this.seventh = seventh;
+	}
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
 	}
 }

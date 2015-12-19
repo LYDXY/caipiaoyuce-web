@@ -5,20 +5,20 @@
 
 	<!--可重用的SQL代码段 -->
 	<sql id="sixone_column">select
-		t.id,t.qishu,t.first,t.second,t.third,t.fourth,t.fifth,t.sixth,t.seventh
+		t.id,t.qishu,t.first,t.second,t.third,t.fourth,t.fifth,t.sixth,t.seventh,t.sum
 		from tb_caipiao_six_one t
 	</sql>
 
 	<!--可重用的SQL代码段 -->
 	<sql id="sixone_column1">select
-		id,qishu,first,second,third,fourth,fifth,sixth,seventh
+		id,qishu,first,second,third,fourth,fifth,sixth,seventh,sum
 		from
 		tb_caipiao_six_one
 	</sql>
 
 	<!--可重用的SQL代码段 -->
 	<sql id="sixone_column2">insert into tb_caipiao_six_one
-		(qishu,first,second,third,fourth,fifth,sixth,seventh)
+		(qishu,first,second,third,fourth,fifth,sixth,seventh,sum)
 		
 	</sql>
 
@@ -63,7 +63,7 @@
 	<insert id="way2" parameterType="SixOne">
 		<include refid="sixone_column2" />
 		values
-		(#{qishu},#{first},#{second},#{third},#{fourth},#{fifth},#{sixth},#{seventh})
+		(#{qishu},#{first},#{second},#{third},#{fourth},#{fifth},#{sixth},#{seventh},#{sum})
 	</insert>
 	<!-- 根据期数qishu查询整条数据 ,参数类型是 Integer 类型 -->
 	<select id="way3" parameterType="Integer" resultType="sixone">

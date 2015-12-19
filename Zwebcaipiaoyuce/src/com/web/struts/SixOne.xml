@@ -13,18 +13,27 @@
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result name="GETSIXONES_SUCCESS">../jsp/sixone.jsp</result>
 		</action>
-		
+
 		<action name="SixOneActionGetSixOnesByFenYe" class="com.web.action.SixOneAction"
 			method="GetSixOnesByFenYe">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result name="GETSIXONES_SUCCESS">../jsp/sixone.jsp</result>
 		</action>
-		
-		
-		
+
+
+
 	</package>
 
-
+	<package name="ajax" namespace="/ajaxSixOneAction" extends="struts-default,json-default">
+		<action name="SixOneActionAddSixOne" class="com.web.action.SixOneAction"
+			method="addSixOne">
+			<!-- 将返回类型设置为json -->
+			<result type="json" >
+			    <!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+				<param name="result">result</param>
+			</result>
+		</action>
+	</package>
 
 </struts>
 
