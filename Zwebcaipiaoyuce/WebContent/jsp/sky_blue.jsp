@@ -50,7 +50,7 @@
 	<br>
 	<!-- 搜索模块 -->
 	<form id="searchForm">
-		参数1:&nbsp;<input type="text" name="first" /> &emsp; NUM:&nbsp;<input
+		期数:&nbsp;<input type="text" name="first" /> &emsp; 日期:&nbsp;<input
 			type="text" name="XH" /> &emsp; <input type="button"
 			onclick="doSearch();" value="搜索" /> &nbsp; &emsp; <input
 			type="button" onclick="doAdd();" value="添加一条新的数据" />
@@ -83,39 +83,39 @@
 				</tr>
 				<tr>
 					<td class="formLabel">球1</td>
-					<td class="formInput"><input id="form_first" name="form_first"
+					<td class="formInput"><input id="form_first" name="first"
 						type="text" /></td>
 				</tr>
 
 				<tr>
 					<td class="formLabel">球2</td>
 					<td class="formInput"><input id="form_second"
-						name="form_second" type="text" /></td>
+						name="second" type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球3</td>
-					<td class="formInput"><input id="form_third" name="form_third"
+					<td class="formInput"><input id="form_third" name="third"
 						type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球4</td>
 					<td class="formInput"><input id="form_fourth"
-						name="form_fourth" type="text" /></td>
+						name="fourth" type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球5</td>
-					<td class="formInput"><input id="form_fifth" name="form_fifth"
+					<td class="formInput"><input id="form_fifth" name="fifth"
 						type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球6</td>
-					<td class="formInput"><input id="form_sixth" name="form_sixth"
+					<td class="formInput"><input id="form_sixth" name="sixth"
 						type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球7</td>
 					<td class="formInput"><input id="form_seventh"
-						name="form_seventh" type="text" /></td>
+						name="seventh" type="text" /></td>
 				</tr>
 				<tr>
 					<td colspan="2"
@@ -206,7 +206,7 @@
 						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
 						success : function(result) {
 							$("#form_qishu").val(result);
-							showFormDialog('添加');
+							showFormDialog('add');
 
 						},
 						error : function(result) {
@@ -257,9 +257,16 @@
 		function showFormDialog(type) {
 			gridFormObject.showForm(type);
 			if (type == 'view') {
-				$('#gridForm :button[value=Save]').hide();
-			} else {
-				$('#gridForm :button[value=Save]').show();
+				$('#gridForm :button[value="确定"]').hide();
+				$('#gridForm :button[value="取消"]').hide();
+			}
+			if(type == 'edit'){
+				$('#gridForm :button[value=确定]').show();
+				$('#gridForm :button[value="取消"]').show();
+			}
+			if(type == 'add'){
+				$('#gridForm :button[value=确定]').show();
+				$('#gridForm :button[value="取消"]').show();
 			}
 			gridFormDialog.title(type);
 			// hide artDialog footer
@@ -268,7 +275,7 @@
 					.hide();
 			gridFormDialog.visible();
 		}
-
+        //删除操作
 		function doDelete(rowIndex) {
 			var id = gridObj.getColumnValue(rowIndex, 'ID');
 			$.confirm('Delete?', function() {
@@ -295,8 +302,11 @@
 						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
 						success : function(data) {
 							if (data == "添加成功") {
-								gridObj.refreshPage();
-								$('#gridForm')[0].reset();
+								gridObj.refreshPage(); //刷新
+								var qi=$("#form_qishu").val(); //获取最新期数
+								$('#gridForm')[0].reset(); //重置
+								var c=parseInt(qi)+1; //再加
+								$("#form_qishu").val(c);
 								alert(data);
 
 							} else {
