@@ -24,5 +24,8 @@ public interface SixOneMapper {
 
 	// 根据期数查询某一条
 	public SixOne way3(int qishu);
+	
+	// 查询当前的最近期数
+	public Integer way4();
 
 }

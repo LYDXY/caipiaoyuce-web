@@ -28,11 +28,19 @@
 		<action name="SixOneActionAddSixOne" class="com.web.action.SixOneAction"
 			method="addSixOne">
 			<!-- 将返回类型设置为json -->
-			<result type="json" >
+			<result type="json" name="ADDSIXONESUCCESS">
 			    <!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
-				<param name="root">result</param>
+				<param name="root" >result</param>
 			</result>
 		</action>
+		
+		<action name="ajaxSixOneActionMaxQishu" class="com.web.action.SixOneAction"
+			method="SixOneActionMaxQishu">
+			<result type="json" name="SUCCESS">
+			   <param name="root">result</param>
+			</result>
+		</action>
+		
 	</package>
 
 </struts>

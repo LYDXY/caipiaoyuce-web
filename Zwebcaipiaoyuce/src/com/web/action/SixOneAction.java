@@ -40,6 +40,19 @@ public class SixOneAction extends BaseAction {
 	private Integer fifth;
 	private Integer sixth;
 	private Integer seventh;
+	
+	/**
+	 * 查询最大的期数
+	 * @return
+	 */
+    public String SixOneActionMaxQishu(){
+    	logger.info(TAG + "---" + "SixOneActionMaxQishu");
+    	Integer qishu=SixOneServices.way4();
+    	qishu++;
+    	result=qishu.toString();
+    	logger.info(TAG + "当前最新的期数" +result );
+    	return "SUCCESS";
+    }
 	/**
 	 * 查询所有的期数 数据
 	 * 
@@ -81,7 +94,7 @@ public class SixOneAction extends BaseAction {
 			sixone.setSixth(sixth);
 			sixone.setSeventh(seventh);
 			sixone.setSum(first + second + third + fourth + fifth + sixth + seventh);
-			boolean b =true;// SixOneServices.way2(sixone);
+			boolean b=true;//SixOneServices.way2(sixone);
 			if (b) {
 				result = "添加成功";
 			} else {
@@ -90,10 +103,14 @@ public class SixOneAction extends BaseAction {
 		} catch (Exception exception) {
 			result = "添加失败";
 		}
-		return SUCCESS;
+		return "ADDSIXONESUCCESS";
 	}
 
-	// 分页查询
+	/**
+	 * 分页查询
+	 * @throws IOException
+	 * @throws java.io.IOException
+	 */
 	public void GetSixOnesByFenYe() throws IOException, java.io.IOException {
 
 		List<SixOne> all_sixones = SixOneServices.way0();

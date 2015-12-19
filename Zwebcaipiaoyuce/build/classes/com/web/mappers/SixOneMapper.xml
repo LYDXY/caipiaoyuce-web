@@ -70,4 +70,9 @@
 		<include refid="sixone_column" />
 		where t.qishu=#{qishu}
 	</select>
+	
+	<!-- 查询最新的期数 -->
+	<select id="way4" resultType="Integer">
+	   select max(qishu)  from tb_caipiao_six_one 
+	</select>
 </mapper>

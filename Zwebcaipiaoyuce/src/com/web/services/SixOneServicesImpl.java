@@ -62,4 +62,13 @@ public class SixOneServicesImpl implements SixOneServices {
 		return sixonemapper.way3(qishu);
 	}
 
+	/**
+	 * 
+	 */
+	@Override
+	public Integer way4() {
+		
+		return sixonemapper.way4();
+	}
+
 }

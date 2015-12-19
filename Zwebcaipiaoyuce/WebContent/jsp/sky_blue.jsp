@@ -193,8 +193,28 @@
 		}
 
 		function doAdd() {
+			//	var qishu;
 			$('#gridForm')[0].reset();
-			showFormDialog('添加');
+
+			//	alert();
+
+			//查询最新的期数
+			$
+					.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/ajaxSixOneActionMaxQishu.action',
+						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
+						success : function(result) {
+							$("#form_qishu").val(result);
+							showFormDialog('添加');
+
+						},
+						error : function(result) {
+							alert("系统异常,请重新尝试");
+							return false;
+						}
+					});
+
 		}
 
 		function doView(rowIndex) {
@@ -274,22 +294,20 @@
 						data : params,
 						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
 						success : function(data) {
-							if(data=="添加成功"){
+							if (data == "添加成功") {
 								gridObj.refreshPage();
-								alert(data);
 								$('#gridForm')[0].reset();
-							}
-							else{
+								alert(data);
+
+							} else {
 								alert(data);
 							}
-							
-							
-							
+
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
 						}
-					});
+				});
 
 		}
 	</script>
