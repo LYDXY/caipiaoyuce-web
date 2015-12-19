@@ -30,7 +30,7 @@
 			<!-- 将返回类型设置为json -->
 			<result type="json" >
 			    <!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
-				<param name="result">result</param>
+				<param name="root">result</param>
 			</result>
 		</action>
 	</package>

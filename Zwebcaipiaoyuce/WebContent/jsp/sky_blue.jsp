@@ -78,43 +78,50 @@
 			<table>
 				<tr>
 					<td class="formLabel">期数</td>
-					<td class="formInput"><input id="form_qishu" name="qishu" type="text" /></td>
+					<td class="formInput"><input id="form_qishu" name="qishu"
+						type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球1</td>
-					<td class="formInput"><input id="form_first" name="form_first" type="text" /></td>
+					<td class="formInput"><input id="form_first" name="form_first"
+						type="text" /></td>
 				</tr>
 
 				<tr>
 					<td class="formLabel">球2</td>
-					<td class="formInput"><input id="form_second" name="form_second" type="text" /></td>
+					<td class="formInput"><input id="form_second"
+						name="form_second" type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球3</td>
-					<td class="formInput"><input id="form_third" name="form_third" type="text" /></td>
+					<td class="formInput"><input id="form_third" name="form_third"
+						type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球4</td>
-					<td class="formInput"><input  id="form_fourth" name="form_fourth" type="text" /></td>
+					<td class="formInput"><input id="form_fourth"
+						name="form_fourth" type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球5</td>
-					<td class="formInput"><input id="form_fifth" name="form_fifth" type="text" /></td>
+					<td class="formInput"><input id="form_fifth" name="form_fifth"
+						type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球6</td>
-					<td class="formInput"><input id="form_sixth" name="form_sixth" type="text" /></td>
+					<td class="formInput"><input id="form_sixth" name="form_sixth"
+						type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球7</td>
-					<td class="formInput"><input id="form_seventh" name="form_seventh" type="text" /></td>
+					<td class="formInput"><input id="form_seventh"
+						name="form_seventh" type="text" /></td>
 				</tr>
 				<tr>
 					<td colspan="2"
 						style="text-align: center; border-left-width: 0; border-right-width: 0; border-bottom-width: 0;">
-						<input type="button" value="确定" onclick="doCommit();" /> &emsp;
-						<input type="button" value="取消"
-						onclick="gridFormDialog.hidden();" />
+						<input type="button" value="确定" onclick="doCommit();" /> &emsp; <input
+						type="button" value="取消" onclick="gridFormDialog.hidden();" />
 					</td>
 				</tr>
 			</table>
@@ -248,54 +255,38 @@
 				alert('delete. ID=' + id);
 			});
 		}
-        // 提交  添加一条新的记录到数据库
+		// 提交  添加一条新的记录到数据库
 		function doCommit() {
-		   /* var type = gridFormObject.options.formType;
-			;
-		 	if (type == 'view') {
-				alert('This is view.');
-			} else if (type == 'add') {
-				alert($('#gridForm').serialize() + '&amp;formType=' + type);
-			} else if (type == 'edit') {
-				// editAble false not commit
-				alert($('#gridForm :not([editAble="false"])').serialize()
-						+ '&amp;formType=' + type);
-			} else {
-				alert('None.');
-			}  */
-			
 			var params = {
-					qishu :$("#form_qishu").val(),
-					first :$("#form_first").val(),
-					second :$("#form_second").val(),
-					third :$("#form_third").val(),
-				    fourth :$("#form_fourth").val(),
-					fifth :$("#form_fifth").val(),
-					sixth :$("#form_sixth").val(),
-					seventh:$("#form_seventh").val()
-				
-				};
+				qishu : $("#form_qishu").val(),
+				first : $("#form_first").val(),
+				second : $("#form_second").val(),
+				third : $("#form_third").val(),
+				fourth : $("#form_fourth").val(),
+				fifth : $("#form_fifth").val(),
+				sixth : $("#form_sixth").val(),
+				seventh : $("#form_seventh").val()
+
+			};
 			$.ajax({
-				type : "POST",
-				url : '${ pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionAddSixOne.action',
-				data : params,
-				dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
-				success : function(data) {
-					var obj = $.parseJSON(data); //使用这个方法解析json
-					var state_value = obj.result; //result是和action中定义的result变量的get方法对应的
-					alert(state_value);
-				},
-				error : function(data) {
-					var obj = $.parseJSON(data); 
-					alert(data.result);
-					return false;
-				}
-			});
-			
+						type : "POST",
+						url : '${ pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionAddSixOne.action',
+						data : params,
+						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
+						success : function(data) {
+							alert(data);
+							
+							
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+
 		}
 	</script>
 
-	
+
 
 </body>
 </html>

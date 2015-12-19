@@ -31,8 +31,8 @@ public class SixOneAction extends BaseAction {
 
 	@Resource(name = "SixOneServices") // 接口的实现
 	private SixOneServices SixOneServices; // 服务层的接口
-     
-	private String result;//提示添加是否成功的标志
+
+	private String result;// 提示添加是否成功的标志
 	private Integer first;
 	private Integer second;
 	private Integer third;
@@ -59,49 +59,47 @@ public class SixOneAction extends BaseAction {
 	/**
 	 * 添加最新的记录 到数据库
 	 */
-	
+
 	public String addSixOne() {
 		logger.info(TAG + "-------" + "addSixOne");
-		logger.info(TAG+"期数"+qishu);
-		logger.info(TAG+"球1"+first);
-		logger.info(TAG+"球2"+second);
-		logger.info(TAG+"球3"+third);
-		logger.info(TAG+"球4"+fourth);
-		logger.info(TAG+"球5"+fifth);
-		logger.info(TAG+"球6"+sixth);
-		logger.info(TAG+"球7"+seventh);
-		sixone = new SixOne();
-		sixone.setQishu(qishu);
-		sixone.setFirst(first);
-		sixone.setSecond(second);
-		sixone.setThird(third);
-		sixone.setFourth(fourth);
-		sixone.setFifth(fifth);
-		sixone.setSixth(sixth);
-		sixone.setSeventh(seventh);
-		sixone.setSum(first+second+third+fourth+fifth+sixth+seventh);
-		boolean b =true;//  SixOneServices.way2(sixone);
-		Map<String,Object> map = new HashMap<String,Object>();
-	//    if (b) {
-			map.put("result", "添加成功");
-			JSONObject json = JSONObject.fromObject(map);
-		    result = json.toString();
-			
-	/*	} else {
-			map.put("result", "添加失败");
-			JSONObject json = JSONObject.fromObject(map);
-		    result = json.toString();
-		
-		}*/
-        return SUCCESS;
+		logger.info(TAG + "期数" + qishu);
+		logger.info(TAG + "球1" + first);
+		logger.info(TAG + "球2" + second);
+		logger.info(TAG + "球3" + third);
+		logger.info(TAG + "球4" + fourth);
+		logger.info(TAG + "球5" + fifth);
+		logger.info(TAG + "球6" + sixth);
+		logger.info(TAG + "球7" + seventh);
+
+		try {
+			sixone = new SixOne();
+			sixone.setQishu(qishu);
+			sixone.setFirst(first);
+			sixone.setSecond(second);
+			sixone.setThird(third);
+			sixone.setFourth(fourth);
+			sixone.setFifth(fifth);
+			sixone.setSixth(sixth);
+			sixone.setSeventh(seventh);
+			sixone.setSum(first + second + third + fourth + fifth + sixth + seventh);
+			boolean b = SixOneServices.way2(sixone);
+			if (b) {
+				result = "添加成功";
+			} else {
+				result = "添加失败";
+			}
+		} catch (Exception exception) {
+			result = "添加失败";
+		}
+		return SUCCESS;
 	}
 
 	// 分页查询
 	public void GetSixOnesByFenYe() throws IOException, java.io.IOException {
-        
+
 		List<SixOne> all_sixones = SixOneServices.way0();
 		logger.info(TAG + "---该表格的数据总数" + all_sixones.size());
-		
+
 		response.setContentType("text/html");
 		PrintWriter out;
 		out = response.getWriter();
@@ -122,19 +120,19 @@ public class SixOneAction extends BaseAction {
 		List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
 		// 总记录数
 		int totalRows = all_sixones.size();
-	//	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	//	SimpleDateFormat dateFormat1 = new SimpleDateFormat("HH:mm:ss");
+		// SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		// SimpleDateFormat dateFormat1 = new SimpleDateFormat("HH:mm:ss");
 		for (int i = 0; i < all_sixones.size(); i++) {
-			
+
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("qishu", all_sixones.get(i).getQishu()+"");
-			map.put("first", all_sixones.get(i).getFirst()+"");
-			map.put("second", all_sixones.get(i).getSecond()+"");
-			map.put("third",all_sixones.get(i).getThird()+"");
-			map.put("fourth",all_sixones.get(i).getFourth()+"");
-			map.put("fifth", all_sixones.get(i).getFifth()+"");
-			map.put("sixth", all_sixones.get(i).getSixth()+"");
-			map.put("seventh", all_sixones.get(i).getSeventh()+"");
+			map.put("qishu", all_sixones.get(i).getQishu() + "");
+			map.put("first", all_sixones.get(i).getFirst() + "");
+			map.put("second", all_sixones.get(i).getSecond() + "");
+			map.put("third", all_sixones.get(i).getThird() + "");
+			map.put("fourth", all_sixones.get(i).getFourth() + "");
+			map.put("fifth", all_sixones.get(i).getFifth() + "");
+			map.put("sixth", all_sixones.get(i).getSixth() + "");
+			map.put("seventh", all_sixones.get(i).getSeventh() + "");
 			data.add(map);
 		}
 		// sort 要排序的列
@@ -218,6 +216,7 @@ public class SixOneAction extends BaseAction {
 	}
 
 	private Integer qishu;
+
 	/**
 	 * @return the qishu
 	 */
@@ -226,7 +225,8 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
-	 * @param qishu the qishu to set
+	 * @param qishu
+	 *            the qishu to set
 	 */
 	public void setQishu(Integer qishu) {
 		this.qishu = qishu;
@@ -240,7 +240,8 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
-	 * @param first the first to set
+	 * @param first
+	 *            the first to set
 	 */
 	public void setFirst(Integer first) {
 		this.first = first;
@@ -254,7 +255,8 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
-	 * @param second the second to set
+	 * @param second
+	 *            the second to set
 	 */
 	public void setSecond(Integer second) {
 		this.second = second;
@@ -268,7 +270,8 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
-	 * @param third the third to set
+	 * @param third
+	 *            the third to set
 	 */
 	public void setThird(Integer third) {
 		this.third = third;
@@ -282,7 +285,8 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
-	 * @param fourth the fourth to set
+	 * @param fourth
+	 *            the fourth to set
 	 */
 	public void setFourth(Integer fourth) {
 		this.fourth = fourth;
@@ -296,7 +300,8 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
-	 * @param fifth the fifth to set
+	 * @param fifth
+	 *            the fifth to set
 	 */
 	public void setFifth(Integer fifth) {
 		this.fifth = fifth;
@@ -310,7 +315,8 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
-	 * @param sixth the sixth to set
+	 * @param sixth
+	 *            the sixth to set
 	 */
 	public void setSixth(Integer sixth) {
 		this.sixth = sixth;
@@ -324,11 +330,13 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
-	 * @param seventh the seventh to set
+	 * @param seventh
+	 *            the seventh to set
 	 */
 	public void setSeventh(Integer seventh) {
 		this.seventh = seventh;
 	}
+
 	public String getResult() {
 		return result;
 	}
