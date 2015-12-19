@@ -33,8 +33,7 @@
 		</plugin>
 	</plugins>
 	<mappers>
-
-		<mapper resource="com/web/mappers/SixOneMapper.xml" />
+	<mapper resource="com/web/mappers/SixOneMapper.xml" />
 	</mappers>
 
 </configuration>		

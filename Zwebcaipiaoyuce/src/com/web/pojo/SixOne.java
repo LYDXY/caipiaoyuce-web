@@ -17,6 +17,8 @@ public class SixOne {
 	private Integer fifth;// 第五
 	private Integer sixth;// 第六
 	private Integer seventh;// 第七 号码
+	private Integer sum;//总和
+	
 	/**
 	 * @return the id
 	 */
@@ -124,6 +126,12 @@ public class SixOne {
 	 */
 	public void setSeventh(Integer seventh) {
 		this.seventh = seventh;
+	}
+	public Integer getSum() {
+		return sum;
+	}
+	public void setSum(Integer sum) {
+		this.sum = sum;
 	}
 	
 
