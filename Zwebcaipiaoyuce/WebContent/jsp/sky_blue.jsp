@@ -274,7 +274,15 @@
 						data : params,
 						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
 						success : function(data) {
-							alert(data);
+							if(data=="添加成功"){
+								gridObj.refreshPage();
+								alert(data);
+								$('#gridForm')[0].reset();
+							}
+							else{
+								alert(data);
+							}
+							
 							
 							
 						},

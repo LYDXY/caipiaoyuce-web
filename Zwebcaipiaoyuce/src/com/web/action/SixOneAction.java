@@ -46,7 +46,6 @@ public class SixOneAction extends BaseAction {
 	 * @return
 	 */
 	private SixOne sixone;
-
 	public String getSixOnes() {
 		logger.info(TAG + "---" + "getSixOnes");
 		List<SixOne> all_sixones = SixOneServices.way0();
@@ -82,7 +81,7 @@ public class SixOneAction extends BaseAction {
 			sixone.setSixth(sixth);
 			sixone.setSeventh(seventh);
 			sixone.setSum(first + second + third + fourth + fifth + sixth + seventh);
-			boolean b = SixOneServices.way2(sixone);
+			boolean b =true;// SixOneServices.way2(sixone);
 			if (b) {
 				result = "添加成功";
 			} else {
@@ -136,7 +135,7 @@ public class SixOneAction extends BaseAction {
 			data.add(map);
 		}
 		// sort 要排序的列
-		if ("qishu".equals(sortName) || "first".equals(sortName)) {
+		if ("qishu".equals(sortName)) {
 			// 升序
 			if ("asc".equals(sortOrder)) {
 				Collections.sort(data, new Comparator<Map<String, Object>>() {
@@ -154,7 +153,7 @@ public class SixOneAction extends BaseAction {
 					}
 				});
 			}
-		} else if ("qishu,first".equals(sortName)) {
+		} /*else if ("qishu,first".equals(sortName)) {
 			Collections.sort(data, new Comparator<Map<String, Object>>() {
 				public int compare(Map<String, Object> map1, Map<String, Object> map2) {
 					int xhCp = Integer.parseInt(map1.get("qishu").toString())
@@ -174,7 +173,7 @@ public class SixOneAction extends BaseAction {
 					return 0;
 				}
 			});
-		}
+		}*/
 
 		StringBuilder jsonSb = new StringBuilder();
 		jsonSb.append("{");
