@@ -94,7 +94,7 @@ public class SixOneAction extends BaseAction {
 			sixone.setSixth(sixth);
 			sixone.setSeventh(seventh);
 			sixone.setSum(first + second + third + fourth + fifth + sixth + seventh);
-			boolean b=true;//SixOneServices.way2(sixone);
+			boolean b=SixOneServices.way2(sixone);
 			if (b) {
 				result = "添加成功";
 			} else {
