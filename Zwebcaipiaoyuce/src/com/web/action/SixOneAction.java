@@ -41,6 +41,14 @@ public class SixOneAction extends BaseAction {
 	private Integer sixth;
 	private Integer seventh;
 	
+	
+	/**
+	 * 系统分析未来一期的情况
+	 */
+	public String futureSixOne(){
+		return "GETFUTURE_SUCCESS";
+	}
+	
 	/**
 	 * 查询最大的期数
 	 * @return

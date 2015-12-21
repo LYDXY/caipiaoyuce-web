@@ -48,12 +48,19 @@
 <body style="background-color: #fff;">
 	<br>
 	<br>
+	
+	<!-- 系统分析模块 -->
+	<div>
+	<a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFuture.action">未来一期系统分析</a>
+	<br>
+	</div>
 	<!-- 搜索模块 -->
 	<form id="searchForm">
 		期数:&nbsp;<input type="text" name="first" /> &emsp; 日期:&nbsp;<input
 			type="text" name="XH" /> &emsp; <input type="button"
 			onclick="doSearch();" value="搜索" /> &nbsp; &emsp; <input
 			type="button" onclick="doAdd();" value="添加一条新的数据" />
+		
 	</form>
 	<br>
 	<br>
