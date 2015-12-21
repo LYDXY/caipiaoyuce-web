@@ -4,7 +4,12 @@
 <%@ page import="com.web.pojo.*"%>
 <!-- 获取数据的地方 -->
 <%
-	
+	String path = request.getContextPath();
+	String domain = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+	String basePath = domain + path;
+	String host = request.getScheme() + "://" + request.getServerName();
+	pageContext.setAttribute("ctx", path);
+	pageContext.setAttribute("host", host);
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -35,7 +40,7 @@
 
 </head>
 <body>
-
+    <a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureOddEven.action">奇数偶数偏差系统分析</a><br>
 	<div id="chartdiv" style="height: 400px; width: 300px;"></div>
 	<div id="chartdiv2" style="height: 400px; width: 300px;"></div>
 	<div id="chartdiv3" style="height: 400px; width: 300px;"></div>

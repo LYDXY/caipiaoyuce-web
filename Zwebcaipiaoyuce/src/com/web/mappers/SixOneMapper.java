@@ -28,4 +28,7 @@ public interface SixOneMapper {
 	// 查询当前的最近期数
 	public Integer way4();
 
+	
+	//查询最近的10期
+	public List<SixOne> way5();
 }

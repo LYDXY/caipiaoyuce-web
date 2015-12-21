@@ -15,6 +15,7 @@ import com.sun.star.bridge.oleautomation.Date;
 import com.sun.star.io.IOException;
 import com.web.pojo.SixOne;
 import com.web.services.SixOneServices;
+import com.web.yuce.common.utils.DuanQiCommonUtils;
 
 import net.sf.json.JSONObject;
 
@@ -26,8 +27,12 @@ import net.sf.json.JSONObject;
  */
 public class SixOneAction extends BaseAction {
 
+	
+	
+	
 	private String TAG = "SixOneAction";
 	private static final long serialVersionUID = 1L;
+	private static final int List = 0;
 
 	@Resource(name = "SixOneServices") // 接口的实现
 	private SixOneServices SixOneServices; // 服务层的接口
@@ -40,6 +45,26 @@ public class SixOneAction extends BaseAction {
 	private Integer fifth;
 	private Integer sixth;
 	private Integer seventh;
+	
+	
+	
+	/**
+	 * 构造器初始化数据
+	 */
+	public SixOneAction() {
+		
+		
+	}
+
+	/**
+	 *奇数偶数偏差系统分析
+	 */
+	public String futureOddEven(){
+		List<SixOne> sixonesTop10=SixOneServices.way5();
+		String top10json=DuanQiCommonUtils.do_from_odd_even(sixonesTop10);
+		logger.info(TAG+"------------"+top10json);
+		return "FUTUREODDEVENSUCCESS";
+	} 
 	
 	
 	/**

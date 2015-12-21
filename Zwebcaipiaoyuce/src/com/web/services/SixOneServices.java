@@ -31,5 +31,7 @@ public interface SixOneServices {
 
 	// 查询当前的最新期数
 	public Integer way4();
-	
+
+	// 查询最近的10期
+	public List<SixOne> way5();
 }

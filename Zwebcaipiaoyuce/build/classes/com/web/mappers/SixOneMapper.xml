@@ -75,4 +75,10 @@
 	<select id="way4" resultType="Integer">
 	   select max(qishu)  from tb_caipiao_six_one 
 	</select>
+	
+	<!-- 查询最新的十期数 -->
+	<select id="way5" resultType="sixone">
+	   SELECT * FROM (select * from tb_caipiao_six_one ORDER BY qishu DESC limit 10)  as t ORDER BY t.qishu ASC
+	</select>
+	
 </mapper>

@@ -70,5 +70,12 @@ public class SixOneServicesImpl implements SixOneServices {
 		
 		return sixonemapper.way4();
 	}
-
+	
+	/**
+	 * 查询最近的十期
+	 */
+	@Override
+    public List<SixOne> way5() {
+		return sixonemapper.way5();
+	}
 }

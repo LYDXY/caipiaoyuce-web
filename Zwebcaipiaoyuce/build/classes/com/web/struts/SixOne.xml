@@ -25,6 +25,12 @@
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result name="GETFUTURE_SUCCESS">../jsp/sixonefuture.jsp</result>
 		</action>
+         <!--奇数偶数偏差系统 -->
+         <action name="SixOneActionFutureOddEven" class="com.web.action.SixOneAction"
+			method="futureOddEven">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result name="FUTUREODDEVENSUCCESS">../jsp/sixonefuture.jsp</result>
+		</action>
 
 
 	</package>
