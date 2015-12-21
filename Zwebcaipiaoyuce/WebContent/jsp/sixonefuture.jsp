@@ -28,6 +28,11 @@
 <script src="../jqplot/js/plugins/jqplot.barRenderer.min.js"></script>
 
 <script src="../jqplot/js/plugins/jqplot.logAxisRenderer.js"></script>
+
+<!-- 饼图 -->
+<script src="../jqplot/js/plugins/jqplot.pieRenderer.min.js"></script>
+<script src="../jqplot/js/plugins/jqplot.donutRenderer.min.js"></script>
+
 </head>
 <body>
 
@@ -38,6 +43,7 @@
 	<div id="chart2" style="width: 500px; height: 300px;"></div>
 	<div id="chart3" style="width: 500px; height: 300px;"></div>
 	<div id="chart4" style="width: 500px; height: 300px;"></div>
+	<div id="chart5" style="width: 500px; height: 300px;"></div>
 	<!-- 基本图 -->
 	<script type="text/javascript">
 		//曲线
@@ -151,6 +157,31 @@
 					renderer : $.jqplot.CategoryAxisRenderer
 				//x轴绘制方式
 				}
+			}
+		});
+	</script>
+
+	<!-- 饼图 -->
+	<script type="text/javascript">
+		var data = [ [ 'Heavy Industry', 12 ], [ 'Retail', 9 ],
+				[ 'Light Industry', 14 ], [ 'Out of home', 16 ],
+				[ 'Commuting', 7 ], [ 'Orientation', 9 ] ];
+		var plot1 = jQuery.jqplot('chart5', [ data ], {
+			seriesDefaults : {
+				// Make this a pie chart.
+				// 设置绘制一个饼状图
+				renderer : jQuery.jqplot.PieRenderer,
+				rendererOptions : {
+					// Put data labels on the pie slices.
+					// By default, labels show the percentage of the slice.
+					// 展示饼块的数据
+					showDataLabels : true
+				}
+			},
+			// 展示图标，在图标的右侧
+			legend : {
+				show : true,
+				location : 'e'
 			}
 		});
 	</script>
