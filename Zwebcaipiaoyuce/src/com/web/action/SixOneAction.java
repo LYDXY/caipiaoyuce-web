@@ -84,6 +84,7 @@ public class SixOneAction extends BaseAction {
 			IntegerS.add(seventh);
 			temps = SixOneServices.way7(qishu);
 			for (Integer integer : IntegerS) {
+				logger.info("被找寻的数字--------------第"+qishu+"的"+integer);
 				for (SixOne tempsixOne : temps) {
 					
 					Integer tempqishu = tempsixOne.getQishu();
@@ -96,6 +97,7 @@ public class SixOneAction extends BaseAction {
 					Integer tempseventh = tempsixOne.getSeventh();
 					logger.info("--寻找的期数--" + tempqishu + "--球1--" + tempfirst + "--球2--" + tempsecond + "--球3--" + tempthird + "--球4--" + tempfourth + "--球5--"
 							+ tempfifth + "--球6--" + tempsixth + "--球7--" + tempseventh);
+					
 					if(integer==tempfirst){
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
 						logger.info("------------------------------------");
