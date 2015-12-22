@@ -100,30 +100,37 @@ public class SixOneAction extends BaseAction {
 					
 					if(integer==tempfirst){
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
 						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempsecond) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
 						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempthird) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
 						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempfourth) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
 						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempfifth) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
 						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempsixth) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
 						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempseventh) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
 						logger.info("------------------------------------");
 						break;
 					}
