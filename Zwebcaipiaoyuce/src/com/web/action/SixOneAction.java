@@ -61,7 +61,7 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> temps;
 
 		while (iter.hasNext()) {
-            
+
 			SixOne sixOne = iter.next();
 			Integer qishu = sixOne.getQishu();
 			Integer first = sixOne.getFirst();
@@ -71,9 +71,9 @@ public class SixOneAction extends BaseAction {
 			Integer fifth = sixOne.getFifth();
 			Integer sixth = sixOne.getSixth();
 			Integer seventh = sixOne.getSeventh();
-			logger.info("--作为资料的期数--" + qishu + "--球1--" + first + "--球2--" + second + "--球3--" + third + "--球4--" + fourth + "--球5--"
-					+ fifth + "--球6--" + sixth + "--球7--" + seventh);
-			
+			logger.info("--作为资料的期数--" + qishu + "--球1--" + first + "--球2--" + second + "--球3--" + third + "--球4--"
+					+ fourth + "--球5--" + fifth + "--球6--" + sixth + "--球7--" + seventh);
+
 			List<Integer> IntegerS = new ArrayList<Integer>();
 			IntegerS.add(first);
 			IntegerS.add(second);
@@ -83,10 +83,12 @@ public class SixOneAction extends BaseAction {
 			IntegerS.add(sixth);
 			IntegerS.add(seventh);
 			temps = SixOneServices.way7(qishu);
+			float geshu=0;
+			float yilouzongshu=0;
 			for (Integer integer : IntegerS) {
-				logger.info("被找寻的数字--------------第"+qishu+"的"+integer);
+				logger.info("被找寻的数字--------------第" + qishu + "的" + integer);
 				for (SixOne tempsixOne : temps) {
-					
+                    
 					Integer tempqishu = tempsixOne.getQishu();
 					Integer tempfirst = tempsixOne.getFirst();
 					Integer tempsecond = tempsixOne.getSecond();
@@ -95,58 +97,86 @@ public class SixOneAction extends BaseAction {
 					Integer tempfifth = tempsixOne.getFifth();
 					Integer tempsixth = tempsixOne.getSixth();
 					Integer tempseventh = tempsixOne.getSeventh();
-					logger.info("--寻找的期数--" + tempqishu + "--球1--" + tempfirst + "--球2--" + tempsecond + "--球3--" + tempthird + "--球4--" + tempfourth + "--球5--"
-							+ tempfifth + "--球6--" + tempsixth + "--球7--" + tempseventh);
-					
-					if(integer==tempfirst){
-						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
-						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
+					logger.info("--寻找的期数--" + tempqishu + "--球1--" + tempfirst + "--球2--" + tempsecond + "--球3--"
+							+ tempthird + "--球4--" + tempfourth + "--球5--" + tempfifth + "--球6--" + tempsixth + "--球7--"
+							+ tempseventh);
+
+					if (integer == tempfirst) {
+						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+						yilouzongshu+=qishu - tempqishu - 1;
+						if((qishu - tempqishu - 1)<10){
+							geshu+=1.f;
+						}
 						logger.info("------------------------------------");
 						break;
-					}else if (integer==tempsecond) {
-						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
-						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
+					} else if (integer == tempsecond) {
+						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+						yilouzongshu+=qishu - tempqishu - 1;
+						if((qishu - tempqishu - 1)<10){
+							geshu+=1.f;
+						}
 						logger.info("------------------------------------");
 						break;
-					}else if (integer==tempthird) {
-						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
-						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
+					} else if (integer == tempthird) {
+						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+						yilouzongshu+=qishu - tempqishu - 1;
+						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+						if((qishu - tempqishu - 1)<10){
+							geshu+=1.f;
+						}
 						logger.info("------------------------------------");
 						break;
-					}else if (integer==tempfourth) {
-						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
-						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
+					} else if (integer == tempfourth) {
+						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+						yilouzongshu+=qishu - tempqishu - 1;
+						if((qishu - tempqishu - 1)<10){
+							geshu+=1.f;
+						}
 						logger.info("------------------------------------");
 						break;
-					}else if (integer==tempfifth) {
-						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
-						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
+					} else if (integer == tempfifth) {
+						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+						yilouzongshu+=qishu - tempqishu - 1;
+						if((qishu - tempqishu - 1)<10){
+							geshu+=1.f;
+						}
 						logger.info("------------------------------------");
 						break;
-					}else if (integer==tempsixth) {
-						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
-						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
+					} else if (integer == tempsixth) {
+						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+						yilouzongshu+=qishu - tempqishu - 1;
+						if((qishu - tempqishu - 1)<10){
+							geshu+=1.f;
+						}
 						logger.info("------------------------------------");
 						break;
-					}else if (integer==tempseventh) {
-						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
-						logger.info("数字"+integer+"的遗忘间隔次数为"+(qishu-tempqishu-1));
+					} else if (integer == tempseventh) {
+						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+						yilouzongshu+=qishu - tempqishu - 1;
+						if((qishu - tempqishu - 1)<10){
+							geshu+=1.f;
+						}
 						logger.info("------------------------------------");
 						break;
 					}
-					
+					else{
+						logger.info("数字" + integer + "从未出现");
+						logger.info("------------------------------------");
+						break;
+						
+					}
+
 				}
 			}
-			
-			
-			
-				
-				
-				
-				
-
-			
-
+			logger.info("本次遗漏次数在10以内的数字共有"+(int)geshu+"个");
+			logger.info("本期遗漏的次数总数"+yilouzongshu);
+			logger.info("本次遗漏平均个数为"+yilouzongshu/geshu+"个");
 		}
 
 		return "FUTURECOLDHOTSUCCESS";
