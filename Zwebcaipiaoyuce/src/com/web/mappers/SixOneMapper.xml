@@ -76,9 +76,20 @@
 	   select max(qishu)  from tb_caipiao_six_one 
 	</select>
 	
-	<!-- 查询最新的十期数 -->
+	<!-- 查询最新的十期数 升序-->
 	<select id="way5" resultType="sixone">
 	   SELECT * FROM (select * from tb_caipiao_six_one ORDER BY qishu DESC limit 10)  as t ORDER BY t.qishu ASC
+	</select>
+	
+	
+	<!-- 查询最新的十期数 降序-->
+	<select id="way6" resultType="sixone">
+	   SELECT * FROM (select * from tb_caipiao_six_one ORDER BY qishu DESC limit 10)  as t ORDER BY t.qishu Desc
+	</select>
+	
+	<!-- 查询 期数小于 选中期 的其他期数 ,并且降序-->
+	<select id="way7" resultType="sixone" parameterType="Integer">
+	   <include refid="sixone_column1" />  WHERE qishu &lt; #{qishu} ORDER BY qishu DESC 
 	</select>
 	
 </mapper>

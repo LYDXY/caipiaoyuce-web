@@ -95,4 +95,16 @@ public class DuanQiCommonUtils {
         System.out.println("======================");
 		return jsonarray.toString();
 	}
+
+    
+	/**
+	 * 
+	 * 热门数字冷门数字偏差追踪系统
+	 */
+    public static String  do_from_cold_hot(List<SixOne> SixOneTop10){
+    	
+    	return "热门冷门数字偏差系统";
+    }
+
+
 }

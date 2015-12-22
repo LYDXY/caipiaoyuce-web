@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -57,8 +58,48 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
-	 *奇数偶数偏差系统分析
+	 * 热门冷门数字偏差追踪系统
 	 */
+	public String futureColdHot(){
+		logger.info("----------------------futureColdHot");
+		List<SixOne> sixonesTop10=SixOneServices.way6();
+		Iterator<SixOne> iter = sixonesTop10.iterator();  
+		List<SixOne> temp;
+        while(iter.hasNext())  
+        {   
+        	
+        	SixOne sixOne= iter.next();
+        	sixOne.getQishu();
+        	sixOne.getFirst();  
+        	sixOne.getSecond(); 
+        	sixOne.getThird();  
+        	sixOne.getFourth();  
+        	sixOne.getFifth();  
+        	sixOne.getSixth();  
+        	sixOne.getSeventh();  
+        	logger.info("--------------------------"+sixOne.getQishu());
+        	logger.info("--------------------------"+sixOne.getFirst());
+        	logger.info("--------------------------"+sixOne.getSecond());
+        	logger.info("--------------------------"+sixOne.getThird());
+        	logger.info("--------------------------"+sixOne.getFourth());
+        	logger.info("--------------------------"+sixOne.getFifth());
+        	logger.info("--------------------------"+sixOne.getSixth());
+        	logger.info("--------------------------"+sixOne.getSeventh());
+        	temp=SixOneServices.way7(sixOne.getQishu());
+        	for (SixOne tempsixOne : temp) {
+				logger.info(tempsixOne.getQishu()+"");
+			}
+        	
+            
+            
+        }  
+		
+		
+		return "FUTURECOLDHOTSUCCESS";
+	}
+	/**
+	 *奇数偶数偏差系统分析
+	 */	
 	public String futureOddEven(){
 		List<SixOne> sixonesTop10=SixOneServices.way5();
 		String top10json=DuanQiCommonUtils.do_from_odd_even(sixonesTop10);

@@ -41,6 +41,7 @@
 </head>
 <body>
     <a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureOddEven.action">奇数偶数偏差系统分析</a><br>
+    <a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureColdHot.action">热门冷门偏差系统分析</a><br>
 	<div id="chartdiv" style="height: 400px; width: 300px;"></div>
 	<div id="chartdiv2" style="height: 400px; width: 300px;"></div>
 	<div id="chartdiv3" style="height: 400px; width: 300px;"></div>

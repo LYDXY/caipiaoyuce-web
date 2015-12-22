@@ -78,4 +78,22 @@ public class SixOneServicesImpl implements SixOneServices {
     public List<SixOne> way5() {
 		return sixonemapper.way5();
 	}
+
+	/**
+	 * 查询最近的10期 降序
+	 */
+	@Override
+	public List<SixOne> way6() {
+		
+		return sixonemapper.way6();
+	}
+
+	/**
+	 * 查询 期数小于 选中期 的其他期数 ,并且降序
+	 */
+	@Override
+	public List<SixOne> way7(Integer qishu) {
+		
+		return sixonemapper.way7(qishu);
+	}
 }

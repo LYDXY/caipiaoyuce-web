@@ -32,6 +32,14 @@
 			<result name="FUTUREODDEVENSUCCESS">../jsp/sixonefuture.jsp</result>
 		</action>
 
+        
+         <!--奇数偶数偏差系统 -->
+         <action name="SixOneActionFutureColdHot" class="com.web.action.SixOneAction"
+			method="futureColdHot">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result name="FUTURECOLDHOTSUCCESS">../jsp/sixonefuture.jsp</result>
+		</action>
+       
 
 	</package>
 
