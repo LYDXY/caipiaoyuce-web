@@ -59,9 +59,9 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> sixonesTop10 = SixOneServices.way6();
 		Iterator<SixOne> iter = sixonesTop10.iterator();
 		List<SixOne> temps;
-
+		List<Map<String, Object>> fenxijieguolist=new ArrayList<Map<String, Object>>();
 		while (iter.hasNext()) {
-
+			Map<String, Object> everyone = new HashMap<String, Object>();
 			SixOne sixOne = iter.next();
 			Integer qishu = sixOne.getQishu();
 			Integer first = sixOne.getFirst();
@@ -73,7 +73,9 @@ public class SixOneAction extends BaseAction {
 			Integer seventh = sixOne.getSeventh();
 			logger.info("--作为资料的期数--" + qishu + "--球1--" + first + "--球2--" + second + "--球3--" + third + "--球4--"
 					+ fourth + "--球5--" + fifth + "--球6--" + sixth + "--球7--" + seventh);
-
+			everyone.put("qishu", qishu + "");
+			everyone.put("number",
+					first + "-" + second + "-" + third + "-" + fourth + "-" + fifth + "-" + sixth + "-" + seventh);
 			List<Integer> IntegerS = new ArrayList<Integer>();
 			IntegerS.add(first);
 			IntegerS.add(second);
@@ -85,8 +87,10 @@ public class SixOneAction extends BaseAction {
 			temps = SixOneServices.way7(qishu);
 			float geshu = 0;
 			float yilouzongshu = 0;
+			StringBuilder stringBuilder = new StringBuilder();
 			for (Integer integer : IntegerS) {
 				logger.info("被找寻的数字--------------第" + qishu + "的" + integer);
+				boolean iscunzai = false;
 				for (SixOne tempsixOne : temps) {
 
 					Integer tempqishu = tempsixOne.getQishu();
@@ -97,6 +101,7 @@ public class SixOneAction extends BaseAction {
 					Integer tempfifth = tempsixOne.getFifth();
 					Integer tempsixth = tempsixOne.getSixth();
 					Integer tempseventh = tempsixOne.getSeventh();
+
 					logger.info("--寻找的期数--" + tempqishu + "--球1--" + tempfirst + "--球2--" + tempsecond + "--球3--"
 							+ tempthird + "--球4--" + tempfourth + "--球5--" + tempfifth + "--球6--" + tempsixth + "--球7--"
 							+ tempseventh);
@@ -107,8 +112,12 @@ public class SixOneAction extends BaseAction {
 						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
+							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
+						} else {
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
 						logger.info("------------------------------------");
+						iscunzai = true;
 						break;
 					} else if (integer == tempsecond) {
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
@@ -116,7 +125,11 @@ public class SixOneAction extends BaseAction {
 						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
+							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
+						} else {
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						iscunzai = true;
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempthird) {
@@ -125,7 +138,11 @@ public class SixOneAction extends BaseAction {
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
+							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
+						} else {
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						iscunzai = true;
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempfourth) {
@@ -134,7 +151,11 @@ public class SixOneAction extends BaseAction {
 						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
+							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
+						} else {
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						iscunzai = true;
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempfifth) {
@@ -143,7 +164,11 @@ public class SixOneAction extends BaseAction {
 						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
+							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
+						} else {
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						iscunzai = true;
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempsixth) {
@@ -152,7 +177,11 @@ public class SixOneAction extends BaseAction {
 						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
+							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
+						} else {
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						iscunzai = true;
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempseventh) {
@@ -161,18 +190,36 @@ public class SixOneAction extends BaseAction {
 						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
+							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
+						} else {
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						iscunzai = true;
 						logger.info("------------------------------------");
 						break;
-					} 
+					}
 
 				}
+				if (!iscunzai) {
+					logger.info("数字" + integer + "过去从未出现过");
+				}
 			}
+			everyone.put("yilouqingkuang", stringBuilder);
+			everyone.put("zongyilougeshu", (int) geshu);
+			everyone.put("yiloucishuzongshu", yilouzongshu);
+			everyone.put("yiloupingjungeshu", yilouzongshu / 7.f);
+			logger.info("各个数字遗漏情况:" + stringBuilder);
 			logger.info("本次遗漏次数在10以内的数字共有" + (int) geshu + "个");
 			logger.info("本期遗漏的次数总数" + yilouzongshu);
-			logger.info("本次遗漏平均个数为" + yilouzongshu / geshu + "个");
+			logger.info("本次遗漏平均个数为" + yilouzongshu / 7.f + "个");
+			fenxijieguolist.add(everyone);
 		}
-
+        logger.info("分析结果");
+		for (Map<String, Object> map : fenxijieguolist) {
+			for (Map.Entry<String, Object> entry : map.entrySet()) {  
+				  logger.info("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+			}
+		}
 		return "FUTURECOLDHOTSUCCESS";
 	}
 

@@ -38,28 +38,119 @@
 <script src="../jqplot/js/plugins/jqplot.pieRenderer.min.js"></script>
 <script src="../jqplot/js/plugins/jqplot.donutRenderer.min.js"></script>
 
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet"
+	href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureOddEven.action">奇数偶数偏差系统分析</a><br>
-    <a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureColdHot.action">热门冷门偏差系统分析</a><br>
-	<div id="chartdiv" style="height: 400px; width: 300px;"></div>
-	<div id="chartdiv2" style="height: 400px; width: 300px;"></div>
-	<div id="chartdiv3" style="height: 400px; width: 300px;"></div>
-	<div id="chart1" style="width: 500px; height: 300px;"></div>
-	<div id="chart2" style="width: 500px; height: 300px;"></div>
-	<div id="chart3" style="width: 500px; height: 300px;"></div>
-	<div id="chart4" style="width: 500px; height: 300px;"></div>
-	<div id="chart5" style="width: 500px; height: 300px;"></div>
-	<div id="chart6" style="width: 500px; height: 300px;"></div>
-	<div id="chart7" style="width: 500px; height: 300px;"></div>
-	<div id="chart8" style="width: 500px; height: 300px;"></div>
-	<div id="chart9" style="width: 500px; height: 300px;"></div>
-	<div id="chart10" style="width: 500px; height: 300px;"></div>
+
+
+	<table class="table table-bordered">
+		<thead>
+			<tr class="success">
+				<td>短期预测</td>
+				<td>预测趋势图分析</td>
+				<td>预测结果</td>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr>
+				<td class="warning"><a
+					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureOddEven.action">奇数偶数偏差系统分析</a>
+					<br/>
+					<button id="getjisoufenxijieguo" onclick="getjisoufenxijieguo()" class="btn btn-primary btn-lg">执行</button></td>
+				<td><div id="chartdiv" style="height: 400px; width: 600px;"></div></td>
+				<td width="500px">预测结果</td>
+
+			</tr>
+			<tr>
+				<td class="warning"><a
+					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureColdHot.action">热门冷门偏差系统分析</a></td>
+				<td><div id="chartdiv2" style="height: 400px; width: 600px;"></div></td>
+				<td>预测结果</td>
+			</tr>
+			<tr>
+				<td>33333333333333333333</td>
+				<td><div id="chartdiv3" style="height: 400px; width: 600px;"></div></td>
+				<td>预测结果</td>
+			</tr>
+			<tr>
+				<td>33333333333333333333</td>
+				<td><div id="chart1" style="width: 600px; height: 400px;"></div></td>
+				<td>预测结果</td>
+			</tr>
+			<tr>
+				<td class="warning"><a
+					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureColdHot.action">热门冷门偏差系统分析</a></td>
+				<td><div id="chart2" style="width: 600px; height: 400px;"></div></td>
+				<td>预测结果</td>
+			</tr>
+			<tr>
+				<td>33333333333333333333</td>
+				<td><div id="chart3" style="width: 600px; height: 400px;"></div></td>
+				<td>预测结果</td>
+			</tr>
+			<tr>
+				<td>33333333333333333333</td>
+				<td><div id="chart5" style="width: 600px; height: 400px;"></div></td>
+				<td>预测结果</td>
+			</tr>
+
+
+			<tr>
+				<td>33333333333333333333</td>
+				<td><div id="chart6" style="width: 600px; height: 400px;"></div></td>
+				<td>预测结果</td>
+			</tr>
+			<tr>
+				<td>33333333333333333333</td>
+				<td><div id="chart7" style="width: 600px; height: 400px;"></div></td>
+				<td>预测结果</td>
+			</tr>
+			<tr>
+				<td>33333333333333333333</td>
+				<td><div id="chart8" style="width: 600px; height: 400px;"></div></td>
+				<td>预测结果</td>
+			</tr>
+			<tr>
+				<td>33333333333333333333</td>
+				<td><div id="chart9" style="width: 600px; height: 400px;"></div></td>
+				<td>预测结果</td>
+			</tr>
+			<tr class="warning">
+				<td>33333333333333333333</td>
+				<td><div id="chart10" style="width: 600px; height: 400px;"></div></td>
+				<td>预测结果</td>
+			</tr>
+
+
+		</tbody>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<!-- 基本图 -->
 	<script type="text/javascript">
 		//曲线
-		$.jqplot('chartdiv', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
-				[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ]);
+		function getjisoufenxijieguo() {
+			$.jqplot('chartdiv', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
+					[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ]);
+		}
 		//曲线
 		$.jqplot('chartdiv2', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
 				[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ], {
@@ -321,7 +412,7 @@
 		});
 	</script>
 
-    <!--  点击图表更新文本 -->
+	<!--  点击图表更新文本 -->
 	<script type="text/javascript">
 		$(document).ready(
 				function() {
