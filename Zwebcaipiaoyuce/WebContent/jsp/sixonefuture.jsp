@@ -59,7 +59,7 @@
 
 			<tr>
 				<td class="warning"><a
-					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureOddEven.action">奇数偶数偏差系统分析</a>
+					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureOddEven.action"><h3>奇数偶数偏差系统分析</h3></a>
 					<br/>
 					<button id="getjisoufenxijieguo" onclick="getjisoufenxijieguo()" class="btn btn-primary btn-lg">执行</button></td>
 				<td><div id="chartdiv" style="height: 400px; width: 600px;"></div></td>
@@ -147,7 +147,34 @@
 	<!-- 基本图 -->
 	<script type="text/javascript">
 		//曲线
+		
+		
 		function getjisoufenxijieguo() {
+
+			$.ajax({
+						type : "POST",
+						url : '${ pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionAddSixOne.action',
+						data : params,
+						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
+						success : function(data) {
+							if (data == "添加成功") {
+								gridObj.refreshPage(); //刷新
+								var qi = $("#form_qishu").val(); //获取最新期数
+								$('#gridForm')[0].reset(); //重置
+								var c = parseInt(qi) + 1; //再加
+								$("#form_qishu").val(c);
+								alert(data);
+
+							} else {
+								alert(data);
+							}
+
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+
 			$.jqplot('chartdiv', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
 					[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ]);
 		}
