@@ -28,9 +28,6 @@ import net.sf.json.JSONObject;
  */
 public class SixOneAction extends BaseAction {
 
-	
-	
-	
 	private String TAG = "SixOneAction";
 	private static final long serialVersionUID = 1L;
 	private static final int List = 0;
@@ -46,93 +43,127 @@ public class SixOneAction extends BaseAction {
 	private Integer fifth;
 	private Integer sixth;
 	private Integer seventh;
-	
-	
-	
+
 	/**
 	 * 构造器初始化数据
 	 */
 	public SixOneAction() {
-		
-		
+
 	}
 
 	/**
 	 * 热门冷门数字偏差追踪系统
 	 */
-	public String futureColdHot(){
+	public String futureColdHot() {
 		logger.info("----------------------futureColdHot");
-		List<SixOne> sixonesTop10=SixOneServices.way6();
-		Iterator<SixOne> iter = sixonesTop10.iterator();  
-		List<SixOne> temp;
-        while(iter.hasNext())  
-        {   
-        	
-        	SixOne sixOne= iter.next();
-        	sixOne.getQishu();
-        	sixOne.getFirst();  
-        	sixOne.getSecond(); 
-        	sixOne.getThird();  
-        	sixOne.getFourth();  
-        	sixOne.getFifth();  
-        	sixOne.getSixth();  
-        	sixOne.getSeventh();  
-        	logger.info("--------------------------"+sixOne.getQishu());
-        	logger.info("--------------------------"+sixOne.getFirst());
-        	logger.info("--------------------------"+sixOne.getSecond());
-        	logger.info("--------------------------"+sixOne.getThird());
-        	logger.info("--------------------------"+sixOne.getFourth());
-        	logger.info("--------------------------"+sixOne.getFifth());
-        	logger.info("--------------------------"+sixOne.getSixth());
-        	logger.info("--------------------------"+sixOne.getSeventh());
-        	temp=SixOneServices.way7(sixOne.getQishu());
-        	for (SixOne tempsixOne : temp) {
-				logger.info(tempsixOne.getQishu()+"");
+		List<SixOne> sixonesTop10 = SixOneServices.way6();
+		Iterator<SixOne> iter = sixonesTop10.iterator();
+		List<SixOne> temps;
+
+		while (iter.hasNext()) {
+
+			SixOne sixOne = iter.next();
+			Integer qishu = sixOne.getQishu();
+			Integer first = sixOne.getFirst();
+			Integer second = sixOne.getSecond();
+			Integer third = sixOne.getThird();
+			Integer fourth = sixOne.getFourth();
+			Integer fifth = sixOne.getFifth();
+			Integer sixth = sixOne.getSixth();
+			Integer seventh = sixOne.getSeventh();
+			logger.info("--作为资料的期数--" + qishu + "--球1--" + first + "--球2--" + second + "--球3--" + third + "--球4--" + fourth + "--球5--"
+					+ fifth + "--球6--" + sixth + "--球7--" + seventh);
+			temps = SixOneServices.way7(qishu);
+			for (SixOne tempsixOne : temps) {
+				Integer tempqishu = tempsixOne.getQishu();
+				logger.info("---期数--" + tempqishu + "--球1--" + tempsixOne.getFirst() + "--球2--" + tempsixOne.getSecond()
+						+ "--球3--" + tempsixOne.getThird() + "--球4--" + tempsixOne.getFourth() + "--球5--" + tempsixOne.getFifth()
+						+ "--球6--" + tempsixOne.getSixth() + "--球7--" + tempsixOne.getSeventh());
+				List<Integer> tempInteger = new ArrayList<Integer>();
+
+				tempInteger.add(tempsixOne.getFirst());
+				tempInteger.add(tempsixOne.getSecond());
+				tempInteger.add(tempsixOne.getThird());
+				tempInteger.add(tempsixOne.getFourth());
+				tempInteger.add(tempsixOne.getFifth());
+				tempInteger.add(tempsixOne.getSixth());
+				tempInteger.add(tempsixOne.getSeventh());
+				for (Integer integer : tempInteger) {
+					if (first == integer) {
+
+						logger.info("--------------------------数字" + first + "第" + tempqishu + "期出现");
+					}
+					if (second == integer) {
+
+						logger.info("--------------------------数字"  + second + "第" + tempqishu + "期出现");
+					}
+					if (third == integer) {
+
+						logger.info("--------------------------数字"  + third + "第" + tempqishu + "期出现");
+					}
+					if (fourth == integer) {
+
+						logger.info("--------------------------数字"  + fourth + "第" + tempqishu + "期出现");
+					}
+					if (fifth == integer) {
+
+						logger.info("--------------------------数字"  + fifth + "第" + tempqishu + "期出现");
+					}
+					if (sixth == integer) {
+
+						logger.info("--------------------------数字"  + sixth + "第" + tempqishu + "期出现");
+					}
+					if (seventh == integer) {
+
+						logger.info("--------------------------数字"  + seventh + "第" + tempqishu + "期出现");
+					}
+				}
+
 			}
-        	
-            
-            
-        }  
-		
-		
+
+		}
+
 		return "FUTURECOLDHOTSUCCESS";
 	}
+
 	/**
-	 *奇数偶数偏差系统分析
-	 */	
-	public String futureOddEven(){
-		List<SixOne> sixonesTop10=SixOneServices.way5();
-		String top10json=DuanQiCommonUtils.do_from_odd_even(sixonesTop10);
-		logger.info(TAG+"------------"+top10json);
+	 * 奇数偶数偏差系统分析
+	 */
+	public String futureOddEven() {
+		List<SixOne> sixonesTop10 = SixOneServices.way5();
+		String top10json = DuanQiCommonUtils.do_from_odd_even(sixonesTop10);
+		logger.info(TAG + "------------" + top10json);
 		return "FUTUREODDEVENSUCCESS";
-	} 
-	
-	
+	}
+
 	/**
 	 * 系统分析未来一期的情况
 	 */
-	public String futureSixOne(){
+	public String futureSixOne() {
 		return "GETFUTURE_SUCCESS";
 	}
-	
+
 	/**
 	 * 查询最大的期数
+	 * 
 	 * @return
 	 */
-    public String SixOneActionMaxQishu(){
-    	logger.info(TAG + "---" + "SixOneActionMaxQishu");
-    	Integer qishu=SixOneServices.way4();
-    	qishu++;
-    	result=qishu.toString();
-    	logger.info(TAG + "当前最新的期数" +result );
-    	return "SUCCESS";
-    }
+	public String SixOneActionMaxQishu() {
+		logger.info(TAG + "---" + "SixOneActionMaxQishu");
+		Integer qishu = SixOneServices.way4();
+		qishu++;
+		result = qishu.toString();
+		logger.info(TAG + "当前最新的期数" + result);
+		return "SUCCESS";
+	}
+
 	/**
 	 * 查询所有的期数 数据
 	 * 
 	 * @return
 	 */
 	private SixOne sixone;
+
 	public String getSixOnes() {
 		logger.info(TAG + "---" + "getSixOnes");
 		List<SixOne> all_sixones = SixOneServices.way0();
@@ -168,7 +199,7 @@ public class SixOneAction extends BaseAction {
 			sixone.setSixth(sixth);
 			sixone.setSeventh(seventh);
 			sixone.setSum(first + second + third + fourth + fifth + sixth + seventh);
-			boolean b=SixOneServices.way2(sixone);
+			boolean b = SixOneServices.way2(sixone);
 			if (b) {
 				result = "添加成功";
 			} else {
@@ -182,6 +213,7 @@ public class SixOneAction extends BaseAction {
 
 	/**
 	 * 分页查询
+	 * 
 	 * @throws IOException
 	 * @throws java.io.IOException
 	 */
@@ -244,27 +276,22 @@ public class SixOneAction extends BaseAction {
 					}
 				});
 			}
-		} /*else if ("qishu,first".equals(sortName)) {
-			Collections.sort(data, new Comparator<Map<String, Object>>() {
-				public int compare(Map<String, Object> map1, Map<String, Object> map2) {
-					int xhCp = Integer.parseInt(map1.get("qishu").toString())
-							- Integer.parseInt(map2.get("qishu").toString());
-					int idCp = Integer.parseInt(map1.get("first").toString())
-							- Integer.parseInt(map2.get("first").toString());
-
-					if (sortOrder.equals("asc,asc")) {
-						return xhCp == 0 ? idCp : xhCp;
-					} else if (sortOrder.equals("asc,desc")) {
-						return xhCp == 0 ? -idCp : xhCp;
-					} else if (sortOrder.equals("desc,asc")) {
-						return xhCp == 0 ? idCp : -xhCp;
-					} else if (sortOrder.equals("desc,desc")) {
-						return xhCp == 0 ? -idCp : -xhCp;
-					}
-					return 0;
-				}
-			});
-		}*/
+		} /*
+			 * else if ("qishu,first".equals(sortName)) { Collections.sort(data,
+			 * new Comparator<Map<String, Object>>() { public int
+			 * compare(Map<String, Object> map1, Map<String, Object> map2) { int
+			 * xhCp = Integer.parseInt(map1.get("qishu").toString()) -
+			 * Integer.parseInt(map2.get("qishu").toString()); int idCp =
+			 * Integer.parseInt(map1.get("first").toString()) -
+			 * Integer.parseInt(map2.get("first").toString());
+			 * 
+			 * if (sortOrder.equals("asc,asc")) { return xhCp == 0 ? idCp :
+			 * xhCp; } else if (sortOrder.equals("asc,desc")) { return xhCp == 0
+			 * ? -idCp : xhCp; } else if (sortOrder.equals("desc,asc")) { return
+			 * xhCp == 0 ? idCp : -xhCp; } else if
+			 * (sortOrder.equals("desc,desc")) { return xhCp == 0 ? -idCp :
+			 * -xhCp; } return 0; } }); }
+			 */
 
 		StringBuilder jsonSb = new StringBuilder();
 		jsonSb.append("{");
