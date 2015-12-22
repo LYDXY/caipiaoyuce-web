@@ -98,24 +98,31 @@ public class SixOneAction extends BaseAction {
 							+ tempfifth + "--球6--" + tempsixth + "--球7--" + tempseventh);
 					if(integer==tempfirst){
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempsecond) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempthird) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempfourth) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempfifth) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempsixth) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("------------------------------------");
 						break;
 					}else if (integer==tempseventh) {
 						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						logger.info("------------------------------------");
 						break;
 					}
 					
