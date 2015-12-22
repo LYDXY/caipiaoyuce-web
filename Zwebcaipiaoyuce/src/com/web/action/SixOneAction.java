@@ -61,7 +61,7 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> temps;
 
 		while (iter.hasNext()) {
-
+            
 			SixOne sixOne = iter.next();
 			Integer qishu = sixOne.getQishu();
 			Integer first = sixOne.getFirst();
@@ -73,53 +73,63 @@ public class SixOneAction extends BaseAction {
 			Integer seventh = sixOne.getSeventh();
 			logger.info("--作为资料的期数--" + qishu + "--球1--" + first + "--球2--" + second + "--球3--" + third + "--球4--" + fourth + "--球5--"
 					+ fifth + "--球6--" + sixth + "--球7--" + seventh);
+			
+			List<Integer> IntegerS = new ArrayList<Integer>();
+			IntegerS.add(first);
+			IntegerS.add(second);
+			IntegerS.add(third);
+			IntegerS.add(fourth);
+			IntegerS.add(fifth);
+			IntegerS.add(sixth);
+			IntegerS.add(seventh);
 			temps = SixOneServices.way7(qishu);
-			for (SixOne tempsixOne : temps) {
-				Integer tempqishu = tempsixOne.getQishu();
-				logger.info("---期数--" + tempqishu + "--球1--" + tempsixOne.getFirst() + "--球2--" + tempsixOne.getSecond()
-						+ "--球3--" + tempsixOne.getThird() + "--球4--" + tempsixOne.getFourth() + "--球5--" + tempsixOne.getFifth()
-						+ "--球6--" + tempsixOne.getSixth() + "--球7--" + tempsixOne.getSeventh());
-				List<Integer> tempInteger = new ArrayList<Integer>();
-
-				tempInteger.add(tempsixOne.getFirst());
-				tempInteger.add(tempsixOne.getSecond());
-				tempInteger.add(tempsixOne.getThird());
-				tempInteger.add(tempsixOne.getFourth());
-				tempInteger.add(tempsixOne.getFifth());
-				tempInteger.add(tempsixOne.getSixth());
-				tempInteger.add(tempsixOne.getSeventh());
-				for (Integer integer : tempInteger) {
-					if (first == integer) {
-
-						logger.info("--------------------------数字" + first + "第" + tempqishu + "期出现");
+			for (Integer integer : IntegerS) {
+				for (SixOne tempsixOne : temps) {
+					
+					Integer tempqishu = tempsixOne.getQishu();
+					Integer tempfirst = tempsixOne.getFirst();
+					Integer tempsecond = tempsixOne.getSecond();
+					Integer tempthird = tempsixOne.getThird();
+					Integer tempfourth = tempsixOne.getFourth();
+					Integer tempfifth = tempsixOne.getFifth();
+					Integer tempsixth = tempsixOne.getSixth();
+					Integer tempseventh = tempsixOne.getSeventh();
+					logger.info("--寻找的期数--" + tempqishu + "--球1--" + tempfirst + "--球2--" + tempsecond + "--球3--" + tempthird + "--球4--" + tempfourth + "--球5--"
+							+ tempfifth + "--球6--" + tempsixth + "--球7--" + tempseventh);
+					if(integer==tempfirst){
+						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						break;
+					}else if (integer==tempsecond) {
+						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						break;
+					}else if (integer==tempthird) {
+						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						break;
+					}else if (integer==tempfourth) {
+						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						break;
+					}else if (integer==tempfifth) {
+						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						break;
+					}else if (integer==tempsixth) {
+						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						break;
+					}else if (integer==tempseventh) {
+						logger.info("数字"+integer+"在第"+tempqishu+"期出现");
+						break;
 					}
-					if (second == integer) {
-
-						logger.info("--------------------------数字"  + second + "第" + tempqishu + "期出现");
-					}
-					if (third == integer) {
-
-						logger.info("--------------------------数字"  + third + "第" + tempqishu + "期出现");
-					}
-					if (fourth == integer) {
-
-						logger.info("--------------------------数字"  + fourth + "第" + tempqishu + "期出现");
-					}
-					if (fifth == integer) {
-
-						logger.info("--------------------------数字"  + fifth + "第" + tempqishu + "期出现");
-					}
-					if (sixth == integer) {
-
-						logger.info("--------------------------数字"  + sixth + "第" + tempqishu + "期出现");
-					}
-					if (seventh == integer) {
-
-						logger.info("--------------------------数字"  + seventh + "第" + tempqishu + "期出现");
-					}
+					
 				}
-
 			}
+			
+			
+			
+				
+				
+				
+				
+
+			
 
 		}
 
