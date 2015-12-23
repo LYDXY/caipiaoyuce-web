@@ -322,6 +322,12 @@ public class SixOneAction extends BaseAction {
 		map.put("integersEVEN", integersEVEN);
 		map.put("odd", odd);
 		map.put("even", even);
+		if(odd>even){
+			map.put("cha", odd-even);
+		}
+		if(odd<even){
+			map.put("cha", even-even);
+		}
 		logger.info(map.toString());
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
         logger.info(jsonObjectFromMap.toString());

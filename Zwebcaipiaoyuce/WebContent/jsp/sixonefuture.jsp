@@ -64,7 +64,7 @@
 					<button id="getjisoufenxijieguo" onclick="getjisoufenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button></td>
 				<td><div id="chartgetjisoufenxijieguo"
-						style="height: 400px; width: 700px;"></div></td>
+						style="height: 400px; width: 900px;"></div></td>
 				<td width="500px">预测结果</td>
 
 			</tr>
@@ -255,16 +255,28 @@
 							 ticks2 =json.qishulist;
 							 ODD=json.odd;
 							 EVEN=json.even;
+							 CHA=json.cha;
 							//显示图表
 							$.jqplot('chartgetjisoufenxijieguo', [ JISHU, OUSHU ], {
 								seriesDefaults : {
 									renderer : $.jqplot.BarRenderer, //使用柱状图表示
 									rendererOptions : {
-										barMargin : 50
-									//柱状体组之间间隔
+										barMargin : 50,
+										highlightMouseDown: true   
+									
 									}
+									
 								},
-
+								series:[
+							            {label:'奇数'},
+							            {label:'偶数'}
+							           
+							        ],
+							    legend: {
+							            show: true,
+							            // 设置标识在图表外，元素内（在canvas内）
+							            placement: 'outsideGrid'
+							        },
 								title : {
 									text : '奇数偶数偏差系统分析', //设置当前图的标题
 									show : true,//设置当前图的标题是否显示
@@ -274,8 +286,11 @@
 									xaxis : {
 										ticks : ticks2,
 										renderer : $.jqplot.CategoryAxisRenderer,
-
-										pad : 1
+										pad : 1,
+										tickOptions: {
+											fontSize:'13px'
+										},
+										showTicks: true
 
 									},
 									yaxis : {
@@ -474,12 +489,7 @@
 						seriesDefaults : {
 							renderer : $.jqplot.BarRenderer,
 							rendererOptions : {
-								// Put a 30 pixel margin between bars.
-								// 柱之间间距为30px
 								barMargin : 30,
-								// Highlight bars when mouse button pressed.
-								// Disables default highlighting on mouse over.
-								// 当鼠标按下时，高亮
 								highlightMouseDown : true
 							},
 							pointLabels : {
@@ -491,13 +501,6 @@
 								renderer : $.jqplot.CategoryAxisRenderer
 							},
 							yaxis : {
-								// Don't pad out the bottom of the data range.  By default,
-								// axes scaled as if data extended 10% above and below the
-								// actual range to prevent data points right on grid boundaries.
-								// Don't want to do that here.
-								// 填充，以延长数据界限以下的范围内。
-								// 该数据范围的底部被乘以该因子，以确定最小轴界限。 
-								// 0值将被解释为无填充，并将padmin设置为1.0 。
 								padMin : 1
 							}
 						},
@@ -507,18 +510,7 @@
 							placement : 'outside'
 						}
 					});
-					// Bind a listener to the "jqplotDataClick" event.  Here, simply change
-					// the text of the info3 element to show what series and ponit were
-					// clicked along with the data for that point.
-					// 绑定到"jqplotDataClick"时间
-					$('#chart9').bind(
-							'jqplotDataClick',
-							function(ev, seriesIndex, pointIndex, data) {
-								$('#info3').html(
-										'series: ' + seriesIndex + ', point: '
-												+ pointIndex + ', data: '
-												+ data);
-							});
+					
 				});
 	</script>
 </body>
