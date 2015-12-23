@@ -60,9 +60,11 @@
 			<tr>
 				<td class="warning"><a
 					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureOddEven.action"><h3>奇数偶数偏差系统分析</h3></a>
-					<br/>
-					<button id="getjisoufenxijieguo" onclick="getjisoufenxijieguo()" class="btn btn-primary btn-lg">执行</button></td>
-				<td><div id="chartdiv" style="height: 400px; width: 600px;"></div></td>
+					<br />
+					<button id="getjisoufenxijieguo" onclick="getjisoufenxijieguo()"
+						class="btn btn-primary btn-lg">执行</button></td>
+				<td><div id="chartgetjisoufenxijieguo"
+						style="height: 400px; width: 600px;"></div></td>
 				<td width="500px">预测结果</td>
 
 			</tr>
@@ -90,7 +92,7 @@
 			</tr>
 			<tr>
 				<td>33333333333333333333</td>
-				<td><div id="chart3" style="width: 600px; height: 400px;"></div></td>
+				<td><div id="chartdiv" style="width: 700px; height: 400px;"></div></td>
 				<td>预测结果</td>
 			</tr>
 			<tr>
@@ -147,11 +149,10 @@
 	<!-- 基本图 -->
 	<script type="text/javascript">
 		//曲线
-		
-		
+
 		function getjisoufenxijieguo() {
 
-			$.ajax({
+			/* $.ajax({
 						type : "POST",
 						url : '${ pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionAddSixOne.action',
 						data : params,
@@ -173,7 +174,7 @@
 						error : function(data) {
 							alert("系统异常,请重新尝试");
 						}
-					});
+					}); */
 
 			$.jqplot('chartdiv', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
 					[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ]);
@@ -260,14 +261,34 @@
 
 	<!-- 双 柱状图-->
 	<script type="text/javascript">
-		line1 = [ 4, 7, 9, 16 ]; //子统计1数据
-		line2 = [ 3, 7, 9.25, 3.125 ]; //子统计2数据
-		$.jqplot('chart3', [ line1, line2 ], {
+		line1 = [ 4, 3, 6, 1 ]; //子统计1数据
+		line2 = [ 3, 4, 1, 6 ]; //子统计2数据
+		//	var ticks = [2015, 2015, 2015, 2015];
+
+		$.jqplot('chartgetjisoufenxijieguo', [ line1, line2 ], {
 			seriesDefaults : {
 				renderer : $.jqplot.BarRenderer, //使用柱状图表示
 				rendererOptions : {
-					barMargin : 35
+					barMargin : 50
 				//柱状体组之间间隔
+				}
+			},
+			axes : {
+				// Use a category axis on the x axis and use our custom ticks.
+				// x轴使用CategoryAxisRenderer渲染器
+				xaxis : {
+					renderer : $.jqplot.CategoryAxisRenderer,
+					min : 2015110,
+					pad : 1
+
+				},
+
+				yaxis : {
+					
+					min : 0.0,
+					
+					pad : 1.0
+
 				}
 			}
 		});
