@@ -18,6 +18,7 @@ import com.web.pojo.SixOne;
 import com.web.services.SixOneServices;
 import com.web.yuce.common.utils.DuanQiCommonUtils;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
@@ -59,7 +60,7 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> sixonesTop10 = SixOneServices.way6();
 		Iterator<SixOne> iter = sixonesTop10.iterator();
 		List<SixOne> temps;
-		List<Map<String, Object>> fenxijieguolist=new ArrayList<Map<String, Object>>();
+		List<Map<String, Object>> fenxijieguolist = new ArrayList<Map<String, Object>>();
 		while (iter.hasNext()) {
 			Map<String, Object> everyone = new HashMap<String, Object>();
 			SixOne sixOne = iter.next();
@@ -214,10 +215,10 @@ public class SixOneAction extends BaseAction {
 			logger.info("本次遗漏平均个数为" + yilouzongshu / 7.f + "个");
 			fenxijieguolist.add(everyone);
 		}
-        logger.info("分析结果");
+		logger.info("分析结果");
 		for (Map<String, Object> map : fenxijieguolist) {
-			for (Map.Entry<String, Object> entry : map.entrySet()) {  
-				  logger.info("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+			for (Map.Entry<String, Object> entry : map.entrySet()) {
+				logger.info("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 			}
 		}
 		return "FUTURECOLDHOTSUCCESS";
@@ -228,8 +229,73 @@ public class SixOneAction extends BaseAction {
 	 */
 	public String futureOddEven() {
 		List<SixOne> sixonesTop10 = SixOneServices.way5();
-		String top10json = DuanQiCommonUtils.do_from_odd_even(sixonesTop10);
-		logger.info(TAG + "------------" + top10json);
+
+		int odd = 0;// 存放奇数的总个数
+		int even = 0;// 存放偶数的总个数
+		JSONArray jsonarray = JSONArray.fromObject(sixonesTop10);
+		SixOne sixOne;
+		
+		for (int i = 0; i < sixonesTop10.size(); i++) {
+			int everyoneOdd;//存放每个对象的奇数
+			int everyoneEven;//存放每个对象的偶数
+			sixOne = sixonesTop10.get(i);
+
+			if (sixOne.getFirst() != null) {
+				if (sixOne.getFirst() % 2 == 0) {
+					even++;
+				} else {
+					odd++;
+				}
+			}
+			if (sixOne.getSecond() != null) {
+				if (sixOne.getSecond() % 2 == 0) {
+					even++;
+				} else {
+					odd++;
+				}
+			}
+			if (sixOne.getThird() != null) {
+				if (sixOne.getThird() % 2 == 0) {
+					even++;
+				} else {
+					odd++;
+				}
+			}
+			if (sixOne.getFourth() != null) {
+				if (sixOne.getFourth() % 2 == 0) {
+					even++;
+				} else {
+					odd++;
+				}
+			}
+			if (sixOne.getFifth() != null) {
+				if (sixOne.getFifth() % 2 == 0) {
+					even++;
+				} else {
+					odd++;
+				}
+			}
+			if (sixOne.getSixth() != null) {
+				if (sixOne.getSixth() % 2 == 0) {
+					even++;
+				} else {
+					odd++;
+				}
+			}
+			if (sixOne.getSeventh() != null) {
+				if (sixOne.getSeventh() % 2 == 0) {
+					even++;
+				} else {
+					odd++;
+				}
+			}
+		}
+		System.out.println("======================");
+        System.out.println("奇数的个数为"+odd);
+        System.out.println("偶数的个数为"+even);
+        
+        System.out.println("======================"+jsonarray.toString());
+		
 		return "FUTUREODDEVENSUCCESS";
 	}
 
