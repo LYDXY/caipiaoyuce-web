@@ -19,27 +19,22 @@
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result name="GETSIXONES_SUCCESS">../jsp/sixone.jsp</result>
 		</action>
-         
-         <action name="SixOneActionFuture" class="com.web.action.SixOneAction"
+
+		<action name="SixOneActionFuture" class="com.web.action.SixOneAction"
 			method="futureSixOne">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result name="GETFUTURE_SUCCESS">../jsp/sixonefuture.jsp</result>
 		</action>
-         <!--奇数偶数偏差系统 -->
-         <action name="SixOneActionFutureOddEven" class="com.web.action.SixOneAction"
-			method="futureOddEven">
-			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
-			<result name="FUTUREODDEVENSUCCESS">../jsp/sixonefuture.jsp</result>
-		</action>
 
-        
-         <!--奇数偶数偏差系统 -->
-         <action name="SixOneActionFutureColdHot" class="com.web.action.SixOneAction"
+
+
+	
+		<action name="SixOneActionFutureColdHot" class="com.web.action.SixOneAction"
 			method="futureColdHot">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result name="FUTURECOLDHOTSUCCESS">../jsp/sixonefuture.jsp</result>
 		</action>
-       
+
 
 	</package>
 
@@ -48,18 +43,26 @@
 			method="addSixOne">
 			<!-- 将返回类型设置为json -->
 			<result type="json" name="ADDSIXONESUCCESS">
-			    <!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
-				<param name="root" >result</param>
+				<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+				<param name="root">result</param>
 			</result>
 		</action>
-		
+
 		<action name="ajaxSixOneActionMaxQishu" class="com.web.action.SixOneAction"
 			method="SixOneActionMaxQishu">
 			<result type="json" name="SUCCESS">
-			   <param name="root">result</param>
+				<param name="root">result</param>
 			</result>
 		</action>
-		
+
+		<!--奇数偶数偏差系统 -->
+		<action name="SixOneActionFutureOddEven" class="com.web.action.SixOneAction"
+			method="futureOddEven">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTUREODDEVENSUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
 	</package>
 
 </struts>

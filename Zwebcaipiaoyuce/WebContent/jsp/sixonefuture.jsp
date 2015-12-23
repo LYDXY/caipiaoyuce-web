@@ -58,13 +58,13 @@
 		<tbody>
 
 			<tr>
-				<td class="warning"><a
-					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureOddEven.action"><h3>奇数偶数偏差系统分析</h3></a>
+				<td class="warning">
+					<h3>奇数偶数偏差系统分析</h3>
 					<br />
 					<button id="getjisoufenxijieguo" onclick="getjisoufenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button></td>
 				<td><div id="chartgetjisoufenxijieguo"
-						style="height: 400px; width: 600px;"></div></td>
+						style="height: 400px; width: 700px;"></div></td>
 				<td width="500px">预测结果</td>
 
 			</tr>
@@ -150,35 +150,10 @@
 	<script type="text/javascript">
 		//曲线
 
-		function getjisoufenxijieguo() {
 
-			/* $.ajax({
-						type : "POST",
-						url : '${ pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionAddSixOne.action',
-						data : params,
-						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
-						success : function(data) {
-							if (data == "添加成功") {
-								gridObj.refreshPage(); //刷新
-								var qi = $("#form_qishu").val(); //获取最新期数
-								$('#gridForm')[0].reset(); //重置
-								var c = parseInt(qi) + 1; //再加
-								$("#form_qishu").val(c);
-								alert(data);
+		$.jqplot('chartdiv', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
+				[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ]);
 
-							} else {
-								alert(data);
-							}
-
-						},
-						error : function(data) {
-							alert("系统异常,请重新尝试");
-						}
-					}); */
-
-			$.jqplot('chartdiv', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
-					[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ]);
-		}
 		//曲线
 		$.jqplot('chartdiv2', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
 				[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ], {
@@ -259,40 +234,65 @@
 		});
 	</script>
 
-	<!-- 双 柱状图-->
+	<!-- 奇数偶数偏差系统分析-->
 	<script type="text/javascript">
-		line1 = [ 4, 3, 6, 1 ]; //子统计1数据
-		line2 = [ 3, 4, 1, 6 ]; //子统计2数据
-		//	var ticks = [2015, 2015, 2015, 2015];
-
-		$.jqplot('chartgetjisoufenxijieguo', [ line1, line2 ], {
-			seriesDefaults : {
-				renderer : $.jqplot.BarRenderer, //使用柱状图表示
-				rendererOptions : {
-					barMargin : 50
-				//柱状体组之间间隔
-				}
-			},
-			axes : {
-				// Use a category axis on the x axis and use our custom ticks.
-				// x轴使用CategoryAxisRenderer渲染器
-				xaxis : {
-					renderer : $.jqplot.CategoryAxisRenderer,
-					min : 2015110,
-					pad : 1
-
-				},
-
-				yaxis : {
+		line1 = [ 4, 3, 6, 1, 7, 0, 4, 3, 5, 2 ]; //子统计1数据
+		line2 = [ 3, 4, 1, 6, 0, 7, 3, 4, 2, 5 ]; //子统计2数据
+		var ticks = [ 2015, 2015, 2015, 2015 ];
+		//奇数偶数个数分析
+		function getjisoufenxijieguo() {
+			//  alert();
+			//获取服务器数据
+			$.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureOddEven.action',
 					
-					min : 0.0,
-					
-					pad : 1.0
+						dataType : "json",
+						success : function(data) {
+							 var json = eval('(' + data + ')'); 
+							 JISHU = json.integersODD;
+						     OUSHU = json.integersEVEN;
+							 ticks2 =json.qishulist;
+							 ODD=json.odd;
+							 EVEN=json.even;
+							//显示图表
+							$.jqplot('chartgetjisoufenxijieguo', [ JISHU, OUSHU ], {
+								seriesDefaults : {
+									renderer : $.jqplot.BarRenderer, //使用柱状图表示
+									rendererOptions : {
+										barMargin : 50
+									//柱状体组之间间隔
+									}
+								},
 
-				}
-			}
-		});
+								title : {
+									text : '奇数偶数偏差系统分析', //设置当前图的标题
+									show : true,//设置当前图的标题是否显示
+								},
 
+								axes : {
+									xaxis : {
+										ticks : ticks2,
+										renderer : $.jqplot.CategoryAxisRenderer,
+
+										pad : 1
+
+									},
+									yaxis : {
+										ticks : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+										renderer : $.jqplot.LinearAxisRenderer,
+										pad : 1
+									}
+								}
+							});
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+
+	
+		}
 		$.jqplot('chart4', [ line1, line2 ], {
 			seriesDefaults : {
 				renderer : $.jqplot.BarRenderer, //使用柱状图表示

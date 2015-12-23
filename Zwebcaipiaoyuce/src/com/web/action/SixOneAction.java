@@ -228,74 +228,104 @@ public class SixOneAction extends BaseAction {
 	 * 奇数偶数偏差系统分析
 	 */
 	public String futureOddEven() {
+		logger.info("奇数偶数偏差系统分析------------futureOddEven----");
 		List<SixOne> sixonesTop10 = SixOneServices.way5();
-
 		int odd = 0;// 存放奇数的总个数
 		int even = 0;// 存放偶数的总个数
-		JSONArray jsonarray = JSONArray.fromObject(sixonesTop10);
+
 		SixOne sixOne;
-		
+		List<Integer> integersODD = new ArrayList<Integer>();
+		List<Integer> integersEVEN = new ArrayList<Integer>();
+		List<Integer> qishulist = new ArrayList<Integer>();
 		for (int i = 0; i < sixonesTop10.size(); i++) {
-			int everyoneOdd;//存放每个对象的奇数
-			int everyoneEven;//存放每个对象的偶数
+			int everyoneOdd = 0;// 存放每个对象的奇数
+			int everyoneEven = 0;// 存放每个对象的偶数
 			sixOne = sixonesTop10.get(i);
 
 			if (sixOne.getFirst() != null) {
 				if (sixOne.getFirst() % 2 == 0) {
 					even++;
+					everyoneEven++;
 				} else {
 					odd++;
+					everyoneOdd++;
+
 				}
 			}
 			if (sixOne.getSecond() != null) {
 				if (sixOne.getSecond() % 2 == 0) {
 					even++;
+					everyoneEven++;
 				} else {
 					odd++;
+					everyoneOdd++;
 				}
 			}
 			if (sixOne.getThird() != null) {
 				if (sixOne.getThird() % 2 == 0) {
 					even++;
+					everyoneEven++;
 				} else {
 					odd++;
+					everyoneOdd++;
 				}
 			}
 			if (sixOne.getFourth() != null) {
 				if (sixOne.getFourth() % 2 == 0) {
 					even++;
+					everyoneEven++;
 				} else {
 					odd++;
+					everyoneOdd++;
 				}
 			}
 			if (sixOne.getFifth() != null) {
 				if (sixOne.getFifth() % 2 == 0) {
 					even++;
+					everyoneEven++;
 				} else {
 					odd++;
+					everyoneOdd++;
 				}
 			}
 			if (sixOne.getSixth() != null) {
 				if (sixOne.getSixth() % 2 == 0) {
 					even++;
+					everyoneEven++;
 				} else {
 					odd++;
+					everyoneOdd++;
 				}
 			}
 			if (sixOne.getSeventh() != null) {
 				if (sixOne.getSeventh() % 2 == 0) {
 					even++;
+					everyoneEven++;
 				} else {
 					odd++;
+					everyoneOdd++;
 				}
 			}
+			integersODD.add(everyoneOdd);
+			integersEVEN.add(everyoneEven);
+			qishulist.add(sixOne.getQishu());
 		}
-		System.out.println("======================");
-        System.out.println("奇数的个数为"+odd);
-        System.out.println("偶数的个数为"+even);
-        
-        System.out.println("======================"+jsonarray.toString());
-		
+		logger.info(qishulist.toString());
+		logger.info(integersODD.toString());
+		logger.info(integersEVEN.toString());
+		logger.info("奇数的个数为" + odd);
+		logger.info("偶数的个数为" + even);
+		logger.info("======================");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("qishulist", qishulist);
+		map.put("integersODD", integersODD);
+		map.put("integersEVEN", integersEVEN);
+		map.put("odd", odd);
+		map.put("even", even);
+		logger.info(map.toString());
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
+        logger.info(jsonObjectFromMap.toString());
+        result=jsonObjectFromMap.toString();
 		return "FUTUREODDEVENSUCCESS";
 	}
 
