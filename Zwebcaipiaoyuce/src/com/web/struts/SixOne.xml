@@ -67,6 +67,15 @@
 				<param name="root">result</param>
 			</result>
 		</action>
+		
+		<!--大数小数偏差系统 -->
+		<action name="SixOneActionFutureBigSmall" class="com.web.action.SixOneAction"
+			method="futureBigSmall">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTUREBIGSMALLSUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
 	</package>
 
 </struts>

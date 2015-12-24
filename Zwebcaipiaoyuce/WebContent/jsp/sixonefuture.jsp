@@ -69,13 +69,18 @@
 
 			</tr>
 			<tr>
-				<td class="warning"><a
-					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureColdHot.action">热门冷门偏差系统分析</a></td>
-				<td><div id="chartdiv2" style="height: 400px; width: 600px;"></div></td>
+				<td class="warning">
+				   <h3>大数小数偏差系统分析</h3>
+				   <br />
+					<button id="getdaxiaofenxijieguo" onclick="getdaxiaofenxijieguo()"
+						class="btn btn-primary btn-lg">执行</button></td>
+				<td><div id="chatgetdaxiaofenxijieguo" style="height: 400px; width: 900px;"></div></td>
 				<td>预测结果</td>
 			</tr>
 			<tr>
-				<td>33333333333333333333</td>
+				
+				<td class="warning"><a
+					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureColdHot.action">热门冷门偏差系统分析</a></td>
 				<td><div id="chartdiv3" style="height: 400px; width: 600px;"></div></td>
 				<td>预测结果</td>
 			</tr>
@@ -154,21 +159,6 @@
 		$.jqplot('chartdiv', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
 				[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ]);
 
-		//曲线
-		$.jqplot('chartdiv2', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
-				[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ], {
-			title : 'Exponential Line',
-			axes : {
-				yaxis : {
-					min : -10,
-					max : 240
-				}
-			},
-			series : [ {
-				color : '#5FAB78'
-			} ]
-		});
-		//直线
 		$.jqplot('chartdiv3', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
 				[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ], {
 			title : 'Exponential Line',
@@ -233,7 +223,85 @@
 			}
 		});
 	</script>
+   
+    <!-- 大数小数偏差系统分析-->
+	<script type="text/javascript">
+		line1 = [ 4, 3, 6, 1, 7, 0, 4, 3, 5, 2 ]; //子统计1数据
+		line2 = [ 3, 4, 1, 6, 0, 7, 3, 4, 2, 5 ]; //子统计2数据
+		var ticks = [ 2015, 2015, 2015, 2015 ];
+		//奇数偶数个数分析
+		function getdaxiaofenxijieguo() {
+			//  alert();
+			//获取服务器数据
+			$.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureBigSmall.action',
+					
+						dataType : "json",
+						success : function(data) {
+							 var json = eval('(' + data + ')'); 
+							 BIGSHU = json.integersBIG;
+						     SMALLSHU = json.integersSMALL;
+							 ticks2 =json.qishulist;
+							 ZONGBIG=json.zongbig;
+							 ZONGSMALL=json.zongsmall;
+							 CHA=json.cha;
+							//显示图表
+							$.jqplot('chatgetdaxiaofenxijieguo', [ BIGSHU, SMALLSHU ], {
+								seriesDefaults : {
+									renderer : $.jqplot.BarRenderer, //使用柱状图表示
+									rendererOptions : {
+										barMargin : 50,
+										highlightMouseDown: true   
+									
+									}
+									
+								},
+								series:[
+							            {label:'大数'},
+							            {label:'小数'}
+							           
+							        ],
+							    legend: {
+							            show: true,
+							            // 设置标识在图表外，元素内（在canvas内）
+							            placement: 'outsideGrid'
+							        },
+								title : {
+									text : '大数小数偏差系统分析', //设置当前图的标题
+									show : true,//设置当前图的标题是否显示
+								},
 
+								axes : {
+									xaxis : {
+										ticks : ticks2,
+										renderer : $.jqplot.CategoryAxisRenderer,
+										pad : 1,
+										tickOptions: {
+											fontSize:'13px'
+										},
+										showTicks: true
+
+									},
+									yaxis : {
+										ticks : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+										renderer : $.jqplot.LinearAxisRenderer,
+										pad : 1
+									}
+								}
+							});
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+
+	
+		}
+	</script>
+	
+	
+	
 	<!-- 奇数偶数偏差系统分析-->
 	<script type="text/javascript">
 		line1 = [ 4, 3, 6, 1, 7, 0, 4, 3, 5, 2 ]; //子统计1数据

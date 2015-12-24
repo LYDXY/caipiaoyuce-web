@@ -53,6 +53,117 @@ public class SixOneAction extends BaseAction {
 
 	}
 
+	
+	/**
+	 * 大小数字偏差系统分析
+	 */
+	public String futureBigSmall(){
+		logger.info("奇数偶数偏差系统分析------------futureOddEven----");
+		List<SixOne> sixonesTop10 = SixOneServices.way5();
+		int zongbig = 0;// 存放大数的总个数
+		int zongsmall = 0;// 存放小数的总个数
+
+		SixOne sixOne;
+		List<Integer> integersBIG = new ArrayList<Integer>();
+		List<Integer> integersSMALL = new ArrayList<Integer>();
+		List<Integer> qishulist = new ArrayList<Integer>();
+		for (int i = 0; i < sixonesTop10.size(); i++) {
+			int everyonebig = 0;// 存放每个对象的大数字的个数
+			int everyonesmalll = 0;// 存放每个对象的小数字的个数
+			sixOne = sixonesTop10.get(i);
+
+			if (sixOne.getFirst() != null) {
+				if (sixOne.getFirst() >26) {
+					zongbig++;
+					everyonebig++;
+				} else {
+					zongsmall++;
+					everyonesmalll++;
+
+				}
+			}
+			if (sixOne.getSecond() != null) {
+				if (sixOne.getSecond() >26) {
+					zongbig++;
+					everyonebig++;
+				} else {
+					zongsmall++;
+					everyonesmalll++;
+				}
+			}
+			if (sixOne.getThird() != null) {
+				if (sixOne.getThird()  >26) {
+					zongbig++;
+					everyonebig++;
+				} else {
+					zongsmall++;
+					everyonesmalll++;
+				}
+			}
+			if (sixOne.getFourth() != null) {
+				if (sixOne.getFourth()  >26) {
+					zongbig++;
+					everyonebig++;
+				} else {
+					zongsmall++;
+					everyonesmalll++;
+				}
+			}
+			if (sixOne.getFifth() != null) {
+				if (sixOne.getFifth() >26) {
+					zongbig++;
+					everyonebig++;
+				} else {
+					zongsmall++;
+					everyonesmalll++;
+				}
+			}
+			if (sixOne.getSixth() != null) {
+				if (sixOne.getSixth()  >26) {
+					zongbig++;
+					everyonebig++;
+				} else {
+					zongsmall++;
+					everyonesmalll++;
+				}
+			}
+			if (sixOne.getSeventh() != null) {
+				if (sixOne.getSeventh()  >26) {
+					zongbig++;
+					everyonebig++;
+				} else {
+					zongsmall++;
+					everyonesmalll++;
+				}
+			}
+			integersBIG.add(everyonebig);
+			integersSMALL.add(everyonesmalll);
+			qishulist.add(sixOne.getQishu());
+		}
+		logger.info(qishulist.toString());
+		logger.info(integersBIG.toString());
+		logger.info(integersSMALL.toString());
+		logger.info("总的大数字的个数为" + zongbig);
+		logger.info("总的小数字的个数为" + zongsmall);
+		logger.info("======================");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("qishulist", qishulist);
+		map.put("integersBIG", integersBIG);
+		map.put("integersSMALL", integersSMALL);
+		map.put("zongbig", zongbig);
+		map.put("zongsmall", zongsmall);
+		if (zongbig > zongsmall) {
+			map.put("cha", zongbig - zongsmall);
+		}
+		if (zongbig < zongsmall) {
+			map.put("cha", zongsmall - zongbig);
+		}
+		logger.info(map.toString());
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
+		return "FUTUREBIGSMALLSUCCESS";
+	}
 	/**
 	 * 遗漏数字偏差系统
 	 */
