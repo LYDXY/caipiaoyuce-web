@@ -59,10 +59,10 @@
 
 			<tr>
 				<td class="warning">
-					<h3>奇数偶数偏差系统分析</h3>
-					<br />
+					<h3>奇数偶数偏差系统分析</h3> <br />
 					<button id="getjisoufenxijieguo" onclick="getjisoufenxijieguo()"
-						class="btn btn-primary btn-lg">执行</button></td>
+						class="btn btn-primary btn-lg">执行</button>
+				</td>
 				<td><div id="chartgetjisoufenxijieguo"
 						style="height: 400px; width: 900px;"></div></td>
 				<td width="500px">预测结果</td>
@@ -70,15 +70,16 @@
 			</tr>
 			<tr>
 				<td class="warning">
-				   <h3>大数小数偏差系统分析</h3>
-				   <br />
+					<h3>大数小数偏差系统分析</h3> <br />
 					<button id="getdaxiaofenxijieguo" onclick="getdaxiaofenxijieguo()"
-						class="btn btn-primary btn-lg">执行</button></td>
-				<td><div id="chatgetdaxiaofenxijieguo" style="height: 400px; width: 900px;"></div></td>
+						class="btn btn-primary btn-lg">执行</button>
+				</td>
+				<td><div id="chatgetdaxiaofenxijieguo"
+						style="height: 400px; width: 900px;"></div></td>
 				<td>预测结果</td>
 			</tr>
 			<tr>
-				
+
 				<td class="warning"><a
 					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureColdHot.action">热门冷门偏差系统分析</a></td>
 				<td><div id="chartdiv3" style="height: 400px; width: 600px;"></div></td>
@@ -118,7 +119,8 @@
 				<td>预测结果</td>
 			</tr>
 			<tr>
-				<td><a href="${pageContext.request.contextPath }/SixOneAction/SixOneActionFutureYiLou.action">遗漏数字偏差分析系统</a></td>
+				<td><a
+					href="${pageContext.request.contextPath }/SixOneAction/SixOneActionFutureYiLou.action">遗漏数字偏差分析系统</a></td>
 				<td><div id="chart8" style="width: 600px; height: 400px;"></div></td>
 				<td>预测结果</td>
 			</tr>
@@ -154,7 +156,6 @@
 	<!-- 基本图 -->
 	<script type="text/javascript">
 		//曲线
-
 
 		$.jqplot('chartdiv', [ [ [ 1, 2 ], [ 3, 5.12 ], [ 5, 13.1 ],
 				[ 7, 33.6 ], [ 9, 85.9 ], [ 11, 219.9 ] ] ]);
@@ -223,176 +224,11 @@
 			}
 		});
 	</script>
-   
-    <!-- 大数小数偏差系统分析-->
-	<script type="text/javascript">
-		line1 = [ 4, 3, 6, 1, 7, 0, 4, 3, 5, 2 ]; //子统计1数据
-		line2 = [ 3, 4, 1, 6, 0, 7, 3, 4, 2, 5 ]; //子统计2数据
-		var ticks = [ 2015, 2015, 2015, 2015 ];
-		//奇数偶数个数分析
-		function getdaxiaofenxijieguo() {
-			//  alert();
-			//获取服务器数据
-			$.ajax({
-						type : "POST",
-						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureBigSmall.action',
-					
-						dataType : "json",
-						success : function(data) {
-							 var json = eval('(' + data + ')'); 
-							 BIGSHU = json.integersBIG;
-						     SMALLSHU = json.integersSMALL;
-							 ticks2 =json.qishulist;
-							 ZONGBIG=json.zongbig;
-							 ZONGSMALL=json.zongsmall;
-							 CHA=json.cha;
-							//显示图表
-							$.jqplot('chatgetdaxiaofenxijieguo', [ BIGSHU, SMALLSHU ], {
-								seriesDefaults : {
-									renderer : $.jqplot.BarRenderer, //使用柱状图表示
-									rendererOptions : {
-										barMargin : 50,
-										highlightMouseDown: true   
-									
-									}
-									
-								},
-								series:[
-							            {label:'大数'},
-							            {label:'小数'}
-							           
-							        ],
-							    legend: {
-							            show: true,
-							            // 设置标识在图表外，元素内（在canvas内）
-							            placement: 'outsideGrid'
-							        },
-								title : {
-									text : '大数小数偏差系统分析', //设置当前图的标题
-									show : true,//设置当前图的标题是否显示
-								},
-
-								axes : {
-									xaxis : {
-										ticks : ticks2,
-										renderer : $.jqplot.CategoryAxisRenderer,
-										pad : 1,
-										tickOptions: {
-											fontSize:'13px'
-										},
-										showTicks: true
-
-									},
-									yaxis : {
-										ticks : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
-										renderer : $.jqplot.LinearAxisRenderer,
-										pad : 1
-									}
-								}
-							});
-						},
-						error : function(data) {
-							alert("系统异常,请重新尝试");
-						}
-					});
 
 	
-		}
-	</script>
-	
-	
-	
-	<!-- 奇数偶数偏差系统分析-->
-	<script type="text/javascript">
-		line1 = [ 4, 3, 6, 1, 7, 0, 4, 3, 5, 2 ]; //子统计1数据
-		line2 = [ 3, 4, 1, 6, 0, 7, 3, 4, 2, 5 ]; //子统计2数据
-		var ticks = [ 2015, 2015, 2015, 2015 ];
-		//奇数偶数个数分析
-		function getjisoufenxijieguo() {
-			//  alert();
-			//获取服务器数据
-			$.ajax({
-						type : "POST",
-						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureOddEven.action',
-					
-						dataType : "json",
-						success : function(data) {
-							 var json = eval('(' + data + ')'); 
-							 JISHU = json.integersODD;
-						     OUSHU = json.integersEVEN;
-							 ticks2 =json.qishulist;
-							 ODD=json.odd;
-							 EVEN=json.even;
-							 CHA=json.cha;
-							//显示图表
-							$.jqplot('chartgetjisoufenxijieguo', [ JISHU, OUSHU ], {
-								seriesDefaults : {
-									renderer : $.jqplot.BarRenderer, //使用柱状图表示
-									rendererOptions : {
-										barMargin : 50,
-										highlightMouseDown: true   
-									
-									}
-									
-								},
-								series:[
-							            {label:'奇数'},
-							            {label:'偶数'}
-							           
-							        ],
-							    legend: {
-							            show: true,
-							            // 设置标识在图表外，元素内（在canvas内）
-							            placement: 'outsideGrid'
-							        },
-								title : {
-									text : '奇数偶数偏差系统分析', //设置当前图的标题
-									show : true,//设置当前图的标题是否显示
-								},
 
-								axes : {
-									xaxis : {
-										ticks : ticks2,
-										renderer : $.jqplot.CategoryAxisRenderer,
-										pad : 1,
-										tickOptions: {
-											fontSize:'13px'
-										},
-										showTicks: true
-
-									},
-									yaxis : {
-										ticks : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
-										renderer : $.jqplot.LinearAxisRenderer,
-										pad : 1
-									}
-								}
-							});
-						},
-						error : function(data) {
-							alert("系统异常,请重新尝试");
-						}
-					});
 
 	
-		}
-		$.jqplot('chart4', [ line1, line2 ], {
-			seriesDefaults : {
-				renderer : $.jqplot.BarRenderer, //使用柱状图表示
-				rendererOptions : {
-					barMargin : 10
-				//柱状体组之间间隔
-				}
-			},
-			axes : {
-				xaxis : {
-					ticks : [ '区域1', '区域2', '区域3', '区域4' ],
-					renderer : $.jqplot.CategoryAxisRenderer
-				//x轴绘制方式
-				}
-			}
-		});
-	</script>
 
 	<!-- 饼图 -->
 	<script type="text/javascript">
@@ -545,41 +381,212 @@
 
 	<!--  点击图表更新文本 -->
 	<script type="text/javascript">
-		$(document).ready(
-				function() {
-					var s1 = [ 2, 6, 7, 10 ];
-					var s2 = [ 7, 5, 3, 4 ];
-					var s3 = [ 14, 9, 3, 8 ];
-					plot3 = $.jqplot('chart9', [ s1, s2, s3 ], {
-						// Tell the plot to stack the bars.
-						stackSeries : true,
-						captureRightClick : true,
-						seriesDefaults : {
-							renderer : $.jqplot.BarRenderer,
-							rendererOptions : {
-								barMargin : 30,
-								highlightMouseDown : true
-							},
-							pointLabels : {
-								show : true
-							}
+		$(document).ready(function() {
+			var s1 = [ 2, 6, 7, 10 ];
+			var s2 = [ 7, 5, 3, 4 ];
+			var s3 = [ 14, 9, 3, 8 ];
+			plot3 = $.jqplot('chart9', [ s1, s2, s3 ], {
+				// Tell the plot to stack the bars.
+				stackSeries : true,
+				captureRightClick : true,
+				seriesDefaults : {
+					renderer : $.jqplot.BarRenderer,
+					rendererOptions : {
+						barMargin : 30,
+						highlightMouseDown : true
+					},
+					pointLabels : {
+						show : true
+					}
+				},
+				axes : {
+					xaxis : {
+						renderer : $.jqplot.CategoryAxisRenderer
+					},
+					yaxis : {
+						padMin : 1
+					}
+				},
+				legend : {
+					show : true,
+					location : 'e',
+					placement : 'outside'
+				}
+			});
+
+		});
+	</script>
+	
+	
+	
+	<!-- 大数小数偏差系统分析-->
+	<script type="text/javascript">
+		function getdaxiaofenxijieguo() {
+			$
+					.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureBigSmall.action',
+						dataType : "json",
+						success : function(data) {
+							var json = eval('(' + data + ')');
+							BIGSHU = json.integersBIG;
+							SMALLSHU = json.integersSMALL;
+							ticks2 = json.qishulist;
+							ZONGBIG = json.zongbig;
+							ZONGSMALL = json.zongsmall;
+							CHA = json.cha;
+							
+		$
+									.jqplot(
+											'chatgetdaxiaofenxijieguo',
+											[ BIGSHU, SMALLSHU ],
+											{
+												seriesDefaults : {
+													renderer : $.jqplot.BarRenderer, //使用柱状图表示
+													rendererOptions : {
+														barMargin : 50,
+														highlightMouseDown : true
+													}
+
+												},
+												series : [ {
+													label : '大数'
+												}, {
+													label : '小数'
+												} ],
+												legend : {
+													show : true,
+													placement : 'outsideGrid'
+												},
+												title : {
+													text : '大数小数偏差系统分析', //设置当前图的标题
+													show : true,//设置当前图的标题是否显示
+												},
+												axes : {
+													xaxis : {
+														ticks : ticks2,
+														renderer : $.jqplot.CategoryAxisRenderer,
+														pad : 1,
+														tickOptions : {
+															fontSize : '13px'
+														},
+														showTicks : true
+
+													},
+													yaxis : {
+														ticks : [ 0, 1, 2, 3,
+																4, 5, 6, 7, 8,
+																9, 10 ],
+														renderer : $.jqplot.LinearAxisRenderer,
+														pad : 1
+													}
+												}
+											});
 						},
-						axes : {
-							xaxis : {
-								renderer : $.jqplot.CategoryAxisRenderer
-							},
-							yaxis : {
-								padMin : 1
-							}
-						},
-						legend : {
-							show : true,
-							location : 'e',
-							placement : 'outside'
+						error : function(data) {
+							alert("系统异常,请重新尝试");
 						}
 					});
-					
-				});
+
+		}
+	</script>
+	
+	
+	<!-- 奇数偶数偏差系统分析-->
+	<script type="text/javascript">
+		function getjisoufenxijieguo() {
+			$
+					.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureOddEven.action',
+
+						dataType : "json",
+						success : function(data) {
+							var json = eval('(' + data + ')');
+							JISHU = json.integersODD;
+							OUSHU = json.integersEVEN;
+							ticks2 = json.qishulist;
+							ODD = json.odd;
+							EVEN = json.even;
+							CHA = json.cha;
+							//显示图表
+							$
+									.jqplot(
+											'chartgetjisoufenxijieguo',
+											[ JISHU, OUSHU ],
+											{
+												seriesDefaults : {
+													renderer : $.jqplot.BarRenderer, //使用柱状图表示
+													rendererOptions : {
+														barMargin : 50,
+														highlightMouseDown : true
+
+													}
+
+												},
+												series : [ {
+													label : '奇数'
+												}, {
+													label : '偶数'
+												}
+
+												],
+												legend : {
+													show : true,
+													// 设置标识在图表外，元素内（在canvas内）
+													placement : 'outsideGrid'
+												},
+												title : {
+													text : '奇数偶数偏差系统分析', //设置当前图的标题
+													show : true,//设置当前图的标题是否显示
+												},
+
+												axes : {
+													xaxis : {
+														ticks : ticks2,
+														renderer : $.jqplot.CategoryAxisRenderer,
+														pad : 1,
+														tickOptions : {
+															fontSize : '13px'
+														},
+														showTicks : true
+
+													},
+													yaxis : {
+														ticks : [ 0, 1, 2, 3,
+																4, 5, 6, 7, 8,
+																9, 10 ],
+														renderer : $.jqplot.LinearAxisRenderer,
+														pad : 1
+													}
+												}
+											});
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+
+		}
+	/* 	line1 = [ 4, 3, 6, 1, 7, 0, 4, 3, 5, 2 ]; //子统计1数据
+		line2 = [ 3, 4, 1, 6, 0, 7, 3, 4, 2, 5 ]; //子统计2数据
+		var ticks = [ 2015, 2015, 2015, 2015 ];
+		$.jqplot('chart4', [ line1, line2 ], {
+			seriesDefaults : {
+				renderer : $.jqplot.BarRenderer, //使用柱状图表示
+				rendererOptions : {
+					barMargin : 10
+				//柱状体组之间间隔
+				}
+			},
+			axes : {
+				xaxis : {
+					ticks : [ '区域1', '区域2', '区域3', '区域4' ],
+					renderer : $.jqplot.CategoryAxisRenderer
+				//x轴绘制方式
+				}
+			}
+		}); */
 	</script>
 </body>
 </html>
