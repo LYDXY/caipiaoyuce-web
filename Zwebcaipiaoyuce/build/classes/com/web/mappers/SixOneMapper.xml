@@ -92,4 +92,11 @@
 	   <include refid="sixone_column1" />  WHERE qishu &lt; #{qishu} ORDER BY qishu DESC 
 	</select>
 	
+	
+	<!-- 查询 最近 5 到 8期的集合 -->
+	<select id="way8" resultType="sixone" parameterType="Integer" >
+     <include refid="sixone_column1" />  ORDER BY qishu DESC limit #{top}
+    </select>
+	
+	
 </mapper>

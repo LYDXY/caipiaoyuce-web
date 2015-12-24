@@ -52,6 +52,89 @@ public class SixOneAction extends BaseAction {
 
 	}
 
+	
+	
+	/**
+	 * 遗漏数字偏差系统
+	 */
+	public String futureYiLou() {
+		logger.info("----------------------futureYiLou");
+		List<SixOne> sixonesTop5 = SixOneServices.way8(5);
+		List<SixOne> sixonesTop6 = SixOneServices.way8(6);
+		List<SixOne> sixonesTop7 = SixOneServices.way8(7);
+		List<SixOne> sixonesTop8 = SixOneServices.way8(8);
+		List<SixOne> tempsixOne5;
+		List<SixOne> tempsixOne6;
+		List<SixOne> tempsixOne7;
+		List<SixOne> tempsixOne8;
+		SixOne reallysixOne;
+		for (SixOne sixOne5 : sixonesTop5) {
+			reallysixOne = sixOne5; // 146
+			Integer qishu = reallysixOne.getQishu();
+			List<Integer> Templist = new ArrayList<Integer>();
+			Templist.add(reallysixOne.getFirst());
+			Templist.add(reallysixOne.getSecond());
+			Templist.add(reallysixOne.getThird());
+			Templist.add(reallysixOne.getFourth());
+			Templist.add(reallysixOne.getFifth());
+			Templist.add(reallysixOne.getSixth());
+			Templist.add(reallysixOne.getSeventh());
+			for (Integer integer : Templist) {
+
+				for (SixOne tempsixOne : sixonesTop5) { // 145,144,143,142
+					if (tempsixOne.getQishu() < reallysixOne.getQishu()) {
+						Integer tempqishu = tempsixOne.getQishu();
+						Integer tempfirst = tempsixOne.getFirst();
+						Integer tempsecond = tempsixOne.getSecond();
+						Integer tempthird = tempsixOne.getThird();
+						Integer tempfourth = tempsixOne.getFourth();
+						Integer tempfifth = tempsixOne.getFifth();
+						Integer tempsixth = tempsixOne.getSixth();
+						Integer tempseventh = tempsixOne.getSeventh();
+						if (integer == tempfirst) {
+							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+							break;
+						}
+						if (integer == tempsecond) {
+							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+							break;
+						}
+						if (integer == tempthird) {
+							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+							break;
+						}
+						if (integer == tempfourth) {
+							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+							break;
+						}
+						if (integer == tempfifth) {
+							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+							break;
+						}
+						if (integer == tempsixth) {
+							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+							break;
+						}
+						if (integer == tempseventh) {
+							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+							break;
+						}
+
+					}
+				}
+
+			}
+		}
+
+		return "FUTUREYILOUSUCCESS";
+	}
 	/**
 	 * 热门冷门数字偏差追踪系统
 	 */

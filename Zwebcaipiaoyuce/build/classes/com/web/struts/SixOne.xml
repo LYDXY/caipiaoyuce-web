@@ -26,7 +26,11 @@
 			<result name="GETFUTURE_SUCCESS">../jsp/sixonefuture.jsp</result>
 		</action>
 
-
+        <action name="SixOneActionFutureYiLou" class="com.web.action.SixOneAction"
+			method="futureYiLou">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result name="FUTUREYILOUSUCCESS">../jsp/sixonefuture.jsp</result>
+		</action>
 
 	
 		<action name="SixOneActionFutureColdHot" class="com.web.action.SixOneAction"

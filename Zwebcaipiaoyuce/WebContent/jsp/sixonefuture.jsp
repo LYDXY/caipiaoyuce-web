@@ -113,7 +113,7 @@
 				<td>预测结果</td>
 			</tr>
 			<tr>
-				<td>33333333333333333333</td>
+				<td><a href="${pageContext.request.contextPath }/SixOneAction/SixOneActionFutureYiLou.action">遗漏数字偏差分析系统</a></td>
 				<td><div id="chart8" style="width: 600px; height: 400px;"></div></td>
 				<td>预测结果</td>
 			</tr>

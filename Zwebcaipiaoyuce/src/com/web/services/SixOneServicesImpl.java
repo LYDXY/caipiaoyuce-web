@@ -96,4 +96,13 @@ public class SixOneServicesImpl implements SixOneServices {
 		
 		return sixonemapper.way7(qishu);
 	}
+
+	/**
+	 *  查询 最近 5 到 8期的集合
+	 */
+    @Override
+	public List<SixOne> way8(Integer top) {
+		
+		return sixonemapper.way8(top);
+	}
 }
