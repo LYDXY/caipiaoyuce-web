@@ -68,6 +68,11 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> tempsixOne7;
 		List<SixOne> tempsixOne8;
 		SixOne reallysixOne;
+		List<Integer> yilouZeroInTop5 = new ArrayList<Integer>();
+		List<Integer> yilouOneInTop5 = new ArrayList<Integer>();
+		List<Integer> yilouTwoInTop5 = new ArrayList<Integer>();
+		List<Integer> yilouThreeInTop5 = new ArrayList<Integer>();
+		List<Integer> yilouFourOrMoreInTop5 = new ArrayList<Integer>();
 		for (SixOne sixOne5 : sixonesTop5) {
 			reallysixOne = sixOne5; // 146
 			Integer qishu = reallysixOne.getQishu();
@@ -91,40 +96,32 @@ public class SixOneAction extends BaseAction {
 						Integer tempfifth = tempsixOne.getFifth();
 						Integer tempsixth = tempsixOne.getSixth();
 						Integer tempseventh = tempsixOne.getSeventh();
-						if (integer == tempfirst) {
+
+						if (integer == tempfirst || integer == tempsecond || integer == tempthird
+								|| integer == tempfourth || integer == tempfifth || integer == tempsixth
+								|| integer == tempseventh) {
+							logger.info("数字" + integer + "在第" + qishu + "期出现");
 							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+							if ((qishu - tempqishu - 1) == 0) {
+								yilouZeroInTop5.add(integer);
+							}
+							if ((qishu - tempqishu - 1) == 1) {
+								yilouOneInTop5.add(integer);
+							}
+							if ((qishu - tempqishu - 1) == 2) {
+                                yilouTwoInTop5.add(integer);
+							}
+							if ((qishu - tempqishu - 1) == 3) {
+                               yilouThreeInTop5.add(integer);
+							}
 							break;
-						}
-						if (integer == tempsecond) {
-							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
-							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+						} else {
+							logger.info("数字" + integer + "在过去几期没出现");
+							yilouFourOrMoreInTop5.add(integer);
 							break;
-						}
-						if (integer == tempthird) {
-							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
-							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-							break;
-						}
-						if (integer == tempfourth) {
-							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
-							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-							break;
-						}
-						if (integer == tempfifth) {
-							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
-							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-							break;
-						}
-						if (integer == tempsixth) {
-							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
-							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-							break;
-						}
-						if (integer == tempseventh) {
-							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
-							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-							break;
+							// logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu-
+							// 1));
 						}
 
 					}
@@ -132,7 +129,11 @@ public class SixOneAction extends BaseAction {
 
 			}
 		}
-
+        logger.info("在过去5期中 遗漏次数 为 0的 数字有 :"+yilouZeroInTop5.toString());
+        logger.info("在过去5期中 遗漏次数 为 1的 数字有 :"+yilouOneInTop5.toString());
+        logger.info("在过去5期中 遗漏次数 为 2的 数字有 :"+yilouTwoInTop5.toString());
+        logger.info("在过去5期中 遗漏次数 为 3的 数字有 :"+yilouThreeInTop5.toString());
+        logger.info("在过去5期中 遗漏次数 为 4 或者在这5期中只出现 1次 的 数字有 :"+yilouFourOrMoreInTop5.toString());
 		return "FUTUREYILOUSUCCESS";
 	}
 	/**
@@ -191,6 +192,7 @@ public class SixOneAction extends BaseAction {
 							+ tempseventh);
 
 					if (integer == tempfirst) {
+						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						yilouzongshu += qishu - tempqishu - 1;
@@ -204,6 +206,7 @@ public class SixOneAction extends BaseAction {
 						iscunzai = true;
 						break;
 					} else if (integer == tempsecond) {
+						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						yilouzongshu += qishu - tempqishu - 1;
@@ -217,6 +220,7 @@ public class SixOneAction extends BaseAction {
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempthird) {
+						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						yilouzongshu += qishu - tempqishu - 1;
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
@@ -230,6 +234,7 @@ public class SixOneAction extends BaseAction {
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempfourth) {
+						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						yilouzongshu += qishu - tempqishu - 1;
@@ -243,6 +248,7 @@ public class SixOneAction extends BaseAction {
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempfifth) {
+						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						yilouzongshu += qishu - tempqishu - 1;
@@ -256,6 +262,7 @@ public class SixOneAction extends BaseAction {
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempsixth) {
+						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						yilouzongshu += qishu - tempqishu - 1;
@@ -269,6 +276,7 @@ public class SixOneAction extends BaseAction {
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempseventh) {
+						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						yilouzongshu += qishu - tempqishu - 1;
