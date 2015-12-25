@@ -68,7 +68,7 @@ public class SixOneAction extends BaseAction {
 		Integer Integer36to40 = 0;
 		Integer Integer41to45 = 0;
 		Integer Integer46to49 = 0;
-		List<Integer> qishulist = new ArrayList<Integer>();
+		List<Integer> qishulisttop10 = new ArrayList<Integer>();
 		for (SixOne tempsixOne : sixonesTop10) {
 			List<Integer> templist = new ArrayList<Integer>();
 			Integer tempqishu = tempsixOne.getQishu();
@@ -92,26 +92,43 @@ public class SixOneAction extends BaseAction {
 				} else if (integer <= 10 && integer > 5) {
 					Integer6to10++;
 				} else if (integer <= 15 && integer > 10) {
-
+					Integer11to15++;
 				} else if (integer <= 20 && integer > 15) {
-
+					Integer16to20++;
 				} else if (integer <= 25 && integer > 20) {
-
+					Integer21to25++;
 				} else if (integer <= 30 && integer > 25) {
-
+					Integer26to30++;
 				} else if (integer <= 35 && integer > 30) {
-
+					Integer31to35++;
 				} else if (integer <= 40 && integer > 35) {
-
+					Integer36to40++;
 				} else if (integer <= 45 && integer > 40) {
-
+					Integer41to45++;
 				} else if (integer <= 49 && integer > 45) {
-
+					Integer46to49++;
 				}
 			}
-			qishulist.add(tempqishu);
+			
 
 		}
+		qishulisttop10.add(Integer1to5);
+		qishulisttop10.add(Integer6to10);
+		qishulisttop10.add(Integer11to15);
+		qishulisttop10.add(Integer16to20);
+		qishulisttop10.add(Integer21to25);
+		qishulisttop10.add(Integer26to30);
+		qishulisttop10.add(Integer31to35);
+		qishulisttop10.add(Integer36to40);
+		qishulisttop10.add(Integer41to45);
+		qishulisttop10.add(Integer46to49);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("qishulisttop10", qishulisttop10);
+	
+		logger.info(map.toString());
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
 		return "FUTURESHUZIQUJIANSUCCESS";
 	}
 
