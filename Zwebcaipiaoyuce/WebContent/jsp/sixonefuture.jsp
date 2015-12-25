@@ -78,7 +78,7 @@
 						style="height: 400px; width: 900px;"></div></td>
 				<td>预测结果</td>
 			</tr>
-			
+
 			<tr>
 				<td class="warning">
 					<h3>末位数字偏差系统分析</h3> <br />
@@ -86,7 +86,8 @@
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
 
-				<td><div id="chartgetjisouFutureMoWei" style="width: 600px; height: 400px;"></div></td>
+				<td><div id="chartgetjisouFutureMoWei"
+						style="width: 600px; height: 400px;"></div></td>
 				<td>预测结果</td>
 			</tr>
 			<tr>
@@ -96,7 +97,7 @@
 				<td><div id="chartdiv3" style="height: 400px; width: 600px;"></div></td>
 				<td>预测结果</td>
 			</tr>
-			
+
 			<tr>
 				<td class="warning"><a
 					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureColdHot.action">热门冷门偏差系统分析</a></td>
@@ -104,8 +105,13 @@
 				<td>预测结果</td>
 			</tr>
 			<tr>
-				<td>33333333333333333333</td>
-				<td><div id="chartdiv" style="width: 700px; height: 400px;"></div></td>
+				<td class="warning">
+					<h3>和数值偏差系统分析</h3> <br />
+					<button id="getheshuzhifenxijieguo"
+						onclick="getheshuzhifenxijieguo()" class="btn btn-primary btn-lg">执行</button>
+				</td>
+				<td><div id="chartgetheshuzhifenxijieguo"
+						style="width: 900px; height: 400px;"></div></td>
 				<td>预测结果</td>
 			</tr>
 			<tr>
@@ -232,10 +238,10 @@
 		});
 	</script>
 
-	
 
 
-	
+
+
 
 	<!-- 饼图 -->
 	<script type="text/javascript">
@@ -423,9 +429,9 @@
 
 		});
 	</script>
-	
-	
-	
+
+
+
 	<!-- 大数小数偏差系统分析-->
 	<script type="text/javascript">
 		function getdaxiaofenxijieguo() {
@@ -442,8 +448,8 @@
 							ZONGBIG = json.zongbig;
 							ZONGSMALL = json.zongsmall;
 							CHA = json.cha;
-							
-		$
+
+							$
 									.jqplot(
 											'chatgetdaxiaofenxijieguo',
 											[ BIGSHU, SMALLSHU ],
@@ -497,8 +503,84 @@
 
 		}
 	</script>
-	
-	
+
+	<!-- 和数值偏差系统分析-->
+	<script type="text/javascript">
+		function getheshuzhifenxijieguo() {
+
+			$
+					.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureHeShuzhi.action',
+						dataType : "json",
+						success : function(data) {
+
+							var json = eval('(' + data + ')');
+							heshuzhiList = json.heshuzhiList;
+							middlesumiList = json.middlesumiList;
+							ticks2 = json.qishulist;
+
+							$
+									.jqplot(
+											'chartgetheshuzhifenxijieguo',
+											[ heshuzhiList, middlesumiList ],
+											{
+												seriesDefaults : {
+													renderer : $.jqplot.BarRenderer, //使用柱状图表示
+													rendererOptions : {
+														barMargin : 50,
+														highlightMouseDown : true
+													}
+
+												},
+												series : [ {
+													label : '和数值'
+												}, {
+													label : '和中值'
+												} ],
+												legend : {
+													show : true,
+													placement : 'outsideGrid'
+												},
+												title : {
+													text : '和数值偏差系统分析', //设置当前图的标题
+													show : true,//设置当前图的标题是否显示
+												},
+												axes : {
+													xaxis : {
+														ticks : ticks2,
+														renderer : $.jqplot.CategoryAxisRenderer,
+														pad : 1,
+														tickOptions : {
+															fontSize : '13px'
+														},
+														showTicks : true
+
+													},
+													yaxis : {
+														ticks : [ 30, 40, 50,
+																60, 70, 80, 90,
+																100, 110, 120,
+																130, 140, 150,
+																160, 170, 180,
+																190, 200, 210,
+																220, 230, 240,
+																250, 260, 270,
+																280, 290, 300 ],
+														renderer : $.jqplot.LinearAxisRenderer,
+														pad : 1
+													}
+												}
+											});
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+
+		}
+	</script>
+
 	<!-- 奇数偶数偏差系统分析-->
 	<script type="text/javascript">
 		function getjisoufenxijieguo() {
@@ -575,9 +657,8 @@
 					});
 
 		}
-
 	</script>
-	
+
 	<!-- 末位数字偏差系统分析-->
 	<script type="text/javascript">
 		function getjisouFutureMoWei() {
@@ -611,9 +692,9 @@
 
 												},
 												series : [ {
-													//label : '奇数'
+												//label : '奇数'
 												}, {
-													//label : '偶数'
+												//label : '偶数'
 												}
 
 												],
@@ -654,7 +735,6 @@
 					});
 
 		}
-
 	</script>
 </body>
 </html>

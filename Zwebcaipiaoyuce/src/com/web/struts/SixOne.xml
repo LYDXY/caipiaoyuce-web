@@ -86,6 +86,16 @@
 			</result>
 		</action>
 		
+		<!--和数值偏差系统 -->
+		<action name="SixOneActionFutureHeShuzhi" class="com.web.action.SixOneAction"
+			method="futureHeShuzhi">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTUREHESHUZHISUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		
 	</package>
 
 </struts>

@@ -54,6 +54,43 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
+	 * 和数值偏差系统分析
+	 */
+	public String futureHeShuzhi() {
+		// 求出和数值中值
+		float sum1 = 1 + 2 + 3 + 4 + 5 + 6 + 7;
+		float sum2 = 43 + 44 + 45 + 46 + 47 + 48 + 49;
+		float middlesum = (sum1 + sum2) / 2f;
+		List<SixOne> sixonesTop10 = SixOneServices.way5();
+		List<Integer> heshuzhiList = new ArrayList<Integer>();
+		List<Integer> qishulist = new ArrayList<Integer>();
+		List<Float> middlesumiList = new ArrayList<Float>();
+		for (SixOne tempsixOne : sixonesTop10) { // 145,144,143,142
+            Integer tempqishu=tempsixOne.getQishu();
+			Integer tempfirst = tempsixOne.getFirst();
+			Integer tempsecond = tempsixOne.getSecond();
+			Integer tempthird = tempsixOne.getThird();
+			Integer tempfourth = tempsixOne.getFourth();
+			Integer tempfifth = tempsixOne.getFifth();
+			Integer tempsixth = tempsixOne.getSixth();
+			Integer tempseventh = tempsixOne.getSeventh();
+			Integer he = tempfirst + tempsecond + tempthird + tempfourth + tempfifth + tempsixth + tempseventh;
+			heshuzhiList.add(he);
+			middlesumiList.add(middlesum);
+			qishulist.add(tempqishu);
+		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("heshuzhiList", heshuzhiList);
+		map.put("qishulist", qishulist);
+		map.put("middlesumiList", middlesumiList);
+		logger.info(map.toString());
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
+		return "FUTUREHESHUZHISUCCESS";
+	}
+
+	/**
 	 * 末位数字偏差系统分析
 	 */
 	public String futureMoWei() {
