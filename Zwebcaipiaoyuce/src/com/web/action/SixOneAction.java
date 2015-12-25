@@ -54,6 +54,68 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
+	 * 数字区间偏差追踪系统
+	 */
+	public String futureShuZiQuJian() {
+		List<SixOne> sixonesTop10 = SixOneServices.way5();
+		Integer Integer1to5 = 0;
+		Integer Integer6to10 = 0;
+		Integer Integer11to15 = 0;
+		Integer Integer16to20 = 0;
+		Integer Integer21to25 = 0;
+		Integer Integer26to30 = 0;
+		Integer Integer31to35 = 0;
+		Integer Integer36to40 = 0;
+		Integer Integer41to45 = 0;
+		Integer Integer46to49 = 0;
+		List<Integer> qishulist = new ArrayList<Integer>();
+		for (SixOne tempsixOne : sixonesTop10) {
+			List<Integer> templist = new ArrayList<Integer>();
+			Integer tempqishu = tempsixOne.getQishu();
+			Integer tempfirst = tempsixOne.getFirst();
+			Integer tempsecond = tempsixOne.getSecond();
+			Integer tempthird = tempsixOne.getThird();
+			Integer tempfourth = tempsixOne.getFourth();
+			Integer tempfifth = tempsixOne.getFifth();
+			Integer tempsixth = tempsixOne.getSixth();
+			Integer tempseventh = tempsixOne.getSeventh();
+			templist.add(tempfirst);
+			templist.add(tempsecond);
+			templist.add(tempthird);
+			templist.add(tempfourth);
+			templist.add(tempfifth);
+			templist.add(tempsixth);
+			templist.add(tempseventh);
+			for (Integer integer : templist) {
+				if (integer <= 5 && integer >= 1) {
+					Integer1to5++;
+				} else if (integer <= 10 && integer > 5) {
+					Integer6to10++;
+				} else if (integer <= 15 && integer > 10) {
+
+				} else if (integer <= 20 && integer > 15) {
+
+				} else if (integer <= 25 && integer > 20) {
+
+				} else if (integer <= 30 && integer > 25) {
+
+				} else if (integer <= 35 && integer > 30) {
+
+				} else if (integer <= 40 && integer > 35) {
+
+				} else if (integer <= 45 && integer > 40) {
+
+				} else if (integer <= 49 && integer > 45) {
+
+				}
+			}
+			qishulist.add(tempqishu);
+
+		}
+		return "FUTURESHUZIQUJIANSUCCESS";
+	}
+
+	/**
 	 * 和数值偏差系统分析
 	 */
 	public String futureHeShuzhi() {
@@ -66,7 +128,7 @@ public class SixOneAction extends BaseAction {
 		List<Integer> qishulist = new ArrayList<Integer>();
 		List<Float> middlesumiList = new ArrayList<Float>();
 		for (SixOne tempsixOne : sixonesTop10) { // 145,144,143,142
-            Integer tempqishu=tempsixOne.getQishu();
+			Integer tempqishu = tempsixOne.getQishu();
 			Integer tempfirst = tempsixOne.getFirst();
 			Integer tempsecond = tempsixOne.getSecond();
 			Integer tempthird = tempsixOne.getThird();
