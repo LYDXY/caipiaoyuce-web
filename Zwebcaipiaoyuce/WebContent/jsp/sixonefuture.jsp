@@ -78,6 +78,17 @@
 						style="height: 400px; width: 900px;"></div></td>
 				<td>预测结果</td>
 			</tr>
+			
+			<tr>
+				<td class="warning">
+					<h3>末位数字偏差系统分析</h3> <br />
+					<button id="getjisouFutureMoWei" onclick="getjisouFutureMoWei()"
+						class="btn btn-primary btn-lg">执行</button>
+				</td>
+
+				<td><div id="chartgetjisouFutureMoWei" style="width: 600px; height: 400px;"></div></td>
+				<td>预测结果</td>
+			</tr>
 			<tr>
 
 				<td class="warning"><a
@@ -85,11 +96,7 @@
 				<td><div id="chartdiv3" style="height: 400px; width: 600px;"></div></td>
 				<td>预测结果</td>
 			</tr>
-			<tr>
-				<td>33333333333333333333</td>
-				<td><div id="chart1" style="width: 600px; height: 400px;"></div></td>
-				<td>预测结果</td>
-			</tr>
+			
 			<tr>
 				<td class="warning"><a
 					href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFutureColdHot.action">热门冷门偏差系统分析</a></td>
@@ -568,25 +575,86 @@
 					});
 
 		}
-	/* 	line1 = [ 4, 3, 6, 1, 7, 0, 4, 3, 5, 2 ]; //子统计1数据
-		line2 = [ 3, 4, 1, 6, 0, 7, 3, 4, 2, 5 ]; //子统计2数据
-		var ticks = [ 2015, 2015, 2015, 2015 ];
-		$.jqplot('chart4', [ line1, line2 ], {
-			seriesDefaults : {
-				renderer : $.jqplot.BarRenderer, //使用柱状图表示
-				rendererOptions : {
-					barMargin : 10
-				//柱状体组之间间隔
-				}
-			},
-			axes : {
-				xaxis : {
-					ticks : [ '区域1', '区域2', '区域3', '区域4' ],
-					renderer : $.jqplot.CategoryAxisRenderer
-				//x轴绘制方式
-				}
-			}
-		}); */
+
+	</script>
+	
+	<!-- 末位数字偏差系统分析-->
+	<script type="text/javascript">
+		function getjisouFutureMoWei() {
+			$
+					.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureMoWei.action',
+
+						dataType : "json",
+						success : function(data) {
+							var json = eval('(' + data + ')');
+							JISHU = json.integersODD;
+							OUSHU = json.integersEVEN;
+							ticks2 = json.qishulist;
+							ODD = json.odd;
+							EVEN = json.even;
+							CHA = json.cha;
+							//显示图表
+							$
+									.jqplot(
+											'chartgetjisouFutureMoWei',
+											[ JISHU, OUSHU ],
+											{
+												seriesDefaults : {
+													renderer : $.jqplot.BarRenderer, //使用柱状图表示
+													rendererOptions : {
+														barMargin : 50,
+														highlightMouseDown : true
+
+													}
+
+												},
+												series : [ {
+													//label : '奇数'
+												}, {
+													//label : '偶数'
+												}
+
+												],
+												legend : {
+													show : true,
+													// 设置标识在图表外，元素内（在canvas内）
+													placement : 'outsideGrid'
+												},
+												title : {
+													text : '奇数偶数偏差系统分析', //设置当前图的标题
+													show : true,//设置当前图的标题是否显示
+												},
+
+												axes : {
+													xaxis : {
+														ticks : ticks2,
+														renderer : $.jqplot.CategoryAxisRenderer,
+														pad : 1,
+														tickOptions : {
+															fontSize : '13px'
+														},
+														showTicks : true
+
+													},
+													yaxis : {
+														ticks : [ 0, 1, 2, 3,
+																4, 5, 6, 7, 8,
+																9, 10 ],
+														renderer : $.jqplot.LinearAxisRenderer,
+														pad : 1
+													}
+												}
+											});
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+
+		}
+
 	</script>
 </body>
 </html>

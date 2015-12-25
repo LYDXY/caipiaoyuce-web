@@ -52,12 +52,84 @@ public class SixOneAction extends BaseAction {
 	public SixOneAction() {
 
 	}
-    /**
-     * 末位数字偏差系统分析
-     */
-	public String futureMoWei(){
+
+	/**
+	 * 末位数字偏差系统分析
+	 */
+	public String futureMoWei() {
+		logger.info("----------------------futureMoWei");
+		List<SixOne> sixonesTop5 = SixOneServices.way8(5);
+		List<SixOne> sixonesTop6 = SixOneServices.way8(6);
+		List<SixOne> sixonesTop7 = SixOneServices.way8(7);
+		List<SixOne> sixonesTop8 = SixOneServices.way8(8);
+		List<SixOne> sixonesTop9 = SixOneServices.way8(9);
+		// 过去的5期末位数字统计
+		Integer zeroTop5 = 0;
+		Integer oneTop5 = 0;
+		Integer twoTop5 = 0;
+		Integer threeTop5 = 0;
+		Integer fourTop5 = 0;
+		Integer fiveTop5 = 0;
+		Integer sixTop5 = 0;
+		Integer sevenTop5 = 0;
+		Integer eightTop5 = 0;
+		Integer nineTop5 = 0;
+		for (SixOne sixOne : sixonesTop5) {
+            List<Integer> integers=new ArrayList<Integer>();
+			Integer tempfirst = sixOne.getFifth() % 10;
+			Integer tempsecond = sixOne.getSecond() % 10;
+			Integer tempthird = sixOne.getThird() % 10;
+			Integer tempfourth = sixOne.getFourth() % 10;
+			Integer tempfifth = sixOne.getFifth() % 10;
+			Integer tempsixth = sixOne.getSixth() % 10;
+			Integer tempseventh = sixOne.getSeventh() % 10;
+			integers.add(tempfirst);
+			integers.add(tempsecond);
+			integers.add(tempthird);
+			integers.add(tempfourth);
+			integers.add(tempfifth);
+			integers.add(tempsixth);
+			integers.add(tempseventh);
+			for (Integer integer : integers) {
+				if (integer == 0) {
+					zeroTop5++;
+				} else if (integer == 1) {
+					oneTop5++;
+				} else if (integer == 2) {
+					twoTop5++;
+				} else if (integer == 3) {
+					threeTop5++;
+				} else if (integer == 4) {
+					fourTop5++;
+				} else if (integer == 5) {
+					fiveTop5++;
+				} else if (integer == 6) {
+					sixTop5++;
+				} else if (integer == 7) {
+					sevenTop5++;
+				} else if (integer == 8) {
+					eightTop5++;
+				} else if (integer == 9) {
+					nineTop5++;
+				}
+
+			}
+			
+			
+		}
+		logger.info("在过去5期中末位数为0的数字的个数共有" + zeroTop5 + "个");
+		logger.info("在过去5期中末位数为1的数字的个数共有" + oneTop5 + "个");
+		logger.info("在过去5期中末位数为2的数字的个数共有" + twoTop5 + "个");
+		logger.info("在过去5期中末位数为3的数字的个数共有" + threeTop5 + "个");
+		logger.info("在过去5期中末位数为4的数字的个数共有" + fourTop5 + "个");
+		logger.info("在过去5期中末位数为5的数字的个数共有" + fiveTop5 + "个");
+		logger.info("在过去5期中末位数为6的数字的个数共有" + sixTop5 + "个");
+		logger.info("在过去5期中末位数为7的数字的个数共有" + sevenTop5 + "个");
+		logger.info("在过去5期中末位数为8的数字的个数共有" + eightTop5 + "个");
+		logger.info("在过去5期中末位数为9的数字的个数共有" + nineTop5 + "个");
 		return "FUTUREMOWEISUCCESS";
 	}
+
 	/**
 	 * 大小数字偏差系统分析
 	 */
@@ -525,103 +597,105 @@ public class SixOneAction extends BaseAction {
 			for (Integer integer : Templist) {
 				int geshu = 0;
 				for (SixOne tempsixOne : temps) { // 145,144,143,142
-					
-						Integer tempqishu = tempsixOne.getQishu();
-						Integer tempfirst = tempsixOne.getFirst();
-						Integer tempsecond = tempsixOne.getSecond();
-						Integer tempthird = tempsixOne.getThird();
-						Integer tempfourth = tempsixOne.getFourth();
-						Integer tempfifth = tempsixOne.getFifth();
-						Integer tempsixth = tempsixOne.getSixth();
-						Integer tempseventh = tempsixOne.getSeventh();
 
-						if (integer == tempfirst || integer == tempsecond || integer == tempthird
-								|| integer == tempfourth || integer == tempfifth || integer == tempsixth
-								|| integer == tempseventh) {
-							logger.info("数字" + integer + "在第" + qishu + "期出现");
-							logger.info("数字" + integer + "在第" + tempqishu + "期出现");
-							logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-							if ((qishu - tempqishu - 1) == 0) {
-								yilouZeroInTop9.add(integer);
-								break;
-							}
-							if ((qishu - tempqishu - 1) == 1) {
-								yilouOneInTop9.add(integer);
-								break;
-							}
-							if ((qishu - tempqishu - 1) == 2) {
-								yilouTwoInTop9.add(integer);
-								break;
-							}
-							if ((qishu - tempqishu - 1) == 3) {
-								yilouThreeInTop9.add(integer);
-								break;
-							}
-							if ((qishu - tempqishu - 1) == 4) {
-								yilouFourInTop9.add(integer);
-								break;
-							}
-							if ((qishu - tempqishu - 1) == 5) {
-								yilouFiveInTop9.add(integer);
-								break;
-							}
-							
-						
-						} else {
-							logger.info("数字" + integer + "在" + tempqishu + "没出现");
-							geshu = geshu + 1;
-							System.out.println(geshu);
-							if (geshu == 6) {
-								yilouFiveOrMoreInTop9.add(integer);
-								break;
-							}
+					Integer tempqishu = tempsixOne.getQishu();
+					Integer tempfirst = tempsixOne.getFirst();
+					Integer tempsecond = tempsixOne.getSecond();
+					Integer tempthird = tempsixOne.getThird();
+					Integer tempfourth = tempsixOne.getFourth();
+					Integer tempfifth = tempsixOne.getFifth();
+					Integer tempsixth = tempsixOne.getSixth();
+					Integer tempseventh = tempsixOne.getSeventh();
+
+					if (integer == tempfirst || integer == tempsecond || integer == tempthird || integer == tempfourth
+							|| integer == tempfifth || integer == tempsixth || integer == tempseventh) {
+						logger.info("数字" + integer + "在第" + qishu + "期出现");
+						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
+						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+						if ((qishu - tempqishu - 1) == 0) {
+							yilouZeroInTop9.add(integer);
+							break;
+						}
+						if ((qishu - tempqishu - 1) == 1) {
+							yilouOneInTop9.add(integer);
+							break;
+						}
+						if ((qishu - tempqishu - 1) == 2) {
+							yilouTwoInTop9.add(integer);
+							break;
+						}
+						if ((qishu - tempqishu - 1) == 3) {
+							yilouThreeInTop9.add(integer);
+							break;
+						}
+						if ((qishu - tempqishu - 1) == 4) {
+							yilouFourInTop9.add(integer);
+							break;
+						}
+						if ((qishu - tempqishu - 1) == 5) {
+							yilouFiveInTop9.add(integer);
+							break;
 						}
 
+					} else {
+						logger.info("数字" + integer + "在" + tempqishu + "没出现");
+						geshu = geshu + 1;
+						System.out.println(geshu);
+						if (geshu == 6) {
+							yilouFiveOrMoreInTop9.add(integer);
+							break;
+						}
 					}
-				}
 
-			
+				}
+			}
+
 		}
-		logger.info("在过去5期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop5.toString()+"共"+yilouZeroInTop5.size()+"个");
-		logger.info("在过去5期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop5.toString()+"共"+yilouOneInTop5.size()+"个");
-		logger.info("在过去5期中 遗漏次数 为 2的 数字有 :" + yilouTwoInTop5.toString()+"共"+yilouTwoInTop5.size()+"个");
-		logger.info("在过去5期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop5.toString()+"共"+yilouThreeInTop5.size()+"个");
-		logger.info("在过去5期中 遗漏次数 为 4的 数字有 :" + yilouFourInTop5.toString()+"共"+yilouFourInTop5.size()+"个");
-		logger.info("在过去5期中 遗漏次数 为 5的 数字有 :" + yilouFiveInTop5.toString()+"共"+yilouFiveInTop5.size()+"个");
-		logger.info("在过去5期中 遗漏次数 为 6 或者6以上 以上 :" + yilouFiveMoreInTop5.toString()+"共"+yilouFiveMoreInTop5.size()+"个");
+		logger.info("在过去5期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop5.toString() + "共" + yilouZeroInTop5.size() + "个");
+		logger.info("在过去5期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop5.toString() + "共" + yilouOneInTop5.size() + "个");
+		logger.info("在过去5期中 遗漏次数 为 2的 数字有 :" + yilouTwoInTop5.toString() + "共" + yilouTwoInTop5.size() + "个");
+		logger.info("在过去5期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop5.toString() + "共" + yilouThreeInTop5.size() + "个");
+		logger.info("在过去5期中 遗漏次数 为 4的 数字有 :" + yilouFourInTop5.toString() + "共" + yilouFourInTop5.size() + "个");
+		logger.info("在过去5期中 遗漏次数 为 5的 数字有 :" + yilouFiveInTop5.toString() + "共" + yilouFiveInTop5.size() + "个");
+		logger.info(
+				"在过去5期中 遗漏次数 为 6 或者6以上 以上 :" + yilouFiveMoreInTop5.toString() + "共" + yilouFiveMoreInTop5.size() + "个");
 		logger.info("---------------------------------------------------------");
-		logger.info("在过去6期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop6.toString()+"共"+yilouZeroInTop6.size()+"个");
-		logger.info("在过去6期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop6.toString()+"共"+yilouOneInTop6.size()+"个");
-		logger.info("在过去6期中 遗漏次数 为 2的 数字有 :" + yilouTwoInTop6.toString()+"共"+yilouTwoInTop6.size()+"个");
-		logger.info("在过去6期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop6.toString()+"共"+yilouThreeInTop6.size()+"个");
-		logger.info("在过去6期中 遗漏次数 为 4的 数字有 :" + yilouFourInTop6.toString()+"共"+yilouFourInTop6.size()+"个");
-		logger.info("在过去6期中 遗漏次数 为 5的数字有:" + yilouFiveInTop6.toString()+"共"+yilouFiveInTop6.size()+"个");
-		logger.info("在过去6期中 遗漏次数 为 6 或者6以上  :" + yilouFiveOrMoreInTop6.toString()+"共"+yilouFiveOrMoreInTop6.size()+"个");
+		logger.info("在过去6期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop6.toString() + "共" + yilouZeroInTop6.size() + "个");
+		logger.info("在过去6期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop6.toString() + "共" + yilouOneInTop6.size() + "个");
+		logger.info("在过去6期中 遗漏次数 为 2的 数字有 :" + yilouTwoInTop6.toString() + "共" + yilouTwoInTop6.size() + "个");
+		logger.info("在过去6期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop6.toString() + "共" + yilouThreeInTop6.size() + "个");
+		logger.info("在过去6期中 遗漏次数 为 4的 数字有 :" + yilouFourInTop6.toString() + "共" + yilouFourInTop6.size() + "个");
+		logger.info("在过去6期中 遗漏次数 为 5的数字有:" + yilouFiveInTop6.toString() + "共" + yilouFiveInTop6.size() + "个");
+		logger.info("在过去6期中 遗漏次数 为 6 或者6以上  :" + yilouFiveOrMoreInTop6.toString() + "共" + yilouFiveOrMoreInTop6.size()
+				+ "个");
 		logger.info("---------------------------------------------------------");
-		logger.info("在过去7期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop7.toString()+"共"+yilouZeroInTop7.size()+"个");
-		logger.info("在过去7期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop7.toString()+"共"+yilouOneInTop7.size()+"个");
-		logger.info("在过去7期中 遗漏次数 为 2的 数字有 :" + yilouTwoInTop7.toString()+"共"+yilouTwoInTop7.size()+"个");
-		logger.info("在过去7期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop7.toString()+"共"+yilouThreeInTop7.size()+"个");
-		logger.info("在过去7期中 遗漏次数 为 4的 数字有 :" + yilouFourInTop7.toString()+"共"+yilouFourInTop7.size()+"个");
-		logger.info("在过去7期中 遗漏次数 为 5的数字有 :" + yilouFiveInTop7.toString()+"共"+yilouFiveInTop7.size()+"个");
-		logger.info("在过去7期中 遗漏次数 为 6 或者 6以上 :" + yilouFiveOrMoreInTop7.toString()+"共"+yilouFiveOrMoreInTop7.size()+"个");
+		logger.info("在过去7期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop7.toString() + "共" + yilouZeroInTop7.size() + "个");
+		logger.info("在过去7期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop7.toString() + "共" + yilouOneInTop7.size() + "个");
+		logger.info("在过去7期中 遗漏次数 为 2的 数字有 :" + yilouTwoInTop7.toString() + "共" + yilouTwoInTop7.size() + "个");
+		logger.info("在过去7期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop7.toString() + "共" + yilouThreeInTop7.size() + "个");
+		logger.info("在过去7期中 遗漏次数 为 4的 数字有 :" + yilouFourInTop7.toString() + "共" + yilouFourInTop7.size() + "个");
+		logger.info("在过去7期中 遗漏次数 为 5的数字有 :" + yilouFiveInTop7.toString() + "共" + yilouFiveInTop7.size() + "个");
+		logger.info("在过去7期中 遗漏次数 为 6 或者 6以上 :" + yilouFiveOrMoreInTop7.toString() + "共" + yilouFiveOrMoreInTop7.size()
+				+ "个");
 		logger.info("---------------------------------------------------------");
-		logger.info("在过去8期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop8.toString()+"共"+yilouZeroInTop8.size()+"个");
-		logger.info("在过去8期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop8.toString()+"共"+yilouOneInTop8.size()+"个");
-		logger.info("在过去8期中 遗漏次数 为 2的 数字有 :" + yilouTwoInTop8.toString()+"共"+yilouTwoInTop8.size()+"个");
-		logger.info("在过去8期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop8.toString()+"共"+yilouThreeInTop8.size()+"个");
-		logger.info("在过去8期中 遗漏次数 为 4 数字有 :" + yilouFourInTop8.toString()+"共"+yilouFourInTop8.size()+"个");
-		logger.info("在过去8期中 遗漏次数 为 5 数字有 :" + yilouFiveInTop8.toString()+"共"+yilouFiveInTop8.size()+"个");
-		logger.info("在过去8期中 遗漏次数 为 6 或者 6以上 :" + yilouFiveOrMoreInTop8.toString()+"共"+yilouFiveOrMoreInTop8.size()+"个");
+		logger.info("在过去8期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop8.toString() + "共" + yilouZeroInTop8.size() + "个");
+		logger.info("在过去8期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop8.toString() + "共" + yilouOneInTop8.size() + "个");
+		logger.info("在过去8期中 遗漏次数 为 2的 数字有 :" + yilouTwoInTop8.toString() + "共" + yilouTwoInTop8.size() + "个");
+		logger.info("在过去8期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop8.toString() + "共" + yilouThreeInTop8.size() + "个");
+		logger.info("在过去8期中 遗漏次数 为 4 数字有 :" + yilouFourInTop8.toString() + "共" + yilouFourInTop8.size() + "个");
+		logger.info("在过去8期中 遗漏次数 为 5 数字有 :" + yilouFiveInTop8.toString() + "共" + yilouFiveInTop8.size() + "个");
+		logger.info("在过去8期中 遗漏次数 为 6 或者 6以上 :" + yilouFiveOrMoreInTop8.toString() + "共" + yilouFiveOrMoreInTop8.size()
+				+ "个");
 		logger.info("---------------------------------------------------------");
-		logger.info("在过去9期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop9.toString()+"共"+yilouZeroInTop9.size()+"个");
-		logger.info("在过去9期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop9.toString()+"共"+yilouOneInTop9.size()+"个");
-		logger.info("在过去9期中 遗漏次数 为 2的 数字有 :" + yilouTwoInTop9.toString()+"共"+yilouTwoInTop9.size()+"个");
-		logger.info("在过去9期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop9.toString()+"共"+yilouThreeInTop9.size()+"个");
-		logger.info("在过去9期中 遗漏次数 为 4 数字有 :" + yilouFourInTop9.toString()+"共"+yilouFourInTop9.size()+"个");
-		logger.info("在过去9期中 遗漏次数 为 5 数字有 :" + yilouFiveInTop9.toString()+"共"+yilouFiveInTop9.size()+"个");
-		logger.info("在过去9期中 遗漏次数 为 6 或者 6以上 :" + yilouFiveOrMoreInTop9.toString()+"共"+yilouFiveOrMoreInTop9.size()+"个");
-		
+		logger.info("在过去9期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop9.toString() + "共" + yilouZeroInTop9.size() + "个");
+		logger.info("在过去9期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop9.toString() + "共" + yilouOneInTop9.size() + "个");
+		logger.info("在过去9期中 遗漏次数 为 2的 数字有 :" + yilouTwoInTop9.toString() + "共" + yilouTwoInTop9.size() + "个");
+		logger.info("在过去9期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop9.toString() + "共" + yilouThreeInTop9.size() + "个");
+		logger.info("在过去9期中 遗漏次数 为 4 数字有 :" + yilouFourInTop9.toString() + "共" + yilouFourInTop9.size() + "个");
+		logger.info("在过去9期中 遗漏次数 为 5 数字有 :" + yilouFiveInTop9.toString() + "共" + yilouFiveInTop9.size() + "个");
+		logger.info("在过去9期中 遗漏次数 为 6 或者 6以上 :" + yilouFiveOrMoreInTop9.toString() + "共" + yilouFiveOrMoreInTop9.size()
+				+ "个");
+
 		return "FUTUREYILOUSUCCESS";
 	}
 

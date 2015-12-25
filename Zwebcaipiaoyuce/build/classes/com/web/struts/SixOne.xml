@@ -76,6 +76,16 @@
 				<param name="root">result</param>
 			</result>
 		</action>
+		
+		<!--末位数字偏差系统 -->
+		<action name="SixOneActionFutureMoWei" class="com.web.action.SixOneAction"
+			method="futureMoWei">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTUREMOWEISUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
 	</package>
 
 </struts>
