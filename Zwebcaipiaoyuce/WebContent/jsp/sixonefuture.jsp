@@ -440,9 +440,9 @@
 													}
 												},
 												series : [ {
-													label : '大数'
+													label : '大数:>25'
 												}, {
-													label : '小数'
+													label : '小数:<=25'
 												} ],
 												legend : {
 													show : true,
@@ -504,9 +504,9 @@
 													}
 												},
 												series : [ {
-													label : '和数值'
+													label : '和数值 :每一期的数字之和'
 												}, {
-													label : '和中值'
+													label : '和中值 :175'
 												} ],
 												legend : {
 													show : true,
@@ -700,6 +700,9 @@
 							alert(data);
 							var table = document.createElement("table");//创建表格
 							table.setAttribute("class", "table table-bordered");//给表格设置属性
+						//	table.setAttribute("border", 1);//给表格设置属性
+						//	table.addClass("table table-bordered");
+	                        
 							//获取每一行的数据
 							for(i=0;i<json.length; i++){ //行数跟json.length一样
 							   
