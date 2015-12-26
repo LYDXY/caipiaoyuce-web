@@ -109,7 +109,6 @@ public class SixOneAction extends BaseAction {
 					Integer46to49++;
 				}
 			}
-			
 
 		}
 		qishulisttop10.add(Integer1to5);
@@ -124,7 +123,7 @@ public class SixOneAction extends BaseAction {
 		qishulisttop10.add(Integer46to49);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("qishulisttop10", qishulisttop10);
-	
+
 		logger.info(map.toString());
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
 		logger.info(jsonObjectFromMap.toString());
@@ -179,6 +178,7 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> sixonesTop7 = SixOneServices.way8(7);
 		List<SixOne> sixonesTop8 = SixOneServices.way8(8);
 		List<SixOne> sixonesTop9 = SixOneServices.way8(9);
+		Map<String, Integer> map = new HashMap<String, Integer>();
 		// 过去的5期末位数字统计
 		int zeroTop5 = 0;
 		int oneTop5 = 0;
@@ -243,6 +243,17 @@ public class SixOneAction extends BaseAction {
 		logger.info("在过去5期中末位数为7的数字的个数共有" + sevenTop5 + "个");
 		logger.info("在过去5期中末位数为8的数字的个数共有" + eightTop5 + "个");
 		logger.info("在过去5期中末位数为9的数字的个数共有" + nineTop5 + "个");
+		map.put("zeroTop5", zeroTop5);
+		map.put("oneTop5", oneTop5);
+		map.put("twoTop5", twoTop5);
+		map.put("threeTop5", threeTop5);
+		map.put("fourTop5", fourTop5);
+		map.put("fiveTop5", fiveTop5);
+		map.put("sixTop5", sixTop5);
+		map.put("sevenTop5", sevenTop5);
+		map.put("eightTop5", eightTop5);
+		map.put("nineTop5", nineTop5);
+
 		// 过去6期
 		int zeroTop6 = 0;
 		int oneTop6 = 0;
@@ -308,6 +319,16 @@ public class SixOneAction extends BaseAction {
 		logger.info("在过去6期中末位数为8的数字的个数共有" + eightTop6 + "个");
 		logger.info("在过去6期中末位数为9的数字的个数共有" + nineTop6 + "个");
 
+		map.put("zeroTop6", zeroTop6);
+		map.put("oneTop6", oneTop6);
+		map.put("twoTop6", twoTop6);
+		map.put("threeTop6", threeTop6);
+		map.put("fourTop6", fourTop6);
+		map.put("fiveTop6", fiveTop6);
+		map.put("sixTop6", sixTop6);
+		map.put("sevenTop6", sevenTop6);
+		map.put("eightTop6", eightTop6);
+		map.put("nineTop6", nineTop6);
 		// 过去7期
 		int zeroTop7 = 0;
 		int oneTop7 = 0;
@@ -372,6 +393,16 @@ public class SixOneAction extends BaseAction {
 		logger.info("在过去7期中末位数为7的数字的个数共有" + sevenTop7 + "个");
 		logger.info("在过去7期中末位数为8的数字的个数共有" + eightTop7 + "个");
 		logger.info("在过去7期中末位数为9的数字的个数共有" + nineTop7 + "个");
+		map.put("zeroTop7", zeroTop7);
+		map.put("oneTop7", oneTop7);
+		map.put("twoTop7", twoTop7);
+		map.put("threeTop7", threeTop7);
+		map.put("fourTop7", fourTop7);
+		map.put("fiveTop7", fiveTop7);
+		map.put("sixTop7", sixTop7);
+		map.put("sevenTop7", sevenTop7);
+		map.put("eightTop7", eightTop7);
+		map.put("nineTop7", nineTop7);
 
 		// 过去8期
 		int zeroTop8 = 0;
@@ -437,6 +468,16 @@ public class SixOneAction extends BaseAction {
 		logger.info("在过去8期中末位数为7的数字的个数共有" + sevenTop8 + "个");
 		logger.info("在过去8期中末位数为8的数字的个数共有" + eightTop8 + "个");
 		logger.info("在过去8期中末位数为9的数字的个数共有" + nineTop8 + "个");
+		map.put("zeroTop8", zeroTop8);
+		map.put("oneTop8", oneTop8);
+		map.put("twoTop8", twoTop8);
+		map.put("threeTop8", threeTop8);
+		map.put("fourTop8", fourTop8);
+		map.put("fiveTop8", fiveTop8);
+		map.put("sixTop8", sixTop8);
+		map.put("sevenTop8", sevenTop8);
+		map.put("eightTop8", eightTop8);
+		map.put("nineTop8", nineTop8);
 		// 过去9期
 		int zeroTop9 = 0;
 		int oneTop9 = 0;
@@ -501,6 +542,21 @@ public class SixOneAction extends BaseAction {
 		logger.info("在过去9期中末位数为7的数字的个数共有" + sevenTop9 + "个");
 		logger.info("在过去9期中末位数为8的数字的个数共有" + eightTop9 + "个");
 		logger.info("在过去9期中末位数为9的数字的个数共有" + nineTop9 + "个");
+		map.put("zeroTop9", zeroTop9);
+		map.put("oneTop9", oneTop9);
+		map.put("twoTop9", twoTop9);
+		map.put("threeTop9", threeTop9);
+		map.put("fourTop9", fourTop9);
+		map.put("fiveTop9", fiveTop9);
+		map.put("sixTop9", sixTop9);
+		map.put("sevenTop9", sevenTop9);
+		map.put("eightTop9", eightTop9);
+		map.put("nineTop9", nineTop9);
+
+		logger.info(map.toString());
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
 		return "FUTUREMOWEISUCCESS";
 	}
 
@@ -1234,15 +1290,16 @@ public class SixOneAction extends BaseAction {
 					logger.info("数字" + integer + "过去从未出现过");
 				}
 			}
-			everyone.put("yilouqingkuang", stringBuilder);
-			everyone.put("zongyilougeshu", (int) geshu);
-			everyone.put("yiloucishuzongshu", yilouzongshu);
-			everyone.put("yiloupingjungeshu", yilouzongshu / 7.f);
+			logger.info(stringBuilder);
+			everyone.put("yilouqingkuang", stringBuilder.deleteCharAt(stringBuilder.length()-1)+"");
+			everyone.put("zongyilougeshu", (int) geshu+"");
+			everyone.put("yiloucishuzongshu", yilouzongshu+"");
+			everyone.put("yiloupingjungeshu", yilouzongshu / 7.f+"");
 			logger.info("各个数字遗漏情况:" + stringBuilder);
 			logger.info("本次遗漏次数在10以内的数字共有" + (int) geshu + "个");
 			logger.info("本期遗漏的次数总数" + yilouzongshu);
 			logger.info("本次遗漏平均个数为" + yilouzongshu / 7.f + "个");
-			builders.add(stringBuilder);
+		//	builders.add(stringBuilder);
 			fenxijieguolist.add(everyone);
 		}
 		logger.info("分析结果");
@@ -1252,7 +1309,12 @@ public class SixOneAction extends BaseAction {
 			}
 		}
 		logger.info("==============================================");
-		logger.info(builders.toString());
+	//	logger.info(builders.toString());
+		
+		logger.info(fenxijieguolist.toString());
+		JSONArray jsonObjectFromMap = JSONArray.fromObject(fenxijieguolist);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
 		return "FUTURECOLDHOTSUCCESS";
 	}
 

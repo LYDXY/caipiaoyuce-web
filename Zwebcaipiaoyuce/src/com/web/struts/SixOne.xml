@@ -95,6 +95,14 @@
 			</result>
 		</action>
 		
+		<!--热门冷门数字偏差系统 -->
+		<action name="SixOneActionFutureColdHot" class="com.web.action.SixOneAction"
+			method="futureColdHot">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTURECOLDHOTSUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
 		
 	</package>
 
