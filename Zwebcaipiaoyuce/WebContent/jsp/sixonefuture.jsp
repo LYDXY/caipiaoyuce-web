@@ -702,8 +702,30 @@
 							table.setAttribute("class", "table table-bordered");//给表格设置属性
 						//	table.setAttribute("border", 1);//给表格设置属性
 						//	table.addClass("table table-bordered");
-	                        
+						
+	                        var trhead = document.createElement("tr");//创建表头
+	                        var tdqishuhead = document.createElement("td"); //创建单元格子
+                            var tdnumberhead = document.createElement("td"); //创建单元格子
+                            var tdyilouqingkuanghead = document.createElement("td"); //创建单元格子
+                            var tdzongyilougeshuhead = document.createElement("td"); //创建单元格子
+                            var tdyiloucishuzongshuhead = document.createElement("td"); //创建单元格子
+                            var tdyiloupingjungeshuhead = document.createElement("td"); //创建单元格子
+                            
+                            tdqishuhead.innerHTML = "期数";
+                            tdnumberhead.innerHTML = "开奖数字";
+                            tdyilouqingkuanghead.innerHTML = "遗漏情况";
+                            tdzongyilougeshuhead.innerHTML = "遗漏次数<10 的个数 (和)";
+                            tdyiloucishuzongshuhead.innerHTML = "7个开奖数字的遗漏次数的和";
+                            tdyiloupingjungeshuhead.innerHTML = "遗漏次数的和 / 7= 遗漏平均次数";
+                            
+                            trhead.appendChild(tdqishuhead);
+                            trhead.appendChild(tdnumberhead);
+                            trhead.appendChild(tdyilouqingkuanghead);
+                            trhead.appendChild(tdzongyilougeshuhead);
+                            trhead.appendChild(tdyiloucishuzongshuhead);
+                            trhead.appendChild(tdyiloupingjungeshuhead);
 							//获取每一行的数据
+							table.appendChild(trhead);
 							for(i=0;i<json.length; i++){ //行数跟json.length一样
 							   
 							   var tr = document.createElement("tr");//创建每一行
