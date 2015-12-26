@@ -128,10 +128,6 @@
 						style="width: 900px; height: 400px;"></div></td>
 				<td>预测结果</td>
 			</tr>
-			
-			
-			
-			
 			<tr>
 				<td>33333333333333333333</td>
 				<td><div id="chart5" style="width: 600px; height: 400px;"></div></td>
@@ -548,7 +544,6 @@
 					});
 		}
 	</script>
-   
     <!-- 奇数偶数偏差系统分析-->
 	<script type="text/javascript">
 		function getjisoufenxijieguo() {
@@ -686,7 +681,6 @@
 					});
 		}
 	</script>
-	
 	<!-- 热门冷门数字偏差系统分析-->
 	<script type="text/javascript">
 		function getremenlengmenfenxijieguo() {
@@ -702,7 +696,6 @@
 							table.setAttribute("class", "table table-bordered");//给表格设置属性
 						//	table.setAttribute("border", 1);//给表格设置属性
 						//	table.addClass("table table-bordered");
-						
 	                        var trhead = document.createElement("tr");//创建表头
 	                        var tdqishuhead = document.createElement("td"); //创建单元格子
                             var tdnumberhead = document.createElement("td"); //创建单元格子
@@ -710,14 +703,12 @@
                             var tdzongyilougeshuhead = document.createElement("td"); //创建单元格子
                             var tdyiloucishuzongshuhead = document.createElement("td"); //创建单元格子
                             var tdyiloupingjungeshuhead = document.createElement("td"); //创建单元格子
-                            
                             tdqishuhead.innerHTML = "期数";
                             tdnumberhead.innerHTML = "开奖数字";
                             tdyilouqingkuanghead.innerHTML = "遗漏情况";
                             tdzongyilougeshuhead.innerHTML = "遗漏次数<10 的个数 (和)";
                             tdyiloucishuzongshuhead.innerHTML = "7个开奖数字的遗漏次数的和";
                             tdyiloupingjungeshuhead.innerHTML = "遗漏次数的和 / 7= 遗漏平均次数";
-                            
                             trhead.appendChild(tdqishuhead);
                             trhead.appendChild(tdnumberhead);
                             trhead.appendChild(tdyilouqingkuanghead);
@@ -727,7 +718,6 @@
 							//获取每一行的数据
 							table.appendChild(trhead);
 							for(i=0;i<json.length; i++){ //行数跟json.length一样
-							   
 							   var tr = document.createElement("tr");//创建每一行
 							   var tdqishu = document.createElement("td"); //创建单元格子
                                var tdnumber = document.createElement("td"); //创建单元格子
@@ -741,28 +731,15 @@
                                tdzongyilougeshu.innerHTML = json[i].zongyilougeshu;
                                tdyiloucishuzongshu.innerHTML = json[i].yiloucishuzongshu;
                                tdyiloupingjungeshu.innerHTML = json[i].yiloupingjungeshu;
-							   
                                tr.appendChild(tdqishu);
                                tr.appendChild(tdnumber);
                                tr.appendChild(tdyilouqingkuang);
                                tr.appendChild(tdzongyilougeshu);
                                tr.appendChild(tdyiloucishuzongshu);
                                tr.appendChild(tdyiloupingjungeshu);
-                              
                                table.appendChild(tr);
-
 							}
-
 							document.getElementById("remenlengmenfenxi").appendChild(table);
-							
-							
-								
-		                    
-							
-
-							
-							
-
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
