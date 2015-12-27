@@ -52,15 +52,15 @@
 		</thead>
 		<tbody>
 		    <!-- 奇数偶数偏差系统分析 -->
-			<tr>
-				<td class="warning">
+			<tr >
+				<td class="info">
 					<h3>奇数偶数偏差系统分析</h3> <br />
 					<button id="getjisoufenxijieguo" onclick="getjisoufenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td><div id="chartgetjisoufenxijieguo"
+				<td ><div id="chartgetjisoufenxijieguo"
 						style="height: 400px; width: 900px;"></div></td>
-				<td width="500px">
+				<td width="500px" class="success">
 					<table class="table">
 						<thead>
 							<tr>
@@ -80,14 +80,14 @@
 			</tr>
 			<!-- 大数小数偏差系统分析 -->
 			<tr>
-				<td class="warning">
+				<td class="info">
 					<h3>大数小数偏差系统分析</h3> <br />
 					<button id="getdaxiaofenxijieguo" onclick="getdaxiaofenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td><div id="chatgetdaxiaofenxijieguo"
+				<td ><div id="chatgetdaxiaofenxijieguo"
 						style="height: 400px; width: 900px;"></div></td>
-				<td>
+				<td class="success">
 				    <table class="table">
 						<thead>
 							<tr>
@@ -107,7 +107,7 @@
 			</tr>
 			<!--末位数字偏差系统分析  -->
 			<tr>
-				<td class="warning">
+				<td class="info">
 					<h3>末位数字偏差系统分析</h3> <br />
 					<button id="getMoWeifenxijieguo" onclick="getjisouFutureMoWei()"
 						class="btn btn-primary btn-lg">执行</button>
@@ -130,11 +130,11 @@
                              <tr class="success"><td>9</td><td id="future5nine"> </td><td id="future6nine"> </td><td id="future7nine"> </td><td id="future8nine"> </td><td id="future9nine"> </td></tr>
                         </tbody>
                     </table>
-				<td>预测结果</td>
+				<td class="success"></td>
 			</tr>
 			<!-- 热门冷门数字偏差系统 -->
 			<tr>
-			     <td class="warning">
+			     <td class="info">
 					<h3>热门冷门偏差系统分析</h3> <br />
 					<button id="getremenlengmenfenxijieguo" onclick="getremenlengmenfenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
@@ -152,30 +152,30 @@
 						</thead>
 					</table>
 				</td>
-				<td>预测结果</td>
+				<td class="success"></td>
 			</tr>
 			<!-- 遗漏数字偏差系统 -->
 			<tr>
-				<td class="warning"><h3>遗漏数字偏差分析系统</h3> <br />
+				<td class="info"><h3>遗漏数字偏差分析系统</h3> <br />
 					<button  onclick="getyiloufenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button></td>
 				<td><div id="chart2" style="width: 600px; height: 400px;"></div></td>
-				<td>预测结果</td>
+				<td class="success"></td>
 			</tr>
 			<!-- 和数值偏差系统分析 -->
 			<tr>
-				<td class="warning">
+				<td class="info">
 					<h3>和数值偏差系统分析</h3> <br />
 					<button id="getheshuzhifenxijieguo"
 						onclick="getheshuzhifenxijieguo()" class="btn btn-primary btn-lg">执行</button>
 				</td>
 				<td><div id="chartgetheshuzhifenxijieguo"
 						style="width: 900px; height: 400px;"></div></td>
-				<td>预测结果</td>
+				<td class="success"></td>
 			</tr>
 			<!-- 数字区间偏差分析系统 -->
 			<tr>
-				<td class="warning">
+				<td class="info">
 				     <h3>数字区间偏差分析系统 </h3> <br />
 					<button onclick="getshuziqujianfenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button></td>
@@ -197,34 +197,15 @@
 							</tr>
 						</thead>
 					</table></td>
-				<td></td>
+				<td class="success"></td>
 			</tr>
 			<tr>
-				<td>33333333333333333333</td>
+				<td class="info"></td>
 				<td><div id="chart6" style="width: 600px; height: 400px;"></div></td>
-				<td>预测结果</td>
+				<td class="success"></td>
 			</tr>
-			<tr>
-				<td>33333333333333333333</td>
-				<td><div id="chart7" style="width: 600px; height: 400px;"></div></td>
-				<td>预测结果</td>
-			</tr>
-			<tr>
-				<td><a
-					href="${pageContext.request.contextPath }/SixOneAction/SixOneActionFutureYiLou.action">遗漏数字偏差分析系统</a></td>
-				<td><div id="chart8" style="width: 600px; height: 400px;"></div></td>
-				<td>预测结果</td>
-			</tr>
-			<tr>
-				<td>33333333333333333333</td>
-				<td><div id="chart9" style="width: 600px; height: 400px;"></div></td>
-				<td>预测结果</td>
-			</tr>
-			<tr class="warning">
-				<td>33333333333333333333</td>
-				<td><div id="chart10" style="width: 600px; height: 400px;"></div></td>
-				<td>预测结果</td>
-			</tr>
+			
+			
 		</tbody>
 	</table>
 	
