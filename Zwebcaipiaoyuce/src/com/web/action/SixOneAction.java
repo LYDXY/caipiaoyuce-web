@@ -57,19 +57,11 @@ public class SixOneAction extends BaseAction {
 	 * 数字区间偏差追踪系统
 	 */
 	public String futureShuZiQuJian() {
-		List<SixOne> sixonesTop10 = SixOneServices.way5();
-		Integer Integer1to5 = 0;
-		Integer Integer6to10 = 0;
-		Integer Integer11to15 = 0;
-		Integer Integer16to20 = 0;
-		Integer Integer21to25 = 0;
-		Integer Integer26to30 = 0;
-		Integer Integer31to35 = 0;
-		Integer Integer36to40 = 0;
-		Integer Integer41to45 = 0;
-		Integer Integer46to49 = 0;
-		List<Integer> qishulisttop10 = new ArrayList<Integer>();
+		List<SixOne> sixonesTop10 = SixOneServices.way9();
+		List<Map<String, Object>> list = new ArrayList<>();
 		for (SixOne tempsixOne : sixonesTop10) {
+
+			Map<String, Object> map2 = new HashMap<String, Object>();
 			List<Integer> templist = new ArrayList<Integer>();
 			Integer tempqishu = tempsixOne.getQishu();
 			Integer tempfirst = tempsixOne.getFirst();
@@ -79,6 +71,7 @@ public class SixOneAction extends BaseAction {
 			Integer tempfifth = tempsixOne.getFifth();
 			Integer tempsixth = tempsixOne.getSixth();
 			Integer tempseventh = tempsixOne.getSeventh();
+			map2.put("qishu", tempqishu);
 			templist.add(tempfirst);
 			templist.add(tempsecond);
 			templist.add(tempthird);
@@ -86,7 +79,19 @@ public class SixOneAction extends BaseAction {
 			templist.add(tempfifth);
 			templist.add(tempsixth);
 			templist.add(tempseventh);
+			List<Integer> qishulisttop10 = new ArrayList<Integer>();
+			Integer Integer1to5 = 0;
+			Integer Integer6to10 = 0;
+			Integer Integer11to15 = 0;
+			Integer Integer16to20 = 0;
+			Integer Integer21to25 = 0;
+			Integer Integer26to30 = 0;
+			Integer Integer31to35 = 0;
+			Integer Integer36to40 = 0;
+			Integer Integer41to45 = 0;
+			Integer Integer46to49 = 0;
 			for (Integer integer : templist) {
+
 				if (integer <= 5 && integer >= 1) {
 					Integer1to5++;
 				} else if (integer <= 10 && integer > 5) {
@@ -108,26 +113,28 @@ public class SixOneAction extends BaseAction {
 				} else if (integer <= 49 && integer > 45) {
 					Integer46to49++;
 				}
+
 			}
 
-		}
-		qishulisttop10.add(Integer1to5);
-		qishulisttop10.add(Integer6to10);
-		qishulisttop10.add(Integer11to15);
-		qishulisttop10.add(Integer16to20);
-		qishulisttop10.add(Integer21to25);
-		qishulisttop10.add(Integer26to30);
-		qishulisttop10.add(Integer31to35);
-		qishulisttop10.add(Integer36to40);
-		qishulisttop10.add(Integer41to45);
-		qishulisttop10.add(Integer46to49);
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("qishulisttop10", qishulisttop10);
+			qishulisttop10.add(Integer1to5);
+			qishulisttop10.add(Integer6to10);
+			qishulisttop10.add(Integer11to15);
+			qishulisttop10.add(Integer16to20);
+			qishulisttop10.add(Integer21to25);
+			qishulisttop10.add(Integer26to30);
+			qishulisttop10.add(Integer31to35);
+			qishulisttop10.add(Integer36to40);
+			qishulisttop10.add(Integer41to45);
+			qishulisttop10.add(Integer46to49);
+			map2.put("qujianqingkuang", qishulisttop10);
+			list.add(map2);
 
-		logger.info(map.toString());
-		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
-		logger.info(jsonObjectFromMap.toString());
-		result = jsonObjectFromMap.toString();
+		}
+
+		logger.info(list.toString());
+		JSONArray jsonObjectFromlist = JSONArray.fromObject(list);
+		logger.info(jsonObjectFromlist.toString());
+		result = jsonObjectFromlist.toString();
 		return "FUTURESHUZIQUJIANSUCCESS";
 	}
 
@@ -1291,15 +1298,15 @@ public class SixOneAction extends BaseAction {
 				}
 			}
 			logger.info(stringBuilder);
-			everyone.put("yilouqingkuang", stringBuilder.deleteCharAt(stringBuilder.length()-1)+"");
-			everyone.put("zongyilougeshu", (int) geshu+"");
-			everyone.put("yiloucishuzongshu", yilouzongshu+"");
-			everyone.put("yiloupingjungeshu", yilouzongshu / 7.f+"");
+			everyone.put("yilouqingkuang", stringBuilder.deleteCharAt(stringBuilder.length() - 1) + "");
+			everyone.put("zongyilougeshu", (int) geshu + "");
+			everyone.put("yiloucishuzongshu", yilouzongshu + "");
+			everyone.put("yiloupingjungeshu", yilouzongshu / 7.f + "");
 			logger.info("各个数字遗漏情况:" + stringBuilder);
 			logger.info("本次遗漏次数在10以内的数字共有" + (int) geshu + "个");
 			logger.info("本期遗漏的次数总数" + yilouzongshu);
 			logger.info("本次遗漏平均个数为" + yilouzongshu / 7.f + "个");
-		//	builders.add(stringBuilder);
+			// builders.add(stringBuilder);
 			fenxijieguolist.add(everyone);
 		}
 		logger.info("分析结果");
@@ -1309,8 +1316,8 @@ public class SixOneAction extends BaseAction {
 			}
 		}
 		logger.info("==============================================");
-	//	logger.info(builders.toString());
-		
+		// logger.info(builders.toString());
+
 		logger.info(fenxijieguolist.toString());
 		JSONArray jsonObjectFromMap = JSONArray.fromObject(fenxijieguolist);
 		logger.info(jsonObjectFromMap.toString());
@@ -1420,7 +1427,7 @@ public class SixOneAction extends BaseAction {
 			map.put("cha", odd - even);
 		}
 		if (odd < even) {
-			map.put("cha", even - even);
+			map.put("cha", even - odd);
 		}
 		logger.info(map.toString());
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);

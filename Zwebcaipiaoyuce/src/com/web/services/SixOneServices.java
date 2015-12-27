@@ -40,7 +40,11 @@ public interface SixOneServices {
 
 	// 查询 期数小于 选中期 的其他期数 ,并且降序
 	public List<SixOne> way7(Integer qishu);
-	
+
 	// 查询 最近 5 到 8期的集合
-    public List<SixOne> way8(Integer top);
+	public List<SixOne> way8(Integer top);
+
+	// 查询最近的10 期 ,先升序 再降序
+
+	public List<SixOne> way9();
 }

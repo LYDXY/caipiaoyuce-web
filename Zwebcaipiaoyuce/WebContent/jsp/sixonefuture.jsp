@@ -60,7 +60,23 @@
 				</td>
 				<td><div id="chartgetjisoufenxijieguo"
 						style="height: 400px; width: 900px;"></div></td>
-				<td width="500px">预测结果</td>
+				<td width="500px">
+					<table class="table">
+						<thead>
+							<tr>
+								<td>总奇数</td>
+								<td>总偶数</td>
+								<td>差</td>
+							</tr>
+						</thead>
+						<tr>
+							<td id="zongjishu"></td>
+							<td id="zongoushu"></td>
+							<td id="zongcha"></td>
+
+						</tr>
+					</table>
+				</td>
 			</tr>
 			<!-- 大数小数偏差系统分析 -->
 			<tr>
@@ -71,7 +87,23 @@
 				</td>
 				<td><div id="chatgetdaxiaofenxijieguo"
 						style="height: 400px; width: 900px;"></div></td>
-				<td>预测结果</td>
+				<td>
+				    <table class="table">
+						<thead>
+							<tr>
+								<td>总大数</td>
+								<td>总小数</td>
+								<td>差</td>
+							</tr>
+						</thead>
+						<tr>
+							<td id="zongdashu"></td>
+							<td id="zongxiaoshu"></td>
+							<td id="zongdaxiaocha"></td>
+
+						</tr>
+					</table>
+				</td>
 			</tr>
 			<!--末位数字偏差系统分析  -->
 			<tr>
@@ -419,10 +451,13 @@
 							var json = eval('(' + data + ')');
 							BIGSHU = json.integersBIG;
 							SMALLSHU = json.integersSMALL;
+							
 							ticks2 = json.qishulist;
-							ZONGBIG = json.zongbig;
-							ZONGSMALL = json.zongsmall;
-							CHA = json.cha;
+							
+							$("#zongdashu").html(json.zongbig);
+							$("#zongxiaoshu").html(json.zongsmall);
+							$("#zongdaxiaocha").html(json.cha);
+							
 							$
 									.jqplot(
 											'chatgetdaxiaofenxijieguo',
@@ -523,15 +558,15 @@
 														showTicks : true
 													},
 													yaxis : {
-														ticks : [ 30, 40, 50,
-																60, 70, 80, 90,
-																100, 110, 120,
-																130, 140, 150,
-																160, 170, 180,
-																190, 200, 210,
-																220, 230, 240,
-																250, 260, 270,
-																280, 290, 300 ],
+														ticks : [ 105, 110, 115,
+																120, 125, 130, 135,
+																140, 145, 150,
+																155, 160, 165,
+																170, 175, 180,
+																185, 190, 195,
+																200, 205, 210,
+																215, 220, 225,
+																230, 235, 240,245,250,255,260 ],
 														renderer : $.jqplot.LinearAxisRenderer,
 														pad : 1
 													}
@@ -557,9 +592,9 @@
 							JISHU = json.integersODD;
 							OUSHU = json.integersEVEN;
 							ticks2 = json.qishulist;
-							ODD = json.odd;
-							EVEN = json.even;
-							CHA = json.cha;
+							$("#zongjishu").html(json.odd);
+							$("#zongoushu").html(json.even);
+							$("#zongcha").html(json.cha);
 							//显示图表
 							$
 									.jqplot(

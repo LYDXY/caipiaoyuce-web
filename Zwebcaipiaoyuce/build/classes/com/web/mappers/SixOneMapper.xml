@@ -98,5 +98,9 @@
      <include refid="sixone_column1" />  ORDER BY qishu DESC limit #{top}
     </select>
 	
-	
+	<!-- 查询最近的10 期 ,先升序 再降序 -->
+	<select id="way9" resultType="sixone"  >
+     SELECT * from (SELECT * FROM tb_caipiao_six_one ORDER BY  qishu DESC LIMIT 10) AS t ORDER BY t.qishu ASC
+    </select>
+	  
 </mapper>

@@ -105,4 +105,11 @@ public class SixOneServicesImpl implements SixOneServices {
 		
 		return sixonemapper.way8(top);
 	}
+
+	
+	@Override
+	public List<SixOne> way9() {
+		
+		return sixonemapper.way9();
+	}
 }
