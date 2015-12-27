@@ -683,6 +683,7 @@ public class SixOneAction extends BaseAction {
 	 */
 	public String futureYiLou() {
 		logger.info("----------------------futureYiLou");
+		Map<String, Object> map = new HashMap<String, Object>();
 		List<SixOne> sixonesTop5 = SixOneServices.way8(5);
 		List<SixOne> sixonesTop6 = SixOneServices.way8(6);
 		List<SixOne> sixonesTop7 = SixOneServices.way8(7);
@@ -696,7 +697,8 @@ public class SixOneAction extends BaseAction {
 		List<Integer> yilouThreeInTop5 = new ArrayList<Integer>();
 		List<Integer> yilouFourInTop5 = new ArrayList<Integer>();
 		List<Integer> yilouFiveInTop5 = new ArrayList<Integer>();
-		List<Integer> yilouFiveMoreInTop5 = new ArrayList<Integer>();
+		List<Integer> yilouSixToNineInTop5 = new ArrayList<Integer>();
+		List<Integer> yilouTenAndMoreInTop5 = new ArrayList<Integer>();
 		// 6
 		List<Integer> yilouZeroInTop6 = new ArrayList<Integer>();
 		List<Integer> yilouOneInTop6 = new ArrayList<Integer>();
@@ -704,7 +706,8 @@ public class SixOneAction extends BaseAction {
 		List<Integer> yilouThreeInTop6 = new ArrayList<Integer>();
 		List<Integer> yilouFourInTop6 = new ArrayList<Integer>();
 		List<Integer> yilouFiveInTop6 = new ArrayList<Integer>();
-		List<Integer> yilouFiveOrMoreInTop6 = new ArrayList<Integer>();
+		List<Integer> yilouSixToNineInTop6 = new ArrayList<Integer>();
+		List<Integer> yilouTenAndMoreInTop6 = new ArrayList<Integer>();
 
 		// 7
 		List<Integer> yilouZeroInTop7 = new ArrayList<Integer>();
@@ -713,7 +716,8 @@ public class SixOneAction extends BaseAction {
 		List<Integer> yilouThreeInTop7 = new ArrayList<Integer>();
 		List<Integer> yilouFourInTop7 = new ArrayList<Integer>();
 		List<Integer> yilouFiveInTop7 = new ArrayList<Integer>();
-		List<Integer> yilouFiveOrMoreInTop7 = new ArrayList<Integer>();
+		List<Integer> yilouSixToNineInTop7 = new ArrayList<Integer>();
+		List<Integer> yilouTenAndMoreInTop7 = new ArrayList<Integer>();
 		// 8
 		List<Integer> yilouZeroInTop8 = new ArrayList<Integer>();
 		List<Integer> yilouOneInTop8 = new ArrayList<Integer>();
@@ -721,7 +725,8 @@ public class SixOneAction extends BaseAction {
 		List<Integer> yilouThreeInTop8 = new ArrayList<Integer>();
 		List<Integer> yilouFourInTop8 = new ArrayList<Integer>();
 		List<Integer> yilouFiveInTop8 = new ArrayList<Integer>();
-		List<Integer> yilouFiveOrMoreInTop8 = new ArrayList<Integer>();
+		List<Integer> yilouSixToNineInTop8 = new ArrayList<Integer>();
+		List<Integer> yilouTenAndMoreInTop8 = new ArrayList<Integer>();
 
 		// 9
 		List<Integer> yilouZeroInTop9 = new ArrayList<Integer>();
@@ -730,8 +735,8 @@ public class SixOneAction extends BaseAction {
 		List<Integer> yilouThreeInTop9 = new ArrayList<Integer>();
 		List<Integer> yilouFourInTop9 = new ArrayList<Integer>();
 		List<Integer> yilouFiveInTop9 = new ArrayList<Integer>();
-
-		List<Integer> yilouFiveOrMoreInTop9 = new ArrayList<Integer>();
+		List<Integer> yilouSixToNineInTop9 = new ArrayList<Integer>();
+		List<Integer> yilouTenAndMoreInTop9 = new ArrayList<Integer>();
 		// 针对过去5期
 		for (SixOne sixOne5 : sixonesTop5) {
 			SixOne reallysixOne = sixOne5; // 146
@@ -788,16 +793,15 @@ public class SixOneAction extends BaseAction {
 							yilouFiveInTop5.add(integer);
 							break;
 						}
-					}
-
-					else {
-						logger.info("数字" + integer + "在" + tempqishu + "没出现");
-						geshu = geshu + 1;
-						System.out.println(geshu);
-						if (geshu == 6) {
-							yilouFiveMoreInTop5.add(integer);
+						if ((qishu - tempqishu - 1) >= 6 && (qishu - tempqishu - 1) < 10) {
+							yilouSixToNineInTop5.add(integer);
 							break;
 						}
+						if ((qishu - tempqishu - 1) >= 10) {
+							yilouTenAndMoreInTop5.add(integer);
+							break;
+						}
+
 					}
 
 				}
@@ -860,15 +864,15 @@ public class SixOneAction extends BaseAction {
 							yilouFiveInTop6.add(integer);
 							break;
 						}
-
-					} else {
-						logger.info("数字" + integer + "在" + tempqishu + "没出现");
-						geshu = geshu + 1;
-						System.out.println(geshu);
-						if (geshu == 6) {
-							yilouFiveOrMoreInTop6.add(integer);
+						if ((qishu - tempqishu - 1) >= 6 && (qishu - tempqishu - 1) < 10) {
+							yilouSixToNineInTop6.add(integer);
 							break;
 						}
+						if ((qishu - tempqishu - 1) >= 10) {
+							yilouTenAndMoreInTop6.add(integer);
+							break;
+						}
+
 					}
 
 				}
@@ -931,15 +935,15 @@ public class SixOneAction extends BaseAction {
 							yilouFiveInTop7.add(integer);
 							break;
 						}
-
-					} else {
-						logger.info("数字" + integer + "在" + tempqishu + "没出现");
-						geshu = geshu + 1;
-						System.out.println(geshu);
-						if (geshu == 6) {
-							yilouFiveOrMoreInTop7.add(integer);
+						if ((qishu - tempqishu - 1) >= 6 && (qishu - tempqishu - 1) < 10) {
+							yilouSixToNineInTop7.add(integer);
 							break;
 						}
+						if ((qishu - tempqishu - 1) >= 10) {
+							yilouTenAndMoreInTop7.add(integer);
+							break;
+						}
+
 					}
 
 				}
@@ -1002,18 +1006,15 @@ public class SixOneAction extends BaseAction {
 							yilouFiveInTop8.add(integer);
 							break;
 						}
-
-						break;
-					} else {
-						logger.info("数字" + integer + "在" + tempqishu + "没出现");
-						geshu = geshu + 1;
-						System.out.println(geshu);
-						if (geshu == 6) {
-							yilouFiveOrMoreInTop8.add(integer);
+						if ((qishu - tempqishu - 1) >= 6 && (qishu - tempqishu - 1) < 10) {
+							yilouSixToNineInTop8.add(integer);
+							break;
+						}
+						if ((qishu - tempqishu - 1) >= 10) {
+							yilouTenAndMoreInTop8.add(integer);
 							break;
 						}
 					}
-
 				}
 			}
 
@@ -1073,13 +1074,12 @@ public class SixOneAction extends BaseAction {
 							yilouFiveInTop9.add(integer);
 							break;
 						}
-
-					} else {
-						logger.info("数字" + integer + "在" + tempqishu + "没出现");
-						geshu = geshu + 1;
-						System.out.println(geshu);
-						if (geshu == 6) {
-							yilouFiveOrMoreInTop9.add(integer);
+						if ((qishu - tempqishu - 1) >= 6 && (qishu - tempqishu - 1) < 10) {
+							yilouSixToNineInTop9.add(integer);
+							break;
+						}
+						if ((qishu - tempqishu - 1) >= 10) {
+							yilouTenAndMoreInTop9.add(integer);
 							break;
 						}
 					}
@@ -1094,8 +1094,10 @@ public class SixOneAction extends BaseAction {
 		logger.info("在过去5期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop5.toString() + "共" + yilouThreeInTop5.size() + "个");
 		logger.info("在过去5期中 遗漏次数 为 4的 数字有 :" + yilouFourInTop5.toString() + "共" + yilouFourInTop5.size() + "个");
 		logger.info("在过去5期中 遗漏次数 为 5的 数字有 :" + yilouFiveInTop5.toString() + "共" + yilouFiveInTop5.size() + "个");
-		logger.info(
-				"在过去5期中 遗漏次数 为 6 或者6以上 以上 :" + yilouFiveMoreInTop5.toString() + "共" + yilouFiveMoreInTop5.size() + "个");
+		logger.info("在过去5期中 遗漏次数 为 6 到 9之间的 数字有 :" + yilouSixToNineInTop5.toString() + "共" + yilouSixToNineInTop5.size()
+				+ "个");
+		logger.info("在过去5期中 遗漏次数大于或等于10的 数字有 :" + yilouTenAndMoreInTop5.toString() + "共" + yilouTenAndMoreInTop5.size()
+				+ "个");
 		logger.info("---------------------------------------------------------");
 		logger.info("在过去6期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop6.toString() + "共" + yilouZeroInTop6.size() + "个");
 		logger.info("在过去6期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop6.toString() + "共" + yilouOneInTop6.size() + "个");
@@ -1103,7 +1105,9 @@ public class SixOneAction extends BaseAction {
 		logger.info("在过去6期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop6.toString() + "共" + yilouThreeInTop6.size() + "个");
 		logger.info("在过去6期中 遗漏次数 为 4的 数字有 :" + yilouFourInTop6.toString() + "共" + yilouFourInTop6.size() + "个");
 		logger.info("在过去6期中 遗漏次数 为 5的数字有:" + yilouFiveInTop6.toString() + "共" + yilouFiveInTop6.size() + "个");
-		logger.info("在过去6期中 遗漏次数 为 6 或者6以上  :" + yilouFiveOrMoreInTop6.toString() + "共" + yilouFiveOrMoreInTop6.size()
+		logger.info("在过去6期中 遗漏次数 为 6 到 9之间的 数字有 :" + yilouSixToNineInTop6.toString() + "共" + yilouSixToNineInTop6.size()
+				+ "个");
+		logger.info("在过去6期中 遗漏次数大于或等于10的 数字有 :" + yilouTenAndMoreInTop6.toString() + "共" + yilouTenAndMoreInTop6.size()
 				+ "个");
 		logger.info("---------------------------------------------------------");
 		logger.info("在过去7期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop7.toString() + "共" + yilouZeroInTop7.size() + "个");
@@ -1112,7 +1116,9 @@ public class SixOneAction extends BaseAction {
 		logger.info("在过去7期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop7.toString() + "共" + yilouThreeInTop7.size() + "个");
 		logger.info("在过去7期中 遗漏次数 为 4的 数字有 :" + yilouFourInTop7.toString() + "共" + yilouFourInTop7.size() + "个");
 		logger.info("在过去7期中 遗漏次数 为 5的数字有 :" + yilouFiveInTop7.toString() + "共" + yilouFiveInTop7.size() + "个");
-		logger.info("在过去7期中 遗漏次数 为 6 或者 6以上 :" + yilouFiveOrMoreInTop7.toString() + "共" + yilouFiveOrMoreInTop7.size()
+		logger.info("在过去7期中 遗漏次数 为 6 到 9之间的 数字有 :" + yilouSixToNineInTop7.toString() + "共" + yilouSixToNineInTop7.size()
+				+ "个");
+		logger.info("在过去7期中 遗漏次数大于或等于10的 数字有 :" + yilouTenAndMoreInTop7.toString() + "共" + yilouTenAndMoreInTop7.size()
 				+ "个");
 		logger.info("---------------------------------------------------------");
 		logger.info("在过去8期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop8.toString() + "共" + yilouZeroInTop8.size() + "个");
@@ -1121,7 +1127,9 @@ public class SixOneAction extends BaseAction {
 		logger.info("在过去8期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop8.toString() + "共" + yilouThreeInTop8.size() + "个");
 		logger.info("在过去8期中 遗漏次数 为 4 数字有 :" + yilouFourInTop8.toString() + "共" + yilouFourInTop8.size() + "个");
 		logger.info("在过去8期中 遗漏次数 为 5 数字有 :" + yilouFiveInTop8.toString() + "共" + yilouFiveInTop8.size() + "个");
-		logger.info("在过去8期中 遗漏次数 为 6 或者 6以上 :" + yilouFiveOrMoreInTop8.toString() + "共" + yilouFiveOrMoreInTop8.size()
+		logger.info("在过去8期中 遗漏次数 为 6 到 9之间的 数字有 :" + yilouSixToNineInTop8.toString() + "共" + yilouSixToNineInTop8.size()
+				+ "个");
+		logger.info("在过去8期中 遗漏次数大于或等于10的 数字有 :" + yilouTenAndMoreInTop8.toString() + "共" + yilouTenAndMoreInTop8.size()
 				+ "个");
 		logger.info("---------------------------------------------------------");
 		logger.info("在过去9期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop9.toString() + "共" + yilouZeroInTop9.size() + "个");
@@ -1130,9 +1138,65 @@ public class SixOneAction extends BaseAction {
 		logger.info("在过去9期中 遗漏次数 为 3的 数字有 :" + yilouThreeInTop9.toString() + "共" + yilouThreeInTop9.size() + "个");
 		logger.info("在过去9期中 遗漏次数 为 4 数字有 :" + yilouFourInTop9.toString() + "共" + yilouFourInTop9.size() + "个");
 		logger.info("在过去9期中 遗漏次数 为 5 数字有 :" + yilouFiveInTop9.toString() + "共" + yilouFiveInTop9.size() + "个");
-		logger.info("在过去9期中 遗漏次数 为 6 或者 6以上 :" + yilouFiveOrMoreInTop9.toString() + "共" + yilouFiveOrMoreInTop9.size()
+		logger.info("在过去9期中 遗漏次数 为 6 到 9之间的 数字有 :" + yilouSixToNineInTop9.toString() + "共" + yilouSixToNineInTop9.size()
 				+ "个");
+		logger.info("在过去9期中 遗漏次数大于或等于10的 数字有 :" + yilouTenAndMoreInTop9.toString() + "共" + yilouTenAndMoreInTop9.size()
+				+ "个");
+        
+		map.put("yilouZeroInTop5", yilouZeroInTop5.toString());
+		map.put("yilouOneInTop5", yilouOneInTop5.toString());
+		map.put("yilouTwoInTop5", yilouTwoInTop5.toString());
+		map.put("yilouThreeInTop5", yilouThreeInTop5.toString());
+		map.put("yilouFourInTop5", yilouFourInTop5.toString());
+		map.put("yilouFiveInTop5", yilouFiveInTop5.toString());
+		map.put("yilouSixToNineInTop5", yilouSixToNineInTop5.toString());
+		map.put("yilouTenAndMoreInTop5", yilouTenAndMoreInTop5.toString());
+		
+		
+		map.put("yilouZeroInTop6", yilouZeroInTop6.toString());
+		map.put("yilouOneInTop6", yilouOneInTop6.toString());
+		map.put("yilouTwoInTop6", yilouTwoInTop6.toString());
+		map.put("yilouThreeInTop6", yilouThreeInTop6.toString());
+		map.put("yilouFourInTop6", yilouFourInTop6.toString());
+		map.put("yilouFiveInTop6", yilouFiveInTop6.toString());
+		map.put("yilouSixToNineInTop6", yilouSixToNineInTop6.toString());
+		map.put("yilouTenAndMoreInTop6", yilouTenAndMoreInTop6.toString());
+		
+		
+		map.put("yilouZeroInTop7", yilouZeroInTop7.toString());
+		map.put("yilouOneInTop7", yilouOneInTop7.toString());
+		map.put("yilouTwoInTop7", yilouTwoInTop7.toString());
+		map.put("yilouThreeInTop7", yilouThreeInTop7.toString());
+		map.put("yilouFourInTop7", yilouFourInTop7.toString());
+		map.put("yilouFiveInTop7", yilouFiveInTop7.toString());
+		map.put("yilouSixToNineInTop7", yilouSixToNineInTop7.toString());
+		map.put("yilouTenAndMoreInTop7", yilouTenAndMoreInTop7.toString());
 
+		
+		map.put("yilouZeroInTop8", yilouZeroInTop8.toString());
+		map.put("yilouOneInTop8", yilouOneInTop8.toString());
+		map.put("yilouTwoInTop8", yilouTwoInTop8.toString());
+		map.put("yilouThreeInTop8", yilouThreeInTop8.toString());
+		map.put("yilouFourInTop8", yilouFourInTop8.toString());
+		map.put("yilouFiveInTop8", yilouFiveInTop8.toString());
+		map.put("yilouSixToNineInTop8", yilouSixToNineInTop8.toString());
+		map.put("yilouTenAndMoreInTop8", yilouTenAndMoreInTop8.toString());
+
+		
+		map.put("yilouZeroInTop9", yilouZeroInTop9.toString());
+		map.put("yilouOneInTop9", yilouOneInTop9.toString());
+		map.put("yilouTwoInTop9", yilouTwoInTop9.toString());
+		map.put("yilouThreeInTop9", yilouThreeInTop9.toString());
+		map.put("yilouFourInTop9", yilouFourInTop9.toString());
+		map.put("yilouFiveInTop9", yilouFiveInTop9.toString());
+		map.put("yilouSixToNineInTop9", yilouSixToNineInTop9.toString());
+		map.put("yilouTenAndMoreInTop9", yilouTenAndMoreInTop9.toString());
+
+
+		logger.info(map.toString());
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
 		return "FUTUREYILOUSUCCESS";
 	}
 

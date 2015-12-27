@@ -84,7 +84,7 @@
 	
 	<!-- 查询最新的十期数 降序-->
 	<select id="way6" resultType="sixone">
-	   SELECT * FROM (select * from tb_caipiao_six_one ORDER BY qishu DESC limit 10)  as t ORDER BY t.qishu Desc
+	   SELECT * FROM (select * from tb_caipiao_six_one ORDER BY qishu DESC limit 20)  as t ORDER BY t.qishu Desc
 	</select>
 	
 	<!-- 查询 期数小于 选中期 的其他期数 ,并且降序-->
