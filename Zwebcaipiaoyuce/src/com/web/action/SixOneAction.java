@@ -146,7 +146,7 @@ public class SixOneAction extends BaseAction {
 		float sum1 = 1 + 2 + 3 + 4 + 5 + 6 + 7;
 		float sum2 = 43 + 44 + 45 + 46 + 47 + 48 + 49;
 		float middlesum = (sum1 + sum2) / 2f;
-		List<SixOne> sixonesTop10 = SixOneServices.way5();
+		List<SixOne> sixonesTop10 = SixOneServices.way10();
 		List<Integer> heshuzhiList = new ArrayList<Integer>();
 		List<Integer> qishulist = new ArrayList<Integer>();
 		List<Float> middlesumiList = new ArrayList<Float>();

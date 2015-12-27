@@ -48,20 +48,13 @@
 <body style="background-color: #fff;">
 	<br>
 	<br>
-	
-	<!-- 系统分析模块 -->
-	<div>
-	<a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFuture.action">未来一期系统分析</a>
-	<br>
-	</div>
-	<!-- 搜索模块 -->
-	<form id="searchForm">
-		期数:&nbsp;<input type="text" name="first" /> &emsp; 日期:&nbsp;<input
-			type="text" name="XH" /> &emsp; <input type="button"
-			onclick="doSearch();" value="搜索" /> &nbsp; &emsp; <input
-			type="button" onclick="doAdd();" value="添加一条新的数据" />
-		
-	</form>
+
+
+
+
+	<input type="button" onclick="doAdd()" value="添加一条新的数据" />
+
+
 	<br>
 	<br>
 	<!-- 表格模块 -->
@@ -79,6 +72,12 @@
 			<th w_index="ID" w_render="operate" width="10%;">操作</th>
 		</tr>
 	</table>
+
+	<div>
+		<a
+			href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFuture.action">未来一期系统分析</a>
+		<br>
+	</div>
 	<!-- 对话框模块 -->
 	<div id="artDialog-gridForm" style="display: none;">
 		<form id="gridForm" class="bsgrid_form">
@@ -96,8 +95,8 @@
 
 				<tr>
 					<td class="formLabel">球2</td>
-					<td class="formInput"><input id="form_second"
-						name="second" type="text" /></td>
+					<td class="formInput"><input id="form_second" name="second"
+						type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球3</td>
@@ -106,8 +105,8 @@
 				</tr>
 				<tr>
 					<td class="formLabel">球4</td>
-					<td class="formInput"><input id="form_fourth"
-						name="fourth" type="text" /></td>
+					<td class="formInput"><input id="form_fourth" name="fourth"
+						type="text" /></td>
 				</tr>
 				<tr>
 					<td class="formLabel">球5</td>
@@ -121,8 +120,8 @@
 				</tr>
 				<tr>
 					<td class="formLabel">球7</td>
-					<td class="formInput"><input id="form_seventh"
-						name="seventh" type="text" /></td>
+					<td class="formInput"><input id="form_seventh" name="seventh"
+						type="text" /></td>
 				</tr>
 				<tr>
 					<td colspan="2"
@@ -150,7 +149,7 @@
 								// autoLoad: false,
 								pageSizeSelect : true,
 								stripeRows : true,
-								pageSize : 10
+								pageSize : 20
 							});
 			if ($('#artDialog-gridForm').length == 1) {
 				var gridFormHtml = $("#artDialog-gridForm").html();
@@ -267,11 +266,11 @@
 				$('#gridForm :button[value="确定"]').hide();
 				$('#gridForm :button[value="取消"]').hide();
 			}
-			if(type == 'edit'){
+			if (type == 'edit') {
 				$('#gridForm :button[value=确定]').show();
 				$('#gridForm :button[value="取消"]').show();
 			}
-			if(type == 'add'){
+			if (type == 'add') {
 				$('#gridForm :button[value=确定]').show();
 				$('#gridForm :button[value="取消"]').show();
 			}
@@ -282,7 +281,7 @@
 					.hide();
 			gridFormDialog.visible();
 		}
-        //删除操作
+		//删除操作
 		function doDelete(rowIndex) {
 			var id = gridObj.getColumnValue(rowIndex, 'ID');
 			$.confirm('Delete?', function() {
@@ -302,7 +301,8 @@
 				seventh : $("#form_seventh").val()
 
 			};
-			$.ajax({
+			$
+					.ajax({
 						type : "POST",
 						url : '${ pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionAddSixOne.action',
 						data : params,
@@ -310,9 +310,9 @@
 						success : function(data) {
 							if (data == "添加成功") {
 								gridObj.refreshPage(); //刷新
-								var qi=$("#form_qishu").val(); //获取最新期数
+								var qi = $("#form_qishu").val(); //获取最新期数
 								$('#gridForm')[0].reset(); //重置
-								var c=parseInt(qi)+1; //再加
+								var c = parseInt(qi) + 1; //再加
 								$("#form_qishu").val(c);
 								alert(data);
 
@@ -324,7 +324,7 @@
 						error : function(data) {
 							alert("系统异常,请重新尝试");
 						}
-				});
+					});
 
 		}
 	</script>

@@ -46,4 +46,9 @@ public interface SixOneMapper {
     //查询最近的10 期 ,先升序 再降序
     
     public List<SixOne> way9();
+    
+    
+    //查询最新的30期数 升序
+    
+    public List<SixOne> way10();
 }

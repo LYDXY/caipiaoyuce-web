@@ -323,9 +323,9 @@
 					<button id="getheshuzhifenxijieguo"
 						onclick="getheshuzhifenxijieguo()" class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td><div id="chartgetheshuzhifenxijieguo"
-						style="width: 900px; height: 400px;"></div></td>
-				<td ></td>
+				<td colspan="2"><div id="chartgetheshuzhifenxijieguo"
+						style=" height: 600px;"></div></td>
+				
 			</tr>
 			<!-- 数字区间偏差分析系统 -->
 			<tr>
@@ -463,7 +463,7 @@
 												seriesDefaults : {
 													renderer : $.jqplot.BarRenderer, //使用柱状图表示
 													rendererOptions : {
-														barMargin : 50,
+														barMargin : 12,
 														highlightMouseDown : true
 													}
 												},
@@ -491,7 +491,7 @@
 														showTicks : true
 													},
 													yaxis : {
-														ticks : [ 105, 110,
+														ticks : [ 85,90,95,100,105, 110,
 																115, 120, 125,
 																130, 135, 140,
 																145, 150, 155,
@@ -501,7 +501,7 @@
 																205, 210, 215,
 																220, 225, 230,
 																235, 240, 245,
-																250, 255, 260 ],
+																250, 255, 260,265,270 ],
 														renderer : $.jqplot.LinearAxisRenderer,
 														pad : 1
 													}
@@ -743,7 +743,7 @@
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
-							//alert(data);
+							alert(data);
 							$("#yilouZeroInTop5").html(json.yilouZeroInTop5);
 							$("#yilouOneInTop5").html(json.yilouOneInTop5);
 							$("#yilouTwoInTop5").html(json.yilouTwoInTop5);
