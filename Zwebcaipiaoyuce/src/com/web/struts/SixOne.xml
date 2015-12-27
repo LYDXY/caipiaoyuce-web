@@ -26,11 +26,7 @@
 			<result name="GETFUTURE_SUCCESS">../jsp/sixonefuture.jsp</result>
 		</action>
 
-        <action name="SixOneActionFutureYiLou" class="com.web.action.SixOneAction"
-			method="futureYiLou">
-			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
-			<result name="FUTUREYILOUSUCCESS">../jsp/sixonefuture.jsp</result>
-		</action>
+        
 
 	
 		<action name="SixOneActionFutureColdHot" class="com.web.action.SixOneAction"
@@ -115,7 +111,14 @@
 			</result>
 		</action>
 		
-		
+		<!-- 遗漏数字偏差分析 -->
+		<action name="SixOneActionFutureYiLou" class="com.web.action.SixOneAction"
+			method="futureYiLou">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTUREYILOUSUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
 	</package>
 
 </struts>
