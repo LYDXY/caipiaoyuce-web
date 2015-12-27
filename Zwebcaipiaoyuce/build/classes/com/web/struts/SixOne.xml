@@ -43,6 +43,8 @@
 	</package>
 
 	<package name="ajax" namespace="/ajaxSixOneAction" extends="struts-default,json-default">
+		
+		<!-- 添加一条最近的记录 -->
 		<action name="SixOneActionAddSixOne" class="com.web.action.SixOneAction"
 			method="addSixOne">
 			<!-- 将返回类型设置为json -->
@@ -51,7 +53,7 @@
 				<param name="root">result</param>
 			</result>
 		</action>
-
+        <!-- 获取当前最新的期数 -->
 		<action name="ajaxSixOneActionMaxQishu" class="com.web.action.SixOneAction"
 			method="SixOneActionMaxQishu">
 			<result type="json" name="SUCCESS">
@@ -103,6 +105,16 @@
 				<param name="root">result</param>
 			</result>
 		</action>
+		
+		<!--数字区间偏差系统 -->
+		<action name="SixOneActionFutureShuZiQuJian" class="com.web.action.SixOneAction"
+			method="futureShuZiQuJian">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTURESHUZIQUJIANSUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
 		
 	</package>
 

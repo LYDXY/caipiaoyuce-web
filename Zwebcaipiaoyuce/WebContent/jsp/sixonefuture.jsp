@@ -139,7 +139,19 @@
 					<button id="getremenlengmenfenxijieguo" onclick="getremenlengmenfenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td><div id="remenlengmenfenxi" ></div></td>
+				<td><table id="remenlengmenfenxi" class="table table-bordered">
+						<thead>
+							<tr>
+								<td>期数</td>
+								<td>开奖数字</td>
+								<td>遗漏情况</td>
+								<td>遗漏次数<10 的个数 (和)</td>
+								<td>7个开奖数字的遗漏次数的和</td>
+								<td>遗漏次数的和 / 7= 遗漏平均次数</td>
+								</tr>
+						</thead>
+					</table>
+				</td>
 				<td>预测结果</td>
 			</tr>
 			<!-- 遗漏数字偏差系统 -->
@@ -160,10 +172,31 @@
 						style="width: 900px; height: 400px;"></div></td>
 				<td>预测结果</td>
 			</tr>
+			<!-- 数字区间偏差分析系统 -->
 			<tr>
-				<td>33333333333333333333</td>
-				<td><div id="chart5" style="width: 600px; height: 400px;"></div></td>
-				<td>预测结果</td>
+				<td class="warning">
+				     <h3>数字区间偏差分析系统 </h3> <br />
+					<button onclick="getshuziqujianfenxijieguo()"
+						class="btn btn-primary btn-lg">执行</button></td>
+				<td><table class="table table-bordered" id="shuziqujianfenxitable">
+						<thead>
+							<tr>
+								<td>期数</td>
+								<td>1&lt;=5</td>
+								<td>6&lt;=10</td>
+								<td>11&lt;=15</td>
+								<td>16&lt;=20</td>
+								<td>21&lt;=25</td>
+								<td>26&lt;=30</td>
+								<td>31&lt;=35</td>
+								<td>36&lt;=40</td>
+								<td>41&lt;=45</td>
+								<td>46&lt;=49</td>
+								
+							</tr>
+						</thead>
+					</table></td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>33333333333333333333</td>
@@ -727,31 +760,6 @@
 						success : function(data) {
 							var json = eval('(' + data + ')');
 							alert(data);
-							var table = document.createElement("table");//创建表格
-							table.setAttribute("class", "table table-bordered");//给表格设置属性
-						//	table.setAttribute("border", 1);//给表格设置属性
-						//	table.addClass("table table-bordered");
-	                        var trhead = document.createElement("tr");//创建表头
-	                        var tdqishuhead = document.createElement("td"); //创建单元格子
-                            var tdnumberhead = document.createElement("td"); //创建单元格子
-                            var tdyilouqingkuanghead = document.createElement("td"); //创建单元格子
-                            var tdzongyilougeshuhead = document.createElement("td"); //创建单元格子
-                            var tdyiloucishuzongshuhead = document.createElement("td"); //创建单元格子
-                            var tdyiloupingjungeshuhead = document.createElement("td"); //创建单元格子
-                            tdqishuhead.innerHTML = "期数";
-                            tdnumberhead.innerHTML = "开奖数字";
-                            tdyilouqingkuanghead.innerHTML = "遗漏情况";
-                            tdzongyilougeshuhead.innerHTML = "遗漏次数<10 的个数 (和)";
-                            tdyiloucishuzongshuhead.innerHTML = "7个开奖数字的遗漏次数的和";
-                            tdyiloupingjungeshuhead.innerHTML = "遗漏次数的和 / 7= 遗漏平均次数";
-                            trhead.appendChild(tdqishuhead);
-                            trhead.appendChild(tdnumberhead);
-                            trhead.appendChild(tdyilouqingkuanghead);
-                            trhead.appendChild(tdzongyilougeshuhead);
-                            trhead.appendChild(tdyiloucishuzongshuhead);
-                            trhead.appendChild(tdyiloupingjungeshuhead);
-							//获取每一行的数据
-							table.appendChild(trhead);
 							for(i=0;i<json.length; i++){ //行数跟json.length一样
 							   var tr = document.createElement("tr");//创建每一行
 							   var tdqishu = document.createElement("td"); //创建单元格子
@@ -772,9 +780,9 @@
                                tr.appendChild(tdzongyilougeshu);
                                tr.appendChild(tdyiloucishuzongshu);
                                tr.appendChild(tdyiloupingjungeshu);
-                               table.appendChild(tr);
+                               document.getElementById("remenlengmenfenxi").appendChild(tr);
 							}
-							document.getElementById("remenlengmenfenxi").appendChild(table);
+							
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
@@ -782,5 +790,37 @@
 					});
 		}
 	</script>
+    <!-- 数字区间偏差系统分析 -->
+    <script type="text/javascript">
+		function getshuziqujianfenxijieguo() {
+			$
+					.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureShuZiQuJian.action',
+						dataType : "json",
+						success : function(data) {
+							var json = eval('(' + data + ')');
+							alert(data);
+							for(i=0;i<json.length; i++){ //行数跟json.length一样
+							   var tr = document.createElement("tr");//创建每一行
+							   var tdqishu = document.createElement("td"); //创建单元格子
+							   tdqishu.innerHTML = json[i].qishu;
+							   tr.appendChild(tdqishu);
+                               for(j=0;j<json[i].qujianqingkuang.length;j++){
+                            	   var td = document.createElement("td"); //创建单元格子
+                            	   td.innerHTML = json[i].qujianqingkuang[j];
+                            	   tr.appendChild(td);
+                               }
+                               document.getElementById("shuziqujianfenxitable").appendChild(tr); 
+							}
+							
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+		}
+	</script>
+
 </body>
 </html>
