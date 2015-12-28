@@ -660,9 +660,19 @@
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
-							alert(data);
+							//alert(data);
 							for (i = 0; i < json.length; i++) { //行数跟json.length一样
-								var tr = document.createElement("tr");//创建每一行
+								var classType = '';
+								i%2 == 0 ? classType = 'info' : classType = 'success'; 
+								$("#remenlengmenfenxi").append('<tr class="'+classType+'">'+
+										'<td>'+json[i].qishu+'</td>'+
+										'<td>'+json[i].number+'</td>'+
+										'<td>'+json[i].yilouqingkuang+'</td>'+
+										'<td>'+json[i].zongyilougeshu+'</td>'+
+										'<td>'+json[i].yiloucishuzongshu+'</td>'+
+										'<td>'+json[i].yiloupingjungeshu+'</td>');
+								/*var tr = document.createElement("tr");//创建每一行
+								tr.className="info";
 								var tdqishu = document.createElement("td"); //创建单元格子
 								var tdnumber = document.createElement("td"); //创建单元格子
 								var tdyilouqingkuang = document
@@ -686,7 +696,7 @@
 								tr.appendChild(tdyiloucishuzongshu);
 								tr.appendChild(tdyiloupingjungeshu);
 								document.getElementById("remenlengmenfenxi")
-										.appendChild(tr);
+										.appendChild(tr);*/
 							}
 
 						},
@@ -708,21 +718,32 @@
 							var json = eval('(' + data + ')');
 							alert(data);
 							for (i = 0; i < json.length; i++) { //行数跟json.length一样
-								var tr = document.createElement("tr");//创建每一行
+								/*var tr = document.createElement("tr");//创建每一行
 								var tdqishu = document.createElement("td"); //创建单元格子
 								tdqishu.innerHTML = json[i].qishu;
-								tr.appendChild(tdqishu);
+								tr.appendChild(tdqishu);*/
+								i%2 == 0 ? classType = 'info' : classType = 'success';
+								var trHtml = '<tr class="'+ classType +'"><td>'+json[i].qishu+'</td>';
 								for (j = 0; j < json[i].qujianqingkuang.length; j++) {
-									var td = document.createElement("td"); //创建单元格子
+									/*var td = document.createElement("td"); //创建单元格子
 									td.innerHTML = json[i].qujianqingkuang[j];
+									tr.appendChild(td);*/
 									if(json[i].qujianqingkuang[j]==0){
-										td.style.backgroundColor = "gray";
+										//td.style.backgroundColor = "gray";
+										var tdHtml = '<td class="danger">'+ json[i].qujianqingkuang[j] +'</td>';
+									}else{
+										var tdHtml = '<td>'+ json[i].qujianqingkuang[j] +'</td>';
 									}
-									tr.appendChild(td);
+									
+									trHtml += tdHtml;
+									
 								}
+								/*
 								document
 										.getElementById("shuziqujianfenxitable")
-										.appendChild(tr);
+										.appendChild(tr);*/
+								trHtml += '</tr>';
+								$("#shuziqujianfenxitable").append(trHtml);
 							}
 
 						},
