@@ -32,6 +32,7 @@
 <script src="../jqplot/js/plugins/jqplot.barRenderer.min.js"></script>
 <script src="../jqplot/js/plugins/jqplot.categoryAxisRenderer.min.js"></script>
 <script src="../jqplot/js/plugins/jqplot.logAxisRenderer.js"></script>
+<script src="../jqplot/js/plugins/jqplot.cursor.js"></script>
 <!-- 饼图 -->
 <script src="../jqplot/js/plugins/jqplot.pieRenderer.min.js"></script>
 <script src="../jqplot/js/plugins/jqplot.donutRenderer.min.js"></script>
@@ -60,7 +61,7 @@
 				</td>
 				<td><div id="chartgetjisoufenxijieguo"
 						style="height: 400px; width: 900px;"></div></td>
-				<td width="500px" >
+				<td width="500px">
 					<table class="table">
 						<thead>
 							<tr>
@@ -87,7 +88,7 @@
 				</td>
 				<td><div id="chatgetdaxiaofenxijieguo"
 						style="height: 400px; width: 900px;"></div></td>
-				<td >
+				<td>
 					<table class="table">
 						<thead>
 							<tr>
@@ -207,7 +208,7 @@
 							</tr>
 						</tbody>
 					</table>
-				<td ></td>
+				<td></td>
 			</tr>
 			<!-- 热门冷门数字偏差系统 -->
 			<tr>
@@ -314,7 +315,7 @@
 
 						</tbody>
 					</table></td>
-				<td ></td>
+				<td></td>
 			</tr>
 			<!-- 和数值偏差系统分析 -->
 			<tr>
@@ -324,8 +325,8 @@
 						onclick="getheshuzhifenxijieguo()" class="btn btn-primary btn-lg">执行</button>
 				</td>
 				<td colspan="2"><div id="chartgetheshuzhifenxijieguo"
-						style=" height: 600px;"></div></td>
-				
+						style="height: 600px;"></div></td>
+
 			</tr>
 			<!-- 数字区间偏差分析系统 -->
 			<tr>
@@ -353,12 +354,12 @@
 							</tr>
 						</thead>
 					</table></td>
-			
+
 			</tr>
 			<tr>
 				<td class="info"></td>
 				<td><div id="chart6" style="width: 600px; height: 400px;"></div></td>
-				<td ></td>
+				<td></td>
 			</tr>
 
 
@@ -433,7 +434,25 @@
 														renderer : $.jqplot.LinearAxisRenderer,
 														pad : 1
 													}
+												},
+												cursor: {
+
+													style: 'crosshair', //当鼠标移动到图片上时，鼠标的显示样式，该属性值为css类
+
+													show: true, //是否显示光标
+
+													showTooltip: true, //是否显示提示信息栏
+
+													followMouse: true, //光标的提示信息栏是否随光标(鼠标)一起移动
+
+													tooltipLocation: 'se', //光标提示信息栏的位置设置。如果followMouse=true,那么该位置为提示信息栏相对于光标的位置。否则，为光标提示信息栏在图标中的位置该属性可选值：n, ne, e, se, etc.
+
+													tooltipOffset: 6, //提示信息栏距鼠标(followMouse=true)或坐标轴(followMouse=false)的位置
+
+													showTooltipGridPosition: true//是否在信息提示栏中显示光标位置(取其据图标左和上边缘线像素距离
+													
 												}
+
 											});
 						},
 						error : function(data) {
