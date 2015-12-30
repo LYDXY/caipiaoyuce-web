@@ -16,23 +16,6 @@ public class JavaPaiLieZuHeNinM {
 
 	private static int m = 3;
 
-	public static void main(String[] args) {
-
-		// 47 11 45 44 36 38 18 48 16 42 6 25 21
-
-		List<Integer> templist = new ArrayList<Integer>();
-
-		new JavaPaiLieZuHeNinM().plzh("", templist, m);
-
-		System.out.println("total : " + total / 2);
-	}
-
-	/**
-	 * 
-	 * @param s
-	 * @param templist
-	 * @param m
-	 */
 	private void plzh(String s, List<Integer> templist, int m) {
 		if (m == 0) {
 
@@ -42,7 +25,7 @@ public class JavaPaiLieZuHeNinM {
 		}
 		List<Integer> iL2;
 		for (int i = 0; i < numbers.length; i++) {
-			
+
 			iL2 = new ArrayList<Integer>();
 			iL2.addAll(templist);
 			if (!templist.contains(i)) {
@@ -51,6 +34,17 @@ public class JavaPaiLieZuHeNinM {
 				plzh(str, iL2, m - 1);
 			}
 		}
+	}
+
+	public static void main(String[] args) {
+
+		// 47 11 45 44 36 38 18 48 16 42 6 25 21
+
+		List<Integer> templist = new ArrayList<Integer>();
+
+		new JavaPaiLieZuHeNinM().plzh("", templist, m);
+
+		System.out.println("total : " + total / 2);
 	}
 
 }
