@@ -894,20 +894,6 @@ public class SixOneAction extends BaseAction {
 								&& integer2 != sixOne2.getSeventh()) {
 
 							yilou++;
-							/*
-							 * if ((maxqishu - qishu) == 5) {
-							 * sixonesTop5fuhetijianfive.add(integer2); break; }
-							 * if ((maxqishu - qishu) == 4) {
-							 * sixonesTop5fuhetijianfour.add(integer2); break; }
-							 * if ((maxqishu - qishu) == 3) {
-							 * sixonesTop5fuhetijianThree.add(integer2); break;
-							 * } if ((maxqishu - qishu) == 2) {
-							 * 
-							 * sixonesTop5fuhetijianTwo.add(integer2); break; }
-							 * if ((maxqishu - qishu) == 1) {
-							 * 
-							 * sixonesTop5fuhetijianOne.add(integer2); break; }
-							 */
 						}
 					}
 
