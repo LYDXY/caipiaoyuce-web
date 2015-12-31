@@ -51,4 +51,8 @@ public interface SixOneMapper {
     //查询最新的30期数 升序
     
     public List<SixOne> way10();
+    
+    
+  //查询 过去 n 期的期数 ,升序
+  	public List<SixOne> way11(Integer limit);
 }

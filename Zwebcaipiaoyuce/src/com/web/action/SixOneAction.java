@@ -690,6 +690,16 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> sixonesTop8 = SixOneServices.way8(8);
 		List<SixOne> sixonesTop9 = SixOneServices.way8(9);
 
+		// 为了寻找符合条件的数字
+		List<SixOne> sixonesTop5fuhetijian = SixOneServices.way11(6);
+		List<SixOne> sixonesTop6fuhetijian = SixOneServices.way11(7);
+		List<SixOne> sixonesTop7fuhetijian = SixOneServices.way11(8);
+		List<SixOne> sixonesTop8fuhetijian = SixOneServices.way11(9);
+		List<SixOne> sixonesTop9fuhetijian = SixOneServices.way11(10);
+
+		// 查询当前新的期数
+
+		Integer maxqishu = SixOneServices.way4();
 		// 5
 		List<Integer> yilouZeroInTop5 = new ArrayList<Integer>();
 		List<Integer> yilouOneInTop5 = new ArrayList<Integer>();
@@ -809,6 +819,117 @@ public class SixOneAction extends BaseAction {
 
 		}
 
+		// 统计过去 5期 符合条件的数字
+		List<Integer> sixonesTop5fuhetijianZero = new ArrayList<Integer>();
+		List<Integer> sixonesTop5fuhetijianOne = new ArrayList<Integer>();
+		List<Integer> sixonesTop5fuhetijianTwo = new ArrayList<Integer>();
+		List<Integer> sixonesTop5fuhetijianThree = new ArrayList<Integer>();
+		List<Integer> sixonesTop5fuhetijianfour = new ArrayList<Integer>();
+		List<Integer> sixonesTop5fuhetijianfive = new ArrayList<Integer>();
+
+		for (SixOne sixOne : sixonesTop5fuhetijian) {
+			// 146, 147,148 ,149,150
+			Integer qishu = sixOne.getQishu();
+			Integer first = sixOne.getFirst();
+			Integer second = sixOne.getSecond();
+			Integer third = sixOne.getThird();
+			Integer fourth = sixOne.getFourth();
+			Integer fifth = sixOne.getFifth();
+			Integer sixth = sixOne.getSixth();
+			Integer seventh = sixOne.getSeventh();
+			List<Integer> list = new ArrayList<Integer>();
+			list.add(first);
+			list.add(second);
+			list.add(third);
+			list.add(fourth);
+			list.add(fifth);
+			list.add(sixth);
+			list.add(seventh);
+			for (Integer integer2 : list) {
+				int yilou = 0;
+				boolean ischongfu = false;
+				for (SixOne sixOne2 : sixonesTop5fuhetijian) {
+
+					if (sixOne2.getQishu() > qishu) {
+
+						if (integer2 == sixOne2.getFirst() || integer2 == sixOne2.getSecond()
+								|| integer2 == sixOne2.getThird() || integer2 == sixOne2.getFourth()
+								|| integer2 == sixOne2.getFifth() || integer2 == sixOne2.getSixth()
+								|| integer2 == sixOne2.getSeventh()) {
+							logger.info(integer2 + "在第--------------" + qishu + "和" + sixOne2.getQishu() + "出现"
+									+ "遗漏次数是:" + (sixOne2.getQishu() - qishu - 1));
+
+							if (sixOne2.getQishu() - qishu - 1 == 0) {
+								sixonesTop5fuhetijianZero.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 1) {
+								sixonesTop5fuhetijianOne.add(integer2);
+								ischongfu = true;
+								break;
+
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 2) {
+								sixonesTop5fuhetijianTwo.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 3) {
+								sixonesTop5fuhetijianThree.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 4) {
+								sixonesTop5fuhetijianfour.add(integer2);
+								ischongfu = true;
+								break;
+							}
+
+						}
+
+						if (integer2 != sixOne2.getFirst() && integer2 != sixOne2.getSecond()
+								&& integer2 != sixOne2.getThird() && integer2 != sixOne2.getFourth()
+								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()
+								&& integer2 != sixOne2.getSeventh()) {
+
+							yilou++;
+							/*
+							 * if ((maxqishu - qishu) == 5) {
+							 * sixonesTop5fuhetijianfive.add(integer2); break; }
+							 * if ((maxqishu - qishu) == 4) {
+							 * sixonesTop5fuhetijianfour.add(integer2); break; }
+							 * if ((maxqishu - qishu) == 3) {
+							 * sixonesTop5fuhetijianThree.add(integer2); break;
+							 * } if ((maxqishu - qishu) == 2) {
+							 * 
+							 * sixonesTop5fuhetijianTwo.add(integer2); break; }
+							 * if ((maxqishu - qishu) == 1) {
+							 * 
+							 * sixonesTop5fuhetijianOne.add(integer2); break; }
+							 */
+						}
+					}
+
+				}
+				if (yilou == 0 && ischongfu == false) {
+					sixonesTop5fuhetijianZero.add(integer2);
+				} else if (yilou == 1 && ischongfu == false) {
+					sixonesTop5fuhetijianOne.add(integer2);
+				} else if (yilou == 2 && ischongfu == false) {
+					sixonesTop5fuhetijianTwo.add(integer2);
+				} else if (yilou == 3 && ischongfu == false) {
+					sixonesTop5fuhetijianThree.add(integer2);
+				} else if (yilou == 4 && ischongfu == false) {
+					sixonesTop5fuhetijianfour.add(integer2);
+				} else if (yilou == 5 && ischongfu == false) {
+					sixonesTop5fuhetijianfive.add(integer2);
+				}
+
+			}
+
+		}
+
 		// 针对过去6期
 		for (SixOne sixOne6 : sixonesTop6) {
 			SixOne reallysixOne = sixOne6; // 146
@@ -876,6 +997,112 @@ public class SixOneAction extends BaseAction {
 					}
 
 				}
+			}
+
+		}
+
+		// 统计过去 6期 符合条件的数字
+		List<Integer> sixonesTop6fuhetijianZero = new ArrayList<Integer>();
+		List<Integer> sixonesTop6fuhetijianOne = new ArrayList<Integer>();
+		List<Integer> sixonesTop6fuhetijianTwo = new ArrayList<Integer>();
+		List<Integer> sixonesTop6fuhetijianThree = new ArrayList<Integer>();
+		List<Integer> sixonesTop6fuhetijianfour = new ArrayList<Integer>();
+		List<Integer> sixonesTop6fuhetijianfive = new ArrayList<Integer>();
+		List<Integer> sixonesTop6fuhetijiansix = new ArrayList<Integer>();
+
+		for (SixOne sixOne : sixonesTop6fuhetijian) {
+
+			Integer qishu = sixOne.getQishu();
+			Integer first = sixOne.getFirst();
+			Integer second = sixOne.getSecond();
+			Integer third = sixOne.getThird();
+			Integer fourth = sixOne.getFourth();
+			Integer fifth = sixOne.getFifth();
+			Integer sixth = sixOne.getSixth();
+			Integer seventh = sixOne.getSeventh();
+			List<Integer> list = new ArrayList<Integer>();
+			list.add(first);
+			list.add(second);
+			list.add(third);
+			list.add(fourth);
+			list.add(fifth);
+			list.add(sixth);
+			list.add(seventh);
+			for (Integer integer2 : list) {
+				int yilou = 0;
+				boolean ischongfu = false;
+				for (SixOne sixOne2 : sixonesTop6fuhetijian) {
+
+					if (sixOne2.getQishu() > qishu) {
+
+						if (integer2 == sixOne2.getFirst() || integer2 == sixOne2.getSecond()
+								|| integer2 == sixOne2.getThird() || integer2 == sixOne2.getFourth()
+								|| integer2 == sixOne2.getFifth() || integer2 == sixOne2.getSixth()
+								|| integer2 == sixOne2.getSeventh()) {
+							logger.info(integer2 + "在第--------------" + qishu + "和" + sixOne2.getQishu() + "出现"
+									+ "遗漏次数是:" + (sixOne2.getQishu() - qishu - 1));
+
+							if (sixOne2.getQishu() - qishu - 1 == 0) {
+								sixonesTop6fuhetijianZero.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 1) {
+								sixonesTop6fuhetijianOne.add(integer2);
+								ischongfu = true;
+								break;
+
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 2) {
+								sixonesTop6fuhetijianTwo.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 3) {
+								sixonesTop6fuhetijianThree.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 4) {
+								sixonesTop6fuhetijianfour.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 5) {
+								sixonesTop6fuhetijiansix.add(integer2);
+								ischongfu = true;
+								break;
+							}
+
+						}
+
+						if (integer2 != sixOne2.getFirst() && integer2 != sixOne2.getSecond()
+								&& integer2 != sixOne2.getThird() && integer2 != sixOne2.getFourth()
+								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()
+								&& integer2 != sixOne2.getSeventh()) {
+
+							yilou++;
+
+						}
+					}
+
+				}
+				if (yilou == 0 && ischongfu == false) {
+					sixonesTop6fuhetijianZero.add(integer2);
+				} else if (yilou == 1 && ischongfu == false) {
+					sixonesTop6fuhetijianOne.add(integer2);
+				} else if (yilou == 2 && ischongfu == false) {
+					sixonesTop6fuhetijianTwo.add(integer2);
+				} else if (yilou == 3 && ischongfu == false) {
+					sixonesTop6fuhetijianThree.add(integer2);
+				} else if (yilou == 4 && ischongfu == false) {
+					sixonesTop6fuhetijianfour.add(integer2);
+				} else if (yilou == 5 && ischongfu == false) {
+					sixonesTop6fuhetijianfive.add(integer2);
+				} else if (yilou == 6 && ischongfu == false) {
+					sixonesTop6fuhetijiansix.add(integer2);
+				}
+
 			}
 
 		}
@@ -951,8 +1178,234 @@ public class SixOneAction extends BaseAction {
 
 		}
 
+		// 统计过去 7期 符合条件的数字
+		List<Integer> sixonesTop7fuhetijianZero = new ArrayList<Integer>();
+		List<Integer> sixonesTop7fuhetijianOne = new ArrayList<Integer>();
+		List<Integer> sixonesTop7fuhetijianTwo = new ArrayList<Integer>();
+		List<Integer> sixonesTop7fuhetijianThree = new ArrayList<Integer>();
+		List<Integer> sixonesTop7fuhetijianfour = new ArrayList<Integer>();
+		List<Integer> sixonesTop7fuhetijianfive = new ArrayList<Integer>();
+		List<Integer> sixonesTop7fuhetijiansix = new ArrayList<Integer>();
+
+		for (SixOne sixOne : sixonesTop7fuhetijian) {
+
+			Integer qishu = sixOne.getQishu();
+			Integer first = sixOne.getFirst();
+			Integer second = sixOne.getSecond();
+			Integer third = sixOne.getThird();
+			Integer fourth = sixOne.getFourth();
+			Integer fifth = sixOne.getFifth();
+			Integer sixth = sixOne.getSixth();
+			Integer seventh = sixOne.getSeventh();
+			List<Integer> list = new ArrayList<Integer>();
+			list.add(first);
+			list.add(second);
+			list.add(third);
+			list.add(fourth);
+			list.add(fifth);
+			list.add(sixth);
+			list.add(seventh);
+			for (Integer integer2 : list) {
+				int yilou = 0;
+				boolean ischongfu = false;
+				for (SixOne sixOne2 : sixonesTop7fuhetijian) {
+
+					if (sixOne2.getQishu() > qishu) {
+
+						if (integer2 == sixOne2.getFirst() || integer2 == sixOne2.getSecond()
+								|| integer2 == sixOne2.getThird() || integer2 == sixOne2.getFourth()
+								|| integer2 == sixOne2.getFifth() || integer2 == sixOne2.getSixth()
+								|| integer2 == sixOne2.getSeventh()) {
+							logger.info(integer2 + "在第--------------" + qishu + "和" + sixOne2.getQishu() + "出现"
+									+ "遗漏次数是:" + (sixOne2.getQishu() - qishu - 1));
+
+							if (sixOne2.getQishu() - qishu - 1 == 0) {
+								sixonesTop7fuhetijianZero.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 1) {
+								sixonesTop7fuhetijianOne.add(integer2);
+								ischongfu = true;
+								break;
+
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 2) {
+								sixonesTop7fuhetijianTwo.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 3) {
+								sixonesTop7fuhetijianThree.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 4) {
+								sixonesTop7fuhetijianfour.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 5) {
+								sixonesTop7fuhetijiansix.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 >= 6) {
+								sixonesTop7fuhetijiansix.add(integer2);
+								ischongfu = true;
+								break;
+							}
+
+						}
+
+						if (integer2 != sixOne2.getFirst() && integer2 != sixOne2.getSecond()
+								&& integer2 != sixOne2.getThird() && integer2 != sixOne2.getFourth()
+								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()
+								&& integer2 != sixOne2.getSeventh()) {
+
+							yilou++;
+
+						}
+					}
+
+				}
+				if (yilou == 0 && ischongfu == false) {
+					sixonesTop7fuhetijianZero.add(integer2);
+				} else if (yilou == 1 && ischongfu == false) {
+					sixonesTop7fuhetijianOne.add(integer2);
+				} else if (yilou == 2 && ischongfu == false) {
+					sixonesTop7fuhetijianTwo.add(integer2);
+				} else if (yilou == 3 && ischongfu == false) {
+					sixonesTop7fuhetijianThree.add(integer2);
+				} else if (yilou == 4 && ischongfu == false) {
+					sixonesTop7fuhetijianfour.add(integer2);
+				} else if (yilou == 5 && ischongfu == false) {
+					sixonesTop7fuhetijianfive.add(integer2);
+				} else if (yilou >= 6 && ischongfu == false) {
+					sixonesTop7fuhetijiansix.add(integer2);
+				}
+
+			}
+
+		}
+
+		// 统计过去 8期 符合条件的数字
+		List<Integer> sixonesTop8fuhetijianZero = new ArrayList<Integer>();
+		List<Integer> sixonesTop8fuhetijianOne = new ArrayList<Integer>();
+		List<Integer> sixonesTop8fuhetijianTwo = new ArrayList<Integer>();
+		List<Integer> sixonesTop8fuhetijianThree = new ArrayList<Integer>();
+		List<Integer> sixonesTop8fuhetijianfour = new ArrayList<Integer>();
+		List<Integer> sixonesTop8fuhetijianfive = new ArrayList<Integer>();
+		List<Integer> sixonesTop8fuhetijiansix = new ArrayList<Integer>();
+
+		for (SixOne sixOne : sixonesTop8fuhetijian) {
+
+			Integer qishu = sixOne.getQishu();
+			Integer first = sixOne.getFirst();
+			Integer second = sixOne.getSecond();
+			Integer third = sixOne.getThird();
+			Integer fourth = sixOne.getFourth();
+			Integer fifth = sixOne.getFifth();
+			Integer sixth = sixOne.getSixth();
+			Integer seventh = sixOne.getSeventh();
+			List<Integer> list = new ArrayList<Integer>();
+			list.add(first);
+			list.add(second);
+			list.add(third);
+			list.add(fourth);
+			list.add(fifth);
+			list.add(sixth);
+			list.add(seventh);
+			for (Integer integer2 : list) {
+				int yilou = 0;
+				boolean ischongfu = false;
+				for (SixOne sixOne2 : sixonesTop8fuhetijian) {
+
+					if (sixOne2.getQishu() > qishu) {
+
+						if (integer2 == sixOne2.getFirst() || integer2 == sixOne2.getSecond()
+								|| integer2 == sixOne2.getThird() || integer2 == sixOne2.getFourth()
+								|| integer2 == sixOne2.getFifth() || integer2 == sixOne2.getSixth()
+								|| integer2 == sixOne2.getSeventh()) {
+							logger.info(integer2 + "在第--------------" + qishu + "和" + sixOne2.getQishu() + "出现"
+									+ "遗漏次数是:" + (sixOne2.getQishu() - qishu - 1));
+
+							if (sixOne2.getQishu() - qishu - 1 == 0) {
+								sixonesTop8fuhetijianZero.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 1) {
+								sixonesTop8fuhetijianOne.add(integer2);
+								ischongfu = true;
+								break;
+
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 2) {
+								sixonesTop8fuhetijianTwo.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 3) {
+								sixonesTop8fuhetijianThree.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 4) {
+								sixonesTop8fuhetijianfour.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 5) {
+								sixonesTop8fuhetijiansix.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 >= 6) {
+								sixonesTop8fuhetijiansix.add(integer2);
+								ischongfu = true;
+								break;
+							}
+
+						}
+
+						if (integer2 != sixOne2.getFirst() && integer2 != sixOne2.getSecond()
+								&& integer2 != sixOne2.getThird() && integer2 != sixOne2.getFourth()
+								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()
+								&& integer2 != sixOne2.getSeventh()) {
+
+							yilou++;
+
+						}
+					}
+
+				}
+				if (yilou == 0 && ischongfu == false) {
+					sixonesTop8fuhetijianZero.add(integer2);
+				} else if (yilou == 1 && ischongfu == false) {
+					sixonesTop8fuhetijianOne.add(integer2);
+				} else if (yilou == 2 && ischongfu == false) {
+					sixonesTop8fuhetijianTwo.add(integer2);
+				} else if (yilou == 3 && ischongfu == false) {
+					sixonesTop8fuhetijianThree.add(integer2);
+				} else if (yilou == 4 && ischongfu == false) {
+					sixonesTop8fuhetijianfour.add(integer2);
+				} else if (yilou == 5 && ischongfu == false) {
+					sixonesTop8fuhetijianfive.add(integer2);
+				} else if (yilou >= 6 && ischongfu == false) {
+					sixonesTop8fuhetijiansix.add(integer2);
+				}
+
+			}
+
+		}
+
 		// 针对过去8期
-		for (SixOne sixOne8 : sixonesTop8) {
+		for (
+
+		SixOne sixOne8 : sixonesTop8)
+
+		{
 			SixOne reallysixOne = sixOne8; // 146
 			Integer qishu = reallysixOne.getQishu();
 			List<Integer> Templist = new ArrayList<Integer>();
@@ -1019,8 +1472,123 @@ public class SixOneAction extends BaseAction {
 			}
 
 		}
+
+		// 统计过去 8期 符合条件的数字
+		List<Integer> sixonesTop9fuhetijianZero = new ArrayList<Integer>();
+		List<Integer> sixonesTop9fuhetijianOne = new ArrayList<Integer>();
+		List<Integer> sixonesTop9fuhetijianTwo = new ArrayList<Integer>();
+		List<Integer> sixonesTop9fuhetijianThree = new ArrayList<Integer>();
+		List<Integer> sixonesTop9fuhetijianfour = new ArrayList<Integer>();
+		List<Integer> sixonesTop9fuhetijianfive = new ArrayList<Integer>();
+		List<Integer> sixonesTop9fuhetijiansix = new ArrayList<Integer>();
+
+		for (SixOne sixOne : sixonesTop9fuhetijian) {
+
+			Integer qishu = sixOne.getQishu();
+			Integer first = sixOne.getFirst();
+			Integer second = sixOne.getSecond();
+			Integer third = sixOne.getThird();
+			Integer fourth = sixOne.getFourth();
+			Integer fifth = sixOne.getFifth();
+			Integer sixth = sixOne.getSixth();
+			Integer seventh = sixOne.getSeventh();
+			List<Integer> list = new ArrayList<Integer>();
+			list.add(first);
+			list.add(second);
+			list.add(third);
+			list.add(fourth);
+			list.add(fifth);
+			list.add(sixth);
+			list.add(seventh);
+			for (Integer integer2 : list) {
+				int yilou = 0;
+				boolean ischongfu = false;
+				for (SixOne sixOne2 : sixonesTop9fuhetijian) {
+
+					if (sixOne2.getQishu() > qishu) {
+
+						if (integer2 == sixOne2.getFirst() || integer2 == sixOne2.getSecond()
+								|| integer2 == sixOne2.getThird() || integer2 == sixOne2.getFourth()
+								|| integer2 == sixOne2.getFifth() || integer2 == sixOne2.getSixth()
+								|| integer2 == sixOne2.getSeventh()) {
+							logger.info(integer2 + "在第--------------" + qishu + "和" + sixOne2.getQishu() + "出现"
+									+ "遗漏次数是:" + (sixOne2.getQishu() - qishu - 1));
+
+							if (sixOne2.getQishu() - qishu - 1 == 0) {
+								sixonesTop9fuhetijianZero.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 1) {
+								sixonesTop9fuhetijianOne.add(integer2);
+								ischongfu = true;
+								break;
+
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 2) {
+								sixonesTop9fuhetijianTwo.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 3) {
+								sixonesTop9fuhetijianThree.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 4) {
+								sixonesTop9fuhetijianfour.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 == 5) {
+								sixonesTop9fuhetijiansix.add(integer2);
+								ischongfu = true;
+								break;
+							}
+							if (sixOne2.getQishu() - qishu - 1 >= 6) {
+								sixonesTop9fuhetijiansix.add(integer2);
+								ischongfu = true;
+								break;
+							}
+
+						}
+
+						if (integer2 != sixOne2.getFirst() && integer2 != sixOne2.getSecond()
+								&& integer2 != sixOne2.getThird() && integer2 != sixOne2.getFourth()
+								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()
+								&& integer2 != sixOne2.getSeventh()) {
+
+							yilou++;
+
+						}
+					}
+
+				}
+				if (yilou == 0 && ischongfu == false) {
+					sixonesTop9fuhetijianZero.add(integer2);
+				} else if (yilou == 1 && ischongfu == false) {
+					sixonesTop9fuhetijianOne.add(integer2);
+				} else if (yilou == 2 && ischongfu == false) {
+					sixonesTop9fuhetijianTwo.add(integer2);
+				} else if (yilou == 3 && ischongfu == false) {
+					sixonesTop9fuhetijianThree.add(integer2);
+				} else if (yilou == 4 && ischongfu == false) {
+					sixonesTop9fuhetijianfour.add(integer2);
+				} else if (yilou == 5 && ischongfu == false) {
+					sixonesTop9fuhetijianfive.add(integer2);
+				} else if (yilou >= 6 && ischongfu == false) {
+					sixonesTop9fuhetijiansix.add(integer2);
+				}
+
+			}
+
+		}
 		// 针对过去9期
-		for (SixOne sixOne9 : sixonesTop9) {
+		for (
+
+		SixOne sixOne9 : sixonesTop9)
+
+		{
 			SixOne reallysixOne = sixOne9; // 146
 			Integer qishu = reallysixOne.getQishu();
 			List<Integer> Templist = new ArrayList<Integer>();
@@ -1088,6 +1656,83 @@ public class SixOneAction extends BaseAction {
 			}
 
 		}
+
+		// 打印过去5期符合条件的数字
+		logger.info("=================统计过去 5期 符合条件的数字==================");
+		logger.info("符合遗漏次数为0的数字有:" + sixonesTop5fuhetijianZero.toString() + "共有" + sixonesTop5fuhetijianZero.size()
+				+ "个数字");
+		logger.info(
+				"符合遗漏次数为1的数字有:" + sixonesTop5fuhetijianOne.toString() + "共有" + sixonesTop5fuhetijianOne.size() + "个数字");
+		logger.info(
+				"符合遗漏次数为2的数字有:" + sixonesTop5fuhetijianTwo.toString() + "共有" + sixonesTop5fuhetijianTwo.size() + "个数字");
+		logger.info("符合遗漏次数为3的数字有:" + sixonesTop5fuhetijianThree.toString() + "共有" + sixonesTop5fuhetijianThree.size()
+				+ "个数字");
+		logger.info("符合遗漏次数为4的数字有:" + sixonesTop5fuhetijianfour.toString() + "共有" + sixonesTop5fuhetijianfour.size()
+				+ "个数字");
+		logger.info("符合遗漏次数为5的数字有:" + sixonesTop5fuhetijianfive.toString() + "共有" + sixonesTop5fuhetijianfive.size()
+				+ "个数字");
+		logger.info("=================统计过去 6期 符合条件的数字==================");
+		logger.info("符合遗漏次数为0的数字有:" + sixonesTop6fuhetijianZero.toString() + "共有" + sixonesTop6fuhetijianZero.size()
+				+ "个数字");
+		logger.info(
+				"符合遗漏次数为1的数字有:" + sixonesTop6fuhetijianOne.toString() + "共有" + sixonesTop6fuhetijianOne.size() + "个数字");
+		logger.info(
+				"符合遗漏次数为2的数字有:" + sixonesTop6fuhetijianTwo.toString() + "共有" + sixonesTop6fuhetijianTwo.size() + "个数字");
+		logger.info("符合遗漏次数为3的数字有:" + sixonesTop6fuhetijianThree.toString() + "共有" + sixonesTop6fuhetijianThree.size()
+				+ "个数字");
+		logger.info("符合遗漏次数为4的数字有:" + sixonesTop6fuhetijianfour.toString() + "共有" + sixonesTop6fuhetijianfour.size()
+				+ "个数字");
+		logger.info("符合遗漏次数为5的数字有:" + sixonesTop6fuhetijianfive.toString() + "共有" + sixonesTop6fuhetijianfive.size()
+				+ "个数字");
+		logger.info(
+				"符合遗漏次数为6的数字有:" + sixonesTop6fuhetijiansix.toString() + "共有" + sixonesTop6fuhetijiansix.size() + "个数字");
+		logger.info("=================统计过去 7期 符合条件的数字==================");
+		logger.info("符合遗漏次数为0的数字有:" + sixonesTop7fuhetijianZero.toString() + "共有" + sixonesTop7fuhetijianZero.size()
+				+ "个数字");
+		logger.info(
+				"符合遗漏次数为1的数字有:" + sixonesTop7fuhetijianOne.toString() + "共有" + sixonesTop7fuhetijianOne.size() + "个数字");
+		logger.info(
+				"符合遗漏次数为2的数字有:" + sixonesTop7fuhetijianTwo.toString() + "共有" + sixonesTop7fuhetijianTwo.size() + "个数字");
+		logger.info("符合遗漏次数为3的数字有:" + sixonesTop7fuhetijianThree.toString() + "共有" + sixonesTop7fuhetijianThree.size()
+				+ "个数字");
+		logger.info("符合遗漏次数为4的数字有:" + sixonesTop7fuhetijianfour.toString() + "共有" + sixonesTop7fuhetijianfour.size()
+				+ "个数字");
+		logger.info("符合遗漏次数为5的数字有:" + sixonesTop7fuhetijianfive.toString() + "共有" + sixonesTop7fuhetijianfive.size()
+				+ "个数字");
+		logger.info(
+				"符合遗漏次数为6的数字有:" + sixonesTop7fuhetijiansix.toString() + "共有" + sixonesTop7fuhetijiansix.size() + "个数字");
+		logger.info("=================统计过去 8期 符合条件的数字==================");
+		logger.info("符合遗漏次数为0的数字有:" + sixonesTop8fuhetijianZero.toString() + "共有" + sixonesTop8fuhetijianZero.size()
+				+ "个数字");
+		logger.info(
+				"符合遗漏次数为1的数字有:" + sixonesTop8fuhetijianOne.toString() + "共有" + sixonesTop8fuhetijianOne.size() + "个数字");
+		logger.info(
+				"符合遗漏次数为2的数字有:" + sixonesTop8fuhetijianTwo.toString() + "共有" + sixonesTop8fuhetijianTwo.size() + "个数字");
+		logger.info("符合遗漏次数为3的数字有:" + sixonesTop8fuhetijianThree.toString() + "共有" + sixonesTop8fuhetijianThree.size()
+				+ "个数字");
+		logger.info("符合遗漏次数为4的数字有:" + sixonesTop8fuhetijianfour.toString() + "共有" + sixonesTop8fuhetijianfour.size()
+				+ "个数字");
+		logger.info("符合遗漏次数为5的数字有:" + sixonesTop8fuhetijianfive.toString() + "共有" + sixonesTop8fuhetijianfive.size()
+				+ "个数字");
+		logger.info(
+				"符合遗漏次数为6的数字有:" + sixonesTop8fuhetijiansix.toString() + "共有" + sixonesTop8fuhetijiansix.size() + "个数字");
+		
+		logger.info("=================统计过去 9期 符合条件的数字==================");
+		logger.info("符合遗漏次数为0的数字有:" + sixonesTop9fuhetijianZero.toString() + "共有" + sixonesTop9fuhetijianZero.size()
+				+ "个数字");
+		logger.info(
+				"符合遗漏次数为1的数字有:" + sixonesTop9fuhetijianOne.toString() + "共有" + sixonesTop9fuhetijianOne.size() + "个数字");
+		logger.info(
+				"符合遗漏次数为2的数字有:" + sixonesTop9fuhetijianTwo.toString() + "共有" + sixonesTop9fuhetijianTwo.size() + "个数字");
+		logger.info("符合遗漏次数为3的数字有:" + sixonesTop9fuhetijianThree.toString() + "共有" + sixonesTop9fuhetijianThree.size()
+				+ "个数字");
+		logger.info("符合遗漏次数为4的数字有:" + sixonesTop9fuhetijianfour.toString() + "共有" + sixonesTop9fuhetijianfour.size()
+				+ "个数字");
+		logger.info("符合遗漏次数为5的数字有:" + sixonesTop9fuhetijianfive.toString() + "共有" + sixonesTop9fuhetijianfive.size()
+				+ "个数字");
+		logger.info(
+				"符合遗漏次数为6的数字有:" + sixonesTop9fuhetijiansix.toString() + "共有" + sixonesTop9fuhetijiansix.size() + "个数字");
+
 		logger.info("在过去5期中 遗漏次数 为 0的 数字有 :" + yilouZeroInTop5.toString() + "共" + yilouZeroInTop5.size() + "个");
 		logger.info("在过去5期中 遗漏次数 为 1的 数字有 :" + yilouOneInTop5.toString() + "共" + yilouOneInTop5.size() + "个");
 		logger.info("在过去5期中 遗漏次数 为 2的 数字有 :" + yilouTwoInTop5.toString() + "共" + yilouTwoInTop5.size() + "个");
@@ -1152,6 +1797,14 @@ public class SixOneAction extends BaseAction {
 		map.put("yilouSixToNineInTop5", yilouSixToNineInTop5.toString());
 		map.put("yilouTenAndMoreInTop5", yilouTenAndMoreInTop5.toString());
 
+		// 真正符合的数字 过去5 期
+		map.put("sixonesTop5fuhetijianZero", sixonesTop5fuhetijianZero.toString());
+		map.put("sixonesTop5fuhetijianOne", sixonesTop5fuhetijianOne.toString());
+		map.put("sixonesTop5fuhetijianTwo", sixonesTop5fuhetijianTwo.toString());
+		map.put("sixonesTop5fuhetijianThree", sixonesTop5fuhetijianThree.toString());
+		map.put("sixonesTop5fuhetijianfour", sixonesTop5fuhetijianfour.toString());
+		map.put("sixonesTop5fuhetijianfive", sixonesTop5fuhetijianfive.toString());
+
 		map.put("yilouZeroInTop6", yilouZeroInTop6.toString());
 		map.put("yilouOneInTop6", yilouOneInTop6.toString());
 		map.put("yilouTwoInTop6", yilouTwoInTop6.toString());
@@ -1160,6 +1813,16 @@ public class SixOneAction extends BaseAction {
 		map.put("yilouFiveInTop6", yilouFiveInTop6.toString());
 		map.put("yilouSixToNineInTop6", yilouSixToNineInTop6.toString());
 		map.put("yilouTenAndMoreInTop6", yilouTenAndMoreInTop6.toString());
+
+		// 真正符合的数字 过去6 期
+		map.put("sixonesTop6fuhetijianZero", sixonesTop5fuhetijianZero.toString());
+		map.put("sixonesTop6fuhetijianOne", sixonesTop5fuhetijianOne.toString());
+		map.put("sixonesTop6fuhetijianTwo", sixonesTop5fuhetijianTwo.toString());
+		map.put("sixonesTop6fuhetijianThree", sixonesTop5fuhetijianThree.toString());
+		map.put("sixonesTop6fuhetijianfour", sixonesTop5fuhetijianfour.toString());
+		map.put("sixonesTop6fuhetijianfive", sixonesTop5fuhetijianfive.toString());
+		// map.put("sixonesTop6fuhetijiansix",
+		// sixonesTop6fuhetijiansix.toString());
 
 		map.put("yilouZeroInTop7", yilouZeroInTop7.toString());
 		map.put("yilouOneInTop7", yilouOneInTop7.toString());
@@ -1189,10 +1852,12 @@ public class SixOneAction extends BaseAction {
 		map.put("yilouTenAndMoreInTop9", yilouTenAndMoreInTop9.toString());
 
 		logger.info(map.toString());
+
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();
 		return "FUTUREYILOUSUCCESS";
+
 	}
 
 	/**
@@ -1222,44 +1887,43 @@ public class SixOneAction extends BaseAction {
 
 			StringBuilder stringBuilder2 = new StringBuilder();
 			if (first < 10) {
-				stringBuilder2.append("0" + first+"-");
+				stringBuilder2.append("0" + first + "-");
 			} else {
-				stringBuilder2.append(first+"-");
+				stringBuilder2.append(first + "-");
 			}
 			if (second < 10) {
-				stringBuilder2.append("0" + second+"-");
+				stringBuilder2.append("0" + second + "-");
 			} else {
-				stringBuilder2.append(second+"-");
+				stringBuilder2.append(second + "-");
 			}
 
 			if (third < 10) {
-				stringBuilder2.append("0" + third+"-");
+				stringBuilder2.append("0" + third + "-");
 			} else {
-				stringBuilder2.append(third+"-");
+				stringBuilder2.append(third + "-");
 			}
 
 			if (fourth < 10) {
-				stringBuilder2.append("0" + fourth+"-");
+				stringBuilder2.append("0" + fourth + "-");
 			} else {
-				stringBuilder2.append(fourth+"-");
+				stringBuilder2.append(fourth + "-");
 			}
 			if (fifth < 10) {
-				stringBuilder2.append("0" + fifth+"-");
+				stringBuilder2.append("0" + fifth + "-");
 			} else {
-				stringBuilder2.append(fifth+"-");
+				stringBuilder2.append(fifth + "-");
 			}
 			if (sixth < 10) {
-				stringBuilder2.append("0" + sixth+"-");
+				stringBuilder2.append("0" + sixth + "-");
 			} else {
-				stringBuilder2.append(sixth+"-");
+				stringBuilder2.append(sixth + "-");
 			}
 			if (seventh < 10) {
 				stringBuilder2.append("0" + seventh);
 			} else {
 				stringBuilder2.append(seventh);
 			}
-			everyone.put("number",
-					stringBuilder2.toString());
+			everyone.put("number", stringBuilder2.toString());
 			List<Integer> IntegerS = new ArrayList<Integer>();
 			IntegerS.add(first);
 			IntegerS.add(second);
@@ -1668,6 +2332,7 @@ public class SixOneAction extends BaseAction {
 			} // 降序
 			else if ("desc".equals(sortOrder)) {
 				Collections.sort(data, new Comparator<Map<String, Object>>() {
+
 					public int compare(Map<String, Object> map1, Map<String, Object> map2) {
 						return Integer.parseInt(map2.get(sortName).toString())
 								- Integer.parseInt(map1.get(sortName).toString());
@@ -1675,20 +2340,21 @@ public class SixOneAction extends BaseAction {
 				});
 			}
 		} /*
-			 * else if ("qishu,first".equals(sortName)) { Collections.sort(data,
-			 * new Comparator<Map<String, Object>>() { public int
-			 * compare(Map<String, Object> map1, Map<String, Object> map2) { int
-			 * xhCp = Integer.parseInt(map1.get("qishu").toString()) -
-			 * Integer.parseInt(map2.get("qishu").toString()); int idCp =
-			 * Integer.parseInt(map1.get("first").toString()) -
-			 * Integer.parseInt(map2.get("first").toString());
+			 * else if ("qishu,first" . equals ( sortName ) ) { Collections .
+			 * sort ( data, new Comparator < Map < String, Object > > ( ) {
+			 * public int compare ( Map < String, Object> map1, Map < String,
+			 * Object> map2) { int xhCp = Integer . parseInt ( map1 . get (
+			 * "qishu" ) . toString ( ) ) - Integer . parseInt ( map2 . get (
+			 * "qishu" ) . toString ( ) ) ; int idCp = Integer . parseInt ( map1
+			 * . get ( "first" ) . toString ( ) ) - Integer . parseInt ( map2 .
+			 * get ( "first" ) . toString ( ) ) ;
 			 * 
-			 * if (sortOrder.equals("asc,asc")) { return xhCp == 0 ? idCp :
-			 * xhCp; } else if (sortOrder.equals("asc,desc")) { return xhCp == 0
-			 * ? -idCp : xhCp; } else if (sortOrder.equals("desc,asc")) { return
-			 * xhCp == 0 ? idCp : -xhCp; } else if
-			 * (sortOrder.equals("desc,desc")) { return xhCp == 0 ? -idCp :
-			 * -xhCp; } return 0; } }); }
+			 * if (sortOrder . equals ( "asc,asc" ) ) { return xhCp == 0 ? idCp
+			 * : xhCp; } else if (sortOrder . equals ( "asc,desc" ) ) { return
+			 * xhCp == 0 ? -idCp : xhCp; } else if (sortOrder . equals (
+			 * "desc,asc" ) ) { return xhCp == 0 ? idCp : -xhCp; } else if
+			 * (sortOrder . equals ( "desc,desc" ) ) { return xhCp == 0 ? -idCp
+			 * : -xhCp; } return 0; } } ) ; }
 			 */
 
 		StringBuilder jsonSb = new StringBuilder();
@@ -1702,14 +2368,23 @@ public class SixOneAction extends BaseAction {
 		int startRow = pageSize * (curPage - 1) + 1;
 		int endRow = startRow + pageSize - 1;
 		// if pageSize == 0, then return all
-		if (endRow > totalRows || pageSize == 0) {
+		if (endRow > totalRows || pageSize == 0)
+
+		{
 			endRow = totalRows;
 		}
 
-		for (int i = startRow - 1; i < endRow; i++) {
-			if (i != startRow - 1) {
+		for (
+
+		int i = startRow - 1; i < endRow; i++)
+
+		{
+			if (i != startRow - 1)
+
+			{
 				jsonSb.append(",");
 			}
+
 			Map<String, Object> map = data.get(i);
 			jsonSb.append("{");
 			jsonSb.append("\"qishu\": ").append(map.get("qishu")).append(",");

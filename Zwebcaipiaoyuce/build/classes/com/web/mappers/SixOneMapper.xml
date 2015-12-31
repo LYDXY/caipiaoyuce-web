@@ -108,4 +108,10 @@
 	<select id="way10" resultType="sixone">
 	   SELECT * FROM (select * from tb_caipiao_six_one ORDER BY qishu DESC limit 20)  as t ORDER BY t.qishu ASC
 	</select>  
+	
+	
+	<!-- 查询过去 n 期的集合 升序-->
+	<select id="way11" resultType="sixone" parameterType="Integer" >
+      SELECT * FROM ( SELECT * FROM tb_caipiao_six_one ORDER BY  qishu DESC LIMIT #{top}) AS t ORDER BY t.qishu ASC
+    </select>
 </mapper>

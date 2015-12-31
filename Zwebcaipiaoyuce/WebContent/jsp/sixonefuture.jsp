@@ -243,13 +243,21 @@
 							<tr>
 								<td><h4>过去期数</h4></td>
 								<td><h4>遗漏次数为0</h4></td>
+								<td><h4>符合条件的数字</h4></td>
 								<td><h4>遗漏次数为1</h4></td>
+								<td><h4>符合条件的数字</h4></td>
 								<td><h4>遗漏次数为2</h4></td>
+								<td><h4>符合条件的数字</h4></td>
 								<td><h4>遗漏次数为3</h4></td>
+								<td><h4>符合条件的数字</h4></td>
 								<td><h4>遗漏次数为4</h4></td>
+								<td><h4>符合条件的数字</h4></td>
 								<td><h4>遗漏次数为5</h4></td>
+								<td><h4>符合条件的数字</h4></td>
 								<td><h4>遗漏次数为6-9</h4></td>
+								<td><h4>符合条件的数字</h4></td>
 								<td><h4>遗漏次数为 &gt;=10</h4></td>
+								<td><h4>符合条件的数字</h4></td>
 							</tr>
 
 						</thead>
@@ -257,60 +265,100 @@
 							<tr>
 								<td>过去5期</td>
 								<td id=yilouZeroInTop5></td>
+								<td id=sixonesTop5fuhetijianZero></td>
 								<td id="yilouOneInTop5"></td>
+								<td id=sixonesTop5fuhetijianOne></td>
 								<td id="yilouTwoInTop5"></td>
+								<td id=sixonesTop5fuhetijianTwo></td>
 								<td id="yilouThreeInTop5"></td>
+								<td id=sixonesTop5fuhetijianThree></td>
 								<td id="yilouFourInTop5"></td>
+								<td id=sixonesTop5fuhetijianfour></td>
 								<td id="yilouFiveInTop5"></td>
+								<td id=sixonesTop5fuhetijianfive></td>
 								<td id="yilouSixToNineInTop5"></td>
+								<td></td>
 								<td id="yilouTenAndMoreInTop5"></td>
+								<td></td>
 							</tr>
 							<tr>
 								<td>过去6期</td>
 								<td id=yilouZeroInTop6></td>
+								<td id=sixonesTop6fuhetijianZero></td>
 								<td id="yilouOneInTop6"></td>
+								<td id=sixonesTop6fuhetijianOne></td>
 								<td id="yilouTwoInTop6"></td>
+								<td id=sixonesTop6fuhetijianTwo></td>
 								<td id="yilouThreeInTop6"></td>
+								<td id=sixonesTop6fuhetijianThree></td>
 								<td id="yilouFourInTop6"></td>
+								<td id=sixonesTop6fuhetijianfour></td>
 								<td id="yilouFiveInTop6"></td>
+								<td id=sixonesTop6fuhetijianfive></td>
 								<td id="yilouSixToNineInTop6"></td>
+								<td id="sixonesTop6fuhetijiansix"></td>
 								<td id="yilouTenAndMoreInTop6"></td>
+								<td></td>
 							</tr>
 							<tr>
 								<td>过去7期</td>
 
 								<td id=yilouZeroInTop7></td>
+								<td></td>
 								<td id="yilouOneInTop7"></td>
+								<td></td>
 								<td id="yilouTwoInTop7"></td>
+								<td></td>
 								<td id="yilouThreeInTop7"></td>
+								<td></td>
 								<td id="yilouFourInTop7"></td>
+								<td></td>
 								<td id="yilouFiveInTop7"></td>
+								<td></td>
 								<td id="yilouSixToNineInTop7"></td>
+								<td></td>
 								<td id="yilouTenAndMoreInTop7"></td>
+								<td></td>
 							</tr>
 							<tr>
 								<td>过去8期</td>
 
 								<td id=yilouZeroInTop8></td>
+								<td></td>
 								<td id="yilouOneInTop8"></td>
+								<td></td>
 								<td id="yilouTwoInTop8"></td>
+								<td></td>
 								<td id="yilouThreeInTop8"></td>
+								<td></td>
 								<td id="yilouFourInTop8"></td>
+								<td></td>
 								<td id="yilouFiveInTop8"></td>
+								<td></td>
 								<td id="yilouSixToNineInTop8"></td>
+								<td></td>
 								<td id="yilouTenAndMoreInTop8"></td>
+								<td></td>
 							</tr>
 							<tr>
 								<td>过去9期</td>
 
 								<td id=yilouZeroInTop9></td>
+								<td></td>
 								<td id="yilouOneInTop9"></td>
+								<td></td>
 								<td id="yilouTwoInTop9"></td>
+								<td></td>
 								<td id="yilouThreeInTop9"></td>
+								<td></td>
 								<td id="yilouFourInTop9"></td>
+								<td></td>
 								<td id="yilouFiveInTop9"></td>
+								<td></td>
 								<td id="yilouSixToNineInTop9"></td>
+								<td></td>
 								<td id="yilouTenAndMoreInTop9"></td>
+								<td></td>
 							</tr>
 
 						</tbody>
@@ -795,6 +843,14 @@
 							$("#yilouTenAndMoreInTop5").html(
 									json.yilouTenAndMoreInTop5);
 
+							//实际符合条件数字过去5 期
+							$("#sixonesTop5fuhetijianZero").html(json.sixonesTop5fuhetijianZero);
+							$("#sixonesTop5fuhetijianOne").html(json.sixonesTop5fuhetijianOne);
+							$("#sixonesTop5fuhetijianTwo").html(json.sixonesTop5fuhetijianTwo);
+							$("#sixonesTop5fuhetijianThree").html(json.sixonesTop5fuhetijianThree);
+							$("#sixonesTop5fuhetijianfour").html(json.sixonesTop5fuhetijianfour);
+							$("#sixonesTop5fuhetijianfive").html(json.sixonesTop5fuhetijianfive);
+							
 							$("#yilouZeroInTop6").html(json.yilouZeroInTop6);
 							$("#yilouOneInTop6").html(json.yilouOneInTop6);
 							$("#yilouTwoInTop6").html(json.yilouTwoInTop6);
@@ -803,9 +859,21 @@
 							$("#yilouFiveInTop6").html(json.yilouFiveInTop6);
 							$("#yilouSixToNineInTop6").html(
 									json.yilouSixToNineInTop6);
+							$("#sixonesTop6fuhetijiansix").html(
+									json.sixonesTop6fuhetijiansix);
 							$("#yilouTenAndMoreInTop6").html(
 									json.yilouTenAndMoreInTop6);
-
+							
+							//实际符合条件数字过去6期
+							$("#sixonesTop6fuhetijianZero").html(json.sixonesTop6fuhetijianZero);
+							$("#sixonesTop6fuhetijianOne").html(json.sixonesTop6fuhetijianOne);
+							$("#sixonesTop6fuhetijianTwo").html(json.sixonesTop6fuhetijianTwo);
+							$("#sixonesTop6fuhetijianThree").html(json.sixonesTop6fuhetijianThree);
+							$("#sixonesTop6fuhetijianfour").html(json.sixonesTop6fuhetijianfour);
+							$("#sixonesTop6fuhetijianfive").html(json.sixonesTop6fuhetijianfive);
+							
+							
+							
 							$("#yilouZeroInTop7").html(json.yilouZeroInTop7);
 							$("#yilouOneInTop7").html(json.yilouOneInTop7);
 							$("#yilouTwoInTop7").html(json.yilouTwoInTop7);
