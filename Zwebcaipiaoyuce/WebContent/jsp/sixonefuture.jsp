@@ -265,100 +265,100 @@
 							<tr>
 								<td>过去5期</td>
 								<td id=yilouZeroInTop5></td>
-								<td id=sixonesTop5fuhetijianZero></td>
+								<td id=sixonesTop5fuhetijianZero class="success"></td>
 								<td id="yilouOneInTop5"></td>
-								<td id=sixonesTop5fuhetijianOne></td>
+								<td id=sixonesTop5fuhetijianOne class="success"></td>
 								<td id="yilouTwoInTop5"></td>
-								<td id=sixonesTop5fuhetijianTwo></td>
+								<td id=sixonesTop5fuhetijianTwo class="success"></td>
 								<td id="yilouThreeInTop5"></td>
-								<td id=sixonesTop5fuhetijianThree></td>
+								<td id=sixonesTop5fuhetijianThree class="success"></td>
 								<td id="yilouFourInTop5"></td>
-								<td id=sixonesTop5fuhetijianfour></td>
+								<td id=sixonesTop5fuhetijianfour class="success"></td>
 								<td id="yilouFiveInTop5"></td>
-								<td id=sixonesTop5fuhetijianfive></td>
+								<td id=sixonesTop5fuhetijianfive class="success"></td>
 								<td id="yilouSixToNineInTop5"></td>
-								<td></td>
-								<td id="yilouTenAndMoreInTop5"></td>
-								<td></td>
+								<td class="success"></td>
+								<td id="yilouTenAndMoreInTop5" ></td>
+								<td class="success"></td>
 							</tr>
 							<tr>
 								<td>过去6期</td>
 								<td id=yilouZeroInTop6></td>
-								<td id=sixonesTop6fuhetijianZero></td>
+								<td id=sixonesTop6fuhetijianZero class="success"></td>
 								<td id="yilouOneInTop6"></td>
-								<td id=sixonesTop6fuhetijianOne></td>
+								<td id=sixonesTop6fuhetijianOne class="success"></td>
 								<td id="yilouTwoInTop6"></td>
-								<td id=sixonesTop6fuhetijianTwo></td>
+								<td id=sixonesTop6fuhetijianTwo class="success"></td>
 								<td id="yilouThreeInTop6"></td>
-								<td id=sixonesTop6fuhetijianThree></td>
+								<td id=sixonesTop6fuhetijianThree class="success"></td>
 								<td id="yilouFourInTop6"></td>
-								<td id=sixonesTop6fuhetijianfour></td>
+								<td id=sixonesTop6fuhetijianfour class="success"></td>
 								<td id="yilouFiveInTop6"></td>
-								<td id=sixonesTop6fuhetijianfive></td>
+								<td id=sixonesTop6fuhetijianfive class="success"></td>
 								<td id="yilouSixToNineInTop6"></td>
-								<td id="sixonesTop6fuhetijiansix"></td>
+								<td id="sixonesTop6fuhetijiansix" class="success"></td>
 								<td id="yilouTenAndMoreInTop6"></td>
-								<td></td>
+								<td class="success"></td>
 							</tr>
 							<tr>
 								<td>过去7期</td>
 
 								<td id=yilouZeroInTop7></td>
-								<td></td>
+								<td id=sixonesTop7fuhetijianZero class="success"></td>
 								<td id="yilouOneInTop7"></td>
-								<td></td>
+								<td id=sixonesTop7fuhetijianOne class="success"></td>
 								<td id="yilouTwoInTop7"></td>
-								<td></td>
+								<td id=sixonesTop7fuhetijianTwo class="success"></td>
 								<td id="yilouThreeInTop7"></td>
-								<td></td>
+								<td id=sixonesTop7fuhetijianThree class="success"></td>
 								<td id="yilouFourInTop7"></td>
-								<td></td>
+								<td id=sixonesTop7fuhetijianfour class="success"></td>
 								<td id="yilouFiveInTop7"></td>
-								<td></td>
+								<td id=sixonesTop7fuhetijianfive class="success"></td>
 								<td id="yilouSixToNineInTop7"></td>
-								<td></td>
+								<td id="sixonesTop7fuhetijiansix" class="success"></td>
 								<td id="yilouTenAndMoreInTop7"></td>
-								<td></td>
+								<td class="success"></td>
 							</tr>
 							<tr>
 								<td>过去8期</td>
 
 								<td id=yilouZeroInTop8></td>
-								<td></td>
+								<td id=sixonesTop8fuhetijianZero class="success"></td>
 								<td id="yilouOneInTop8"></td>
-								<td></td>
+								<td id=sixonesTop8fuhetijianOne class="success"></td>
 								<td id="yilouTwoInTop8"></td>
-								<td></td>
+								<td id=sixonesTop8fuhetijianTwo class="success"></td>
 								<td id="yilouThreeInTop8"></td>
-								<td></td>
+								<td id=sixonesTop8fuhetijianThree class="success"></td>
 								<td id="yilouFourInTop8"></td>
-								<td></td>
+								<td id=sixonesTop8fuhetijianfour class="success"></td>
 								<td id="yilouFiveInTop8"></td>
-								<td></td>
+								<td id=sixonesTop8fuhetijianfive class="success"></td>
 								<td id="yilouSixToNineInTop8"></td>
-								<td></td>
+								<td id="sixonesTop8fuhetijiansix" class="success"></td>
 								<td id="yilouTenAndMoreInTop8"></td>
-								<td></td>
+								<td class="success"></td>
 							</tr>
 							<tr>
 								<td>过去9期</td>
 
 								<td id=yilouZeroInTop9></td>
-								<td></td>
+								<td id=sixonesTop9fuhetijianZero class="success"></td>
 								<td id="yilouOneInTop9"></td>
-								<td></td>
+								<td id=sixonesTop9fuhetijianOne class="success"></td>
 								<td id="yilouTwoInTop9"></td>
-								<td></td>
+								<td id=sixonesTop9fuhetijianTwo class="success"></td>
 								<td id="yilouThreeInTop9"></td>
-								<td></td>
+								<td id=sixonesTop9fuhetijianThree class="success"></td>
 								<td id="yilouFourInTop9"></td>
-								<td></td>
+								<td id=sixonesTop9fuhetijianfour class="success"></td>
 								<td id="yilouFiveInTop9"></td>
-								<td></td>
+								<td id=sixonesTop9fuhetijianfive class="success"></td>
 								<td id="yilouSixToNineInTop9"></td>
-								<td></td>
+								<td id="sixonesTop9fuhetijiansix" class="success"></td>
 								<td id="yilouTenAndMoreInTop9"></td>
-								<td></td>
+								<td class="success"></td>
 							</tr>
 
 						</tbody>
@@ -843,13 +843,7 @@
 							$("#yilouTenAndMoreInTop5").html(
 									json.yilouTenAndMoreInTop5);
 
-							//实际符合条件数字过去5 期
-							$("#sixonesTop5fuhetijianZero").html(json.sixonesTop5fuhetijianZero);
-							$("#sixonesTop5fuhetijianOne").html(json.sixonesTop5fuhetijianOne);
-							$("#sixonesTop5fuhetijianTwo").html(json.sixonesTop5fuhetijianTwo);
-							$("#sixonesTop5fuhetijianThree").html(json.sixonesTop5fuhetijianThree);
-							$("#sixonesTop5fuhetijianfour").html(json.sixonesTop5fuhetijianfour);
-							$("#sixonesTop5fuhetijianfive").html(json.sixonesTop5fuhetijianfive);
+							
 							
 							$("#yilouZeroInTop6").html(json.yilouZeroInTop6);
 							$("#yilouOneInTop6").html(json.yilouOneInTop6);
@@ -859,18 +853,10 @@
 							$("#yilouFiveInTop6").html(json.yilouFiveInTop6);
 							$("#yilouSixToNineInTop6").html(
 									json.yilouSixToNineInTop6);
-							$("#sixonesTop6fuhetijiansix").html(
-									json.sixonesTop6fuhetijiansix);
 							$("#yilouTenAndMoreInTop6").html(
 									json.yilouTenAndMoreInTop6);
 							
-							//实际符合条件数字过去6期
-							$("#sixonesTop6fuhetijianZero").html(json.sixonesTop6fuhetijianZero);
-							$("#sixonesTop6fuhetijianOne").html(json.sixonesTop6fuhetijianOne);
-							$("#sixonesTop6fuhetijianTwo").html(json.sixonesTop6fuhetijianTwo);
-							$("#sixonesTop6fuhetijianThree").html(json.sixonesTop6fuhetijianThree);
-							$("#sixonesTop6fuhetijianfour").html(json.sixonesTop6fuhetijianfour);
-							$("#sixonesTop6fuhetijianfive").html(json.sixonesTop6fuhetijianfive);
+							
 							
 							
 							
@@ -906,6 +892,46 @@
 									json.yilouSixToNineInTop9);
 							$("#yilouTenAndMoreInTop9").html(
 									json.yilouTenAndMoreInTop9);
+							
+							//实际符合条件数字过去5 期
+							$("#sixonesTop5fuhetijianZero").html(json.sixonesTop5fuhetijianZero);
+							$("#sixonesTop5fuhetijianOne").html(json.sixonesTop5fuhetijianOne);
+							$("#sixonesTop5fuhetijianTwo").html(json.sixonesTop5fuhetijianTwo);
+							$("#sixonesTop5fuhetijianThree").html(json.sixonesTop5fuhetijianThree);
+							$("#sixonesTop5fuhetijianfour").html(json.sixonesTop5fuhetijianfour);
+							$("#sixonesTop5fuhetijianfive").html(json.sixonesTop5fuhetijianfive);
+							//实际符合条件数字过去6期
+							$("#sixonesTop6fuhetijianZero").html(json.sixonesTop6fuhetijianZero);
+							$("#sixonesTop6fuhetijianOne").html(json.sixonesTop6fuhetijianOne);
+							$("#sixonesTop6fuhetijianTwo").html(json.sixonesTop6fuhetijianTwo);
+							$("#sixonesTop6fuhetijianThree").html(json.sixonesTop6fuhetijianThree);
+							$("#sixonesTop6fuhetijianfour").html(json.sixonesTop6fuhetijianfour);
+							$("#sixonesTop6fuhetijianfive").html(json.sixonesTop6fuhetijianfive);
+							$("#sixonesTop6fuhetijiansix").html(json.sixonesTop6fuhetijiansix);
+							//实际符合条件数字过去7期
+							$("#sixonesTop7fuhetijianZero").html(json.sixonesTop7fuhetijianZero);
+							$("#sixonesTop7fuhetijianOne").html(json.sixonesTop7fuhetijianOne);
+							$("#sixonesTop7fuhetijianTwo").html(json.sixonesTop7fuhetijianTwo);
+							$("#sixonesTop7fuhetijianThree").html(json.sixonesTop7fuhetijianThree);
+							$("#sixonesTop7fuhetijianfour").html(json.sixonesTop7fuhetijianfour);
+							$("#sixonesTop7fuhetijianfive").html(json.sixonesTop7fuhetijianfive);
+							$("#sixonesTop7fuhetijiansix").html(json.sixonesTop7fuhetijiansix);
+							//实际符合条件数字过去8期
+							$("#sixonesTop8fuhetijianZero").html(json.sixonesTop8fuhetijianZero);
+							$("#sixonesTop8fuhetijianOne").html(json.sixonesTop8fuhetijianOne);
+							$("#sixonesTop8fuhetijianTwo").html(json.sixonesTop8fuhetijianTwo);
+							$("#sixonesTop8fuhetijianThree").html(json.sixonesTop8fuhetijianThree);
+							$("#sixonesTop8fuhetijianfour").html(json.sixonesTop8fuhetijianfour);
+							$("#sixonesTop8fuhetijianfive").html(json.sixonesTop8fuhetijianfive);
+							$("#sixonesTop8fuhetijiansix").html(json.sixonesTop8fuhetijiansix);
+							//实际符合条件数字过去9期
+							$("#sixonesTop9fuhetijianZero").html(json.sixonesTop9fuhetijianZero);
+							$("#sixonesTop9fuhetijianOne").html(json.sixonesTop9fuhetijianOne);
+							$("#sixonesTop9fuhetijianTwo").html(json.sixonesTop9fuhetijianTwo);
+							$("#sixonesTop9fuhetijianThree").html(json.sixonesTop9fuhetijianThree);
+							$("#sixonesTop9fuhetijianfour").html(json.sixonesTop9fuhetijianfour);
+							$("#sixonesTop9fuhetijianfive").html(json.sixonesTop9fuhetijianfive);
+							$("#sixonesTop9fuhetijiansix").html(json.sixonesTop9fuhetijiansix);
 
 						},
 						error : function(data) {

@@ -1716,7 +1716,7 @@ public class SixOneAction extends BaseAction {
 				+ "个数字");
 		logger.info(
 				"符合遗漏次数为6的数字有:" + sixonesTop8fuhetijiansix.toString() + "共有" + sixonesTop8fuhetijiansix.size() + "个数字");
-		
+
 		logger.info("=================统计过去 9期 符合条件的数字==================");
 		logger.info("符合遗漏次数为0的数字有:" + sixonesTop9fuhetijianZero.toString() + "共有" + sixonesTop9fuhetijianZero.size()
 				+ "个数字");
@@ -1797,14 +1797,6 @@ public class SixOneAction extends BaseAction {
 		map.put("yilouSixToNineInTop5", yilouSixToNineInTop5.toString());
 		map.put("yilouTenAndMoreInTop5", yilouTenAndMoreInTop5.toString());
 
-		// 真正符合的数字 过去5 期
-		map.put("sixonesTop5fuhetijianZero", sixonesTop5fuhetijianZero.toString());
-		map.put("sixonesTop5fuhetijianOne", sixonesTop5fuhetijianOne.toString());
-		map.put("sixonesTop5fuhetijianTwo", sixonesTop5fuhetijianTwo.toString());
-		map.put("sixonesTop5fuhetijianThree", sixonesTop5fuhetijianThree.toString());
-		map.put("sixonesTop5fuhetijianfour", sixonesTop5fuhetijianfour.toString());
-		map.put("sixonesTop5fuhetijianfive", sixonesTop5fuhetijianfive.toString());
-
 		map.put("yilouZeroInTop6", yilouZeroInTop6.toString());
 		map.put("yilouOneInTop6", yilouOneInTop6.toString());
 		map.put("yilouTwoInTop6", yilouTwoInTop6.toString());
@@ -1813,16 +1805,6 @@ public class SixOneAction extends BaseAction {
 		map.put("yilouFiveInTop6", yilouFiveInTop6.toString());
 		map.put("yilouSixToNineInTop6", yilouSixToNineInTop6.toString());
 		map.put("yilouTenAndMoreInTop6", yilouTenAndMoreInTop6.toString());
-
-		// 真正符合的数字 过去6 期
-		map.put("sixonesTop6fuhetijianZero", sixonesTop5fuhetijianZero.toString());
-		map.put("sixonesTop6fuhetijianOne", sixonesTop5fuhetijianOne.toString());
-		map.put("sixonesTop6fuhetijianTwo", sixonesTop5fuhetijianTwo.toString());
-		map.put("sixonesTop6fuhetijianThree", sixonesTop5fuhetijianThree.toString());
-		map.put("sixonesTop6fuhetijianfour", sixonesTop5fuhetijianfour.toString());
-		map.put("sixonesTop6fuhetijianfive", sixonesTop5fuhetijianfive.toString());
-		// map.put("sixonesTop6fuhetijiansix",
-		// sixonesTop6fuhetijiansix.toString());
 
 		map.put("yilouZeroInTop7", yilouZeroInTop7.toString());
 		map.put("yilouOneInTop7", yilouOneInTop7.toString());
@@ -1850,6 +1832,46 @@ public class SixOneAction extends BaseAction {
 		map.put("yilouFiveInTop9", yilouFiveInTop9.toString());
 		map.put("yilouSixToNineInTop9", yilouSixToNineInTop9.toString());
 		map.put("yilouTenAndMoreInTop9", yilouTenAndMoreInTop9.toString());
+
+		// 真正符合的数字 过去5 期
+		map.put("sixonesTop5fuhetijianZero", sixonesTop5fuhetijianZero.toString());
+		map.put("sixonesTop5fuhetijianOne", sixonesTop5fuhetijianOne.toString());
+		map.put("sixonesTop5fuhetijianTwo", sixonesTop5fuhetijianTwo.toString());
+		map.put("sixonesTop5fuhetijianThree", sixonesTop5fuhetijianThree.toString());
+		map.put("sixonesTop5fuhetijianfour", sixonesTop5fuhetijianfour.toString());
+		map.put("sixonesTop5fuhetijianfive", sixonesTop5fuhetijianfive.toString());
+		// 真正符合的数字 过去6 期
+		map.put("sixonesTop6fuhetijianZero", sixonesTop6fuhetijianZero.toString());
+		map.put("sixonesTop6fuhetijianOne", sixonesTop6fuhetijianOne.toString());
+		map.put("sixonesTop6fuhetijianTwo", sixonesTop6fuhetijianTwo.toString());
+		map.put("sixonesTop6fuhetijianThree", sixonesTop6fuhetijianThree.toString());
+		map.put("sixonesTop6fuhetijianfour", sixonesTop6fuhetijianfour.toString());
+		map.put("sixonesTop6fuhetijianfive", sixonesTop6fuhetijianfive.toString());
+		map.put("sixonesTop6fuhetijiansix", sixonesTop6fuhetijiansix.toString());
+		// 真正符合的数字 过去7 期
+		map.put("sixonesTop7fuhetijianZero", sixonesTop7fuhetijianZero.toString());
+		map.put("sixonesTop7fuhetijianOne", sixonesTop7fuhetijianOne.toString());
+		map.put("sixonesTop7fuhetijianTwo", sixonesTop7fuhetijianTwo.toString());
+		map.put("sixonesTop7fuhetijianThree", sixonesTop7fuhetijianThree.toString());
+		map.put("sixonesTop7fuhetijianfour", sixonesTop7fuhetijianfour.toString());
+		map.put("sixonesTop7fuhetijianfive", sixonesTop7fuhetijianfive.toString());
+		map.put("sixonesTop7fuhetijiansix", sixonesTop7fuhetijiansix.toString());
+		// 真正符合的数字 过去8 期
+		map.put("sixonesTop8fuhetijianZero", sixonesTop8fuhetijianZero.toString());
+		map.put("sixonesTop8fuhetijianOne", sixonesTop8fuhetijianOne.toString());
+		map.put("sixonesTop8fuhetijianTwo", sixonesTop8fuhetijianTwo.toString());
+		map.put("sixonesTop8fuhetijianThree", sixonesTop8fuhetijianThree.toString());
+		map.put("sixonesTop8fuhetijianfour", sixonesTop8fuhetijianfour.toString());
+		map.put("sixonesTop8fuhetijianfive", sixonesTop8fuhetijianfive.toString());
+		map.put("sixonesTop8fuhetijiansix", sixonesTop8fuhetijiansix.toString());
+		// 真正符合的数字 过去9 期
+		map.put("sixonesTop9fuhetijianZero", sixonesTop9fuhetijianZero.toString());
+		map.put("sixonesTop9fuhetijianOne", sixonesTop9fuhetijianOne.toString());
+		map.put("sixonesTop9fuhetijianTwo", sixonesTop9fuhetijianTwo.toString());
+		map.put("sixonesTop9fuhetijianThree", sixonesTop9fuhetijianThree.toString());
+		map.put("sixonesTop9fuhetijianfour", sixonesTop9fuhetijianfour.toString());
+		map.put("sixonesTop9fuhetijianfive", sixonesTop9fuhetijianfive.toString());
+		map.put("sixonesTop9fuhetijiansix", sixonesTop9fuhetijiansix.toString());
 
 		logger.info(map.toString());
 
