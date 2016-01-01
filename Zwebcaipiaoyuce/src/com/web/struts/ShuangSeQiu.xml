@@ -7,38 +7,33 @@
 <struts>
 	<package name="ShuangSeQiuAction" namespace="/ShuangSeQiuAction" extends="struts-default">
 
-		<!-- 查询所有的 期数 -->
+		
 		<action name="ShuangSeQiuActionGetShuangSeQius" class="com.web.action.ShuangSeQiuAction"
 			method="getShuangSeQius">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
-			<result name="GETSIXONES_SUCCESS">../jsp/sixone.jsp</result>
+			<result name="GETSIXONES_SUCCESS">../jsp/ShuangSeQiufuture.jsp</result>
 		</action>
 
 		<action name="ShuangSeQiuActionGetShuangSeQiusByFenYe" class="com.web.action.ShuangSeQiuAction"
 			method="GetShuangSeQiusByFenYe">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
-			<result name="GETSIXONES_SUCCESS">../jsp/sixone.jsp</result>
+			<result name="GETSIXONES_SUCCESS"></result>
 		</action>
 
 		<action name="ShuangSeQiuActionFuture" class="com.web.action.ShuangSeQiuAction"
 			method="futureShuangSeQiu">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
-			<result name="GETFUTURE_SUCCESS">../jsp/sixonefuture.jsp</result>
+			<result name="GETFUTURE_SUCCESS">../jsp/ShuangSeQiufuture.jsp</result>
 		</action>
 
         
 
 	
-		<action name="ShuangSeQiuActionFutureColdHot" class="com.web.action.ShuangSeQiuAction"
-			method="futureColdHot">
-			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
-			<result name="FUTURECOLDHOTSUCCESS">../jsp/sixonefuture.jsp</result>
-		</action>
-
+	
 
 	</package>
 
-	<package name="ajax" namespace="/ajaxShuangSeQiuAction" extends="struts-default,json-default">
+	<package name="ajax2" namespace="/ajaxShuangSeQiuAction" extends="struts-default,json-default">
 		
 		<!-- 添加一条最近的记录 -->
 		<action name="ShuangSeQiuActionAddShuangSeQiu" class="com.web.action.ShuangSeQiuAction"
@@ -52,7 +47,7 @@
         <!-- 获取当前最新的期数 -->
 		<action name="ajaxShuangSeQiuActionMaxQishu" class="com.web.action.ShuangSeQiuAction"
 			method="ShuangSeQiuActionMaxQishu">
-			<result type="json" name="SUCCESS">
+			<result type="json" name="AJAXSHUANGSEQIUACTIONMAXQISHU_SUCCESS">
 				<param name="root">result</param>
 			</result>
 		</action>

@@ -25,7 +25,7 @@ public class ShuangSeQiuAction extends BaseAction {
 
 	private String TAG = "ShuangSeQiuAction";
 	private static final long serialVersionUID = 1L;
-	private static final int List = 0;
+	
 
 	@Resource(name = "ShuangSeQiuServices") // 接口的实现
 	private com.web.services.ShuangSeQiuServices ShuangSeQiuServices; // 服务层的接口
@@ -80,9 +80,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			Integer Integer21to25 = 0;
 			Integer Integer26to30 = 0;
 			Integer Integer31to35 = 0;
-			Integer Integer36to40 = 0;
-			Integer Integer41to45 = 0;
-			Integer Integer46to49 = 0;
+			
 			for (Integer integer : templist) {
 
 				if (integer <= 5 && integer >= 1) {
@@ -626,7 +624,7 @@ public class ShuangSeQiuAction extends BaseAction {
 
 		// 查询当前新的期数
 
-		Integer maxqishu = ShuangSeQiuServices.way4();
+		
 		// 5
 		List<Integer> yilouZeroInTop5 = new ArrayList<Integer>();
 		List<Integer> yilouOneInTop5 = new ArrayList<Integer>();
@@ -688,7 +686,7 @@ public class ShuangSeQiuAction extends BaseAction {
 
 			List<ShuangSeQiu> temps = ShuangSeQiuServices.way7(qishu);
 			for (Integer integer : Templist) {
-				int geshu = 0;
+			
 
 				for (ShuangSeQiu tempsixOne : temps) { // 145,144,143,142
 
@@ -1214,7 +1212,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			Integer fourth = sixOne.getFourth();
 			Integer fifth = sixOne.getFifth();
 			Integer sixth = sixOne.getSixth();
-			Integer seventh = sixOne.getSeventh();
+		
 			List<Integer> list = new ArrayList<Integer>();
 			list.add(first);
 			list.add(second);
@@ -1323,7 +1321,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			Templist.add(reallysixOne.getSeventh());
 			List<ShuangSeQiu> temps = ShuangSeQiuServices.way7(qishu);
 			for (Integer integer : Templist) {
-				int geshu = 0;
+				
 				for (ShuangSeQiu tempsixOne : temps) { // 145,144,143,142
 
 					Integer tempqishu = tempsixOne.getQishu();
@@ -1396,7 +1394,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			Integer fourth = sixOne.getFourth();
 			Integer fifth = sixOne.getFifth();
 			Integer sixth = sixOne.getSixth();
-			Integer seventh = sixOne.getSeventh();
+		
 			List<Integer> list = new ArrayList<Integer>();
 			list.add(first);
 			list.add(second);
@@ -1506,7 +1504,7 @@ public class ShuangSeQiuAction extends BaseAction {
 		
 			List<ShuangSeQiu> temps = ShuangSeQiuServices.way7(qishu);
 			for (Integer integer : Templist) {
-				int geshu = 0;
+			
 				for (ShuangSeQiu tempsixOne : temps) { // 145,144,143,142
 
 					Integer tempqishu = tempsixOne.getQishu();
@@ -1796,7 +1794,7 @@ public class ShuangSeQiuAction extends BaseAction {
 		Iterator<ShuangSeQiu> iter = sixonesTop10.iterator();
 		List<ShuangSeQiu> temps;
 		List<Map<String, Object>> fenxijieguolist = new ArrayList<Map<String, Object>>();
-		List<StringBuilder> builders = new ArrayList<StringBuilder>();
+		
 		while (iter.hasNext()) {
 			Map<String, Object> everyone = new HashMap<String, Object>();
 			ShuangSeQiu sixOne = iter.next();
@@ -2115,7 +2113,7 @@ public class ShuangSeQiuAction extends BaseAction {
 		qishu++;
 		result = qishu.toString();
 		logger.info(TAG + "当前最新的期数" + result);
-		return "SUCCESS";
+		return "AJAXSHUANGSEQIUACTIONMAXQISHU_SUCCESS";
 	}
 
 	/**

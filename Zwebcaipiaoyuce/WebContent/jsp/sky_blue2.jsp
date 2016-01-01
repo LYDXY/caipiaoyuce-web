@@ -77,7 +77,7 @@
 
 	<div>
 		<a
-			href="${ pageContext.request.contextPath }/SixOne2Action/SixOne2ActionFuture.action">未来一期系统分析</a>
+			href="${ pageContext.request.contextPath }/ShuangSeQiuAction/ShuangSeQiuActionFuture.action">未来一期系统分析</a>
 		<br>
 	</div>
 	<!-- 对话框模块 -->
@@ -147,7 +147,7 @@
 					.init(
 							'searchTable',
 							{
-								url : '${ pageContext.request.contextPath }/SixOne2Action/SixOne2ActionGetSixOne2sByFenYe.action',
+								url : '${ pageContext.request.contextPath }/ShuangSeQiuAction/ShuangSeQiuActionGetShuangSeQiusByFenYe.action',
 								// autoLoad: false,
 								pageSizeSelect : true,
 								stripeRows : true,
@@ -204,13 +204,13 @@
 			//	var qishu;
 			$('#gridForm')[0].reset();
 
-			//	alert();
+			
 
 			//查询最新的期数
 			$
 					.ajax({
 						type : "POST",
-						url : '${pageContext.request.contextPath }/ajaxSixOne2Action/ajaxSixOne2ActionMaxQishu.action',
+						url : '${pageContext.request.contextPath}/ajaxShuangSeQiuAction/ajaxShuangSeQiuActionMaxQishu.action',
 						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
 						success : function(result) {
 							$("#form_qishu").val(result);
@@ -306,7 +306,7 @@
 			$
 					.ajax({
 						type : "POST",
-						url : '${ pageContext.request.contextPath }/ajaxSixOne2Action/SixOne2ActionAddSixOne2.action',
+						url : '${ pageContext.request.contextPath }/ajaxShuangSeQiuAction/ShuangSeQiuActionAddShuangSeQiu.action',
 						data : params,
 						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
 						success : function(data) {
