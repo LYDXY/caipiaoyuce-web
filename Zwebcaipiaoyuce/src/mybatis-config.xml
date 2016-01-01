@@ -6,6 +6,7 @@
 
 		<!-- 49 选 7 2015-12-12添加 -->
 		<typeAlias alias="SixOne" type="com.web.pojo.SixOne" />
+		<typeAlias alias="ShuangSeQiu" type="com.web.pojo.ShuangSeQiu" />
 		
 	</typeAliases>
 	<plugins>
@@ -35,6 +36,7 @@
 	</plugins>
 	<mappers>
 	<mapper resource="com/web/mappers/SixOneMapper.xml" />
+	<mapper resource="com/web/mappers/ShuangSeQiuMapper.xml" />
     
 	</mappers>
 

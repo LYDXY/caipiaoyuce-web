@@ -21,11 +21,18 @@ public class ShuangSeQiuServicesImpl implements ShuangSeQiuServices {
 	 */
 	private ShuangSeQiuMapper shuangseqiumapper;
 
-	public ShuangSeQiuMapper getSixonemapper() {
+	
+	/**
+	 * @return the shuangseqiumapper
+	 */
+	public ShuangSeQiuMapper getShuangseqiumapper() {
 		return shuangseqiumapper;
 	}
 
-	public void setSixonemapper(ShuangSeQiuMapper shuangseqiumapper) {
+	/**
+	 * @param shuangseqiumapper the shuangseqiumapper to set
+	 */
+	public void setShuangseqiumapper(ShuangSeQiuMapper shuangseqiumapper) {
 		this.shuangseqiumapper = shuangseqiumapper;
 	}
 

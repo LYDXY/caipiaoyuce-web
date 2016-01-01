@@ -40,6 +40,10 @@
 		<property name="mapperInterface" value="com.web.mappers.SixOneMapper" />
 	</bean>
 	
-	
+	<bean id="shuangseqiumapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<!-- 给 org.mybatis.spring.mapper.MapperFactoryBean 注入 Mapper 接口对象 -->
+		<property name="mapperInterface" value="com.web.mappers.ShuangSeQiuMapper" />
+	</bean>
 
 </beans>

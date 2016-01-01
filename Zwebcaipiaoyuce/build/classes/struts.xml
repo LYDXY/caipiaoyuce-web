@@ -11,7 +11,7 @@
 
       <!-- 49 选 7 2015-12-12 添加 -->
     <include file="com/web/struts/SixOne.xml"></include>
-    
+    <include file="com/web/struts/ShuangSeQiu.xml"></include>
 </struts>
 
   
