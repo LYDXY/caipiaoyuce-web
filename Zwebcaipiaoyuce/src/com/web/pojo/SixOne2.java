@@ -3,7 +3,7 @@ package com.web.pojo;
 /**
  * @author 林尧
  *
- *2015年12月12日     6+1 类型 49个号码 双色球
+ *2015年12月12日     6+1 双色球
  */
 
 public class SixOne2 {

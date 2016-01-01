@@ -51,7 +51,7 @@
 					</h4>
 					<div class="list-item none">
 
-						<a href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionGetSixOnes.action">查询</a>
+						<a href="jsp/sky_blue2.jsp">查询</a>
 						<a href="jsp/sky_blue.jsp">查询</a>
 
 					</div>
