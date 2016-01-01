@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.mappers.ShuangSeQiuMapper">
+	<!-- 49选7 类型 -->
+
+	<!--可重用的SQL代码段 -->
+	<sql id="sixone_column">select
+		t.id,t.qishu,t.first,t.second,t.third,t.fourth,t.fifth,t.sixth,t.seventh,t.sum
+		from tb_shuang_se_qiu t 
+	</sql>
+
+	<!--可重用的SQL代码段 -->
+	<sql id="sixone_column1">select
+		id,qishu,first,second,third,fourth,fifth,sixth,seventh,sum
+		from
+		tb_shuang_se_qiu
+	</sql>
+
+	<!--可重用的SQL代码段 -->
+	<sql id="sixone_column2">insert into tb_shuang_se_qiu
+		(qishu,first,second,third,fourth,fifth,sixth,seventh,sum)
+		
+	</sql>
+
+	<!-- 查询所有数据 -->
+	<select id="way0" resultType="ShuangSeQiu">
+		<include refid="sixone_column" />
+	</select>
+	<!-- 根据 单个条件 查询 数据 .若条件均不符合时则 查询全部 -->
+	<select id="way1" parameterType="ShuangSeQiu" resultType="ShuangSeQiu">
+		<include refid="sixone_column1" />
+		<where>
+			<if test="id!=null">
+				id=#{id}
+			</if>
+			<if test="qishu!=null">
+				qishu=#{qishu}
+			</if>
+			<if test="first!=null">
+				first=#{first}
+			</if>
+			<if test="second!=null">
+				second=#{second}
+			</if>
+			<if test="third!=null">
+				third=#{third}
+			</if>
+			<if test="fourth!=null">
+				fourth=#{fourth}
+			</if>
+			<if test="fifth!=null">
+				fifth=#{fifth}
+			</if>
+			<if test="sixth!=null">
+				sixth=#{sixth}
+			</if>
+			<if test="seventh!=null">
+				seventh=#{seventh}
+			</if>
+		</where>
+	</select>
+
+	<insert id="way2" parameterType="ShuangSeQiu">
+		<include refid="sixone_column2" />
+		values
+		(#{qishu},#{first},#{second},#{third},#{fourth},#{fifth},#{sixth},#{seventh},#{sum})
+	</insert>
+	<!-- 根据期数qishu查询整条数据 ,参数类型是 Integer 类型 -->
+	<select id="way3" parameterType="Integer" resultType="ShuangSeQiu">
+		<include refid="sixone_column" />
+		where t.qishu=#{qishu}
+	</select>
+	
+	<!-- 查询最新的期数 -->
+	<select id="way4" resultType="Integer">
+	   select max(qishu)  from tb_shuang_se_qiu 
+	</select>
+	
+	<!-- 查询最新的十期数 升序-->
+	<select id="way5" resultType="ShuangSeQiu">
+	   SELECT * FROM (select * from tb_shuang_se_qiu ORDER BY qishu DESC limit 10)  as t ORDER BY t.qishu ASC
+	</select>
+	
+	
+	<!-- 查询最新的十期数 降序-->
+	<select id="way6" resultType="ShuangSeQiu">
+	   SELECT * FROM (select * from tb_shuang_se_qiu ORDER BY qishu DESC limit 20)  as t ORDER BY t.qishu Desc
+	</select>
+	
+	<!-- 查询 期数小于 选中期 的其他期数 ,并且降序-->
+	<select id="way7" resultType="ShuangSeQiu" parameterType="Integer">
+	   <include refid="sixone_column1" />  WHERE qishu &lt; #{qishu} ORDER BY qishu DESC 
+	</select>
+	
+	
+	<!-- 查询 最近 5 到 8期的集合 -->
+	<select id="way8" resultType="ShuangSeQiu" parameterType="Integer" >
+     <include refid="sixone_column1" />  ORDER BY qishu DESC limit #{top}
+    </select>
+	
+	<!-- 查询最近的10 期 ,先升序 再降序 -->
+	<select id="way9" resultType="ShuangSeQiu"  >
+     SELECT * from (SELECT * FROM tb_shuang_se_qiu ORDER BY  qishu DESC LIMIT 10) AS t ORDER BY t.qishu ASC
+    </select>
+	 
+	 
+	<!-- 查询最新的30期数 升序-->
+	<select id="way10" resultType="ShuangSeQiu">
+	   SELECT * FROM (select * from tb_shuang_se_qiu ORDER BY qishu DESC limit 20)  as t ORDER BY t.qishu ASC
+	</select>  
+	
+	
+	<!-- 查询过去 n 期的集合 升序-->
+	<select id="way11" resultType="ShuangSeQiu" parameterType="Integer" >
+      SELECT * FROM ( SELECT * FROM tb_shuang_se_qiu ORDER BY  qishu DESC LIMIT #{top}) AS t ORDER BY t.qishu ASC
+    </select>
+</mapper>

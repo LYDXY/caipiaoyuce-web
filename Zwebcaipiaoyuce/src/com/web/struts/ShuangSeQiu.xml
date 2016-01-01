@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+
+<struts>
+	<package name="ShuangSeQiuAction" namespace="/ShuangSeQiuAction" extends="struts-default">
+
+		<!-- 查询所有的 期数 -->
+		<action name="ShuangSeQiuActionGetShuangSeQius" class="com.web.action.ShuangSeQiuAction"
+			method="getShuangSeQius">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result name="GETSIXONES_SUCCESS">../jsp/sixone.jsp</result>
+		</action>
+
+		<action name="ShuangSeQiuActionGetShuangSeQiusByFenYe" class="com.web.action.ShuangSeQiuAction"
+			method="GetShuangSeQiusByFenYe">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result name="GETSIXONES_SUCCESS">../jsp/sixone.jsp</result>
+		</action>
+
+		<action name="ShuangSeQiuActionFuture" class="com.web.action.ShuangSeQiuAction"
+			method="futureShuangSeQiu">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result name="GETFUTURE_SUCCESS">../jsp/sixonefuture.jsp</result>
+		</action>
+
+        
+
+	
+		<action name="ShuangSeQiuActionFutureColdHot" class="com.web.action.ShuangSeQiuAction"
+			method="futureColdHot">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result name="FUTURECOLDHOTSUCCESS">../jsp/sixonefuture.jsp</result>
+		</action>
+
+
+	</package>
+
+	<package name="ajax" namespace="/ajaxShuangSeQiuAction" extends="struts-default,json-default">
+		
+		<!-- 添加一条最近的记录 -->
+		<action name="ShuangSeQiuActionAddShuangSeQiu" class="com.web.action.ShuangSeQiuAction"
+			method="addShuangSeQiu">
+			<!-- 将返回类型设置为json -->
+			<result type="json" name="ADDSIXONESUCCESS">
+				<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+				<param name="root">result</param>
+			</result>
+		</action>
+        <!-- 获取当前最新的期数 -->
+		<action name="ajaxShuangSeQiuActionMaxQishu" class="com.web.action.ShuangSeQiuAction"
+			method="ShuangSeQiuActionMaxQishu">
+			<result type="json" name="SUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<!--奇数偶数偏差系统 -->
+		<action name="ShuangSeQiuActionFutureOddEven" class="com.web.action.ShuangSeQiuAction"
+			method="futureOddEven">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTUREODDEVENSUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<!--大数小数偏差系统 -->
+		<action name="ShuangSeQiuActionFutureBigSmall" class="com.web.action.ShuangSeQiuAction"
+			method="futureBigSmall">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTUREBIGSMALLSUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<!--末位数字偏差系统 -->
+		<action name="ShuangSeQiuActionFutureMoWei" class="com.web.action.ShuangSeQiuAction"
+			method="futureMoWei">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTUREMOWEISUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<!--和数值偏差系统 -->
+		<action name="ShuangSeQiuActionFutureHeShuzhi" class="com.web.action.ShuangSeQiuAction"
+			method="futureHeShuzhi">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTUREHESHUZHISUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<!--热门冷门数字偏差系统 -->
+		<action name="ShuangSeQiuActionFutureColdHot" class="com.web.action.ShuangSeQiuAction"
+			method="futureColdHot">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTURECOLDHOTSUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<!--数字区间偏差系统 -->
+		<action name="ShuangSeQiuActionFutureShuZiQuJian" class="com.web.action.ShuangSeQiuAction"
+			method="futureShuZiQuJian">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTURESHUZIQUJIANSUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<!-- 遗漏数字偏差分析 -->
+		<action name="ShuangSeQiuActionFutureYiLou" class="com.web.action.ShuangSeQiuAction"
+			method="futureYiLou">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result type="json" name="FUTUREYILOUSUCCESS">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+
+</struts>
+
+  
+     
+     
+     
+     
+
