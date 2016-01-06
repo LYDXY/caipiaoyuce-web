@@ -1,7 +1,6 @@
 package com.web.action;
 
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -9,16 +8,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
-
 import javax.annotation.Resource;
 
-import com.sun.star.bridge.oleautomation.Date;
 import com.sun.star.io.IOException;
 import com.web.pojo.SixOne;
 import com.web.services.SixOneServices;
-import com.web.yuce.common.utils.DuanQiCommonUtils;
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -2016,12 +2010,29 @@ public class SixOneAction extends BaseAction {
 						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						yilouzongshu += qishu - tempqishu - 1;
+						if (qishu > 2016000) {
+							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
+						} else {
+							yilouzongshu += qishu - tempqishu - 1;
+						}
+
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							stringBuilder.append((qishu - tempqishu - 1) + "-");
+							if (qishu > 2016000) {
+								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
+								if (iiii < 10) {
+									geshu += 1.f;
+									stringBuilder.append("0" + iiii + "-");
+								} else {
+									stringBuilder.append(iiii + "-");
+								}
+
+							} else {
+								stringBuilder.append((qishu - tempqishu - 1) + "-");
+							}
+
 						}
 						logger.info("------------------------------------");
 						iscunzai = true;
@@ -2030,12 +2041,27 @@ public class SixOneAction extends BaseAction {
 						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						yilouzongshu += qishu - tempqishu - 1;
+						if (qishu > 2016000) {
+							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
+						} else {
+							yilouzongshu += qishu - tempqishu - 1;
+						}
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							stringBuilder.append((qishu - tempqishu - 1) + "-");
+							if (qishu > 2016000) {
+								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
+								if (iiii < 10) {
+									geshu += 1.f;
+									stringBuilder.append("0" + iiii + "-");
+								} else {
+									stringBuilder.append(iiii + "-");
+								}
+
+							} else {
+								stringBuilder.append((qishu - tempqishu - 1) + "-");
+							}
 						}
 						iscunzai = true;
 						logger.info("------------------------------------");
@@ -2043,13 +2069,28 @@ public class SixOneAction extends BaseAction {
 					} else if (integer == tempthird) {
 						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
-						yilouzongshu += qishu - tempqishu - 1;
+						if (qishu > 2016000) {
+							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
+						} else {
+							yilouzongshu += qishu - tempqishu - 1;
+						}
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							stringBuilder.append((qishu - tempqishu - 1) + "-");
+							if (qishu > 2016000) {
+								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
+								if (iiii < 10) {
+									geshu += 1.f;
+									stringBuilder.append("0" + iiii + "-");
+								} else {
+									stringBuilder.append(iiii + "-");
+								}
+
+							} else {
+								stringBuilder.append((qishu - tempqishu - 1) + "-");
+							}
 						}
 						iscunzai = true;
 						logger.info("------------------------------------");
@@ -2058,12 +2099,27 @@ public class SixOneAction extends BaseAction {
 						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						yilouzongshu += qishu - tempqishu - 1;
+						if (qishu > 2016000) {
+							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
+						} else {
+							yilouzongshu += qishu - tempqishu - 1;
+						}
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							stringBuilder.append((qishu - tempqishu - 1) + "-");
+							if (qishu > 2016000) {
+								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
+								if (iiii < 10) {
+									geshu += 1.f;
+									stringBuilder.append("0" + iiii + "-");
+								} else {
+									stringBuilder.append(iiii + "-");
+								}
+
+							} else {
+								stringBuilder.append((qishu - tempqishu - 1) + "-");
+							}
 						}
 						iscunzai = true;
 						logger.info("------------------------------------");
@@ -2072,12 +2128,27 @@ public class SixOneAction extends BaseAction {
 						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						yilouzongshu += qishu - tempqishu - 1;
+						if (qishu > 2016000) {
+							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
+						} else {
+							yilouzongshu += qishu - tempqishu - 1;
+						}
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							stringBuilder.append((qishu - tempqishu - 1) + "-");
+							if (qishu > 2016000) {
+								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
+								if (iiii < 10) {
+									geshu += 1.f;
+									stringBuilder.append("0" + iiii + "-");
+								} else {
+									stringBuilder.append(iiii + "-");
+								}
+
+							} else {
+								stringBuilder.append((qishu - tempqishu - 1) + "-");
+							}
 						}
 						iscunzai = true;
 						logger.info("------------------------------------");
@@ -2086,12 +2157,27 @@ public class SixOneAction extends BaseAction {
 						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						yilouzongshu += qishu - tempqishu - 1;
+						if (qishu > 2016000) {
+							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
+						} else {
+							yilouzongshu += qishu - tempqishu - 1;
+						}
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							stringBuilder.append((qishu - tempqishu - 1) + "-");
+							if (qishu > 2016000) {
+								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
+								if (iiii < 10) {
+									geshu += 1.f;
+									stringBuilder.append("0" + iiii + "-");
+								} else {
+									stringBuilder.append(iiii + "-");
+								}
+
+							} else {
+								stringBuilder.append((qishu - tempqishu - 1) + "-");
+							}
 						}
 						iscunzai = true;
 						logger.info("------------------------------------");
@@ -2100,12 +2186,27 @@ public class SixOneAction extends BaseAction {
 						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						yilouzongshu += qishu - tempqishu - 1;
+						if (qishu > 2016000) {
+							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
+						} else {
+							yilouzongshu += qishu - tempqishu - 1;
+						}
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							stringBuilder.append((qishu - tempqishu - 1) + "-");
+							if (qishu > 2016000) {
+								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
+								if (iiii < 10) {
+									geshu += 1.f;
+									stringBuilder.append("0" + iiii + "-");
+								} else {
+									stringBuilder.append(iiii + "-");
+								}
+
+							} else {
+								stringBuilder.append((qishu - tempqishu - 1) + "-");
+							}
 						}
 						iscunzai = true;
 						logger.info("------------------------------------");
