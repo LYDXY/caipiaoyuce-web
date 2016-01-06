@@ -278,7 +278,7 @@
 								<td id=sixonesTop5fuhetijianfive class="success"></td>
 								<td id="yilouSixToNineInTop5"></td>
 								<td class="success"></td>
-								<td id="yilouTenAndMoreInTop5" ></td>
+								<td id="yilouTenAndMoreInTop5"></td>
 								<td class="success"></td>
 							</tr>
 							<tr>
@@ -405,9 +405,11 @@
 
 			</tr>
 			<tr>
-				<td class="info"></td>
-				<td><div id="chart6" style="width: 600px; height: 400px;"></div></td>
-				<td></td>
+				<td class="info"><h3>统计过去十期出现的数字,越靠前表明最近才出现</h3> <br />
+					<button onclick="getshuzitongjiguoqutenjieguo()"
+						class="btn btn-primary btn-lg">执行</button></td>
+				<td ><table id="lasttenTable" class="table table-bordered"></table></td>
+				<td ><table id="notInlasttenTable" class="table table-bordered"></table></td>
 			</tr>
 
 
@@ -483,22 +485,23 @@
 														pad : 1
 													}
 												},
-												cursor: {
+												cursor : {
 
-													style: 'crosshair', //当鼠标移动到图片上时，鼠标的显示样式，该属性值为css类
+													style : 'crosshair', //当鼠标移动到图片上时，鼠标的显示样式，该属性值为css类
 
-													show: true, //是否显示光标
+													show : true, //是否显示光标
 
-													showTooltip: true, //是否显示提示信息栏
+													showTooltip : true, //是否显示提示信息栏
 
-													followMouse: true, //光标的提示信息栏是否随光标(鼠标)一起移动
+													followMouse : true, //光标的提示信息栏是否随光标(鼠标)一起移动
 
-													tooltipLocation: 'se', //光标提示信息栏的位置设置。如果followMouse=true,那么该位置为提示信息栏相对于光标的位置。否则，为光标提示信息栏在图标中的位置该属性可选值：n, ne, e, se, etc.
+													tooltipLocation : 'se', //光标提示信息栏的位置设置。如果followMouse=true,那么该位置为提示信息栏相对于光标的位置。否则，为光标提示信息栏在图标中的位置该属性可选值：n, ne, e, se, etc.
 
-													tooltipOffset: 6, //提示信息栏距鼠标(followMouse=true)或坐标轴(followMouse=false)的位置
+													tooltipOffset : 6, //提示信息栏距鼠标(followMouse=true)或坐标轴(followMouse=false)的位置
 
-													showTooltipGridPosition: true//是否在信息提示栏中显示光标位置(取其据图标左和上边缘线像素距离
-													
+													showTooltipGridPosition : true
+												//是否在信息提示栏中显示光标位置(取其据图标左和上边缘线像素距离
+
 												}
 
 											});
@@ -558,7 +561,8 @@
 														showTicks : true
 													},
 													yaxis : {
-														ticks : [ 85,90,95,100,105, 110,
+														ticks : [ 85, 90, 95,
+																100, 105, 110,
 																115, 120, 125,
 																130, 135, 140,
 																145, 150, 155,
@@ -568,7 +572,8 @@
 																205, 210, 215,
 																220, 225, 230,
 																235, 240, 245,
-																250, 255, 260,265,270 ],
+																250, 255, 260,
+																265, 270 ],
 														renderer : $.jqplot.LinearAxisRenderer,
 														pad : 1
 													}
@@ -727,43 +732,24 @@
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
-							//alert(data);
-							for (i = 0; i < json.length; i++) { //行数跟json.length一样
+
+							for (i = 0; i < json.length; i++) {
 								var classType = '';
-								i%2 == 0 ? classType = 'info' : classType = 'success'; 
-								$("#remenlengmenfenxi").append('<tr class="'+classType+'">'+
-										'<td>'+json[i].qishu+'</td>'+
-										'<td>'+json[i].number+'</td>'+
-										'<td>'+json[i].yilouqingkuang+'</td>'+
-										'<td>'+json[i].zongyilougeshu+'</td>'+
-										'<td>'+json[i].yiloucishuzongshu+'</td>'+
-										'<td>'+json[i].yiloupingjungeshu+'</td>');
-								/*var tr = document.createElement("tr");//创建每一行
-								tr.className="info";
-								var tdqishu = document.createElement("td"); //创建单元格子
-								var tdnumber = document.createElement("td"); //创建单元格子
-								var tdyilouqingkuang = document
-										.createElement("td"); //创建单元格子
-								var tdzongyilougeshu = document
-										.createElement("td"); //创建单元格子
-								var tdyiloucishuzongshu = document
-										.createElement("td"); //创建单元格子
-								var tdyiloupingjungeshu = document
-										.createElement("td"); //创建单元格子
-								tdqishu.innerHTML = json[i].qishu;
-								tdnumber.innerHTML = json[i].number;
-								tdyilouqingkuang.innerHTML = json[i].yilouqingkuang;
-								tdzongyilougeshu.innerHTML = json[i].zongyilougeshu;
-								tdyiloucishuzongshu.innerHTML = json[i].yiloucishuzongshu;
-								tdyiloupingjungeshu.innerHTML = json[i].yiloupingjungeshu;
-								tr.appendChild(tdqishu);
-								tr.appendChild(tdnumber);
-								tr.appendChild(tdyilouqingkuang);
-								tr.appendChild(tdzongyilougeshu);
-								tr.appendChild(tdyiloucishuzongshu);
-								tr.appendChild(tdyiloupingjungeshu);
-								document.getElementById("remenlengmenfenxi")
-										.appendChild(tr);*/
+								i % 2 == 0 ? classType = 'info'
+										: classType = 'success';
+								$("#remenlengmenfenxi").append(
+										'<tr class="'+classType+'">' + '<td>'
+												+ json[i].qishu + '</td>'
+												+ '<td>' + json[i].number
+												+ '</td>' + '<td>'
+												+ json[i].yilouqingkuang
+												+ '</td>' + '<td>'
+												+ json[i].zongyilougeshu
+												+ '</td>' + '<td>'
+												+ json[i].yiloucishuzongshu
+												+ '</td>' + '<td>'
+												+ json[i].yiloupingjungeshu
+												+ '</td>');
 							}
 
 						},
@@ -784,31 +770,29 @@
 						success : function(data) {
 							var json = eval('(' + data + ')');
 							alert(data);
-							for (i = 0; i < json.length; i++) { //行数跟json.length一样
-								/*var tr = document.createElement("tr");//创建每一行
-								var tdqishu = document.createElement("td"); //创建单元格子
-								tdqishu.innerHTML = json[i].qishu;
-								tr.appendChild(tdqishu);*/
-								i%2 == 0 ? classType = 'info' : classType = 'success';
-								var trHtml = '<tr class="'+ classType +'"><td>'+json[i].qishu+'</td>';
+							for (i = 0; i < json.length; i++) {
+
+								i % 2 == 0 ? classType = 'info'
+										: classType = 'success';
+								var trHtml = '<tr class="'+ classType +'"><td>'
+										+ json[i].qishu + '</td>';
 								for (j = 0; j < json[i].qujianqingkuang.length; j++) {
-									/*var td = document.createElement("td"); //创建单元格子
-									td.innerHTML = json[i].qujianqingkuang[j];
-									tr.appendChild(td);*/
-									if(json[i].qujianqingkuang[j]==0){
-										//td.style.backgroundColor = "gray";
-										var tdHtml = '<td class="danger">'+ json[i].qujianqingkuang[j] +'</td>';
-									}else{
-										var tdHtml = '<td>'+ json[i].qujianqingkuang[j] +'</td>';
+
+									if (json[i].qujianqingkuang[j] == 0) {
+
+										var tdHtml = '<td class="danger">'
+												+ json[i].qujianqingkuang[j]
+												+ '</td>';
+									} else {
+										var tdHtml = '<td>'
+												+ json[i].qujianqingkuang[j]
+												+ '</td>';
 									}
-									
+
 									trHtml += tdHtml;
-									
+
 								}
-								/*
-								document
-										.getElementById("shuziqujianfenxitable")
-										.appendChild(tr);*/
+
 								trHtml += '</tr>';
 								$("#shuziqujianfenxitable").append(trHtml);
 							}
@@ -843,8 +827,6 @@
 							$("#yilouTenAndMoreInTop5").html(
 									json.yilouTenAndMoreInTop5);
 
-							
-							
 							$("#yilouZeroInTop6").html(json.yilouZeroInTop6);
 							$("#yilouOneInTop6").html(json.yilouOneInTop6);
 							$("#yilouTwoInTop6").html(json.yilouTwoInTop6);
@@ -855,11 +837,7 @@
 									json.yilouSixToNineInTop6);
 							$("#yilouTenAndMoreInTop6").html(
 									json.yilouTenAndMoreInTop6);
-							
-							
-							
-							
-							
+
 							$("#yilouZeroInTop7").html(json.yilouZeroInTop7);
 							$("#yilouOneInTop7").html(json.yilouOneInTop7);
 							$("#yilouTwoInTop7").html(json.yilouTwoInTop7);
@@ -892,46 +870,80 @@
 									json.yilouSixToNineInTop9);
 							$("#yilouTenAndMoreInTop9").html(
 									json.yilouTenAndMoreInTop9);
-							
+
 							//实际符合条件数字过去5 期
-							$("#sixonesTop5fuhetijianZero").html(json.sixonesTop5fuhetijianZero);
-							$("#sixonesTop5fuhetijianOne").html(json.sixonesTop5fuhetijianOne);
-							$("#sixonesTop5fuhetijianTwo").html(json.sixonesTop5fuhetijianTwo);
-							$("#sixonesTop5fuhetijianThree").html(json.sixonesTop5fuhetijianThree);
-							$("#sixonesTop5fuhetijianfour").html(json.sixonesTop5fuhetijianfour);
-							$("#sixonesTop5fuhetijianfive").html(json.sixonesTop5fuhetijianfive);
+							$("#sixonesTop5fuhetijianZero").html(
+									json.sixonesTop5fuhetijianZero);
+							$("#sixonesTop5fuhetijianOne").html(
+									json.sixonesTop5fuhetijianOne);
+							$("#sixonesTop5fuhetijianTwo").html(
+									json.sixonesTop5fuhetijianTwo);
+							$("#sixonesTop5fuhetijianThree").html(
+									json.sixonesTop5fuhetijianThree);
+							$("#sixonesTop5fuhetijianfour").html(
+									json.sixonesTop5fuhetijianfour);
+							$("#sixonesTop5fuhetijianfive").html(
+									json.sixonesTop5fuhetijianfive);
 							//实际符合条件数字过去6期
-							$("#sixonesTop6fuhetijianZero").html(json.sixonesTop6fuhetijianZero);
-							$("#sixonesTop6fuhetijianOne").html(json.sixonesTop6fuhetijianOne);
-							$("#sixonesTop6fuhetijianTwo").html(json.sixonesTop6fuhetijianTwo);
-							$("#sixonesTop6fuhetijianThree").html(json.sixonesTop6fuhetijianThree);
-							$("#sixonesTop6fuhetijianfour").html(json.sixonesTop6fuhetijianfour);
-							$("#sixonesTop6fuhetijianfive").html(json.sixonesTop6fuhetijianfive);
-							$("#sixonesTop6fuhetijiansix").html(json.sixonesTop6fuhetijiansix);
+							$("#sixonesTop6fuhetijianZero").html(
+									json.sixonesTop6fuhetijianZero);
+							$("#sixonesTop6fuhetijianOne").html(
+									json.sixonesTop6fuhetijianOne);
+							$("#sixonesTop6fuhetijianTwo").html(
+									json.sixonesTop6fuhetijianTwo);
+							$("#sixonesTop6fuhetijianThree").html(
+									json.sixonesTop6fuhetijianThree);
+							$("#sixonesTop6fuhetijianfour").html(
+									json.sixonesTop6fuhetijianfour);
+							$("#sixonesTop6fuhetijianfive").html(
+									json.sixonesTop6fuhetijianfive);
+							$("#sixonesTop6fuhetijiansix").html(
+									json.sixonesTop6fuhetijiansix);
 							//实际符合条件数字过去7期
-							$("#sixonesTop7fuhetijianZero").html(json.sixonesTop7fuhetijianZero);
-							$("#sixonesTop7fuhetijianOne").html(json.sixonesTop7fuhetijianOne);
-							$("#sixonesTop7fuhetijianTwo").html(json.sixonesTop7fuhetijianTwo);
-							$("#sixonesTop7fuhetijianThree").html(json.sixonesTop7fuhetijianThree);
-							$("#sixonesTop7fuhetijianfour").html(json.sixonesTop7fuhetijianfour);
-							$("#sixonesTop7fuhetijianfive").html(json.sixonesTop7fuhetijianfive);
-							$("#sixonesTop7fuhetijiansix").html(json.sixonesTop7fuhetijiansix);
+							$("#sixonesTop7fuhetijianZero").html(
+									json.sixonesTop7fuhetijianZero);
+							$("#sixonesTop7fuhetijianOne").html(
+									json.sixonesTop7fuhetijianOne);
+							$("#sixonesTop7fuhetijianTwo").html(
+									json.sixonesTop7fuhetijianTwo);
+							$("#sixonesTop7fuhetijianThree").html(
+									json.sixonesTop7fuhetijianThree);
+							$("#sixonesTop7fuhetijianfour").html(
+									json.sixonesTop7fuhetijianfour);
+							$("#sixonesTop7fuhetijianfive").html(
+									json.sixonesTop7fuhetijianfive);
+							$("#sixonesTop7fuhetijiansix").html(
+									json.sixonesTop7fuhetijiansix);
 							//实际符合条件数字过去8期
-							$("#sixonesTop8fuhetijianZero").html(json.sixonesTop8fuhetijianZero);
-							$("#sixonesTop8fuhetijianOne").html(json.sixonesTop8fuhetijianOne);
-							$("#sixonesTop8fuhetijianTwo").html(json.sixonesTop8fuhetijianTwo);
-							$("#sixonesTop8fuhetijianThree").html(json.sixonesTop8fuhetijianThree);
-							$("#sixonesTop8fuhetijianfour").html(json.sixonesTop8fuhetijianfour);
-							$("#sixonesTop8fuhetijianfive").html(json.sixonesTop8fuhetijianfive);
-							$("#sixonesTop8fuhetijiansix").html(json.sixonesTop8fuhetijiansix);
+							$("#sixonesTop8fuhetijianZero").html(
+									json.sixonesTop8fuhetijianZero);
+							$("#sixonesTop8fuhetijianOne").html(
+									json.sixonesTop8fuhetijianOne);
+							$("#sixonesTop8fuhetijianTwo").html(
+									json.sixonesTop8fuhetijianTwo);
+							$("#sixonesTop8fuhetijianThree").html(
+									json.sixonesTop8fuhetijianThree);
+							$("#sixonesTop8fuhetijianfour").html(
+									json.sixonesTop8fuhetijianfour);
+							$("#sixonesTop8fuhetijianfive").html(
+									json.sixonesTop8fuhetijianfive);
+							$("#sixonesTop8fuhetijiansix").html(
+									json.sixonesTop8fuhetijiansix);
 							//实际符合条件数字过去9期
-							$("#sixonesTop9fuhetijianZero").html(json.sixonesTop9fuhetijianZero);
-							$("#sixonesTop9fuhetijianOne").html(json.sixonesTop9fuhetijianOne);
-							$("#sixonesTop9fuhetijianTwo").html(json.sixonesTop9fuhetijianTwo);
-							$("#sixonesTop9fuhetijianThree").html(json.sixonesTop9fuhetijianThree);
-							$("#sixonesTop9fuhetijianfour").html(json.sixonesTop9fuhetijianfour);
-							$("#sixonesTop9fuhetijianfive").html(json.sixonesTop9fuhetijianfive);
-							$("#sixonesTop9fuhetijiansix").html(json.sixonesTop9fuhetijiansix);
+							$("#sixonesTop9fuhetijianZero").html(
+									json.sixonesTop9fuhetijianZero);
+							$("#sixonesTop9fuhetijianOne").html(
+									json.sixonesTop9fuhetijianOne);
+							$("#sixonesTop9fuhetijianTwo").html(
+									json.sixonesTop9fuhetijianTwo);
+							$("#sixonesTop9fuhetijianThree").html(
+									json.sixonesTop9fuhetijianThree);
+							$("#sixonesTop9fuhetijianfour").html(
+									json.sixonesTop9fuhetijianfour);
+							$("#sixonesTop9fuhetijianfive").html(
+									json.sixonesTop9fuhetijianfive);
+							$("#sixonesTop9fuhetijiansix").html(
+									json.sixonesTop9fuhetijiansix);
 
 						},
 						error : function(data) {
@@ -940,5 +952,45 @@
 					});
 		}
 	</script>
+
+
+	<!-- 统计过去10期的数字 -->
+	<script type="text/javascript">
+		function getshuzitongjiguoqutenjieguo() {
+			$
+					.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionTongJiTopTen.action',
+						dataType : "json",
+						success : function(data) {
+							var json = eval('(' + data + ')');
+							alert(data)
+							var trHtml = '<tr>';
+							for (var i = 0; i < json.integers.length; i++) {
+								var tdHtml = '<td class="danger">'
+										+ json.integers[i] + '</td>';
+								trHtml += tdHtml;
+							}
+							trHtml += '</tr>';
+							$("#lasttenTable").append(trHtml);
+							
+							
+							var trHtml2 = '<tr>';
+							for (var j = 0; j < json.integers2.length; j++) {
+								var tdHtml2 = '<td class="info">'
+										+ json.integers2[j] + '</td>';
+								trHtml2 += tdHtml2;
+							}
+							trHtml2 += '</tr>';
+							$("#notInlasttenTable").append(trHtml2);
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+		}
+	</script>
+
+
 </body>
 </html>

@@ -82,7 +82,7 @@
 	</select>
 	
 	
-	<!-- 查询最新的十期数 降序-->
+	<!-- 查询最新的二十期数 降序-->
 	<select id="way6" resultType="SixOne">
 	   SELECT * FROM (select * from tb_caipiao_six_one ORDER BY qishu DESC limit 20)  as t ORDER BY t.qishu Desc
 	</select>
@@ -98,7 +98,7 @@
      <include refid="sixone_column1" />  ORDER BY qishu DESC limit #{top}
     </select>
 	
-	<!-- 查询最近的10 期 ,先升序 再降序 -->
+	<!-- 查询最近的10 期 ,先降序再升序 -->
 	<select id="way9" resultType="SixOne"  >
      SELECT * from (SELECT * FROM tb_caipiao_six_one ORDER BY  qishu DESC LIMIT 10) AS t ORDER BY t.qishu ASC
     </select>
@@ -113,5 +113,10 @@
 	<!-- 查询过去 n 期的集合 升序-->
 	<select id="way11" resultType="SixOne" parameterType="Integer" >
       SELECT * FROM ( SELECT * FROM tb_caipiao_six_one ORDER BY  qishu DESC LIMIT #{top}) AS t ORDER BY t.qishu ASC
+    </select>
+    
+    <!-- 查询过去 n 期的集合 降序 -->
+    <select id="way12" resultType="SixOne" parameterType="Integer" >
+     SELECT * FROM tb_caipiao_six_one ORDER BY  qishu DESC LIMIT #{top}
     </select>
 </mapper>

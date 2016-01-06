@@ -127,4 +127,11 @@ public class SixOneServicesImpl implements SixOneServices {
 	}
 
 	
+	@Override
+	public List<SixOne> way12(Integer limit) {
+		
+		return sixonemapper.way12(limit);
+	}
+
+	
 }

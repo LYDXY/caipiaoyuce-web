@@ -54,6 +54,56 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
+	 * 统计过去10期出现的数字
+	 */
+	public String tongjitopTen() {
+
+		Map<String, List<Integer>> maps = new HashMap<String, List<Integer>>();
+		List<SixOne> sixOnes10 = SixOneServices.way12(10);
+		// 记录过去10期出现的数字
+		List<Integer> integers = new ArrayList<Integer>();
+		for (SixOne sixOne : sixOnes10) {
+			if (!integers.contains(sixOne.getFirst())) {
+				integers.add(sixOne.getFirst());
+			}
+			if (!integers.contains(sixOne.getSecond())) {
+				integers.add(sixOne.getSecond());
+			}
+			if (!integers.contains(sixOne.getThird())) {
+				integers.add(sixOne.getThird());
+			}
+			if (!integers.contains(sixOne.getFourth())) {
+				integers.add(sixOne.getFourth());
+			}
+			if (!integers.contains(sixOne.getFifth())) {
+				integers.add(sixOne.getFifth());
+			}
+			if (!integers.contains(sixOne.getSixth())) {
+				integers.add(sixOne.getSixth());
+			}
+			if (!integers.contains(sixOne.getSeventh())) {
+				integers.add(sixOne.getSeventh());
+			}
+		}
+		// 记录过去10期未出现的数字
+		List<Integer> integers2 = new ArrayList<Integer>();
+		for (int i = 1; i <= 49; i++) {
+			if (!integers.contains(i)) {
+				integers2.add(i);
+			}
+		}
+		logger.info(integers.toString());
+		logger.info(integers2.toString());
+		maps.put("integers", integers);
+		maps.put("integers2", integers2);
+
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(maps);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
+		return "TONGJITOPTENSUCCESS";
+	}
+
+	/**
 	 * 数字区间偏差追踪系统
 	 */
 	public String futureShuZiQuJian() {

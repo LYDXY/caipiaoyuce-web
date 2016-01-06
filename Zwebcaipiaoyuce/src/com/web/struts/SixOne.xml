@@ -119,6 +119,18 @@
 				<param name="root">result</param>
 			</result>
 		</action>
+		
+		
+		<!-- 统计最近10期出现的数字 -->
+		<action name="SixOneActionTongJiTopTen" class="com.web.action.SixOneAction"
+			method="tongjitopTen">
+			<!-- 将返回类型设置为json -->
+			<result type="json" name="TONGJITOPTENSUCCESS">
+				<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+				<param name="root">result</param>
+			</result>
+		</action>
+		
 	</package>
 
 </struts>
