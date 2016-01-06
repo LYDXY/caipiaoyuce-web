@@ -823,6 +823,7 @@ public class SixOneAction extends BaseAction {
 						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+
 						if ((qishu - tempqishu - 1) == 0) {
 							yilouZeroInTop5.add(integer);
 							break;
@@ -1019,6 +1020,7 @@ public class SixOneAction extends BaseAction {
 							yilouSixToNineInTop6.add(integer);
 							break;
 						}
+
 						if ((qishu - tempqishu - 1) >= 10) {
 							yilouTenAndMoreInTop6.add(integer);
 							break;
@@ -1027,6 +1029,7 @@ public class SixOneAction extends BaseAction {
 					}
 
 				}
+
 			}
 
 		}
@@ -1040,7 +1043,9 @@ public class SixOneAction extends BaseAction {
 		List<Integer> sixonesTop6fuhetijianfive = new ArrayList<Integer>();
 		List<Integer> sixonesTop6fuhetijiansix = new ArrayList<Integer>();
 
-		for (SixOne sixOne : sixonesTop6fuhetijian) {
+		for (SixOne sixOne : sixonesTop6fuhetijian)
+
+		{
 
 			Integer qishu = sixOne.getQishu();
 			Integer first = sixOne.getFirst();
@@ -1138,7 +1143,11 @@ public class SixOneAction extends BaseAction {
 		}
 
 		// 针对过去7期
-		for (SixOne sixOne7 : sixonesTop7) {
+		for (
+
+		SixOne sixOne7 : sixonesTop7)
+
+		{
 			SixOne reallysixOne = sixOne7; // 146
 			Integer qishu = reallysixOne.getQishu();
 			List<Integer> Templist = new ArrayList<Integer>();
@@ -1196,6 +1205,7 @@ public class SixOneAction extends BaseAction {
 							yilouSixToNineInTop7.add(integer);
 							break;
 						}
+
 						if ((qishu - tempqishu - 1) >= 10) {
 							yilouTenAndMoreInTop7.add(integer);
 							break;
@@ -1217,7 +1227,9 @@ public class SixOneAction extends BaseAction {
 		List<Integer> sixonesTop7fuhetijianfive = new ArrayList<Integer>();
 		List<Integer> sixonesTop7fuhetijiansix = new ArrayList<Integer>();
 
-		for (SixOne sixOne : sixonesTop7fuhetijian) {
+		for (SixOne sixOne : sixonesTop7fuhetijian)
+
+		{
 
 			Integer qishu = sixOne.getQishu();
 			Integer first = sixOne.getFirst();
@@ -1328,7 +1340,9 @@ public class SixOneAction extends BaseAction {
 		List<Integer> sixonesTop8fuhetijianfive = new ArrayList<Integer>();
 		List<Integer> sixonesTop8fuhetijiansix = new ArrayList<Integer>();
 
-		for (SixOne sixOne : sixonesTop8fuhetijian) {
+		for (SixOne sixOne : sixonesTop8fuhetijian)
+
+		{
 
 			Integer qishu = sixOne.getQishu();
 			Integer first = sixOne.getFirst();
@@ -1512,7 +1526,9 @@ public class SixOneAction extends BaseAction {
 		List<Integer> sixonesTop9fuhetijianfive = new ArrayList<Integer>();
 		List<Integer> sixonesTop9fuhetijiansix = new ArrayList<Integer>();
 
-		for (SixOne sixOne : sixonesTop9fuhetijian) {
+		for (SixOne sixOne : sixonesTop9fuhetijian)
+
+		{
 
 			Integer qishu = sixOne.getQishu();
 			Integer first = sixOne.getFirst();
@@ -1631,7 +1647,7 @@ public class SixOneAction extends BaseAction {
 			Templist.add(reallysixOne.getSeventh());
 			List<SixOne> temps = SixOneServices.way7(qishu);
 			for (Integer integer : Templist) {
-				int geshu = 0;
+
 				for (SixOne tempsixOne : temps) { // 145,144,143,142
 
 					Integer tempqishu = tempsixOne.getQishu();
