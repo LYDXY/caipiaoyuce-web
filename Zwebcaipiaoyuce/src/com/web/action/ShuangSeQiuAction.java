@@ -2099,6 +2099,7 @@ public class ShuangSeQiuAction extends BaseAction {
 	 * 系统分析未来一期的情况
 	 */
 	public String futureShuangSeQiu() {
+		logger.info(TAG + "---" + "futureShuangSeQiu");
 		return "GETFUTURE_SUCCESS";
 	}
 

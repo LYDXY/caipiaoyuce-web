@@ -427,7 +427,7 @@
 			$
 					.ajax({
 						type : "POST",
-						url : '${pageContext.request.contextPath }/ajaxSixOne2Action/SixOne2ActionFutureBigSmall.action',
+						url : '${pageContext.request.contextPath }/ajaxShuangSeQiuAction/ShuangSeQiuActionFutureBigSmall.action',
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
@@ -515,7 +515,7 @@
 			$
 					.ajax({
 						type : "POST",
-						url : '${pageContext.request.contextPath }/ajaxSixOne2Action/SixOne2ActionFutureHeShuzhi.action',
+						url : '${pageContext.request.contextPath }/ajaxShuangSeQiuAction/ShuangSeQiuActionFutureHeShuzhi.action',
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
@@ -558,17 +558,13 @@
 														showTicks : true
 													},
 													yaxis : {
-														ticks : [ 85,90,95,100,105, 110,
-																115, 120, 125,
-																130, 135, 140,
-																145, 150, 155,
-																160, 165, 170,
-																175, 180, 185,
-																190, 195, 200,
-																205, 210, 215,
-																220, 225, 230,
-																235, 240, 245,
-																250, 255, 260,265,270 ],
+														ticks : [ 20,30,40,50,60, 70,
+																80, 90, 100,
+																110, 120, 130,
+																140, 150, 160,
+																170, 180, 190,
+																200, 210, 220
+														],
 														renderer : $.jqplot.LinearAxisRenderer,
 														pad : 1
 													}
@@ -587,7 +583,7 @@
 			$
 					.ajax({
 						type : "POST",
-						url : '${pageContext.request.contextPath }/ajaxSixOne2Action/SixOne2ActionFutureOddEven.action',
+						url : '${pageContext.request.contextPath }/ajaxShuangSeQiuAction/ShuangSeQiuActionFutureOddEven.action',
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
@@ -656,7 +652,7 @@
 			$
 					.ajax({
 						type : "POST",
-						url : '${pageContext.request.contextPath }/ajaxSixOne2Action/SixOneAction2FutureMoWei.action',
+						url : '${pageContext.request.contextPath }/ajaxShuangSeQiuAction/ShuangSeQiuActionFutureMoWei.action',
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
@@ -723,7 +719,7 @@
 			$
 					.ajax({
 						type : "POST",
-						url : '${pageContext.request.contextPath }/ajaxSixOne2Action/SixOne2ActionFutureColdHot.action',
+						url : '${pageContext.request.contextPath }/ajaxShuangSeQiuAction/ShuangSeQiuActionFutureColdHot.action',
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
@@ -738,32 +734,7 @@
 										'<td>'+json[i].zongyilougeshu+'</td>'+
 										'<td>'+json[i].yiloucishuzongshu+'</td>'+
 										'<td>'+json[i].yiloupingjungeshu+'</td>');
-								/*var tr = document.createElement("tr");//创建每一行
-								tr.className="info";
-								var tdqishu = document.createElement("td"); //创建单元格子
-								var tdnumber = document.createElement("td"); //创建单元格子
-								var tdyilouqingkuang = document
-										.createElement("td"); //创建单元格子
-								var tdzongyilougeshu = document
-										.createElement("td"); //创建单元格子
-								var tdyiloucishuzongshu = document
-										.createElement("td"); //创建单元格子
-								var tdyiloupingjungeshu = document
-										.createElement("td"); //创建单元格子
-								tdqishu.innerHTML = json[i].qishu;
-								tdnumber.innerHTML = json[i].number;
-								tdyilouqingkuang.innerHTML = json[i].yilouqingkuang;
-								tdzongyilougeshu.innerHTML = json[i].zongyilougeshu;
-								tdyiloucishuzongshu.innerHTML = json[i].yiloucishuzongshu;
-								tdyiloupingjungeshu.innerHTML = json[i].yiloupingjungeshu;
-								tr.appendChild(tdqishu);
-								tr.appendChild(tdnumber);
-								tr.appendChild(tdyilouqingkuang);
-								tr.appendChild(tdzongyilougeshu);
-								tr.appendChild(tdyiloucishuzongshu);
-								tr.appendChild(tdyiloupingjungeshu);
-								document.getElementById("remenlengmenfenxi")
-										.appendChild(tr);*/
+								
 							}
 
 						},
@@ -779,24 +750,18 @@
 			$
 					.ajax({
 						type : "POST",
-						url : '${pageContext.request.contextPath }/ajaxSixOne2Action/SixOne2ActionFutureShuZiQuJian.action',
+						url : '${pageContext.request.contextPath }/ajaxShuangSeQiuAction/ShuangSeQiuActionFutureShuZiQuJian.action',
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
 							alert(data);
-							for (i = 0; i < json.length; i++) { //行数跟json.length一样
-								/*var tr = document.createElement("tr");//创建每一行
-								var tdqishu = document.createElement("td"); //创建单元格子
-								tdqishu.innerHTML = json[i].qishu;
-								tr.appendChild(tdqishu);*/
+							for (i = 0; i < json.length; i++) {
 								i%2 == 0 ? classType = 'info' : classType = 'success';
 								var trHtml = '<tr class="'+ classType +'"><td>'+json[i].qishu+'</td>';
 								for (j = 0; j < json[i].qujianqingkuang.length; j++) {
-									/*var td = document.createElement("td"); //创建单元格子
-									td.innerHTML = json[i].qujianqingkuang[j];
-									tr.appendChild(td);*/
+									
 									if(json[i].qujianqingkuang[j]==0){
-										//td.style.backgroundColor = "gray";
+										
 										var tdHtml = '<td class="danger">'+ json[i].qujianqingkuang[j] +'</td>';
 									}else{
 										var tdHtml = '<td>'+ json[i].qujianqingkuang[j] +'</td>';
@@ -805,10 +770,7 @@
 									trHtml += tdHtml;
 									
 								}
-								/*
-								document
-										.getElementById("shuziqujianfenxitable")
-										.appendChild(tr);*/
+							
 								trHtml += '</tr>';
 								$("#shuziqujianfenxitable").append(trHtml);
 							}
@@ -827,7 +789,7 @@
 			$
 					.ajax({
 						type : "POST",
-						url : '${pageContext.request.contextPath }/ajaxSixOne2Action/SixOne2ActionFutureYiLou.action',
+						url : '${pageContext.request.contextPath }/ajaxShuangSeQiuAction/ShuangSeQiuActionFutureYiLou.action',
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');

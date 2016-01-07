@@ -11,7 +11,7 @@
 		<action name="ShuangSeQiuActionGetShuangSeQius" class="com.web.action.ShuangSeQiuAction"
 			method="getShuangSeQius">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
-			<result name="GETSIXONES_SUCCESS">../jsp/ShuangSeQiufuture.jsp</result>
+			<result name="GETSIXONES_SUCCESS">../jsp/ShuangSeQiu.jsp</result>
 		</action>
 
 		<action name="ShuangSeQiuActionGetShuangSeQiusByFenYe" class="com.web.action.ShuangSeQiuAction"
@@ -23,7 +23,7 @@
 		<action name="ShuangSeQiuActionFuture" class="com.web.action.ShuangSeQiuAction"
 			method="futureShuangSeQiu">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
-			<result name="GETFUTURE_SUCCESS">../jsp/ShuangSeQiufuture.jsp</result>
+			<result name="GETFUTURE_SUCCESS">../jsp/ShuangSeQiu.jsp</result>
 		</action>
 
         
