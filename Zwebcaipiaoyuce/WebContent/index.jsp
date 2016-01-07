@@ -51,8 +51,8 @@
 					</h4>
 					<div class="list-item none">
 
-						<a href="jsp/sky_blue2.jsp">查询</a>
-						<a href="jsp/sky_blue.jsp">查询</a>
+						<a href="jsp/sky_blue2.jsp">33</a>
+						<a href="jsp/sky_blue.jsp">49</a>
 
 					</div>
 				</li>
