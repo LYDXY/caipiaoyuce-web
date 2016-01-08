@@ -182,7 +182,7 @@ public class ShuangSeQiuAction extends BaseAction {
 		int nineTop5 = 0;
 		for (ShuangSeQiu sixOne : sixonesTop5) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFifth() % 10;
+			Integer tempfirst = sixOne.getFirst() % 10;
 			Integer tempsecond = sixOne.getSecond() % 10;
 			Integer tempthird = sixOne.getThird() % 10;
 			Integer tempfourth = sixOne.getFourth() % 10;
@@ -247,7 +247,7 @@ public class ShuangSeQiuAction extends BaseAction {
 		int nineTop6 = 0;
 		for (ShuangSeQiu sixOne : sixonesTop6) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFifth() % 10;
+			Integer tempfirst = sixOne.getFirst() % 10;
 			Integer tempsecond = sixOne.getSecond() % 10;
 			Integer tempthird = sixOne.getThird() % 10;
 			Integer tempfourth = sixOne.getFourth() % 10;
@@ -312,7 +312,7 @@ public class ShuangSeQiuAction extends BaseAction {
 		int nineTop7 = 0;
 		for (ShuangSeQiu sixOne : sixonesTop7) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFifth() % 10;
+			Integer tempfirst = sixOne.getFirst() % 10;
 			Integer tempsecond = sixOne.getSecond() % 10;
 			Integer tempthird = sixOne.getThird() % 10;
 			Integer tempfourth = sixOne.getFourth() % 10;
@@ -377,7 +377,7 @@ public class ShuangSeQiuAction extends BaseAction {
 		int nineTop8 = 0;
 		for (ShuangSeQiu sixOne : sixonesTop8) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFifth() % 10;
+			Integer tempfirst = sixOne.getFirst() % 10;
 			Integer tempsecond = sixOne.getSecond() % 10;
 			Integer tempthird = sixOne.getThird() % 10;
 			Integer tempfourth = sixOne.getFourth() % 10;
@@ -441,7 +441,7 @@ public class ShuangSeQiuAction extends BaseAction {
 		int nineTop9 = 0;
 		for (ShuangSeQiu sixOne : sixonesTop9) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFifth() % 10;
+			Integer tempfirst = sixOne.getFirst() % 10;
 			Integer tempsecond = sixOne.getSecond() % 10;
 			Integer tempthird = sixOne.getThird() % 10;
 			Integer tempfourth = sixOne.getFourth() % 10;
@@ -1838,9 +1838,9 @@ public class ShuangSeQiuAction extends BaseAction {
 				stringBuilder2.append(fifth + "-");
 			}
 			if (sixth < 10) {
-				stringBuilder2.append("0" + sixth + "-");
+				stringBuilder2.append("0" + sixth );
 			} else {
-				stringBuilder2.append(sixth + "-");
+				stringBuilder2.append(sixth);
 			}
 			
 			everyone.put("number", stringBuilder2.toString());
