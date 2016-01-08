@@ -55,4 +55,7 @@ public interface ShuangSeQiuMapper {
     
   //查询 过去 n 期的期数 ,升序
   	public List<ShuangSeQiu> way11(Integer limit);
+  	
+  	 //查询 过去 n 期的期数 ,降序
+  	public List<ShuangSeQiu> way12(Integer limit);
 }

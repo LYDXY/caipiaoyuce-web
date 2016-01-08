@@ -12,6 +12,8 @@ import javax.annotation.Resource;
 
 import com.sun.star.io.IOException;
 import com.web.pojo.ShuangSeQiu;
+import com.web.pojo.SixOne;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -46,6 +48,55 @@ public class ShuangSeQiuAction extends BaseAction {
 
 	}
 
+	
+	/**
+	 * 统计过去10期出现的数字
+	 */
+	public String tongjitopTen() {
+
+		Map<String, List<Integer>> maps = new HashMap<String, List<Integer>>();
+		List<ShuangSeQiu> shuangSeQius = ShuangSeQiuServices.way12(10);
+		// 记录过去10期出现的数字
+		List<Integer> integers = new ArrayList<Integer>();
+		for (ShuangSeQiu shuangseqiu : shuangSeQius) {
+			if (!integers.contains(shuangseqiu.getFirst())) {
+				integers.add(shuangseqiu.getFirst());
+			}
+			if (!integers.contains(shuangseqiu.getSecond())) {
+				integers.add(shuangseqiu.getSecond());
+			}
+			if (!integers.contains(shuangseqiu.getThird())) {
+				integers.add(shuangseqiu.getThird());
+			}
+			if (!integers.contains(shuangseqiu.getFourth())) {
+				integers.add(shuangseqiu.getFourth());
+			}
+			if (!integers.contains(shuangseqiu.getFifth())) {
+				integers.add(shuangseqiu.getFifth());
+			}
+			if (!integers.contains(shuangseqiu.getSixth())) {
+				integers.add(shuangseqiu.getSixth());
+			}
+		}
+		// 记录过去10期未出现的数字
+		List<Integer> integers2 = new ArrayList<Integer>();
+		for (int i = 1; i <= 33; i++) {
+			if (!integers.contains(i)) {
+				integers2.add(i);
+			}
+		}
+		logger.info(integers.toString());
+		logger.info(integers2.toString());
+		maps.put("integers", integers);
+		maps.put("integers2", integers2);
+
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(maps);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
+		return "TONGJITOPTENSUCCESS";
+	}
+	
+	
 	/**
 	 * 数字区间偏差追踪系统
 	 */

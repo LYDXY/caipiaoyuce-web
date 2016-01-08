@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.web.pojo.ShuangSeQiu;
+import com.web.pojo.SixOne;
 
 /**
  * 
@@ -54,4 +55,7 @@ public interface ShuangSeQiuServices {
 	
 	//查询 过去 n 期的期数 ,升序
 	public List<ShuangSeQiu> way11(Integer limit);
+	
+	 //查询 过去 n 期的期数 ,降序
+  	public List<ShuangSeQiu> way12(Integer limit);
 }

@@ -114,4 +114,9 @@
 	<select id="way11" resultType="ShuangSeQiu" parameterType="Integer" >
       SELECT * FROM ( SELECT * FROM tb_shuang_se_qiu ORDER BY  qishu DESC LIMIT #{top}) AS t ORDER BY t.qishu ASC
     </select>
+    
+    <!-- 查询过去 n 期的集合 降序 -->
+    <select id="way12" resultType="ShuangSeQiu" parameterType="Integer" >
+     SELECT * FROM tb_shuang_se_qiu ORDER BY  qishu DESC LIMIT #{top}
+    </select>
 </mapper>

@@ -133,5 +133,14 @@ public class ShuangSeQiuServicesImpl implements ShuangSeQiuServices {
 		return shuangseqiumapper.way11(limit);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.web.services.ShuangSeQiuServices#way12(java.lang.Integer)
+	 */
+	@Override
+	public List<ShuangSeQiu> way12(Integer limit) {
+		// TODO Auto-generated method stub
+		return shuangseqiumapper.way12(limit);
+	}
+
 	
 }

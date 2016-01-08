@@ -278,7 +278,7 @@
 								<td id=sixonesTop5fuhetijianfive class="success"></td>
 								<td id="yilouSixToNineInTop5"></td>
 								<td class="success"></td>
-								<td id="yilouTenAndMoreInTop5" ></td>
+								<td id="yilouTenAndMoreInTop5"></td>
 								<td class="success"></td>
 							</tr>
 							<tr>
@@ -405,9 +405,11 @@
 
 			</tr>
 			<tr>
-				<td class="info"></td>
-				<td><div id="chart6" style="width: 600px; height: 400px;"></div></td>
-				<td></td>
+				<td class="info"><h3>统计过去十期出现的数字,越靠前表明最近才出现</h3> <br />
+					<button onclick="getshuzitongjiguoqutenjieguo()"
+						class="btn btn-primary btn-lg">执行</button></td>
+				<td><table id="lasttenTable" class="table table-bordered"></table></td>
+				<td><table id="notInlasttenTable" class="table table-bordered"></table></td>
 			</tr>
 
 
@@ -902,5 +904,44 @@
 					});
 		}
 	</script>
+
+	<!-- 统计过去10期的数字 -->
+	<script type="text/javascript">
+		function getshuzitongjiguoqutenjieguo() {
+			$
+					.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxShuangSeQiuAction/ShuangSeQiuActionTongJiTopTen.action',
+						dataType : "json",
+						success : function(data) {
+							var json = eval('(' + data + ')');
+							alert(data)
+							var trHtml = '<tr>';
+							for (var i = 0; i < json.integers.length; i++) {
+								var tdHtml = '<td class="danger">'
+										+ json.integers[i] + '</td>';
+								trHtml += tdHtml;
+							}
+							trHtml += '</tr>';
+							$("#lasttenTable").append(trHtml);
+							
+							
+							var trHtml2 = '<tr>';
+							for (var j = 0; j < json.integers2.length; j++) {
+								var tdHtml2 = '<td class="info">'
+										+ json.integers2[j] + '</td>';
+								trHtml2 += tdHtml2;
+							}
+							trHtml2 += '</tr>';
+							$("#notInlasttenTable").append(trHtml2);
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+		}
+	</script>
+
+
 </body>
 </html>
