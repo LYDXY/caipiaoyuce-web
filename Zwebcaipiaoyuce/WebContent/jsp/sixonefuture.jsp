@@ -665,6 +665,7 @@
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
+							
 							$("#future5zero").html(json.zeroTop5);
 							$("#future5one").html(json.oneTop5);
 							$("#future5two").html(json.twoTop5);
@@ -675,6 +676,8 @@
 							$("#future5seven").html(json.sevenTop5);
 							$("#future5eight").html(json.eightTop5);
 							$("#future5nine").html(json.nineTop5);
+							
+							
 							$("#future6zero").html(json.zeroTop6);
 							$("#future6one").html(json.oneTop6);
 							$("#future6two").html(json.twoTop6);
@@ -685,6 +688,9 @@
 							$("#future6seven").html(json.sevenTop6);
 							$("#future6eight").html(json.eightTop6);
 							$("#future6nine").html(json.nineTop6);
+							
+							
+							
 							$("#future7zero").html(json.zeroTop7);
 							$("#future7one").html(json.oneTop7);
 							$("#future7two").html(json.twoTop7);
@@ -695,6 +701,8 @@
 							$("#future7seven").html(json.sevenTop7);
 							$("#future7eight").html(json.eightTop7);
 							$("#future7nine").html(json.nineTop7);
+							
+							
 							$("#future8zero").html(json.zeroTop8);
 							$("#future8one").html(json.oneTop8);
 							$("#future8two").html(json.twoTop8);
@@ -705,6 +713,9 @@
 							$("#future8seven").html(json.sevenTop8);
 							$("#future8eight").html(json.eightTop8);
 							$("#future8nine").html(json.nineTop8);
+							
+							
+							
 							$("#future9zero").html(json.zeroTop9);
 							$("#future9one").html(json.oneTop9);
 							$("#future9two").html(json.twoTop9);

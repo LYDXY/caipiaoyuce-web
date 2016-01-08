@@ -241,59 +241,51 @@ public class SixOneAction extends BaseAction {
 		int sevenTop5 = 0;
 		int eightTop5 = 0;
 		int nineTop5 = 0;
+		List<Integer> integersTop5 = new ArrayList<Integer>();
 		for (SixOne sixOne : sixonesTop5) {
-			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFifth() % 10;
+
+			Integer tempfirst = sixOne.getFirst() % 10;
 			Integer tempsecond = sixOne.getSecond() % 10;
 			Integer tempthird = sixOne.getThird() % 10;
 			Integer tempfourth = sixOne.getFourth() % 10;
 			Integer tempfifth = sixOne.getFifth() % 10;
 			Integer tempsixth = sixOne.getSixth() % 10;
 			Integer tempseventh = sixOne.getSeventh() % 10;
-			integers.add(tempfirst);
-			integers.add(tempsecond);
-			integers.add(tempthird);
-			integers.add(tempfourth);
-			integers.add(tempfifth);
-			integers.add(tempsixth);
-			integers.add(tempseventh);
-			for (Integer integer : integers) {
-				if (integer == 0) {
-					zeroTop5++;
-				} else if (integer == 1) {
-					oneTop5++;
-				} else if (integer == 2) {
-					twoTop5++;
-				} else if (integer == 3) {
-					threeTop5++;
-				} else if (integer == 4) {
-					fourTop5++;
-				} else if (integer == 5) {
-					fiveTop5++;
-				} else if (integer == 6) {
-					sixTop5++;
-				} else if (integer == 7) {
-					sevenTop5++;
-				} else if (integer == 8) {
-					eightTop5++;
-				} else if (integer == 9) {
-					nineTop5++;
-				}
+			integersTop5.add(tempfirst);
+			integersTop5.add(tempsecond);
+			integersTop5.add(tempthird);
+			integersTop5.add(tempfourth);
+			integersTop5.add(tempfifth);
+			integersTop5.add(tempsixth);
+			integersTop5.add(tempseventh);
 
+		}
+
+		for (Integer integer : integersTop5) {
+			if (integer == 0) {
+				zeroTop5++;
+			} else if (integer == 1) {
+				oneTop5++;
+			} else if (integer == 2) {
+				twoTop5++;
+			} else if (integer == 3) {
+				threeTop5++;
+			} else if (integer == 4) {
+				fourTop5++;
+			} else if (integer == 5) {
+				fiveTop5++;
+			} else if (integer == 6) {
+				sixTop5++;
+			} else if (integer == 7) {
+				sevenTop5++;
+			} else if (integer == 8) {
+				eightTop5++;
+			} else if (integer == 9) {
+				nineTop5++;
 			}
 
 		}
-		logger.info("===============================================");
-		logger.info("在过去5期中末位数为0的数字的个数共有" + zeroTop5 + "个");
-		logger.info("在过去5期中末位数为1的数字的个数共有" + oneTop5 + "个");
-		logger.info("在过去5期中末位数为2的数字的个数共有" + twoTop5 + "个");
-		logger.info("在过去5期中末位数为3的数字的个数共有" + threeTop5 + "个");
-		logger.info("在过去5期中末位数为4的数字的个数共有" + fourTop5 + "个");
-		logger.info("在过去5期中末位数为5的数字的个数共有" + fiveTop5 + "个");
-		logger.info("在过去5期中末位数为6的数字的个数共有" + sixTop5 + "个");
-		logger.info("在过去5期中末位数为7的数字的个数共有" + sevenTop5 + "个");
-		logger.info("在过去5期中末位数为8的数字的个数共有" + eightTop5 + "个");
-		logger.info("在过去5期中末位数为9的数字的个数共有" + nineTop5 + "个");
+
 		map.put("zeroTop5", zeroTop5);
 		map.put("oneTop5", oneTop5);
 		map.put("twoTop5", twoTop5);
@@ -316,60 +308,49 @@ public class SixOneAction extends BaseAction {
 		int sevenTop6 = 0;
 		int eightTop6 = 0;
 		int nineTop6 = 0;
+		List<Integer> integersTop6 = new ArrayList<Integer>();
 		for (SixOne sixOne : sixonesTop6) {
-			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFifth() % 10;
+
+			Integer tempfirst = sixOne.getFirst() % 10;
 			Integer tempsecond = sixOne.getSecond() % 10;
 			Integer tempthird = sixOne.getThird() % 10;
 			Integer tempfourth = sixOne.getFourth() % 10;
 			Integer tempfifth = sixOne.getFifth() % 10;
 			Integer tempsixth = sixOne.getSixth() % 10;
 			Integer tempseventh = sixOne.getSeventh() % 10;
-			integers.add(tempfirst);
-			integers.add(tempsecond);
-			integers.add(tempthird);
-			integers.add(tempfourth);
-			integers.add(tempfifth);
-			integers.add(tempsixth);
-			integers.add(tempseventh);
-			for (Integer integer : integers) {
-				if (integer == 0) {
-					zeroTop6++;
-				} else if (integer == 1) {
-					oneTop6++;
-				} else if (integer == 2) {
-					twoTop6++;
-				} else if (integer == 3) {
-					threeTop6++;
-				} else if (integer == 4) {
-					fourTop6++;
-				} else if (integer == 5) {
-					fiveTop6++;
-				} else if (integer == 6) {
-					sixTop6++;
-				} else if (integer == 7) {
-					sevenTop6++;
-				} else if (integer == 8) {
-					eightTop6++;
-				} else if (integer == 9) {
-					nineTop6++;
-				}
+			integersTop6.add(tempfirst);
+			integersTop6.add(tempsecond);
+			integersTop6.add(tempthird);
+			integersTop6.add(tempfourth);
+			integersTop6.add(tempfifth);
+			integersTop6.add(tempsixth);
+			integersTop6.add(tempseventh);
 
+		}
+		for (Integer integer : integersTop6) {
+			if (integer == 0) {
+				zeroTop6++;
+			} else if (integer == 1) {
+				oneTop6++;
+			} else if (integer == 2) {
+				twoTop6++;
+			} else if (integer == 3) {
+				threeTop6++;
+			} else if (integer == 4) {
+				fourTop6++;
+			} else if (integer == 5) {
+				fiveTop6++;
+			} else if (integer == 6) {
+				sixTop6++;
+			} else if (integer == 7) {
+				sevenTop6++;
+			} else if (integer == 8) {
+				eightTop6++;
+			} else if (integer == 9) {
+				nineTop6++;
 			}
 
 		}
-		logger.info("===============================================");
-		logger.info("在过去6期中末位数为0的数字的个数共有" + zeroTop6 + "个");
-		logger.info("在过去6期中末位数为1的数字的个数共有" + oneTop6 + "个");
-		logger.info("在过去6期中末位数为2的数字的个数共有" + twoTop6 + "个");
-		logger.info("在过去6期中末位数为3的数字的个数共有" + threeTop6 + "个");
-		logger.info("在过去6期中末位数为4的数字的个数共有" + fourTop6 + "个");
-		logger.info("在过去6期中末位数为5的数字的个数共有" + fiveTop6 + "个");
-		logger.info("在过去6期中末位数为6的数字的个数共有" + sixTop6 + "个");
-		logger.info("在过去6期中末位数为7的数字的个数共有" + sevenTop6 + "个");
-		logger.info("在过去6期中末位数为8的数字的个数共有" + eightTop6 + "个");
-		logger.info("在过去6期中末位数为9的数字的个数共有" + nineTop6 + "个");
-
 		map.put("zeroTop6", zeroTop6);
 		map.put("oneTop6", oneTop6);
 		map.put("twoTop6", twoTop6);
@@ -391,59 +372,49 @@ public class SixOneAction extends BaseAction {
 		int sevenTop7 = 0;
 		int eightTop7 = 0;
 		int nineTop7 = 0;
+		List<Integer> integersTop7 = new ArrayList<Integer>();
 		for (SixOne sixOne : sixonesTop7) {
-			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFifth() % 10;
+
+			Integer tempfirst = sixOne.getFirst() % 10;
 			Integer tempsecond = sixOne.getSecond() % 10;
 			Integer tempthird = sixOne.getThird() % 10;
 			Integer tempfourth = sixOne.getFourth() % 10;
 			Integer tempfifth = sixOne.getFifth() % 10;
 			Integer tempsixth = sixOne.getSixth() % 10;
 			Integer tempseventh = sixOne.getSeventh() % 10;
-			integers.add(tempfirst);
-			integers.add(tempsecond);
-			integers.add(tempthird);
-			integers.add(tempfourth);
-			integers.add(tempfifth);
-			integers.add(tempsixth);
-			integers.add(tempseventh);
-			for (Integer integer : integers) {
-				if (integer == 0) {
-					zeroTop7++;
-				} else if (integer == 1) {
-					oneTop7++;
-				} else if (integer == 2) {
-					twoTop7++;
-				} else if (integer == 3) {
-					threeTop7++;
-				} else if (integer == 4) {
-					fourTop7++;
-				} else if (integer == 5) {
-					fiveTop7++;
-				} else if (integer == 6) {
-					sixTop7++;
-				} else if (integer == 7) {
-					sevenTop7++;
-				} else if (integer == 8) {
-					eightTop7++;
-				} else if (integer == 9) {
-					nineTop7++;
-				}
+			integersTop7.add(tempfirst);
+			integersTop7.add(tempsecond);
+			integersTop7.add(tempthird);
+			integersTop7.add(tempfourth);
+			integersTop7.add(tempfifth);
+			integersTop7.add(tempsixth);
+			integersTop7.add(tempseventh);
 
+		}
+		for (Integer integer : integersTop7) {
+			if (integer == 0) {
+				zeroTop7++;
+			} else if (integer == 1) {
+				oneTop7++;
+			} else if (integer == 2) {
+				twoTop7++;
+			} else if (integer == 3) {
+				threeTop7++;
+			} else if (integer == 4) {
+				fourTop7++;
+			} else if (integer == 5) {
+				fiveTop7++;
+			} else if (integer == 6) {
+				sixTop7++;
+			} else if (integer == 7) {
+				sevenTop7++;
+			} else if (integer == 8) {
+				eightTop7++;
+			} else if (integer == 9) {
+				nineTop7++;
 			}
 
 		}
-		logger.info("===============================================");
-		logger.info("在过去7期中末位数为0的数字的个数共有" + zeroTop7 + "个");
-		logger.info("在过去7期中末位数为1的数字的个数共有" + oneTop7 + "个");
-		logger.info("在过去7期中末位数为2的数字的个数共有" + twoTop7 + "个");
-		logger.info("在过去7期中末位数为3的数字的个数共有" + threeTop7 + "个");
-		logger.info("在过去7期中末位数为4的数字的个数共有" + fourTop7 + "个");
-		logger.info("在过去7期中末位数为5的数字的个数共有" + fiveTop7 + "个");
-		logger.info("在过去7期中末位数为6的数字的个数共有" + sixTop7 + "个");
-		logger.info("在过去7期中末位数为7的数字的个数共有" + sevenTop7 + "个");
-		logger.info("在过去7期中末位数为8的数字的个数共有" + eightTop7 + "个");
-		logger.info("在过去7期中末位数为9的数字的个数共有" + nineTop7 + "个");
 		map.put("zeroTop7", zeroTop7);
 		map.put("oneTop7", oneTop7);
 		map.put("twoTop7", twoTop7);
@@ -468,7 +439,7 @@ public class SixOneAction extends BaseAction {
 		int nineTop8 = 0;
 		for (SixOne sixOne : sixonesTop8) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFifth() % 10;
+			Integer tempfirst =sixOne.getFirst() % 10;
 			Integer tempsecond = sixOne.getSecond() % 10;
 			Integer tempthird = sixOne.getThird() % 10;
 			Integer tempfourth = sixOne.getFourth() % 10;
@@ -508,17 +479,7 @@ public class SixOneAction extends BaseAction {
 			}
 
 		}
-		logger.info("===============================================");
-		logger.info("在过去8期中末位数为0的数字的个数共有" + zeroTop8 + "个");
-		logger.info("在过去8期中末位数为1的数字的个数共有" + oneTop8 + "个");
-		logger.info("在过去8期中末位数为2的数字的个数共有" + twoTop8 + "个");
-		logger.info("在过去8期中末位数为3的数字的个数共有" + threeTop8 + "个");
-		logger.info("在过去8期中末位数为4的数字的个数共有" + fourTop8 + "个");
-		logger.info("在过去8期中末位数为5的数字的个数共有" + fiveTop8 + "个");
-		logger.info("在过去8期中末位数为6的数字的个数共有" + sixTop8 + "个");
-		logger.info("在过去8期中末位数为7的数字的个数共有" + sevenTop8 + "个");
-		logger.info("在过去8期中末位数为8的数字的个数共有" + eightTop8 + "个");
-		logger.info("在过去8期中末位数为9的数字的个数共有" + nineTop8 + "个");
+
 		map.put("zeroTop8", zeroTop8);
 		map.put("oneTop8", oneTop8);
 		map.put("twoTop8", twoTop8);
@@ -540,48 +501,105 @@ public class SixOneAction extends BaseAction {
 		int sevenTop9 = 0;
 		int eightTop9 = 0;
 		int nineTop9 = 0;
+		List<Integer> integersTop8 = new ArrayList<Integer>();
 		for (SixOne sixOne : sixonesTop9) {
-			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFifth() % 10;
+
+			Integer tempfirst = sixOne.getFirst() % 10;
 			Integer tempsecond = sixOne.getSecond() % 10;
 			Integer tempthird = sixOne.getThird() % 10;
 			Integer tempfourth = sixOne.getFourth() % 10;
 			Integer tempfifth = sixOne.getFifth() % 10;
 			Integer tempsixth = sixOne.getSixth() % 10;
 			Integer tempseventh = sixOne.getSeventh() % 10;
-			integers.add(tempfirst);
-			integers.add(tempsecond);
-			integers.add(tempthird);
-			integers.add(tempfourth);
-			integers.add(tempfifth);
-			integers.add(tempsixth);
-			integers.add(tempseventh);
-			for (Integer integer : integers) {
-				if (integer == 0) {
-					zeroTop9++;
-				} else if (integer == 1) {
-					oneTop9++;
-				} else if (integer == 2) {
-					twoTop9++;
-				} else if (integer == 3) {
-					threeTop9++;
-				} else if (integer == 4) {
-					fourTop9++;
-				} else if (integer == 5) {
-					fiveTop9++;
-				} else if (integer == 6) {
-					sixTop9++;
-				} else if (integer == 7) {
-					sevenTop9++;
-				} else if (integer == 8) {
-					eightTop9++;
-				} else if (integer == 9) {
-					nineTop9++;
-				}
+			integersTop8.add(tempfirst);
+			integersTop8.add(tempsecond);
+			integersTop8.add(tempthird);
+			integersTop8.add(tempfourth);
+			integersTop8.add(tempfifth);
+			integersTop8.add(tempsixth);
+			integersTop8.add(tempseventh);
 
+		}
+		for (Integer integer : integersTop8) {
+			if (integer == 0) {
+				zeroTop9++;
+			} else if (integer == 1) {
+				oneTop9++;
+			} else if (integer == 2) {
+				twoTop9++;
+			} else if (integer == 3) {
+				threeTop9++;
+			} else if (integer == 4) {
+				fourTop9++;
+			} else if (integer == 5) {
+				fiveTop9++;
+			} else if (integer == 6) {
+				sixTop9++;
+			} else if (integer == 7) {
+				sevenTop9++;
+			} else if (integer == 8) {
+				eightTop9++;
+			} else if (integer == 9) {
+				nineTop9++;
 			}
 
 		}
+		map.put("zeroTop9", zeroTop9);
+		map.put("oneTop9", oneTop9);
+		map.put("twoTop9", twoTop9);
+		map.put("threeTop9", threeTop9);
+		map.put("fourTop9", fourTop9);
+		map.put("fiveTop9", fiveTop9);
+		map.put("sixTop9", sixTop9);
+		map.put("sevenTop9", sevenTop9);
+		map.put("eightTop9", eightTop9);
+		map.put("nineTop9", nineTop9);
+
+		logger.info("===============================================");
+		logger.info("在过去5期中末位数为0的数字的个数共有" + zeroTop5 + "个");
+		logger.info("在过去5期中末位数为1的数字的个数共有" + oneTop5 + "个");
+		logger.info("在过去5期中末位数为2的数字的个数共有" + twoTop5 + "个");
+		logger.info("在过去5期中末位数为3的数字的个数共有" + threeTop5 + "个");
+		logger.info("在过去5期中末位数为4的数字的个数共有" + fourTop5 + "个");
+		logger.info("在过去5期中末位数为5的数字的个数共有" + fiveTop5 + "个");
+		logger.info("在过去5期中末位数为6的数字的个数共有" + sixTop5 + "个");
+		logger.info("在过去5期中末位数为7的数字的个数共有" + sevenTop5 + "个");
+		logger.info("在过去5期中末位数为8的数字的个数共有" + eightTop5 + "个");
+		logger.info("在过去5期中末位数为9的数字的个数共有" + nineTop5 + "个");
+		logger.info("===============================================");
+		logger.info("在过去6期中末位数为0的数字的个数共有" + zeroTop6 + "个");
+		logger.info("在过去6期中末位数为1的数字的个数共有" + oneTop6 + "个");
+		logger.info("在过去6期中末位数为2的数字的个数共有" + twoTop6 + "个");
+		logger.info("在过去6期中末位数为3的数字的个数共有" + threeTop6 + "个");
+		logger.info("在过去6期中末位数为4的数字的个数共有" + fourTop6 + "个");
+		logger.info("在过去6期中末位数为5的数字的个数共有" + fiveTop6 + "个");
+		logger.info("在过去6期中末位数为6的数字的个数共有" + sixTop6 + "个");
+		logger.info("在过去6期中末位数为7的数字的个数共有" + sevenTop6 + "个");
+		logger.info("在过去6期中末位数为8的数字的个数共有" + eightTop6 + "个");
+		logger.info("在过去6期中末位数为9的数字的个数共有" + nineTop6 + "个");
+
+		logger.info("===============================================");
+		logger.info("在过去7期中末位数为0的数字的个数共有" + zeroTop7 + "个");
+		logger.info("在过去7期中末位数为1的数字的个数共有" + oneTop7 + "个");
+		logger.info("在过去7期中末位数为2的数字的个数共有" + twoTop7 + "个");
+		logger.info("在过去7期中末位数为3的数字的个数共有" + threeTop7 + "个");
+		logger.info("在过去7期中末位数为4的数字的个数共有" + fourTop7 + "个");
+		logger.info("在过去7期中末位数为5的数字的个数共有" + fiveTop7 + "个");
+		logger.info("在过去7期中末位数为6的数字的个数共有" + sixTop7 + "个");
+		logger.info("在过去7期中末位数为7的数字的个数共有" + sevenTop7 + "个");
+		logger.info("在过去7期中末位数为8的数字的个数共有" + eightTop7 + "个");
+		logger.info("在过去7期中末位数为9的数字的个数共有" + nineTop7 + "个");
+		logger.info("===============================================");
+		logger.info("在过去8期中末位数为0的数字的个数共有" + zeroTop8 + "个");
+		logger.info("在过去8期中末位数为1的数字的个数共有" + oneTop8 + "个");
+		logger.info("在过去8期中末位数为2的数字的个数共有" + twoTop8 + "个");
+		logger.info("在过去8期中末位数为3的数字的个数共有" + threeTop8 + "个");
+		logger.info("在过去8期中末位数为4的数字的个数共有" + fourTop8 + "个");
+		logger.info("在过去8期中末位数为5的数字的个数共有" + fiveTop8 + "个");
+		logger.info("在过去8期中末位数为6的数字的个数共有" + sixTop8 + "个");
+		logger.info("在过去8期中末位数为7的数字的个数共有" + sevenTop8 + "个");
+		logger.info("在过去8期中末位数为8的数字的个数共有" + eightTop8 + "个");
+		logger.info("在过去8期中末位数为9的数字的个数共有" + nineTop8 + "个");
 		logger.info("===============================================");
 		logger.info("在过去9期中末位数为0的数字的个数共有" + zeroTop9 + "个");
 		logger.info("在过去9期中末位数为1的数字的个数共有" + oneTop9 + "个");
@@ -593,16 +611,6 @@ public class SixOneAction extends BaseAction {
 		logger.info("在过去9期中末位数为7的数字的个数共有" + sevenTop9 + "个");
 		logger.info("在过去9期中末位数为8的数字的个数共有" + eightTop9 + "个");
 		logger.info("在过去9期中末位数为9的数字的个数共有" + nineTop9 + "个");
-		map.put("zeroTop9", zeroTop9);
-		map.put("oneTop9", oneTop9);
-		map.put("twoTop9", twoTop9);
-		map.put("threeTop9", threeTop9);
-		map.put("fourTop9", fourTop9);
-		map.put("fiveTop9", fiveTop9);
-		map.put("sixTop9", sixTop9);
-		map.put("sevenTop9", sevenTop9);
-		map.put("eightTop9", eightTop9);
-		map.put("nineTop9", nineTop9);
 
 		logger.info(map.toString());
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
