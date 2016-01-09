@@ -983,6 +983,8 @@
 						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionTongJiTopTen.action',
 						dataType : "json",
 						success : function(data) {
+							$("#lasttenTable").empty();
+							$("#notInlasttenTable").empty();
 							var json = eval('(' + data + ')');
 							alert(data)
 							var trHtml = '<tr>';
@@ -1031,16 +1033,23 @@
                         data:param,
 						dataType : "json",
 						success : function(data) {
+							$("#zuhejieguo").empty();
 						 	var json = eval('(' + data + ')');
-							//alert(data);
-							var trHtml = '<tr>';
+						 	var trHtml = '<tr>',addNum = 1;
 							for (var i = 0; i < json.zuhe.length; i++) {
-								var tdHtml = '<td class="danger">'
-										+ json.zuhe[i] + '</td>';
-								trHtml += tdHtml;
+								var tdHtml = '<td class="info">'
+									+ json.zuhe[i] + '</td>';
+								if(addNum == 5){
+									addNum = 1;
+									trHtml += tdHtml +'</tr><tr>';
+								}else{
+									addNum++;
+									trHtml += tdHtml;
+								}
+								
 							}
 							trHtml += '</tr>';
-							$("#zuhejieguo").append(trHtml); 
+							$("#zuhejieguo").append(trHtml);
                            
 							
 						},
