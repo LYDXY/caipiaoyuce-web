@@ -13,6 +13,8 @@ import javax.annotation.Resource;
 import com.sun.star.io.IOException;
 import com.web.pojo.SixOne;
 import com.web.services.SixOneServices;
+import com.web.yuce.common.utils.MySelfZuHe;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -40,6 +42,8 @@ public class SixOneAction extends BaseAction {
 	private Integer sixth;
 	private Integer seventh;
 
+	private String choosenNumbers;
+
 	/**
 	 * 构造器初始化数据
 	 */
@@ -47,20 +51,31 @@ public class SixOneAction extends BaseAction {
 
 	}
 
-	
-	
 	/**
 	 * 根据最后选中的数字进行组合
+	 * @throws Exception 
 	 */
-	public String myselfZuHe(){
-		
-	  @SuppressWarnings("unchecked")
-	 List<Integer>	choosenNumbers=(List<Integer>) request.getAttribute("choosenNumbers");
-      System.out.println(choosenNumbers.toString());
-		
-		
+	public String myselfZuHe() throws Exception {
+		Map<String, List<String>> maps = new HashMap<String, List<String>>();
+		logger.info("数组组合:myselfZuHe");
+
+		logger.info(choosenNumbers.toString());
+		String[] numebrs = choosenNumbers.split("-");
+		List<Integer> integersnumbers=new ArrayList<Integer>();
+		for (String string : numebrs) {
+              integersnumbers.add(Integer.parseInt(string));
+		}
+	    MySelfZuHe mySelfZuHe=new MySelfZuHe();
+	    List<String> strings=mySelfZuHe.combine2(integersnumbers, 3);
+        logger.info(strings.toString());
+        
+        maps.put("zuhe", strings);
+        JSONObject jsonObjectFromMap = JSONObject.fromObject(maps);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
 		return "MYSELFZUHESUCCESS";
 	}
+
 	/**
 	 * 统计过去10期出现的数字
 	 */
@@ -453,7 +468,7 @@ public class SixOneAction extends BaseAction {
 		int nineTop8 = 0;
 		for (SixOne sixOne : sixonesTop8) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst =sixOne.getFirst() % 10;
+			Integer tempfirst = sixOne.getFirst() % 10;
 			Integer tempsecond = sixOne.getSecond() % 10;
 			Integer tempthird = sixOne.getThird() % 10;
 			Integer tempfourth = sixOne.getFourth() % 10;
@@ -2730,5 +2745,13 @@ public class SixOneAction extends BaseAction {
 
 	public void setResult(String result) {
 		this.result = result;
+	}
+
+	public String getChoosenNumbers() {
+		return choosenNumbers;
+	}
+
+	public void setChoosenNumbers(String choosenNumbers) {
+		this.choosenNumbers = choosenNumbers;
 	}
 }

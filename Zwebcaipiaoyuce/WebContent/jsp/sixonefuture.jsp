@@ -414,32 +414,18 @@
 			</tr>
 			<!-- 请输入需要组合的数字-->
 			<tr>
-				<td class="info"><h3>请输入需要组合的数字</h3> <br />
-					<button onclick="getChoosenshuzitenjieguo()"
-						class="btn btn-primary btn-lg">执行</button></td>
-				<td><form>
+				<td class="info"><h3>请先在右边的表单输入需要组合的数字</h3> <br /></td>
+				<td><form id="choosenNumbersform">
 						<div class="form-group">
-							<label for="exampleInputEmail1">Email address</label> <input
-								type="email" class="form-control" id="exampleInputEmail1"
-								placeholder="Email">
+							<label for="choosenNumbers">需要组合的数字,连续输入,用"-"隔开,如
+								12-45-32-12-45-6-7</label> <input class="form-control"
+								id="choosenNumbers">
 						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label> <input
-								type="password" class="form-control" id="exampleInputPassword1"
-								placeholder="Password">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputFile">File input</label> <input
-								type="file" id="exampleInputFile">
-							<p class="help-block">Example block-level help text here.</p>
-						</div>
-						<div class="checkbox">
-							<label> <input type="checkbox"> Check me out
-							</label>
-						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form></td>
+						<button type="button" onclick="getChoosenshuzitenjieguo()"
+							class="btn btn-default">确定</button>
 
+					</form></td>
+                <td><table id="zuhejieguo" class="table table-bordered"></table></td>
 			</tr>
 
 		</tbody>
@@ -1026,37 +1012,42 @@
 	<!-- 需要组合的数字 -->
 	<script type="text/javascript">
 		function getChoosenshuzitenjieguo() {
+			
+		 	var choosenNumbers = new Array();
+			var arr = $("#choosenNumbers").val().split('-');
+			for ( var i in arr) {
+				if (parseInt(arr[i]) > 49) {
+					alert("数字:" + arr[i] + "不符合,请重新输入");
+					return;
+				}
+			}
+			
+			var param={choosenNumbers:$("#choosenNumbers").val()};
+			alert(param.choosenNumbers);
 			$
 					.ajax({
 						type : "POST",
-						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionTongJiTopTen.action',
-
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionMySelfZuHe.action',
+                        data:param,
 						dataType : "json",
 						success : function(data) {
-							var json = eval('(' + data + ')');
-							alert(data)
+						 	var json = eval('(' + data + ')');
+							//alert(data);
 							var trHtml = '<tr>';
-							for (var i = 0; i < json.integers.length; i++) {
+							for (var i = 0; i < json.zuhe.length; i++) {
 								var tdHtml = '<td class="danger">'
-										+ json.integers[i] + '</td>';
+										+ json.zuhe[i] + '</td>';
 								trHtml += tdHtml;
 							}
 							trHtml += '</tr>';
-							$("#lasttenTable").append(trHtml);
-
-							var trHtml2 = '<tr>';
-							for (var j = 0; j < json.integers2.length; j++) {
-								var tdHtml2 = '<td class="info">'
-										+ json.integers2[j] + '</td>';
-								trHtml2 += tdHtml2;
-							}
-							trHtml2 += '</tr>';
-							$("#notInlasttenTable").append(trHtml2);
+							$("#zuhejieguo").append(trHtml); 
+                           
+							
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
 						}
-					});
+					}); 
 		}
 	</script>
 
