@@ -47,6 +47,20 @@ public class SixOneAction extends BaseAction {
 
 	}
 
+	
+	
+	/**
+	 * 根据最后选中的数字进行组合
+	 */
+	public String myselfZuHe(){
+		
+	  @SuppressWarnings("unchecked")
+	 List<Integer>	choosenNumbers=(List<Integer>) request.getAttribute("choosenNumbers");
+      System.out.println(choosenNumbers.toString());
+		
+		
+		return "MYSELFZUHESUCCESS";
+	}
 	/**
 	 * 统计过去10期出现的数字
 	 */

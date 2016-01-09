@@ -404,14 +404,43 @@
 					</table></td>
 
 			</tr>
+			<!-- 统计过去十期出现的数字,越靠前表明最近才出现 -->
 			<tr>
 				<td class="info"><h3>统计过去十期出现的数字,越靠前表明最近才出现</h3> <br />
 					<button onclick="getshuzitongjiguoqutenjieguo()"
 						class="btn btn-primary btn-lg">执行</button></td>
-				<td ><table id="lasttenTable" class="table table-bordered"></table></td>
-				<td ><table id="notInlasttenTable" class="table table-bordered"></table></td>
+				<td><table id="lasttenTable" class="table table-bordered"></table></td>
+				<td><table id="notInlasttenTable" class="table table-bordered"></table></td>
 			</tr>
+			<!-- 请输入需要组合的数字-->
+			<tr>
+				<td class="info"><h3>请输入需要组合的数字</h3> <br />
+					<button onclick="getChoosenshuzitenjieguo()"
+						class="btn btn-primary btn-lg">执行</button></td>
+				<td><form>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Email address</label> <input
+								type="email" class="form-control" id="exampleInputEmail1"
+								placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Password</label> <input
+								type="password" class="form-control" id="exampleInputPassword1"
+								placeholder="Password">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputFile">File input</label> <input
+								type="file" id="exampleInputFile">
+							<p class="help-block">Example block-level help text here.</p>
+						</div>
+						<div class="checkbox">
+							<label> <input type="checkbox"> Check me out
+							</label>
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form></td>
 
+			</tr>
 
 		</tbody>
 	</table>
@@ -665,7 +694,7 @@
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
-							
+
 							$("#future5zero").html(json.zeroTop5);
 							$("#future5one").html(json.oneTop5);
 							$("#future5two").html(json.twoTop5);
@@ -676,8 +705,7 @@
 							$("#future5seven").html(json.sevenTop5);
 							$("#future5eight").html(json.eightTop5);
 							$("#future5nine").html(json.nineTop5);
-							
-							
+
 							$("#future6zero").html(json.zeroTop6);
 							$("#future6one").html(json.oneTop6);
 							$("#future6two").html(json.twoTop6);
@@ -688,9 +716,7 @@
 							$("#future6seven").html(json.sevenTop6);
 							$("#future6eight").html(json.eightTop6);
 							$("#future6nine").html(json.nineTop6);
-							
-							
-							
+
 							$("#future7zero").html(json.zeroTop7);
 							$("#future7one").html(json.oneTop7);
 							$("#future7two").html(json.twoTop7);
@@ -701,8 +727,7 @@
 							$("#future7seven").html(json.sevenTop7);
 							$("#future7eight").html(json.eightTop7);
 							$("#future7nine").html(json.nineTop7);
-							
-							
+
 							$("#future8zero").html(json.zeroTop8);
 							$("#future8one").html(json.oneTop8);
 							$("#future8two").html(json.twoTop8);
@@ -713,9 +738,7 @@
 							$("#future8seven").html(json.sevenTop8);
 							$("#future8eight").html(json.eightTop8);
 							$("#future8nine").html(json.nineTop8);
-							
-							
-							
+
 							$("#future9zero").html(json.zeroTop9);
 							$("#future9one").html(json.oneTop9);
 							$("#future9two").html(json.twoTop9);
@@ -984,8 +1007,7 @@
 							}
 							trHtml += '</tr>';
 							$("#lasttenTable").append(trHtml);
-							
-							
+
 							var trHtml2 = '<tr>';
 							for (var j = 0; j < json.integers2.length; j++) {
 								var tdHtml2 = '<td class="info">'
@@ -1001,7 +1023,42 @@
 					});
 		}
 	</script>
+	<!-- 需要组合的数字 -->
+	<script type="text/javascript">
+		function getChoosenshuzitenjieguo() {
+			$
+					.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionTongJiTopTen.action',
 
+						dataType : "json",
+						success : function(data) {
+							var json = eval('(' + data + ')');
+							alert(data)
+							var trHtml = '<tr>';
+							for (var i = 0; i < json.integers.length; i++) {
+								var tdHtml = '<td class="danger">'
+										+ json.integers[i] + '</td>';
+								trHtml += tdHtml;
+							}
+							trHtml += '</tr>';
+							$("#lasttenTable").append(trHtml);
+
+							var trHtml2 = '<tr>';
+							for (var j = 0; j < json.integers2.length; j++) {
+								var tdHtml2 = '<td class="info">'
+										+ json.integers2[j] + '</td>';
+								trHtml2 += tdHtml2;
+							}
+							trHtml2 += '</tr>';
+							$("#notInlasttenTable").append(trHtml2);
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+		}
+	</script>
 
 </body>
 </html>
