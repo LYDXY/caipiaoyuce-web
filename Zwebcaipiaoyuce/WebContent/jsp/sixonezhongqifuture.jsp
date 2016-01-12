@@ -1,10 +1,26 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.web.pojo.*"%>
+<!-- 获取数据的地方 -->
+<%
+	String path = request.getContextPath();
+	String domain = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+	String basePath = domain + path;
+	String host = request.getScheme() + "://" + request.getServerName();
+	pageContext.setAttribute("ctx", path);
+	pageContext.setAttribute("host", host);
+%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>中期预算</title>
+<script language="javascript" type="text/javascript"
+	src="../jqplot/js/jquery.min.js"></script>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet"
 	href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -30,15 +46,16 @@
 				<td><table class="table table-bordered">
 						<thead>
 							<tr class="info">
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-								<td>5</td>
-								<td>6</td>
-								<td>7</td>
-								<td>8</td>
-								<td>9</td>
+								<td>期数</td>
+								<td>01</td>
+								<td>02</td>
+								<td>03</td>
+								<td>04</td>
+								<td>05</td>
+								<td>06</td>
+								<td>07</td>
+								<td>08</td>
+								<td>09</td>
 								<td>10</td>
 								<td>11</td>
 								<td>12</td>
@@ -103,5 +120,44 @@
 
 		</tbody>
 	</table>
+	<!-- 中期预算 -->
+	<script type="text/javascript">
+		function zhongqijisuan_first_step() {
+		
+			$.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionZhongQiFirst.action',
+                       
+						dataType : "json",
+						success : function(data) {
+							$("#jiesuanTopFifty").empty();
+						 	var json = eval('(' + data + ')');
+						  	console.log(json["name"][0]);
+							 for (var i = 0; i < json["name"].length; i++) {
+								var trHtml = '<tr>';
+								for(var j=0;j<json["name"][i].length;j++){
+									if(j==0){
+										var tdHtml = '<td class="success">' + json["name"][i][j] + '</td>';
+									}else if(json["name"][i][j] == "--"){
+										var tdHtml = '<td>' + json["name"][i][j] + '</td>';
+									}else{
+										var tdHtml = '<td class="success">' + json["name"][i][j] + '</td>';
+									}
+								trHtml += tdHtml;
+								}
+								trHtml += '</tr>';
+								$("#jiesuanTopFifty").append(trHtml);
+							} 
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					}); 
+		}
+	</script>
+
 </body>
+
+
+
 </html>

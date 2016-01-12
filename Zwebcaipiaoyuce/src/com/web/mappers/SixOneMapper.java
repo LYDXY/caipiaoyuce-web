@@ -53,9 +53,16 @@ public interface SixOneMapper {
     public List<SixOne> way10();
     
     
-  //查询 过去 n 期的期数 ,升序
+   //查询 过去 n 期的期数 ,升序
   	public List<SixOne> way11(Integer limit);
   	
   	 //查询 过去 n 期的期数 ,降序
   	public List<SixOne> way12(Integer limit);
+  	
+  	 //查询 过去 n 期的期数 升序 ,排在第一行的的期数
+  	public Integer way13(Integer limit);
+  	
+  	//查询比本期小一期的期数
+  	public SixOne way14(Integer qishu);
+  	
 }

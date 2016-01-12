@@ -53,37 +53,114 @@ public class SixOneAction extends BaseAction {
 
 	/**
 	 * 跳转到中期预测界面
+	 * 
 	 * @return
 	 */
-	public String zhongqifutureSixOne(){
-		
-		
-		return  "GETZHONGQIFUTURE_SUCCESS";
+	public String zhongqifutureSixOne() {
+
+		return "GETZHONGQIFUTURE_SUCCESS";
 	}
-	
+
 	/**
 	 * 中期预测 查询过去50 期的数据 ,升序
 	 */
-	public 	String zhongqitopfifty(){
-		List<SixOne> sixOnes=SixOneServices.way11(50);
+	public String zhongqitopfifty() {
+		// 2015106
+		Integer top1 = SixOneServices.way13(50);
+		logger.info("最新50期,期数从小排到大排在最前的一起的期数qishu:" + top1);
+		List<SixOne> sixOnes = SixOneServices.way11(50);
+
+		Map<String, List<List<String>>> zonglistMAP = new HashMap<String, List<List<String>>>();
+
+		List<List<String>> zonglist = new ArrayList<List<String>>();
+		// 记录数字开的位置
+
 		for (SixOne sixOne : sixOnes) {
-			sixOne.getId();
-			sixOne.getQishu();
-			sixOne.getFirst();
-			sixOne.getSecond();
-			sixOne.getThird();
-			sixOne.getFourth();
-			sixOne.getFifth();
-			sixOne.getSixth();
-			sixOne.getSeventh();
+			Integer Tempid = sixOne.getId();
+			Integer Tempqishu = sixOne.getQishu();
+
+			// 记录本期的情况,发送到前台的数据
+			List<String> jilu = new ArrayList<String>();
+			jilu.add(Tempid.toString());
+			// jilu.add(Tempqishu.toString());
+			// 数字即是位置
+
+			for (int i = 1; i <= 49; i++) {
+				if (sixOne.getFirst() == i) {
+					if (i < 10) {
+						jilu.add("0" + i);
+					} else {
+						jilu.add(i + "");
+					}
+
+				} else if (sixOne.getFirst() == i) {
+					if (i < 10) {
+						jilu.add("0" + i);
+					} else {
+						jilu.add(i + "");
+					}
+				} else if (sixOne.getSecond() == i) {
+					if (i < 10) {
+						jilu.add("0" + i);
+					} else {
+						jilu.add(i + "");
+					}
+				} else if (sixOne.getThird() == i) {
+					if (i < 10) {
+						jilu.add("0" + i);
+					} else {
+						jilu.add(i + "");
+					}
+				} else if (sixOne.getFourth() == i) {
+					if (i < 10) {
+						jilu.add("0" + i);
+					} else {
+						jilu.add(i + "");
+					}
+				} else if (sixOne.getFifth() == i) {
+					if (i < 10) {
+						jilu.add("0" + i);
+					} else {
+						jilu.add(i + "");
+					}
+				} else if (sixOne.getSixth() == i) {
+					if (i < 10) {
+						jilu.add("0" + i);
+					} else {
+						jilu.add(i + "");
+					}
+				} else if (sixOne.getSeventh() == i) {
+					if (i < 10) {
+						jilu.add("0" + i);
+					} else {
+						jilu.add(i + "");
+					}
+				} else {
+					jilu.add("--");
+
+				}
+
+			}
+			System.out.println(jilu.toString());
+			zonglist.add(jilu);
 		}
-		return  "ZHONGQITOPFIFTY_SUCCESS";
+
+		zonglistMAP.put("name", zonglist);
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(zonglistMAP);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
+		/*
+		 * for (List<String> list : zonglist) { String builder = new String();
+		 * for (String string : list) { builder += string; }
+		 * System.out.println(builder); }
+		 */
+		return "ZHONGQITOPFIFTY_SUCCESS";
 	}
-	
-	
+
 	/**
 	 * 根据最后选中的数字进行组合
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	public String myselfZuHe() throws Exception {
 		Map<String, List<String>> maps = new HashMap<String, List<String>>();
@@ -91,16 +168,16 @@ public class SixOneAction extends BaseAction {
 
 		logger.info(choosenNumbers.toString());
 		String[] numebrs = choosenNumbers.split("-");
-		List<Integer> integersnumbers=new ArrayList<Integer>();
+		List<Integer> integersnumbers = new ArrayList<Integer>();
 		for (String string : numebrs) {
-              integersnumbers.add(Integer.parseInt(string));
+			integersnumbers.add(Integer.parseInt(string));
 		}
-	    MySelfZuHe mySelfZuHe=new MySelfZuHe();
-	    List<String> strings=mySelfZuHe.combine2(integersnumbers, 3);
-        logger.info(strings.toString());
-        
-        maps.put("zuhe", strings);
-        JSONObject jsonObjectFromMap = JSONObject.fromObject(maps);
+		MySelfZuHe mySelfZuHe = new MySelfZuHe();
+		List<String> strings = mySelfZuHe.combine2(integersnumbers, 3);
+		logger.info(strings.toString());
+
+		maps.put("zuhe", strings);
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(maps);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();
 		return "MYSELFZUHESUCCESS";

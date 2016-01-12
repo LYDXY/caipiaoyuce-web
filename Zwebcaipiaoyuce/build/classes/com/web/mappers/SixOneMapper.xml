@@ -119,4 +119,20 @@
     <select id="way12" resultType="SixOne" parameterType="Integer" >
      SELECT * FROM tb_caipiao_six_one ORDER BY  qishu DESC LIMIT #{top}
     </select>
+    
+    
+    <!-- 查询过去 n 期的集合 升序  中的排在第一的期数-->
+	<select id="way13" resultType="Integer" parameterType="Integer" >
+      SELECT min(qishu) FROM ( SELECT * FROM tb_caipiao_six_one ORDER BY  qishu DESC LIMIT #{top}) AS t ORDER BY t.qishu ASC
+    </select>
+    
+    
+     <!-- 查询比本期小一期的期数-->
+	<select id="way14" resultType="SixOne" parameterType="Integer" >
+      SELECT * FROM  tb_caipiao_six_one as t  where t.qishu &lt; #{qishu} ORDER BY t.qishu DESC LIMIT 1 
+    </select>
+    
+    
+    
+    
 </mapper>

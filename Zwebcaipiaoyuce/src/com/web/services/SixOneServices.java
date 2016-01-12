@@ -2,8 +2,6 @@ package com.web.services;
 
 import java.util.List;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import com.web.pojo.SixOne;
 
 /**
@@ -57,4 +55,11 @@ public interface SixOneServices {
 	
 	 //查询 过去 n 期的期数 ,降序
   	public List<SixOne> way12(Integer limit);
+  	
+  //查询 过去 n 期的期数 升序 ,排在第一行的的期数
+  	public Integer way13(Integer limit);
+  	
+  	//查询比本期小1期的期数
+  	public SixOne way14(Integer qishu); 
+  	
 }

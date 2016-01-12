@@ -133,5 +133,18 @@ public class SixOneServicesImpl implements SixOneServices {
 		return sixonemapper.way12(limit);
 	}
 
+
+	@Override
+	public Integer way13(Integer limit) {
+		
+		return sixonemapper.way13(limit);
+	}
+
+	
+	@Override
+	public SixOne way14(Integer qishu) {
+		return sixonemapper.way14(qishu);
+	}
+
 	
 }
