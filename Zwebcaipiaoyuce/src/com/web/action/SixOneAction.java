@@ -52,6 +52,36 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
+	 * 跳转到中期预测界面
+	 * @return
+	 */
+	public String zhongqifutureSixOne(){
+		
+		
+		return  "GETZHONGQIFUTURE_SUCCESS";
+	}
+	
+	/**
+	 * 中期预测 查询过去50 期的数据 ,升序
+	 */
+	public 	String zhongqitopfifty(){
+		List<SixOne> sixOnes=SixOneServices.way11(50);
+		for (SixOne sixOne : sixOnes) {
+			sixOne.getId();
+			sixOne.getQishu();
+			sixOne.getFirst();
+			sixOne.getSecond();
+			sixOne.getThird();
+			sixOne.getFourth();
+			sixOne.getFifth();
+			sixOne.getSixth();
+			sixOne.getSeventh();
+		}
+		return  "ZHONGQITOPFIFTY_SUCCESS";
+	}
+	
+	
+	/**
 	 * 根据最后选中的数字进行组合
 	 * @throws Exception 
 	 */

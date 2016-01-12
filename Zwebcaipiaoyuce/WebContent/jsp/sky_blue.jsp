@@ -18,7 +18,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Dhtmlx Sky Blue Style Grid</title>
+<title>预测专家</title>
 <!-- grid.simple.min.css, grid.simple.min.js -->
 
 <link rel="stylesheet" href="../css/bsgrid.all.min.css" />
@@ -77,7 +77,10 @@
 
 	<div>
 		<a
-			href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFuture.action">未来一期系统分析</a>
+			href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionFuture.action">未来一期系统短期分析</a>
+		<br>
+		<a
+			href="${ pageContext.request.contextPath }/SixOneAction/SixOneActionZhongQiFuture.action">未来一期系统中期分析</a>
 		<br>
 	</div>
 	<!-- 对话框模块 -->

@@ -19,14 +19,18 @@
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result name="GETSIXONES_SUCCESS">../jsp/sixone.jsp</result>
 		</action>
-
+        <!-- 短期预测 -->
 		<action name="SixOneActionFuture" class="com.web.action.SixOneAction"
 			method="futureSixOne">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result name="GETFUTURE_SUCCESS">../jsp/sixonefuture.jsp</result>
 		</action>
-
-        
+        <!-- 中期预测 -->
+        <action name="SixOneActionZhongQiFuture" class="com.web.action.SixOneAction"
+			method="zhongqifutureSixOne">
+			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
+			<result name="GETZHONGQIFUTURE_SUCCESS">../jsp/sixonezhongqifuture.jsp</result>
+		</action>
 
 	
 		<action name="SixOneActionFutureColdHot" class="com.web.action.SixOneAction"
@@ -34,6 +38,8 @@
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result name="FUTURECOLDHOTSUCCESS">../jsp/sixonefuture.jsp</result>
 		</action>
+
+        
 
 
 	</package>
