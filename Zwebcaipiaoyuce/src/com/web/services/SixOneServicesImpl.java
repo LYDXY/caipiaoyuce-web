@@ -147,4 +147,11 @@ public class SixOneServicesImpl implements SixOneServices {
 	}
 
 	
+	@Override
+	public Integer way15() {
+		
+		return sixonemapper.way15();
+	}
+
+	
 }

@@ -65,4 +65,6 @@ public interface SixOneMapper {
   	//查询比本期小一期的期数
   	public SixOne way14(Integer qishu);
   	
+  	//查询最新期数的id
+  	public Integer way15();
 }

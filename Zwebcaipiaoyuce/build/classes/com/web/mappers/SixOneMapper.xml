@@ -132,7 +132,10 @@
       SELECT * FROM  tb_caipiao_six_one as t  where t.qishu &lt; #{qishu} ORDER BY t.qishu DESC LIMIT 1 
     </select>
     
-    
+     <!-- 查询比本期小一期的期数-->
+	<select id="way15" resultType="Integer" parameterType="Integer" >
+      SELECT max(id) FROM  tb_caipiao_six_one 
+    </select>
     
     
 </mapper>

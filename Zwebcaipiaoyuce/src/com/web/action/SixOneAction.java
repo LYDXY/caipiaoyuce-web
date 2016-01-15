@@ -2568,9 +2568,10 @@ public class SixOneAction extends BaseAction {
 		logger.info(TAG + "球5" + fifth);
 		logger.info(TAG + "球6" + sixth);
 		logger.info(TAG + "球7" + seventh);
-
+		Integer id = SixOneServices.way15();
 		try {
 			sixone = new SixOne();
+			sixone.setId(id+1);
 			sixone.setQishu(qishu);
 			sixone.setFirst(first);
 			sixone.setSecond(second);
