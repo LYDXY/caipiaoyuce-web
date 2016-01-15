@@ -62,9 +62,25 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
+	 * 在中期中预测冷门数字
+	 */
+	public String zhongqitopfiftyfive(){
+		
+		List<SixOne> sixOnes = SixOneServices.way11(55);
+	    
+	
+		
+		
+		
+		return "ZHONGQITOPFIFTYFIVE_SUCCESS";
+	}
+	
+	
+	
+	/**
 	 * 中期预测 查询过去50 期的数据 ,升序
 	 */
-	public String zhongqitopfifty() {
+ 	public String zhongqitopfifty() {
 		// 2015106
 		Integer top1 = SixOneServices.way13(50);
 		logger.info("最新50期,期数从小排到大排在最前的一起的期数qishu:" + top1);
