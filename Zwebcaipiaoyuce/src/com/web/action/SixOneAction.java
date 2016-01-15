@@ -64,25 +64,57 @@ public class SixOneAction extends BaseAction {
 	/**
 	 * 在中期中预测冷门数字
 	 */
-	public String zhongqitopfiftyfiveSecond(){
+	public String zhongqitopfiftyfiveSecond() {
+
+		Map<String, List<String>> listmap2 = new HashMap<String,List<String>>();
 		
 		List<SixOne> sixOnes = SixOneServices.way11(55);
-	    System.out.println();
-	
-		
-		
-		
-		
-		
+		List<String> biaotouList=new ArrayList<String>();
+		//生成表头数据
+		for (SixOne sixOne : sixOnes) {
+			biaotouList.add(sixOne.getId()+"");
+		}
+		listmap2.put("head", biaotouList);
+        //生成tbody 数据
+		for (int i = 1; i <= 49; i++) {
+			List<String> strings = new ArrayList<String>();
+			if (i < 10) {
+				strings.add("0" + i);
+			} else {
+				strings.add(i + "");
+			}
+
+			for (SixOne sixOne : sixOnes) {
+				if (i == sixOne.getFirst()) {
+					strings.add("X");
+				} else if (i == sixOne.getSecond()) {
+					strings.add("X");
+				} else if (i == sixOne.getThird()) {
+					strings.add("X");
+				} else if (i == sixOne.getFourth()) {
+					strings.add("X");
+				} else if (i == sixOne.getFifth()) {
+					strings.add("X");
+				} else if (i == sixOne.getSixth()) {
+					strings.add("X");
+				} else if (i == sixOne.getSeventh()) {
+					strings.add("X");
+				} else {
+					strings.add("--");
+				}
+			}
+			listmap2.put("number"+i,strings);
+		}
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(listmap2);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
 		return "ZHONGQITOPFIFTYFIVE_SUCCESS";
 	}
-	
-	
-	
+
 	/**
 	 * 中期预测 查询过去50 期的数据 ,升序
 	 */
- 	public String zhongqitopfifty() {
+	public String zhongqitopfifty() {
 		// 2015106
 		Integer top1 = SixOneServices.way13(50);
 		logger.info("最新50期,期数从小排到大排在最前的一起的期数qishu:" + top1);
@@ -2589,7 +2621,7 @@ public class SixOneAction extends BaseAction {
 		Integer id = SixOneServices.way15();
 		try {
 			sixone = new SixOne();
-			sixone.setId(id+1);
+			sixone.setId(id + 1);
 			sixone.setQishu(qishu);
 			sixone.setFirst(first);
 			sixone.setSecond(second);
