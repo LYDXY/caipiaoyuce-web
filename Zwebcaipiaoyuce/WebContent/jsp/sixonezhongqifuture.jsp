@@ -127,7 +127,7 @@
 			<tr>
 				<td class="info">
 					<h3>50期表格分析2</h3> <br />
-					<button onclick="zhongqijisuan_first_step()"
+					<button onclick="zhongqijisuan_first_step2()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
 				<td colspan="2"><table class="table table-bordered">
@@ -155,7 +155,7 @@
 
 
 
-	<!-- 中期预算 -->
+	<!-- 中期预算 1-->
 	<script type="text/javascript">
 		function zhongqijisuan_first_step() {
 
@@ -187,6 +187,29 @@
 								trHtml += '</tr>';
 								$("#jiesuanTopFifty").append(trHtml);
 							}
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+		}
+	</script>
+	
+	
+	<!-- 中期预算 2-->
+	<script type="text/javascript">
+		function zhongqijisuan_first_step2() {
+
+			$
+					.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionZhongQiSecond.action',
+
+						dataType : "json",
+						success : function(data) {
+						
+							var json = eval('(' + data + ')');
+						
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");

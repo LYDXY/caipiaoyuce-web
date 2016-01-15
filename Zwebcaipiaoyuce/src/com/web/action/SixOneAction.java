@@ -64,7 +64,7 @@ public class SixOneAction extends BaseAction {
 	/**
 	 * 在中期中预测冷门数字
 	 */
-	public String zhongqitopfiftyfive(){
+	public String zhongqitopfiftyfiveSecond(){
 		
 		List<SixOne> sixOnes = SixOneServices.way11(55);
 	    

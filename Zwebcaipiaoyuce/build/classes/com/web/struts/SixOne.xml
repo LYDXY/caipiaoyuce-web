@@ -159,6 +159,18 @@
 			</result>
 		</action>
 		
+		<!-- 中期预算2 -->
+		<action name="SixOneActionZhongQiSecond" class="com.web.action.SixOneAction"
+			method="zhongqitopfiftyfiveSecond">
+			<!-- 将返回类型设置为json -->
+			<result type="json" name="ZHONGQITOPFIFTYFIVE_SUCCESS">
+				<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		
+		
 	</package>
 
 </struts>
