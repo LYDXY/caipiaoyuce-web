@@ -67,8 +67,10 @@ public class SixOneAction extends BaseAction {
 	public String zhongqitopfiftyfiveSecond(){
 		
 		List<SixOne> sixOnes = SixOneServices.way11(55);
-	    
+	    System.out.println();
 	
+		
+		
 		
 		
 		
