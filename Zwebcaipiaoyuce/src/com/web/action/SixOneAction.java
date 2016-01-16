@@ -66,16 +66,17 @@ public class SixOneAction extends BaseAction {
 	 */
 	public String zhongqitopfiftyfiveSecond() {
 
-		Map<String, List<String>> listmap2 = new HashMap<String,List<String>>();
-		
+		Map<String, List<List<String>>> listmap2 = new HashMap<String, List<List<String>>>();
+        List<List<String>> lists=new ArrayList<List<String>>();
 		List<SixOne> sixOnes = SixOneServices.way11(55);
-		List<String> biaotouList=new ArrayList<String>();
-		//生成表头数据
+		List<String> biaotouList = new ArrayList<String>();
+		biaotouList.add("号码/期数");
+		// 生成表头数据
 		for (SixOne sixOne : sixOnes) {
-			biaotouList.add(sixOne.getId()+"");
+			biaotouList.add(sixOne.getId() + "");
 		}
-		listmap2.put("head", biaotouList);
-        //生成tbody 数据
+		lists.add(biaotouList);
+		// 生成tbody 数据
 		for (int i = 1; i <= 49; i++) {
 			List<String> strings = new ArrayList<String>();
 			if (i < 10) {
@@ -103,8 +104,11 @@ public class SixOneAction extends BaseAction {
 					strings.add("--");
 				}
 			}
-			listmap2.put("number"+i,strings);
+			lists.add(strings);
 		}
+		
+		logger.info(lists.toString());
+		listmap2.put("zhengti", lists);
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(listmap2);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();
