@@ -218,20 +218,143 @@
 						onclick="getremenlengmenfenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td colspan="2"><table id="remenlengmenfenxi"
-						class="table table-bordered">
+				<td><table id="remenlengmenfenxi" class="table table-bordered">
 						<thead>
 							<tr>
 								<td>期数</td>
 								<td>开奖数字</td>
 								<td>遗漏情况</td>
-								<td>遗漏次数<10 的个数 (和)</td>
+								<td>遗漏次数&lt;10 的个数 (和)</td>
 								<td>7个开奖数字的遗漏次数的和</td>
-								<td>遗漏次数的和 / 7= 遗漏平均次数</td>
+								<td>遗漏次数的和 除以 7= 遗漏平均次数</td>
 							</tr>
 						</thead>
 					</table></td>
+				<td><table class="table table-bordered">
+						<tbody>
+							<tr>
+								<td>00</td>
+								<td>Y3Y1Y28</td>
+								<td>近10期内出现频繁</td>
+								<td>一个冷门数字突然出现1次</td>
+								
+							</tr>
+							<tr>
+								<td>01</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>一个冷门数字突然出现2次</td>
+								<td>N</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>02</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>03</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>04</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>05</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>06</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>07</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>08</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>09</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+							<tr>
+								<td>16</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+								<td>Y</td>
+							</tr>
+						</tbody>
 
+					</table></td>
 			</tr>
 			<!-- 遗漏数字偏差系统 -->
 			<tr>
@@ -425,7 +548,7 @@
 							class="btn btn-default">确定</button>
 
 					</form></td>
-                <td><table id="zuhejieguo" class="table table-bordered"></table></td>
+				<td><table id="zuhejieguo" class="table table-bordered"></table></td>
 			</tr>
 
 		</tbody>
@@ -769,7 +892,8 @@
 												+ json[i].yiloucishuzongshu
 												+ '</td>' + '<td>'
 												+ json[i].yiloupingjungeshu
-												+ '</td>');
+												+ '</td>')
+										+ '</tr>';
 							}
 
 						},
@@ -1014,8 +1138,8 @@
 	<!-- 需要组合的数字 -->
 	<script type="text/javascript">
 		function getChoosenshuzitenjieguo() {
-			
-		 	var choosenNumbers = new Array();
+
+			var choosenNumbers = new Array();
 			var arr = $("#choosenNumbers").val().split('-');
 			for ( var i in arr) {
 				if (parseInt(arr[i]) > 49) {
@@ -1023,40 +1147,41 @@
 					return;
 				}
 			}
-			
-			var param={choosenNumbers:$("#choosenNumbers").val()};
+
+			var param = {
+				choosenNumbers : $("#choosenNumbers").val()
+			};
 			alert(param.choosenNumbers);
 			$
 					.ajax({
 						type : "POST",
 						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionMySelfZuHe.action',
-                        data:param,
+						data : param,
 						dataType : "json",
 						success : function(data) {
 							$("#zuhejieguo").empty();
-						 	var json = eval('(' + data + ')');
-						 	var trHtml = '<tr>',addNum = 1;
+							var json = eval('(' + data + ')');
+							var trHtml = '<tr>', addNum = 1;
 							for (var i = 0; i < json.zuhe.length; i++) {
-								var tdHtml = '<td class="info">'
-									+ json.zuhe[i] + '</td>';
-								if(addNum == 5){
+								var tdHtml = '<td class="info">' + json.zuhe[i]
+										+ '</td>';
+								if (addNum == 5) {
 									addNum = 1;
-									trHtml += tdHtml +'</tr><tr>';
-								}else{
+									trHtml += tdHtml + '</tr><tr>';
+								} else {
 									addNum++;
 									trHtml += tdHtml;
 								}
-								
+
 							}
 							trHtml += '</tr>';
 							$("#zuhejieguo").append(trHtml);
-                           
-							
+
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
 						}
-					}); 
+					});
 		}
 	</script>
 

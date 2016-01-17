@@ -67,7 +67,7 @@ public class SixOneAction extends BaseAction {
 	public String zhongqitopfiftyfiveSecond() {
 
 		Map<String, List<List<String>>> listmap2 = new HashMap<String, List<List<String>>>();
-        List<List<String>> lists=new ArrayList<List<String>>();
+		List<List<String>> lists = new ArrayList<List<String>>();
 		List<SixOne> sixOnes = SixOneServices.way11(55);
 		List<String> biaotouList = new ArrayList<String>();
 		biaotouList.add("号码/期数");
@@ -106,7 +106,7 @@ public class SixOneAction extends BaseAction {
 			}
 			lists.add(strings);
 		}
-		
+
 		logger.info(lists.toString());
 		listmap2.put("zhengti", lists);
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(listmap2);
@@ -199,7 +199,51 @@ public class SixOneAction extends BaseAction {
 			zonglist.add(jilu);
 		}
 
+		List<List<String>> listsmoshi = new ArrayList<List<String>>();
+		// 统计模式
+		for (int i = 1; i <= 49; i++) {
+			List<String> stringsmoshi = new ArrayList<String>();
+			if (i < 10) {
+
+				stringsmoshi.add("0" + i);
+
+			} else {
+				stringsmoshi.add(i + "");
+			}
+			List<Integer> integersqishu = new ArrayList<Integer>();
+			for (int j = 0; j < sixOnes.size(); j++) {
+				if (i == sixOnes.get(j).getFirst()) {
+					integersqishu.add(sixOnes.get(j).getQishu());
+				} else if (i == sixOnes.get(j).getSecond()) {
+					integersqishu.add(sixOnes.get(j).getQishu());
+				} else if (i == sixOnes.get(j).getThird()) {
+					integersqishu.add(sixOnes.get(j).getQishu());
+				} else if (i == sixOnes.get(j).getFourth()) {
+					integersqishu.add(sixOnes.get(j).getQishu());
+				} else if (i == sixOnes.get(j).getFifth()) {
+					integersqishu.add(sixOnes.get(j).getQishu());
+				} else if (i == sixOnes.get(j).getSixth()) {
+					integersqishu.add(sixOnes.get(j).getQishu());
+				} else if (i == sixOnes.get(j).getSeventh()) {
+					integersqishu.add(sixOnes.get(j).getQishu());
+				}
+			}
+			for (int k = 0; k < integersqishu.size(); k++) {
+
+				if (k == (integersqishu.size() - 1)) {
+
+				} else {
+					Integer tempint = integersqishu.get(k + 1) - integersqishu.get(k)-1;
+					stringsmoshi.add("Y" + tempint);
+				}
+
+			}
+			listsmoshi.add(stringsmoshi);
+
+		}
+
 		zonglistMAP.put("name", zonglist);
+		zonglistMAP.put("listsmoshi", listsmoshi);
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(zonglistMAP);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();

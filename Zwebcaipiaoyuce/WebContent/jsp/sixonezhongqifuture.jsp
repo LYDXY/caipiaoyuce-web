@@ -115,7 +115,11 @@
 						如果你找到了符合上述某一模式的数字，那么你就可以推断一个旗式排列的上半部分将会出现。在这种情况下，你就可以预测这个数字将在第5次遗漏之后中奖
 						旗式排列偶尔也会出现重复，在这种情况下，完整的旗式排列模式在彩票期数表中看起来是这样的：X2X5X5X1X5X5X<br>
 						<br> <br>
-					</h5> <br></td>
+						
+					</h5> <table class="table table-bordered">
+					       <thead ><tr class="info"><td>号码</td><td>模式</td></tr></thead>
+					       <tbody id="showmoshi"></tbody>
+					      </table><br></td>
 			</tr>
 			<tr>
 				<td class="info">
@@ -156,9 +160,9 @@
 					.ajax({
 						type : "POST",
 						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionZhongQiFirst.action',
-
 						dataType : "json",
 						success : function(data) {
+							alert(data);
 							$("#jiesuanTopFifty").empty();
 							var json = eval('(' + data + ')');
 							console.log(json["name"][0]);
@@ -179,6 +183,22 @@
 								}
 								trHtml += '</tr>';
 								$("#jiesuanTopFifty").append(trHtml);
+							}
+							for (var i = 0; i < json["listsmoshi"].length; i++) {
+								var trHtml = '<tr>';
+								var tdHtml = '<td class="success">';
+								for (var j = 0; j < json["listsmoshi"][i].length; j++) {
+									if(j==0){
+										tdHtml += json["listsmoshi"][i][j] + '</td><td class="info">';
+										continue;
+									}else{
+										tdHtml += json["listsmoshi"][i][j];
+									}
+								}
+								tdHtml += '</td>';
+								trHtml += tdHtml;
+								trHtml += '</tr>';
+								$("#showmoshi").append(trHtml);
 							}
 						},
 						error : function(data) {
