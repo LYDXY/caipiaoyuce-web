@@ -234,7 +234,7 @@ public class SixOneAction extends BaseAction {
 
 				} else {
 					Integer tempint = integersqishu.get(k + 1) - integersqishu.get(k)-1;
-					stringsmoshi.add("Y" + tempint);
+					stringsmoshi.add("" + tempint+"-");
 				}
 
 			}
