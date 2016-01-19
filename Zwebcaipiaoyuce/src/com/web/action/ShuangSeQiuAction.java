@@ -25,7 +25,6 @@ public class ShuangSeQiuAction extends BaseAction {
 
 	private String TAG = "ShuangSeQiuAction";
 	private static final long serialVersionUID = 1L;
-	
 
 	@Resource(name = "ShuangSeQiuServices") // 接口的实现
 	private com.web.services.ShuangSeQiuServices ShuangSeQiuServices; // 服务层的接口
@@ -46,7 +45,6 @@ public class ShuangSeQiuAction extends BaseAction {
 
 	}
 
-	
 	/**
 	 * 统计过去10期出现的数字
 	 */
@@ -93,8 +91,7 @@ public class ShuangSeQiuAction extends BaseAction {
 		result = jsonObjectFromMap.toString();
 		return "TONGJITOPTENSUCCESS";
 	}
-	
-	
+
 	/**
 	 * 数字区间偏差追踪系统
 	 */
@@ -129,7 +126,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			Integer Integer21to25 = 0;
 			Integer Integer26to30 = 0;
 			Integer Integer31to35 = 0;
-			
+
 			for (Integer integer : templist) {
 
 				if (integer <= 5 && integer >= 1) {
@@ -210,15 +207,17 @@ public class ShuangSeQiuAction extends BaseAction {
 	/**
 	 * 末位数字偏差系统分析
 	 */
-	public String futureMoWei() {
-		logger.info("----------------------futureMoWei");
-		List<ShuangSeQiu> sixonesTop5 = ShuangSeQiuServices.way8(5);
-		List<ShuangSeQiu> sixonesTop6 = ShuangSeQiuServices.way8(6);
-		List<ShuangSeQiu> sixonesTop7 = ShuangSeQiuServices.way8(7);
-		List<ShuangSeQiu> sixonesTop8 = ShuangSeQiuServices.way8(8);
-		List<ShuangSeQiu> sixonesTop9 = ShuangSeQiuServices.way8(9);
+	public String futureMoWei_ShuangSeQiu() {
+		logger.info("----------------------futureMoWei_ShuangSeQiu");
+		List<ShuangSeQiu> ShuangSeQiuTop5 = ShuangSeQiuServices.way8(5);
+		List<ShuangSeQiu> ShuangSeQiuTop6 = ShuangSeQiuServices.way8(6);
+		List<ShuangSeQiu> ShuangSeQiuTop7 = ShuangSeQiuServices.way8(7);
+		List<ShuangSeQiu> ShuangSeQiuTop8 = ShuangSeQiuServices.way8(8);
+		List<ShuangSeQiu> ShuangSeQiuTop9 = ShuangSeQiuServices.way8(9);
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		// 过去的5期末位数字统计
+		/**
+		 * 过去5期末位数字统计
+		 */
 		int zeroTop5 = 0;
 		int oneTop5 = 0;
 		int twoTop5 = 0;
@@ -229,21 +228,14 @@ public class ShuangSeQiuAction extends BaseAction {
 		int sevenTop5 = 0;
 		int eightTop5 = 0;
 		int nineTop5 = 0;
-		for (ShuangSeQiu sixOne : sixonesTop5) {
+		for (ShuangSeQiu shuangSeQiu : ShuangSeQiuTop5) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFirst() % 10;
-			Integer tempsecond = sixOne.getSecond() % 10;
-			Integer tempthird = sixOne.getThird() % 10;
-			Integer tempfourth = sixOne.getFourth() % 10;
-			Integer tempfifth = sixOne.getFifth() % 10;
-			Integer tempsixth = sixOne.getSixth() % 10;
-
-			integers.add(tempfirst);
-			integers.add(tempsecond);
-			integers.add(tempthird);
-			integers.add(tempfourth);
-			integers.add(tempfifth);
-			integers.add(tempsixth);
+			integers.add(shuangSeQiu.getFirst() % 10);
+			integers.add(shuangSeQiu.getSecond() % 10);
+			integers.add(shuangSeQiu.getThird() % 10);
+			integers.add(shuangSeQiu.getFourth() % 10);
+			integers.add(shuangSeQiu.getFifth() % 10);
+			integers.add(shuangSeQiu.getSixth() % 10);
 
 			for (Integer integer : integers) {
 				if (integer == 0) {
@@ -271,7 +263,6 @@ public class ShuangSeQiuAction extends BaseAction {
 			}
 
 		}
-	
 		map.put("zeroTop5", zeroTop5);
 		map.put("oneTop5", oneTop5);
 		map.put("twoTop5", twoTop5);
@@ -282,8 +273,9 @@ public class ShuangSeQiuAction extends BaseAction {
 		map.put("sevenTop5", sevenTop5);
 		map.put("eightTop5", eightTop5);
 		map.put("nineTop5", nineTop5);
-
-		// 过去6期
+		/**
+		 * 过去六期末位数字统计
+		 */
 		int zeroTop6 = 0;
 		int oneTop6 = 0;
 		int twoTop6 = 0;
@@ -294,22 +286,14 @@ public class ShuangSeQiuAction extends BaseAction {
 		int sevenTop6 = 0;
 		int eightTop6 = 0;
 		int nineTop6 = 0;
-		for (ShuangSeQiu sixOne : sixonesTop6) {
+		for (ShuangSeQiu shuangSeQiu : ShuangSeQiuTop6) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFirst() % 10;
-			Integer tempsecond = sixOne.getSecond() % 10;
-			Integer tempthird = sixOne.getThird() % 10;
-			Integer tempfourth = sixOne.getFourth() % 10;
-			Integer tempfifth = sixOne.getFifth() % 10;
-			Integer tempsixth = sixOne.getSixth() % 10;
-
-			integers.add(tempfirst);
-			integers.add(tempsecond);
-			integers.add(tempthird);
-			integers.add(tempfourth);
-			integers.add(tempfifth);
-			integers.add(tempsixth);
-
+			integers.add(shuangSeQiu.getFirst() % 10);
+			integers.add(shuangSeQiu.getSecond() % 10);
+			integers.add(shuangSeQiu.getThird() % 10);
+			integers.add(shuangSeQiu.getFourth() % 10);
+			integers.add(shuangSeQiu.getFifth() % 10);
+			integers.add(shuangSeQiu.getSixth() % 10);
 			for (Integer integer : integers) {
 				if (integer == 0) {
 					zeroTop6++;
@@ -336,8 +320,6 @@ public class ShuangSeQiuAction extends BaseAction {
 			}
 
 		}
-		
-
 		map.put("zeroTop6", zeroTop6);
 		map.put("oneTop6", oneTop6);
 		map.put("twoTop6", twoTop6);
@@ -348,7 +330,9 @@ public class ShuangSeQiuAction extends BaseAction {
 		map.put("sevenTop6", sevenTop6);
 		map.put("eightTop6", eightTop6);
 		map.put("nineTop6", nineTop6);
-		// 过去7期
+		/**
+		 * 统计过去7期的末位数字
+		 */
 		int zeroTop7 = 0;
 		int oneTop7 = 0;
 		int twoTop7 = 0;
@@ -359,22 +343,14 @@ public class ShuangSeQiuAction extends BaseAction {
 		int sevenTop7 = 0;
 		int eightTop7 = 0;
 		int nineTop7 = 0;
-		for (ShuangSeQiu sixOne : sixonesTop7) {
+		for (ShuangSeQiu shuangSeQiu : ShuangSeQiuTop7) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFirst() % 10;
-			Integer tempsecond = sixOne.getSecond() % 10;
-			Integer tempthird = sixOne.getThird() % 10;
-			Integer tempfourth = sixOne.getFourth() % 10;
-			Integer tempfifth = sixOne.getFifth() % 10;
-			Integer tempsixth = sixOne.getSixth() % 10;
-
-			integers.add(tempfirst);
-			integers.add(tempsecond);
-			integers.add(tempthird);
-			integers.add(tempfourth);
-			integers.add(tempfifth);
-			integers.add(tempsixth);
-
+			integers.add(shuangSeQiu.getFirst() % 10);
+			integers.add(shuangSeQiu.getSecond() % 10);
+			integers.add(shuangSeQiu.getThird() % 10);
+			integers.add(shuangSeQiu.getFourth() % 10);
+			integers.add(shuangSeQiu.getFifth() % 10);
+			integers.add(shuangSeQiu.getSixth() % 10);
 			for (Integer integer : integers) {
 				if (integer == 0) {
 					zeroTop7++;
@@ -401,7 +377,6 @@ public class ShuangSeQiuAction extends BaseAction {
 			}
 
 		}
-	
 		map.put("zeroTop7", zeroTop7);
 		map.put("oneTop7", oneTop7);
 		map.put("twoTop7", twoTop7);
@@ -412,8 +387,9 @@ public class ShuangSeQiuAction extends BaseAction {
 		map.put("sevenTop7", sevenTop7);
 		map.put("eightTop7", eightTop7);
 		map.put("nineTop7", nineTop7);
-
-		// 过去8期
+		/**
+		 * 统计过去8期的末位数字
+		 */
 		int zeroTop8 = 0;
 		int oneTop8 = 0;
 		int twoTop8 = 0;
@@ -424,22 +400,14 @@ public class ShuangSeQiuAction extends BaseAction {
 		int sevenTop8 = 0;
 		int eightTop8 = 0;
 		int nineTop8 = 0;
-		for (ShuangSeQiu sixOne : sixonesTop8) {
+		for (ShuangSeQiu shuangSeQiu : ShuangSeQiuTop8) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFirst() % 10;
-			Integer tempsecond = sixOne.getSecond() % 10;
-			Integer tempthird = sixOne.getThird() % 10;
-			Integer tempfourth = sixOne.getFourth() % 10;
-			Integer tempfifth = sixOne.getFifth() % 10;
-			Integer tempsixth = sixOne.getSixth() % 10;
-
-			integers.add(tempfirst);
-			integers.add(tempsecond);
-			integers.add(tempthird);
-			integers.add(tempfourth);
-			integers.add(tempfifth);
-			integers.add(tempsixth);
-
+			integers.add(shuangSeQiu.getFirst() % 10);
+			integers.add(shuangSeQiu.getSecond() % 10);
+			integers.add(shuangSeQiu.getThird() % 10);
+			integers.add(shuangSeQiu.getFourth() % 10);
+			integers.add(shuangSeQiu.getFifth() % 10);
+			integers.add(shuangSeQiu.getSixth() % 10);
 			for (Integer integer : integers) {
 				if (integer == 0) {
 					zeroTop8++;
@@ -466,7 +434,6 @@ public class ShuangSeQiuAction extends BaseAction {
 			}
 
 		}
-	
 		map.put("zeroTop8", zeroTop8);
 		map.put("oneTop8", oneTop8);
 		map.put("twoTop8", twoTop8);
@@ -477,7 +444,9 @@ public class ShuangSeQiuAction extends BaseAction {
 		map.put("sevenTop8", sevenTop8);
 		map.put("eightTop8", eightTop8);
 		map.put("nineTop8", nineTop8);
-		// 过去9期
+		/**
+		 * 统计过去9期的末位数字
+		 */
 		int zeroTop9 = 0;
 		int oneTop9 = 0;
 		int twoTop9 = 0;
@@ -488,22 +457,14 @@ public class ShuangSeQiuAction extends BaseAction {
 		int sevenTop9 = 0;
 		int eightTop9 = 0;
 		int nineTop9 = 0;
-		for (ShuangSeQiu sixOne : sixonesTop9) {
+		for (ShuangSeQiu shuangSeQiu : ShuangSeQiuTop9) {
 			List<Integer> integers = new ArrayList<Integer>();
-			Integer tempfirst = sixOne.getFirst() % 10;
-			Integer tempsecond = sixOne.getSecond() % 10;
-			Integer tempthird = sixOne.getThird() % 10;
-			Integer tempfourth = sixOne.getFourth() % 10;
-			Integer tempfifth = sixOne.getFifth() % 10;
-			Integer tempsixth = sixOne.getSixth() % 10;
-
-			integers.add(tempfirst);
-			integers.add(tempsecond);
-			integers.add(tempthird);
-			integers.add(tempfourth);
-			integers.add(tempfifth);
-			integers.add(tempsixth);
-
+		    integers.add(shuangSeQiu.getFirst() % 10);
+			integers.add(shuangSeQiu.getSecond() % 10);
+			integers.add(shuangSeQiu.getThird() % 10);
+			integers.add(shuangSeQiu.getFourth() % 10);
+			integers.add(shuangSeQiu.getFifth() % 10);
+			integers.add(shuangSeQiu.getSixth() % 10);
 			for (Integer integer : integers) {
 				if (integer == 0) {
 					zeroTop9++;
@@ -530,7 +491,6 @@ public class ShuangSeQiuAction extends BaseAction {
 			}
 
 		}
-		
 		map.put("zeroTop9", zeroTop9);
 		map.put("oneTop9", oneTop9);
 		map.put("twoTop9", twoTop9);
@@ -552,23 +512,23 @@ public class ShuangSeQiuAction extends BaseAction {
 	/**
 	 * 大小数字偏差系统分析
 	 */
-	public String futureBigSmall() {
+	public String futureBigSmall_ShuangSeQiu() {
 		logger.info("奇数偶数偏差系统分析------------futureOddEven----");
-		List<ShuangSeQiu> sixonesTop10 = ShuangSeQiuServices.way5();
+		List<ShuangSeQiu> ShuangSeQiuTop10 = ShuangSeQiuServices.way5();
 		int zongbig = 0;// 存放大数的总个数
 		int zongsmall = 0;// 存放小数的总个数
 
-		ShuangSeQiu sixOne;
+		ShuangSeQiu shuangSeQiu;
 		List<Integer> integersBIG = new ArrayList<Integer>();
 		List<Integer> integersSMALL = new ArrayList<Integer>();
 		List<Integer> qishulist = new ArrayList<Integer>();
-		for (int i = 0; i < sixonesTop10.size(); i++) {
+		for (int i = 0; i < ShuangSeQiuTop10.size(); i++) {
 			int everyonebig = 0;// 存放每个对象的大数字的个数
 			int everyonesmalll = 0;// 存放每个对象的小数字的个数
-			sixOne = sixonesTop10.get(i);
+			shuangSeQiu = ShuangSeQiuTop10.get(i);
 
-			if (sixOne.getFirst() != null) {
-				if (sixOne.getFirst() > 26) {
+			if (shuangSeQiu.getFirst() != null) {
+				if (shuangSeQiu.getFirst() > 17) {
 					zongbig++;
 					everyonebig++;
 				} else {
@@ -577,8 +537,8 @@ public class ShuangSeQiuAction extends BaseAction {
 
 				}
 			}
-			if (sixOne.getSecond() != null) {
-				if (sixOne.getSecond() > 26) {
+			if (shuangSeQiu.getSecond() != null) {
+				if (shuangSeQiu.getSecond() > 17) {
 					zongbig++;
 					everyonebig++;
 				} else {
@@ -586,8 +546,8 @@ public class ShuangSeQiuAction extends BaseAction {
 					everyonesmalll++;
 				}
 			}
-			if (sixOne.getThird() != null) {
-				if (sixOne.getThird() > 26) {
+			if (shuangSeQiu.getThird() != null) {
+				if (shuangSeQiu.getThird() > 17) {
 					zongbig++;
 					everyonebig++;
 				} else {
@@ -595,8 +555,8 @@ public class ShuangSeQiuAction extends BaseAction {
 					everyonesmalll++;
 				}
 			}
-			if (sixOne.getFourth() != null) {
-				if (sixOne.getFourth() > 26) {
+			if (shuangSeQiu.getFourth() != null) {
+				if (shuangSeQiu.getFourth() > 17) {
 					zongbig++;
 					everyonebig++;
 				} else {
@@ -604,8 +564,8 @@ public class ShuangSeQiuAction extends BaseAction {
 					everyonesmalll++;
 				}
 			}
-			if (sixOne.getFifth() != null) {
-				if (sixOne.getFifth() > 26) {
+			if (shuangSeQiu.getFifth() != null) {
+				if (shuangSeQiu.getFifth() > 17) {
 					zongbig++;
 					everyonebig++;
 				} else {
@@ -613,8 +573,8 @@ public class ShuangSeQiuAction extends BaseAction {
 					everyonesmalll++;
 				}
 			}
-			if (sixOne.getSixth() != null) {
-				if (sixOne.getSixth() > 26) {
+			if (shuangSeQiu.getSixth() != null) {
+				if (shuangSeQiu.getSixth() > 17) {
 					zongbig++;
 					everyonebig++;
 				} else {
@@ -625,7 +585,7 @@ public class ShuangSeQiuAction extends BaseAction {
 
 			integersBIG.add(everyonebig);
 			integersSMALL.add(everyonesmalll);
-			qishulist.add(sixOne.getQishu());
+			qishulist.add(shuangSeQiu.getQishu());
 		}
 		logger.info(qishulist.toString());
 		logger.info(integersBIG.toString());
@@ -673,7 +633,6 @@ public class ShuangSeQiuAction extends BaseAction {
 
 		// 查询当前新的期数
 
-		
 		// 5
 		List<Integer> yilouZeroInTop5 = new ArrayList<Integer>();
 		List<Integer> yilouOneInTop5 = new ArrayList<Integer>();
@@ -735,7 +694,6 @@ public class ShuangSeQiuAction extends BaseAction {
 
 			List<ShuangSeQiu> temps = ShuangSeQiuServices.way7(qishu);
 			for (Integer integer : Templist) {
-			
 
 				for (ShuangSeQiu tempsixOne : temps) { // 145,144,143,142
 
@@ -862,8 +820,7 @@ public class ShuangSeQiuAction extends BaseAction {
 
 						if (integer2 != sixOne2.getFirst() && integer2 != sixOne2.getSecond()
 								&& integer2 != sixOne2.getThird() && integer2 != sixOne2.getFourth()
-								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()
-								) {
+								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()) {
 
 							yilou++;
 						}
@@ -902,7 +859,7 @@ public class ShuangSeQiuAction extends BaseAction {
 
 			List<ShuangSeQiu> temps = ShuangSeQiuServices.way7(qishu);
 			for (Integer integer : Templist) {
-				
+
 				for (ShuangSeQiu tempsixOne : temps) { // 145,144,143,142
 
 					Integer tempqishu = tempsixOne.getQishu();
@@ -976,7 +933,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			Integer fourth = sixOne.getFourth();
 			Integer fifth = sixOne.getFifth();
 			Integer sixth = sixOne.getSixth();
-		
+
 			List<Integer> list = new ArrayList<Integer>();
 			list.add(first);
 			list.add(second);
@@ -1034,8 +991,7 @@ public class ShuangSeQiuAction extends BaseAction {
 
 						if (integer2 != sixOne2.getFirst() && integer2 != sixOne2.getSecond()
 								&& integer2 != sixOne2.getThird() && integer2 != sixOne2.getFourth()
-								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()
-								) {
+								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()) {
 
 							yilou++;
 
@@ -1159,7 +1115,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			list.add(fourth);
 			list.add(fifth);
 			list.add(sixth);
-	
+
 			for (Integer integer2 : list) {
 				int yilou = 0;
 				boolean ischongfu = false;
@@ -1214,8 +1170,7 @@ public class ShuangSeQiuAction extends BaseAction {
 
 						if (integer2 != sixOne2.getFirst() && integer2 != sixOne2.getSecond()
 								&& integer2 != sixOne2.getThird() && integer2 != sixOne2.getFourth()
-								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()
-								) {
+								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()) {
 
 							yilou++;
 
@@ -1261,7 +1216,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			Integer fourth = sixOne.getFourth();
 			Integer fifth = sixOne.getFifth();
 			Integer sixth = sixOne.getSixth();
-		
+
 			List<Integer> list = new ArrayList<Integer>();
 			list.add(first);
 			list.add(second);
@@ -1370,7 +1325,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			Templist.add(reallysixOne.getSeventh());
 			List<ShuangSeQiu> temps = ShuangSeQiuServices.way7(qishu);
 			for (Integer integer : Templist) {
-				
+
 				for (ShuangSeQiu tempsixOne : temps) { // 145,144,143,142
 
 					Integer tempqishu = tempsixOne.getQishu();
@@ -1380,10 +1335,9 @@ public class ShuangSeQiuAction extends BaseAction {
 					Integer tempfourth = tempsixOne.getFourth();
 					Integer tempfifth = tempsixOne.getFifth();
 					Integer tempsixth = tempsixOne.getSixth();
-				
 
 					if (integer == tempfirst || integer == tempsecond || integer == tempthird || integer == tempfourth
-							|| integer == tempfifth || integer == tempsixth ) {
+							|| integer == tempfifth || integer == tempsixth) {
 						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
@@ -1443,7 +1397,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			Integer fourth = sixOne.getFourth();
 			Integer fifth = sixOne.getFifth();
 			Integer sixth = sixOne.getSixth();
-		
+
 			List<Integer> list = new ArrayList<Integer>();
 			list.add(first);
 			list.add(second);
@@ -1451,7 +1405,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			list.add(fourth);
 			list.add(fifth);
 			list.add(sixth);
-		
+
 			for (Integer integer2 : list) {
 				int yilou = 0;
 				boolean ischongfu = false;
@@ -1461,8 +1415,7 @@ public class ShuangSeQiuAction extends BaseAction {
 
 						if (integer2 == sixOne2.getFirst() || integer2 == sixOne2.getSecond()
 								|| integer2 == sixOne2.getThird() || integer2 == sixOne2.getFourth()
-								|| integer2 == sixOne2.getFifth() || integer2 == sixOne2.getSixth()
-							) {
+								|| integer2 == sixOne2.getFifth() || integer2 == sixOne2.getSixth()) {
 							logger.info(integer2 + "在第--------------" + qishu + "和" + sixOne2.getQishu() + "出现"
 									+ "遗漏次数是:" + (sixOne2.getQishu() - qishu - 1));
 
@@ -1507,8 +1460,7 @@ public class ShuangSeQiuAction extends BaseAction {
 
 						if (integer2 != sixOne2.getFirst() && integer2 != sixOne2.getSecond()
 								&& integer2 != sixOne2.getThird() && integer2 != sixOne2.getFourth()
-								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()
-								) {
+								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()) {
 
 							yilou++;
 
@@ -1550,10 +1502,10 @@ public class ShuangSeQiuAction extends BaseAction {
 			Templist.add(reallysixOne.getFourth());
 			Templist.add(reallysixOne.getFifth());
 			Templist.add(reallysixOne.getSixth());
-		
+
 			List<ShuangSeQiu> temps = ShuangSeQiuServices.way7(qishu);
 			for (Integer integer : Templist) {
-			
+
 				for (ShuangSeQiu tempsixOne : temps) { // 145,144,143,142
 
 					Integer tempqishu = tempsixOne.getQishu();
@@ -1563,10 +1515,9 @@ public class ShuangSeQiuAction extends BaseAction {
 					Integer tempfourth = tempsixOne.getFourth();
 					Integer tempfifth = tempsixOne.getFifth();
 					Integer tempsixth = tempsixOne.getSixth();
-				
 
 					if (integer == tempfirst || integer == tempsecond || integer == tempthird || integer == tempfourth
-							|| integer == tempfifth || integer == tempsixth ) {
+							|| integer == tempfifth || integer == tempsixth) {
 						logger.info("数字" + integer + "在第" + qishu + "期出现");
 						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
@@ -1843,7 +1794,7 @@ public class ShuangSeQiuAction extends BaseAction {
 		Iterator<ShuangSeQiu> iter = sixonesTop10.iterator();
 		List<ShuangSeQiu> temps;
 		List<Map<String, Object>> fenxijieguolist = new ArrayList<Map<String, Object>>();
-		
+
 		while (iter.hasNext()) {
 			Map<String, Object> everyone = new HashMap<String, Object>();
 			ShuangSeQiu sixOne = iter.next();
@@ -1854,8 +1805,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			Integer fourth = sixOne.getFourth();
 			Integer fifth = sixOne.getFifth();
 			Integer sixth = sixOne.getSixth();
-		
-	
+
 			everyone.put("qishu", qishu + "");
 
 			StringBuilder stringBuilder2 = new StringBuilder();
@@ -1887,11 +1837,11 @@ public class ShuangSeQiuAction extends BaseAction {
 				stringBuilder2.append(fifth + "-");
 			}
 			if (sixth < 10) {
-				stringBuilder2.append("0" + sixth );
+				stringBuilder2.append("0" + sixth);
 			} else {
 				stringBuilder2.append(sixth);
 			}
-			
+
 			everyone.put("number", stringBuilder2.toString());
 			List<Integer> IntegerS = new ArrayList<Integer>();
 			IntegerS.add(first);
@@ -1900,7 +1850,7 @@ public class ShuangSeQiuAction extends BaseAction {
 			IntegerS.add(fourth);
 			IntegerS.add(fifth);
 			IntegerS.add(sixth);
-		
+
 			temps = ShuangSeQiuServices.way7(qishu);
 			float geshu = 0;
 			float yilouzongshu = 0;
@@ -1917,10 +1867,9 @@ public class ShuangSeQiuAction extends BaseAction {
 					Integer tempfourth = tempsixOne.getFourth();
 					Integer tempfifth = tempsixOne.getFifth();
 					Integer tempsixth = tempsixOne.getSixth();
-				
 
 					logger.info("--寻找的期数--" + tempqishu + "--球1--" + tempfirst + "--球2--" + tempsecond + "--球3--"
-							+ tempthird + "--球4--" + tempfourth + "--球5--" + tempfifth + "--球6--" + tempsixth );
+							+ tempthird + "--球4--" + tempfourth + "--球5--" + tempfifth + "--球6--" + tempsixth);
 
 					if (integer == tempfirst) {
 						logger.info("数字" + integer + "在第" + qishu + "期出现");
@@ -2006,7 +1955,7 @@ public class ShuangSeQiuAction extends BaseAction {
 						iscunzai = true;
 						logger.info("------------------------------------");
 						break;
-					} 
+					}
 
 				}
 				if (!iscunzai) {
@@ -2044,23 +1993,23 @@ public class ShuangSeQiuAction extends BaseAction {
 	/**
 	 * 奇数偶数偏差系统分析
 	 */
-	public String futureOddEven() {
+	public String futureOddEven_ShuangSeQiu() {
 		logger.info("奇数偶数偏差系统分析------------futureOddEven----");
-		List<ShuangSeQiu> sixonesTop10 = ShuangSeQiuServices.way5();
+		List<ShuangSeQiu> ShuangSeQiuTop10 = ShuangSeQiuServices.way5();
 		int odd = 0;// 存放奇数的总个数
 		int even = 0;// 存放偶数的总个数
 
-		ShuangSeQiu sixOne;
+		ShuangSeQiu shuangSeQiu;
 		List<Integer> integersODD = new ArrayList<Integer>();
 		List<Integer> integersEVEN = new ArrayList<Integer>();
 		List<Integer> qishulist = new ArrayList<Integer>();
-		for (int i = 0; i < sixonesTop10.size(); i++) {
+		for (int i = 0; i < ShuangSeQiuTop10.size(); i++) {
 			int everyoneOdd = 0;// 存放每个对象的奇数
 			int everyoneEven = 0;// 存放每个对象的偶数
-			sixOne = sixonesTop10.get(i);
+			shuangSeQiu = ShuangSeQiuTop10.get(i);
 
-			if (sixOne.getFirst() != null) {
-				if (sixOne.getFirst() % 2 == 0) {
+			if (shuangSeQiu.getFirst() != null) {
+				if (shuangSeQiu.getFirst() % 2 == 0) {
 					even++;
 					everyoneEven++;
 				} else {
@@ -2069,8 +2018,8 @@ public class ShuangSeQiuAction extends BaseAction {
 
 				}
 			}
-			if (sixOne.getSecond() != null) {
-				if (sixOne.getSecond() % 2 == 0) {
+			if (shuangSeQiu.getSecond() != null) {
+				if (shuangSeQiu.getSecond() % 2 == 0) {
 					even++;
 					everyoneEven++;
 				} else {
@@ -2078,8 +2027,8 @@ public class ShuangSeQiuAction extends BaseAction {
 					everyoneOdd++;
 				}
 			}
-			if (sixOne.getThird() != null) {
-				if (sixOne.getThird() % 2 == 0) {
+			if (shuangSeQiu.getThird() != null) {
+				if (shuangSeQiu.getThird() % 2 == 0) {
 					even++;
 					everyoneEven++;
 				} else {
@@ -2087,8 +2036,8 @@ public class ShuangSeQiuAction extends BaseAction {
 					everyoneOdd++;
 				}
 			}
-			if (sixOne.getFourth() != null) {
-				if (sixOne.getFourth() % 2 == 0) {
+			if (shuangSeQiu.getFourth() != null) {
+				if (shuangSeQiu.getFourth() % 2 == 0) {
 					even++;
 					everyoneEven++;
 				} else {
@@ -2096,8 +2045,8 @@ public class ShuangSeQiuAction extends BaseAction {
 					everyoneOdd++;
 				}
 			}
-			if (sixOne.getFifth() != null) {
-				if (sixOne.getFifth() % 2 == 0) {
+			if (shuangSeQiu.getFifth() != null) {
+				if (shuangSeQiu.getFifth() % 2 == 0) {
 					even++;
 					everyoneEven++;
 				} else {
@@ -2105,8 +2054,8 @@ public class ShuangSeQiuAction extends BaseAction {
 					everyoneOdd++;
 				}
 			}
-			if (sixOne.getSixth() != null) {
-				if (sixOne.getSixth() % 2 == 0) {
+			if (shuangSeQiu.getSixth() != null) {
+				if (shuangSeQiu.getSixth() % 2 == 0) {
 					even++;
 					everyoneEven++;
 				} else {
@@ -2114,10 +2063,10 @@ public class ShuangSeQiuAction extends BaseAction {
 					everyoneOdd++;
 				}
 			}
-			
+
 			integersODD.add(everyoneOdd);
 			integersEVEN.add(everyoneEven);
-			qishulist.add(sixOne.getQishu());
+			qishulist.add(shuangSeQiu.getQishu());
 		}
 		logger.info(qishulist.toString());
 		logger.info(integersODD.toString());
@@ -2286,7 +2235,7 @@ public class ShuangSeQiuAction extends BaseAction {
 					}
 				});
 			}
-		} 
+		}
 		StringBuilder jsonSb = new StringBuilder();
 		jsonSb.append("{");
 		jsonSb.append("\"success\": true");
@@ -2297,7 +2246,7 @@ public class ShuangSeQiuAction extends BaseAction {
 
 		int startRow = pageSize * (curPage - 1) + 1;
 		int endRow = startRow + pageSize - 1;
-		
+
 		if (endRow > totalRows || pageSize == 0)
 
 		{

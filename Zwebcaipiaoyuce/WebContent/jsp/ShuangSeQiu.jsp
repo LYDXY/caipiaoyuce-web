@@ -56,7 +56,7 @@
 			<tr>
 				<td class="info">
 					<h3>奇数偶数偏差系统分析</h3> <br />
-					<button id="getjisoufenxijieguo" onclick="getjisoufenxijieguo()"
+					<button  onclick="shuangseqiu_getjisoufenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
 				<td><div id="chartgetjisoufenxijieguo"
@@ -83,7 +83,7 @@
 			<tr>
 				<td class="info">
 					<h3>大数小数偏差系统分析</h3> <br />
-					<button id="getdaxiaofenxijieguo" onclick="getdaxiaofenxijieguo()"
+					<button  onclick="shaungseqiu_getdaxiaofenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
 				<td><div id="chatgetdaxiaofenxijieguo"
@@ -404,6 +404,7 @@
 					</table></td>
 
 			</tr>
+			<!-- 统计过去十期出现的数字,越靠前表明最近才出现 -->
 			<tr>
 				<td class="info"><h3>统计过去十期出现的数字,越靠前表明最近才出现</h3> <br />
 					<button onclick="getshuzitongjiguoqutenjieguo()"
@@ -425,7 +426,7 @@
 
 	<!-- 大数小数偏差系统分析-->
 	<script type="text/javascript">
-		function getdaxiaofenxijieguo() {
+		function shaungseqiu_getdaxiaofenxijieguo() {
 			$
 					.ajax({
 						type : "POST",
@@ -455,9 +456,9 @@
 													}
 												},
 												series : [ {
-													label : '大数:>25'
+													label : '大数:>17'
 												}, {
-													label : '小数:<=25'
+													label : '小数:<=17'
 												} ],
 												legend : {
 													show : true,
@@ -473,16 +474,18 @@
 														renderer : $.jqplot.CategoryAxisRenderer,
 														pad : 1,
 														tickOptions : {
-															fontSize : '13px'
+															fontSize : '15px'
 														},
 														showTicks : true
 													},
 													yaxis : {
 														ticks : [ 0, 1, 2, 3,
-																4, 5, 6, 7, 8,
-																9, 10 ],
+																4, 5,6],
 														renderer : $.jqplot.LinearAxisRenderer,
-														pad : 1
+														pad : 1,
+														tickOptions : {
+															fontSize : '15px'
+														}
 													}
 												},
 												cursor: {
@@ -581,7 +584,7 @@
 	</script>
 	<!-- 奇数偶数偏差系统分析-->
 	<script type="text/javascript">
-		function getjisoufenxijieguo() {
+		function shuangseqiu_getjisoufenxijieguo() {
 			$
 					.ajax({
 						type : "POST",
@@ -628,16 +631,19 @@
 														renderer : $.jqplot.CategoryAxisRenderer,
 														pad : 1,
 														tickOptions : {
-															fontSize : '13px'
+															fontSize : '15px'
 														},
 														showTicks : true
 													},
 													yaxis : {
 														ticks : [ 0, 1, 2, 3,
-																4, 5, 6, 7, 8,
-																9, 10 ],
+																4, 5, 6
+																],
 														renderer : $.jqplot.LinearAxisRenderer,
-														pad : 1
+														pad : 1,
+														tickOptions : {
+															fontSize : '15px'
+														}
 													}
 												}
 											});

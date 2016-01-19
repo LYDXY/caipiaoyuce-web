@@ -54,7 +54,7 @@
 
 		<!--奇数偶数偏差系统 -->
 		<action name="ShuangSeQiuActionFutureOddEven" class="com.web.action.ShuangSeQiuAction"
-			method="futureOddEven">
+			method="futureOddEven_ShuangSeQiu">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result type="json" name="FUTUREODDEVENSUCCESS">
 				<param name="root">result</param>
@@ -63,7 +63,7 @@
 		
 		<!--大数小数偏差系统 -->
 		<action name="ShuangSeQiuActionFutureBigSmall" class="com.web.action.ShuangSeQiuAction"
-			method="futureBigSmall">
+			method="futureBigSmall_ShuangSeQiu">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result type="json" name="FUTUREBIGSMALLSUCCESS">
 				<param name="root">result</param>
@@ -72,7 +72,7 @@
 		
 		<!--末位数字偏差系统 -->
 		<action name="ShuangSeQiuActionFutureMoWei" class="com.web.action.ShuangSeQiuAction"
-			method="futureMoWei">
+			method="futureMoWei_ShuangSeQiu">
 			<!-- GETSIXONES_SUCCESS 表示获取成功的标志 -->
 			<result type="json" name="FUTUREMOWEISUCCESS">
 				<param name="root">result</param>
