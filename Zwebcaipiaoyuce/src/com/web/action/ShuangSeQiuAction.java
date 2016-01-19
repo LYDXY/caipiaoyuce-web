@@ -12,8 +12,6 @@ import javax.annotation.Resource;
 
 import com.sun.star.io.IOException;
 import com.web.pojo.ShuangSeQiu;
-import com.web.pojo.SixOne;
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
