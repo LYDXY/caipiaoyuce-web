@@ -52,10 +52,13 @@ public interface ShuangSeQiuServices {
 	// 查询最新的30期数 升序
 
 	public List<ShuangSeQiu> way10();
-	
-	//查询 过去 n 期的期数 ,升序
+
+	// 查询 过去 n 期的期数 ,升序
 	public List<ShuangSeQiu> way11(Integer limit);
-	
-	 //查询 过去 n 期的期数 ,降序
-  	public List<ShuangSeQiu> way12(Integer limit);
+
+	// 查询 过去 n 期的期数 ,降序
+	public List<ShuangSeQiu> way12(Integer limit);
+
+	// 查询当前最新的期数id
+	public Integer way13();
 }

@@ -142,5 +142,14 @@ public class ShuangSeQiuServicesImpl implements ShuangSeQiuServices {
 		return shuangseqiumapper.way12(limit);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.web.services.ShuangSeQiuServices#way13()
+	 */
+	@Override
+	public Integer way13() {
+		
+		return shuangseqiumapper.way13();
+	}
+
 	
 }

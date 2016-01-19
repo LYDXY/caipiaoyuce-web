@@ -2120,7 +2120,7 @@ public class ShuangSeQiuAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	private ShuangSeQiu sixone;
+	private ShuangSeQiu shuangSeQiu;
 
 	public String getShuangSeQius() {
 		logger.info(TAG + "---" + "getShuangSeQius");
@@ -2145,19 +2145,21 @@ public class ShuangSeQiuAction extends BaseAction {
 		logger.info(TAG + "球5" + fifth);
 		logger.info(TAG + "球6" + sixth);
 		logger.info(TAG + "球7" + seventh);
-
+		Integer id=ShuangSeQiuServices.way13();
+		logger.info("=============="+id+"============");
 		try {
-			sixone = new ShuangSeQiu();
-			sixone.setQishu(qishu);
-			sixone.setFirst(first);
-			sixone.setSecond(second);
-			sixone.setThird(third);
-			sixone.setFourth(fourth);
-			sixone.setFifth(fifth);
-			sixone.setSixth(sixth);
-			sixone.setSeventh(seventh);
-			sixone.setSum(first + second + third + fourth + fifth + sixth + seventh);
-			boolean b = ShuangSeQiuServices.way2(sixone);
+			shuangSeQiu = new ShuangSeQiu();
+			shuangSeQiu.setId(id+1);
+			shuangSeQiu.setQishu(qishu);
+			shuangSeQiu.setFirst(first);
+			shuangSeQiu.setSecond(second);
+			shuangSeQiu.setThird(third);
+			shuangSeQiu.setFourth(fourth);
+			shuangSeQiu.setFifth(fifth);
+			shuangSeQiu.setSixth(sixth);
+			shuangSeQiu.setSeventh(seventh);
+			shuangSeQiu.setSum(first + second + third + fourth + fifth + sixth + seventh);
+			boolean b = ShuangSeQiuServices.way2(shuangSeQiu);
 			if (b) {
 				result = "添加成功";
 			} else {

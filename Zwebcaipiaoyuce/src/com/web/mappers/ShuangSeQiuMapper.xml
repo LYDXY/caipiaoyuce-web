@@ -18,7 +18,7 @@
 
 	<!--可重用的SQL代码段 -->
 	<sql id="sixone_column2">insert into tb_shuang_se_qiu
-		(qishu,first,second,third,fourth,fifth,sixth,seventh,sum)
+		(id,qishu,first,second,third,fourth,fifth,sixth,seventh,sum)
 		
 	</sql>
 
@@ -63,7 +63,7 @@
 	<insert id="way2" parameterType="ShuangSeQiu">
 		<include refid="sixone_column2" />
 		values
-		(#{qishu},#{first},#{second},#{third},#{fourth},#{fifth},#{sixth},#{seventh},#{sum})
+		(#{id},#{qishu},#{first},#{second},#{third},#{fourth},#{fifth},#{sixth},#{seventh},#{sum})
 	</insert>
 	<!-- 根据期数qishu查询整条数据 ,参数类型是 Integer 类型 -->
 	<select id="way3" parameterType="Integer" resultType="ShuangSeQiu">
@@ -118,5 +118,11 @@
     <!-- 查询过去 n 期的集合 降序 -->
     <select id="way12" resultType="ShuangSeQiu" parameterType="Integer" >
      SELECT * FROM tb_shuang_se_qiu ORDER BY  qishu DESC LIMIT #{top}
+    </select>
+    
+    
+    <!-- 查询过去 n 期的集合 降序 -->
+    <select id="way13" resultType="Integer"  >
+     SELECT max(id) FROM tb_shuang_se_qiu 
     </select>
 </mapper>
