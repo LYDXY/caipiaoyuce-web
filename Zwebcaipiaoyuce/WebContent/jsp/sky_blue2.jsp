@@ -77,7 +77,7 @@
 
 	<div>
 		<a
-			href="${ pageContext.request.contextPath }/ShuangSeQiuAction/ShuangSeQiuActionFuture.action">未来一期系统分析</a>
+			href="${ pageContext.request.contextPath }/ShuangSeQiuAction/ShuangSeQiuActionFuture.action">中期系统分析</a>
 		<br>
 	</div>
 	<!-- 对话框模块 -->
