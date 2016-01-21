@@ -26,6 +26,9 @@
 	href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+td{text-align: center;}
+</style>
 </head>
 <body>
 	<table class="table table-bordered">
@@ -127,10 +130,7 @@
 					<button onclick="zhongqijisuan_first_step2()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td colspan="2"><table class="table table-bordered">
-						<thead id="jiesuanTopFiftyfiftythead">
-
-						</thead>
+				<td ><table class="table table-bordered">
 						<tbody id="jiesuanTopFiftyfiftytbody">
 						</tbody>
 					</table></td>
@@ -162,7 +162,7 @@
 						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionZhongQiFirst.action',
 						dataType : "json",
 						success : function(data) {
-							alert(data);
+							//alert(data);
 							$("#jiesuanTopFifty").empty();
 							var json = eval('(' + data + ')');
 							console.log(json["name"][0]);
@@ -173,7 +173,7 @@
 										var tdHtml = '<td class="success">'
 												+ json["name"][i][j] + '</td>';
 									} else if (json["name"][i][j] == "--") {
-										var tdHtml = '<td>'
+										var tdHtml = '<td class="info">'
 												+ json["name"][i][j] + '</td>';
 									} else {
 										var tdHtml = '<td class="success">'
@@ -220,9 +220,29 @@
 
 						dataType : "json",
 						success : function(data) {
-							alert(data);
+							
 							var json = eval('(' + data + ')');
-
+							$("#jiesuanTopFiftyfiftytbody").empty();
+							
+							for (var i = 0; i < json["zhengti"].length; i++) {
+								var trHtml = '<tr>';
+								for (var j = 0; j < json["zhengti"][i].length; j++) {
+									if(json["zhengti"][i][j] == "X"){
+										var tdHtml = '<td class="danger">'
+											+ json["zhengti"][i][j] + '</td>';
+									}
+									else{
+										var tdHtml = '<td class="info">'
+											+ json["zhengti"][i][j] + '</td>';
+									}
+									
+									
+									trHtml += tdHtml;
+								}
+								trHtml += '</tr>';
+								$("#jiesuanTopFiftyfiftytbody").append(trHtml);
+							}
+							
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");

@@ -70,10 +70,10 @@ public class SixOneAction extends BaseAction {
 		List<List<String>> lists = new ArrayList<List<String>>();
 		List<SixOne> sixOnes = SixOneServices.way11(55);
 		List<String> biaotouList = new ArrayList<String>();
-		biaotouList.add("号码/期数");
+		biaotouList.add("期数");
 		// 生成表头数据
 		for (SixOne sixOne : sixOnes) {
-			biaotouList.add(sixOne.getId() + "");
+			biaotouList.add((sixOne.getId() + "").substring(3));
 		}
 		lists.add(biaotouList);
 		// 生成tbody 数据
