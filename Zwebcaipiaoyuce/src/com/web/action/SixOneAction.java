@@ -128,7 +128,18 @@ public class SixOneAction extends BaseAction {
 
 		List<List<String>> zonglist = new ArrayList<List<String>>();
 		// 记录数字开的位置
-
+		List<List<String>> qingkuangyuce = new ArrayList<List<String>>();
+		List<String> zero = new ArrayList<String>();
+		List<String> one = new ArrayList<String>();
+		List<String> two = new ArrayList<String>();
+		List<String> three=new ArrayList<String>();
+		List<String> four = new ArrayList<String>();
+		List<String> five = new ArrayList<String>();
+		List<String> six=new ArrayList<String>();
+		List<String> seven=new ArrayList<String>();
+		List<String> eight=new ArrayList<String>();
+		List<String> nine=new ArrayList<String>();
+		List<String> ten=new ArrayList<String>();
 		for (SixOne sixOne : sixOnes) {
 			Integer Tempid = sixOne.getId();
 			Integer Tempqishu = sixOne.getQishu();
@@ -228,20 +239,79 @@ public class SixOneAction extends BaseAction {
 					integersqishu.add(sixOnes.get(j).getQishu());
 				}
 			}
+
 			for (int k = 0; k < integersqishu.size(); k++) {
 
 				if (k == (integersqishu.size() - 1)) {
 
 				} else {
-					Integer tempint = integersqishu.get(k + 1) - integersqishu.get(k)-1;
-					stringsmoshi.add("" + tempint+"-");
+					Integer tempint = integersqishu.get(k + 1) - integersqishu.get(k) - 1;
+					stringsmoshi.add("" + tempint + "-");
+
 				}
 
 			}
 			listsmoshi.add(stringsmoshi);
+			logger.info(stringsmoshi.toString());
+
+			/**
+			 * 统计遗漏次数
+			 */
+
+			// 遗漏次数为0-30的模式
+			for (int q = 3; q < stringsmoshi.size(); q++) {
+
+				if (stringsmoshi.get(q).equals("0-")) {
+					zero.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+					
+				}
+				if (stringsmoshi.get(q).equals("1-")) {
+					one.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("2-")) {
+					two.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("3-")) {
+					three.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+
+				if (stringsmoshi.get(q).equals("4-")) {
+					four.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("5-")) {
+					five.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("6-")) {
+					six.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("7-")) {
+					seven.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("8-")) {
+					eight.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("9-")) {
+					nine.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("10-")) {
+					ten.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+			}
 
 		}
 
+		logger.debug(zero.toString());
+		logger.debug(one.toString());
+		logger.debug(two.toString());
+		logger.debug(three.toString());
+		logger.debug(four.toString());
+		logger.debug(five.toString());
+		logger.debug(six.toString());
+		logger.debug(seven.toString());
+		logger.debug(eight.toString());
+		logger.debug(nine.toString());
+		logger.debug(ten.toString());
+		
 		zonglistMAP.put("name", zonglist);
 		zonglistMAP.put("listsmoshi", listsmoshi);
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(zonglistMAP);
