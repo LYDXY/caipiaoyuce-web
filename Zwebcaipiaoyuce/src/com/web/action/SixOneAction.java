@@ -108,6 +108,9 @@ public class SixOneAction extends BaseAction {
 		}
 
 		logger.info(lists.toString());
+		
+		logger.info("////////////////////////////////////////////");
+		
 		listmap2.put("zhengti", lists);
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(listmap2);
 		logger.info(jsonObjectFromMap.toString());
