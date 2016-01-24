@@ -108,9 +108,9 @@ public class SixOneAction extends BaseAction {
 		}
 
 		logger.info(lists.toString());
-		
+
 		logger.info("////////////////////////////////////////////");
-		
+
 		listmap2.put("zhengti", lists);
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(listmap2);
 		logger.info(jsonObjectFromMap.toString());
@@ -132,17 +132,70 @@ public class SixOneAction extends BaseAction {
 		List<List<String>> zonglist = new ArrayList<List<String>>();
 		// 记录数字开的位置
 		List<List<String>> qingkuangyuce = new ArrayList<List<String>>();
+		// 记录遗漏后的开奖模式
+		List<List<String>> futureqingkuang = new ArrayList<List<String>>();
 		List<String> zero = new ArrayList<String>();
 		List<String> one = new ArrayList<String>();
 		List<String> two = new ArrayList<String>();
-		List<String> three=new ArrayList<String>();
+		List<String> three = new ArrayList<String>();
 		List<String> four = new ArrayList<String>();
 		List<String> five = new ArrayList<String>();
-		List<String> six=new ArrayList<String>();
-		List<String> seven=new ArrayList<String>();
-		List<String> eight=new ArrayList<String>();
-		List<String> nine=new ArrayList<String>();
-		List<String> ten=new ArrayList<String>();
+		List<String> six = new ArrayList<String>();
+		List<String> seven = new ArrayList<String>();
+		List<String> eight = new ArrayList<String>();
+		List<String> nine = new ArrayList<String>();
+		List<String> ten = new ArrayList<String>();
+		List<String> eleven = new ArrayList<String>();
+		List<String> twelve = new ArrayList<String>();
+		List<String> thirdteen = new ArrayList<String>();
+		List<String> foureen = new ArrayList<String>();
+		List<String> fifteen = new ArrayList<String>();
+		List<String> sixthteen = new ArrayList<String>();
+		List<String> seventeen = new ArrayList<String>();
+		List<String> eighteen = new ArrayList<String>();
+		List<String> nineteen = new ArrayList<String>();
+		List<String> twenty = new ArrayList<String>();
+		List<String> twentyone = new ArrayList<String>();
+		List<String> twentytwo = new ArrayList<String>();
+		List<String> twentythree = new ArrayList<String>();
+		List<String> twentyfour = new ArrayList<String>();
+		List<String> twentyfive = new ArrayList<String>();
+		List<String> twentysix = new ArrayList<String>();
+		List<String> twentyseven = new ArrayList<String>();
+		List<String> twentyeight = new ArrayList<String>();
+		List<String> twentynine = new ArrayList<String>();
+		List<String> thirty = new ArrayList<String>();
+		zero.add("-0");
+		one.add("-1");
+		two.add("-2");
+		three.add("-3");
+		four.add("-4");
+		five.add("-5");
+		six.add("-6");
+		seven.add("-7");
+		eight.add("-8");
+		nine.add("-9");
+		ten.add("-10");
+		eleven.add("-11");
+		twelve.add("-12");
+		thirdteen.add("-13");
+		foureen.add("-14");
+		fifteen.add("-15");
+		sixthteen.add("-16");
+		seventeen.add("-17");
+		eighteen.add("-18");
+		nineteen.add("-19");
+		twenty.add("-20");
+		twentyone.add("-21");
+		twentytwo.add("-22");
+		twentythree.add("-23");
+		twentyfour.add("-24");
+		twentyfive.add("-25");
+		twentysix.add("-26");
+		twentyseven.add("-27");
+		twentyeight.add("-28");
+		twentynine.add("-29");
+		thirty.add("-30");
 		for (SixOne sixOne : sixOnes) {
 			Integer Tempid = sixOne.getId();
 			Integer Tempqishu = sixOne.getQishu();
@@ -266,7 +319,7 @@ public class SixOneAction extends BaseAction {
 
 				if (stringsmoshi.get(q).equals("0-")) {
 					zero.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
-					
+
 				}
 				if (stringsmoshi.get(q).equals("1-")) {
 					one.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
@@ -299,10 +352,71 @@ public class SixOneAction extends BaseAction {
 				if (stringsmoshi.get(q).equals("10-")) {
 					ten.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
 				}
+				if (stringsmoshi.get(q).equals("11-")) {
+					eleven.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("12-")) {
+					twelve.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("13-")) {
+					thirdteen.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("14-")) {
+					foureen.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("15-")) {
+					fifteen.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("16-")) {
+					sixthteen.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("17-")) {
+					seventeen.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("18-")) {
+					eighteen.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("19-")) {
+					nineteen.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("20-")) {
+					twenty.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("21-")) {
+					twentyone.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("22-")) {
+					twentytwo.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("23-")) {
+					twentythree.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("24-")) {
+					twentyfour.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("25-")) {
+					twentyfive.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("26-")) {
+					twentysix.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("27-")) {
+					twentyseven.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("28-")) {
+					twentyeight.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("29-")) {
+					twentynine.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+				if (stringsmoshi.get(q).equals("30-")) {
+					thirty.add(stringsmoshi.get(q - 2) + stringsmoshi.get(q - 1) + stringsmoshi.get(q));
+				}
+
 			}
 
 		}
-
+		logger.debug("==================================================");
 		logger.debug(zero.toString());
 		logger.debug(one.toString());
 		logger.debug(two.toString());
@@ -314,9 +428,61 @@ public class SixOneAction extends BaseAction {
 		logger.debug(eight.toString());
 		logger.debug(nine.toString());
 		logger.debug(ten.toString());
-		
+		logger.debug(eleven.toString());
+		logger.debug(twelve.toString());
+		logger.debug(thirdteen.toString());
+		logger.debug(foureen.toString());
+		logger.debug(fifteen.toString());
+		logger.debug(sixthteen.toString());
+		logger.debug(seventeen.toString());
+		logger.debug(eighteen.toString());
+		logger.debug(nineteen.toString());
+		logger.debug(twenty.toString());
+		logger.debug(twentyone.toString());
+		logger.debug(twentytwo.toString());
+		logger.debug(twentythree.toString());
+		logger.debug(twentyfour.toString());
+		logger.debug(twentyfive.toString());
+		logger.debug(twentysix.toString());
+		logger.debug(twentyseven.toString());
+		logger.debug(twentyeight.toString());
+		logger.debug(twentynine.toString());
+		logger.debug(thirty.toString());
+
+		futureqingkuang.add(zero);
+		futureqingkuang.add(one);
+		futureqingkuang.add(two);
+		futureqingkuang.add(three);
+		futureqingkuang.add(four);
+		futureqingkuang.add(five);
+		futureqingkuang.add(six);
+		futureqingkuang.add(seven);
+		futureqingkuang.add(nine);
+		futureqingkuang.add(ten);
+		futureqingkuang.add(eleven);
+		futureqingkuang.add(twelve);
+		futureqingkuang.add(thirdteen);
+		futureqingkuang.add(foureen);
+		futureqingkuang.add(fifteen);
+		futureqingkuang.add(sixthteen);
+		futureqingkuang.add(seventeen);
+		futureqingkuang.add(eighteen);
+		futureqingkuang.add(nineteen);
+		futureqingkuang.add(twenty);
+		futureqingkuang.add(twentyone);
+		futureqingkuang.add(twentytwo);
+		futureqingkuang.add(twentythree);
+		futureqingkuang.add(twentyfour);
+		futureqingkuang.add(twentyfive);
+		futureqingkuang.add(twentysix);
+		futureqingkuang.add(twentyseven);
+		futureqingkuang.add(twentyeight);
+		futureqingkuang.add(twentynine);
+		futureqingkuang.add(thirty);
+
 		zonglistMAP.put("name", zonglist);
 		zonglistMAP.put("listsmoshi", listsmoshi);
+		zonglistMAP.put("futureqingkuang", futureqingkuang);
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(zonglistMAP);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();

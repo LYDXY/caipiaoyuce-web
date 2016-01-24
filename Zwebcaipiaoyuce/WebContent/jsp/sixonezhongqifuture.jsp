@@ -103,7 +103,13 @@ td{text-align: center;}
 							</tr>
 						</thead>
 						<tbody id="jiesuanTopFifty"></tbody>
-					</table></td>
+					</table>
+					<br>
+					<table class="table table-bordered" >
+					 <tbody id="showfutureYuceMoshi"></tbody>
+					</table>
+					
+					</td>
 				<td><h5>
 						(1)技术矫正<br> <br> <br>
 						(2)博彩趋势逆转:当一个冷门数字以一次中奖结束一个长期休眠期，然后又在间隔不超过期彩票的情况下再次中奖，这就说明该数字出现了博彩趋势逆转,趋势逆转使得一个冷门数字变成了一个热门数字！。有以下4种模式:以XX,X1X,X2X,X3X<br>
@@ -164,6 +170,8 @@ td{text-align: center;}
 						success : function(data) {
 							//alert(data);
 							$("#jiesuanTopFifty").empty();
+							$("#showfutureYuceMoshi").empty();
+							$("#showmoshi").empty();
 							var json = eval('(' + data + ')');
 							console.log(json["name"][0]);
 							for (var i = 0; i < json["name"].length; i++) {
@@ -199,6 +207,24 @@ td{text-align: center;}
 								trHtml += tdHtml;
 								trHtml += '</tr>';
 								$("#showmoshi").append(trHtml);
+							}
+							
+							
+							for (var i = 0; i < json["futureqingkuang"].length; i++) {
+								var trHtml = '<tr>';
+								var tdHtml = '<td class="success">';
+								for (var j = 0; j < json["futureqingkuang"][i].length; j++) {
+									if(j==0){
+										tdHtml += json["futureqingkuang"][i][j] + '</td><td class="info">';
+										continue;
+									}else{
+										tdHtml += json["futureqingkuang"][i][j];
+									}
+								}
+								tdHtml += '</td>';
+								trHtml += tdHtml;
+								trHtml += '</tr>';
+								$("#showfutureYuceMoshi").append(trHtml);
 							}
 						},
 						error : function(data) {
