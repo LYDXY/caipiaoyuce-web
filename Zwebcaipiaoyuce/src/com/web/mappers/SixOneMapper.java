@@ -11,8 +11,6 @@ import com.web.pojo.*;
  */
 public interface SixOneMapper {
 
-	
-
 	// 查询所有
 	public List<SixOne> way0();
 
@@ -24,47 +22,46 @@ public interface SixOneMapper {
 
 	// 根据期数查询某一条
 	public SixOne way3(int qishu);
-	
+
 	// 查询当前的最近期数
 	public Integer way4();
 
-	
-	//查询最近的10期 升序
+	// 查询最近的10期 升序
 	public List<SixOne> way5();
-	
-	//查询最近的10 期 降序
-    public List<SixOne> way6();
-    
-    
-    //查询 期数小于 选中期 的其他期数 ,并且降序
-    public List<SixOne> way7(Integer qishu);
-    
-    
-    // 查询 最近 5 到 8期的集合
-    public List<SixOne> way8(Integer top);
-    
-    //查询最近的10 期 ,先升序 再降序
-    
-    public List<SixOne> way9();
-    
-    
-    //查询最新的30期数 升序
-    
-    public List<SixOne> way10();
-    
-    
-   //查询 过去 n 期的期数 ,升序
-  	public List<SixOne> way11(Integer limit);
-  	
-  	 //查询 过去 n 期的期数 ,降序
-  	public List<SixOne> way12(Integer limit);
-  	
-  	 //查询 过去 n 期的期数 升序 ,排在第一行的的期数
-  	public Integer way13(Integer limit);
-  	
-  	//查询比本期小一期的期数
-  	public SixOne way14(Integer qishu);
-  	
-  	//查询最新期数的id
-  	public Integer way15();
+
+	// 查询最近的10 期 降序
+	public List<SixOne> way6();
+
+	// 查询 期数小于 选中期 的其他期数 ,并且降序
+	public List<SixOne> way7(Integer qishu);
+
+	// 查询 最近 5 到 8期的集合
+	public List<SixOne> way8(Integer top);
+
+	// 查询最近的10 期 ,先升序 再降序
+
+	public List<SixOne> way9();
+
+	// 查询最新的30期数 升序
+
+	public List<SixOne> way10();
+
+	// 查询 过去 n 期的期数 ,升序
+	public List<SixOne> way11(Integer limit);
+
+	// 查询 过去 n 期的期数 ,降序
+	public List<SixOne> way12(Integer limit);
+
+	// 查询 过去 n 期的期数 升序 ,排在第一行的的期数
+	public Integer way13(Integer limit);
+
+	// 查询比本期小一期的期数
+	public SixOne way14(Integer qishu);
+
+	// 查询最新期数的id
+	public Integer way15();
+
+	// 查询 期数大于 选中期 的其他期数 ,并且降序
+	public List<SixOne> way16(Integer qishu);
+
 }

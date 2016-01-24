@@ -154,4 +154,11 @@ public class SixOneServicesImpl implements SixOneServices {
 	}
 
 	
+	@Override
+	public List<SixOne> way16(Integer qishu) {
+		
+		return sixonemapper.way16(qishu);
+	}
+
+	
 }

@@ -170,6 +170,15 @@
 		</action>
 		
 		
+		<!--获取比较清晰的遗漏模式 -->
+		<action name="SixOneActionClearYiLouMoShi" class="com.web.action.SixOneAction"
+			method="clearYiLouMoShi">
+			<!-- 将返回类型设置为json -->
+			<result type="json" name="CLEARYILOUMOSHI_SUCEESS">
+				<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+				<param name="root">result</param>
+			</result>
+		</action>
 		
 	</package>
 

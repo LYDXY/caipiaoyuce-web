@@ -231,7 +231,13 @@
 						</thead>
 					</table></td>
 				<td><table class="table table-bordered">
-						
+						<tbody>
+							<tr>
+								<td><button onclick="getclearYiLouMoShi()" type="button"
+										class="btn btn-primary btn-lg">获取清晰模式</button></td>
+							</tr>
+
+						</tbody>
 					</table></td>
 			</tr>
 			<!-- 遗漏数字偏差系统 -->
@@ -1060,6 +1066,31 @@
 							alert("系统异常,请重新尝试");
 						}
 					});
+		}
+	</script>
+
+
+
+
+	<!-- 获取清晰模式 -->
+	<script type="text/javascript">
+		function getclearYiLouMoShi() {
+
+			alert();
+
+			$.ajax({
+						type : "POST",
+						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionClearYiLouMoShi.action',
+					//	data : param,
+						dataType : "json",
+						success : function(data) {
+
+						},
+						error : function(data) {
+							alert("系统异常,请重新尝试");
+						}
+					});
+		
 		}
 	</script>
 

@@ -33,7 +33,7 @@ public interface SixOneServices {
 	// 查询最近的10期
 	public List<SixOne> way5();
 
-	// 查询最近的10 期 降序
+	// 查询最近的40 期 降序
 	public List<SixOne> way6();
 
 	// 查询 期数小于 选中期 的其他期数 ,并且降序
@@ -64,5 +64,7 @@ public interface SixOneServices {
   	
   //查询最新期数的id
   	public Integer way15();
-  	
+  
+ // 查询 期数大于 选中期 的其他期数 ,并且降序
+ 	public List<SixOne> way16(Integer qishu);
 }

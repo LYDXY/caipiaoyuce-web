@@ -84,7 +84,7 @@
 	
 	<!-- 查询最新的二十期数 降序-->
 	<select id="way6" resultType="SixOne">
-	   SELECT * FROM (select * from tb_caipiao_six_one ORDER BY qishu DESC limit 20)  as t ORDER BY t.qishu Desc
+	   SELECT * FROM (select * from tb_caipiao_six_one ORDER BY qishu DESC limit 40)  as t ORDER BY t.qishu Desc
 	</select>
 	
 	<!-- 查询 期数小于 选中期 的其他期数 ,并且降序-->
@@ -137,5 +137,8 @@
       SELECT max(id) FROM  tb_caipiao_six_one 
     </select>
     
-    
+    <!-- 查询比自己大的期数 ,根据期数降序排列 -->
+    <select id="way16" resultType="SixOne" parameterType="Integer">
+    SELECT * FROM  tb_caipiao_six_one AS t  where t.qishu &gt; #{qishu} ORDER BY t.qishu DESC  
+    </select>
 </mapper>

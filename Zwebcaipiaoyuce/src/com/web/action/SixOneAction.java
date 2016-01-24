@@ -52,6 +52,243 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
+	 * 添加一幕了然的遗漏统计模式
+	 */
+
+	public String clearYiLouMoShi() {
+		logger.info("clearYiLouMoShi");
+		List<SixOne> sixonesTop40 = SixOneServices.way6();
+		Integer maxqishu = SixOneServices.way4();
+
+		List<String> clear_zero = new ArrayList<String>();
+		List<String> clear_one = new ArrayList<String>();
+		List<String> clear_two = new ArrayList<String>();
+		List<String> clear_three = new ArrayList<String>();
+		List<String> clear_four = new ArrayList<String>();
+		List<String> clear_five = new ArrayList<String>();
+		List<String> clear_six = new ArrayList<String>();
+		List<String> clear_seven = new ArrayList<String>();
+		List<String> clear_eight = new ArrayList<String>();
+		List<String> clear_nine = new ArrayList<String>();
+		List<String> clear_ten = new ArrayList<String>();
+
+		for (int i = 0; i < sixonesTop40.size(); i++) {
+			// 最新一期的情况
+			if (sixonesTop40.get(i).getQishu() == maxqishu) {
+				if (sixonesTop40.get(i).getFirst() < 0) {
+					clear_zero.add("0" + sixonesTop40.get(i).getFirst() + "-");
+				} else {
+					clear_zero.add(sixonesTop40.get(i).getFirst() + "-");
+				}
+
+				if (sixonesTop40.get(i).getSecond() < 0) {
+					clear_zero.add("0" + sixonesTop40.get(i).getSecond() + "-");
+				} else {
+					clear_zero.add(sixonesTop40.get(i).getSecond() + "-");
+				}
+
+				if (sixonesTop40.get(i).getThird() < 0) {
+					clear_zero.add("0" + sixonesTop40.get(i).getThird() + "-");
+				} else {
+					clear_zero.add(sixonesTop40.get(i).getThird() + "-");
+				}
+
+				if (sixonesTop40.get(i).getFourth() < 0) {
+					clear_zero.add("0" + sixonesTop40.get(i).getFourth() + "-");
+				} else {
+					clear_zero.add(sixonesTop40.get(i).getFourth() + "-");
+				}
+
+				if (sixonesTop40.get(i).getFifth() < 0) {
+					clear_zero.add("0" + sixonesTop40.get(i).getFifth() + "-");
+				} else {
+					clear_zero.add(sixonesTop40.get(i).getFifth() + "-");
+				}
+
+				if (sixonesTop40.get(i).getSixth() < 0) {
+					clear_zero.add("0" + sixonesTop40.get(i).getSixth() + "-");
+				} else {
+					clear_zero.add(sixonesTop40.get(i).getSixth() + "-");
+				}
+
+				if (sixonesTop40.get(i).getSeventh() < 0) {
+					clear_zero.add("0" + sixonesTop40.get(i).getSeventh() + "-");
+				} else {
+					clear_zero.add(sixonesTop40.get(i).getSeventh() + "-");
+				}
+
+			} else if (sixonesTop40.get(i).getQishu() < maxqishu) {
+
+				// 获取比自己大的期数,并且将其降序
+				List<SixOne> Mintempsixones = SixOneServices.way16(sixonesTop40.get(i).getQishu());
+				List<Integer> sevennumbers = new ArrayList<Integer>();
+				sevennumbers.add(sixonesTop40.get(i).getFirst());
+				sevennumbers.add(sixonesTop40.get(i).getSecond());
+				sevennumbers.add(sixonesTop40.get(i).getThird());
+				sevennumbers.get(sixonesTop40.get(i).getFourth());
+				sevennumbers.get(sixonesTop40.get(i).getFifth());
+				sevennumbers.get(sixonesTop40.get(i).getSixth());
+				sevennumbers.get(sixonesTop40.get(i).getSeventh());
+				for (Integer integer : sevennumbers) {
+
+					for (SixOne sixOne : Mintempsixones) {
+						if (integer == sixOne.getFirst() || integer == sixOne.getSecond()
+								|| integer == sixOne.getThird() || integer == sixOne.getFourth()
+								|| integer == sixOne.getFifth() || integer == sixOne.getSixth()
+								|| integer == sixOne.getSeventh()) {
+							break;
+
+						} else {
+							// 表明现在记录的是最近的第二期
+							if (Mintempsixones.size() == 1) {
+								if (integer < 0) {
+									clear_one.add("0" + integer + "-");
+								} else {
+									clear_one.add(integer + "-");
+								}
+
+							} else if (Mintempsixones.size() == 2) {
+								if (integer < 0) {
+									clear_two.add("0" + integer + "-");
+								} else {
+									clear_two.add(integer + "-");
+								}
+							} else if (Mintempsixones.size() == 3) {
+								if (integer < 0) {
+									clear_three.add("0" + integer + "-");
+								} else {
+									clear_three.add(integer + "-");
+								}
+							} else if (Mintempsixones.size() == 4) {
+								if (integer < 0) {
+									clear_four.add("0" + integer + "-");
+								} else {
+									clear_four.add(integer + "-");
+								}
+							} else if (Mintempsixones.size() == 5) {
+								if (integer < 0) {
+									clear_five.add("0" + integer + "-");
+								} else {
+									clear_five.add(integer + "-");
+								}
+							} else if (Mintempsixones.size() == 6) {
+								if (integer < 0) {
+									clear_six.add("0" + integer + "-");
+								} else {
+									clear_six.add(integer + "-");
+								}
+							} else if (Mintempsixones.size() == 7) {
+								if (integer < 0) {
+									clear_seven.add("0" + integer + "-");
+								} else {
+									clear_seven.add(integer + "-");
+								}
+							} else if (Mintempsixones.size() == 8) {
+								if (integer < 0) {
+									clear_eight.add("0" + integer + "-");
+								} else {
+									clear_eight.add(integer + "-");
+								}
+							} else if (Mintempsixones.size() == 9) {
+								if (integer < 0) {
+									clear_nine.add("0" + integer + "-");
+								} else {
+									clear_nine.add(integer + "-");
+								}
+							} else if (Mintempsixones.size() == 10) {
+								if (integer < 0) {
+									clear_ten.add("0" + integer + "-");
+								} else {
+									clear_ten.add(integer + "-");
+								}
+							} else if (Mintempsixones.size() == 11) {
+
+							} else if (Mintempsixones.size() == 12) {
+
+							} else if (Mintempsixones.size() == 13) {
+
+							} else if (Mintempsixones.size() == 14) {
+
+							} else if (Mintempsixones.size() == 15) {
+
+							} else if (Mintempsixones.size() == 16) {
+
+							} else if (Mintempsixones.size() == 17) {
+
+							} else if (Mintempsixones.size() == 18) {
+
+							} else if (Mintempsixones.size() == 19) {
+
+							} else if (Mintempsixones.size() == 20) {
+
+							} else if (Mintempsixones.size() == 21) {
+
+							} else if (Mintempsixones.size() == 22) {
+
+							} else if (Mintempsixones.size() == 23) {
+
+							} else if (Mintempsixones.size() == 24) {
+
+							} else if (Mintempsixones.size() == 25) {
+
+							} else if (Mintempsixones.size() == 26) {
+
+							} else if (Mintempsixones.size() == 27) {
+
+							} else if (Mintempsixones.size() == 28) {
+
+							} else if (Mintempsixones.size() == 29) {
+
+							} else if (Mintempsixones.size() == 30) {
+
+							} else if (Mintempsixones.size() == 31) {
+
+							} else if (Mintempsixones.size() == 32) {
+
+							} else if (Mintempsixones.size() == 33) {
+
+							} else if (Mintempsixones.size() == 34) {
+
+							} else if (Mintempsixones.size() == 35) {
+
+							} else if (Mintempsixones.size() == 36) {
+
+							} else if (Mintempsixones.size() == 37) {
+
+							} else if (Mintempsixones.size() == 38) {
+
+							} else if (Mintempsixones.size() == 39) {
+
+							} else if (Mintempsixones.size() == 40) {
+
+							}
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+		logger.info(clear_zero.toString());
+		logger.info(clear_one.toString());
+		logger.info(clear_two.toString());
+		logger.info(clear_three.toString());
+		logger.info(clear_four.toString());
+		logger.info(clear_five.toString());
+		logger.info(clear_six.toString());
+		logger.info(clear_seven.toString());
+		logger.info(clear_eight.toString());
+		logger.info(clear_nine.toString());
+		logger.info(clear_ten.toString());
+
+		return "CLEARYILOUMOSHI_SUCEESS";
+
+	}
+
+	/**
 	 * 跳转到中期预测界面
 	 * 
 	 * @return
@@ -2414,14 +2651,18 @@ public class SixOneAction extends BaseAction {
 	 */
 	public String futureColdHot() {
 		logger.info("----------------------futureColdHot");
-		List<SixOne> sixonesTop10 = SixOneServices.way6();
-		Iterator<SixOne> iter = sixonesTop10.iterator();
+		List<SixOne> sixonesTop40 = SixOneServices.way6();
+		Integer maxqishu = SixOneServices.way4();
+		logger.info("最新的期数" + maxqishu);
+		Iterator<SixOne> iter = sixonesTop40.iterator();
 		List<SixOne> temps;
 		List<Map<String, Object>> fenxijieguolist = new ArrayList<Map<String, Object>>();
 		List<StringBuilder> builders = new ArrayList<StringBuilder>();
+		// 遍历过去40期 降序
 		while (iter.hasNext()) {
 			Map<String, Object> everyone = new HashMap<String, Object>();
 			SixOne sixOne = iter.next();
+			Integer id = sixOne.getId();
 			Integer qishu = sixOne.getQishu();
 			Integer first = sixOne.getFirst();
 			Integer second = sixOne.getSecond();
@@ -2430,9 +2671,7 @@ public class SixOneAction extends BaseAction {
 			Integer fifth = sixOne.getFifth();
 			Integer sixth = sixOne.getSixth();
 			Integer seventh = sixOne.getSeventh();
-			logger.info("--作为资料的期数--" + qishu + "--球1--" + first + "--球2--" + second + "--球3--" + third + "--球4--"
-					+ fourth + "--球5--" + fifth + "--球6--" + sixth + "--球7--" + seventh);
-			everyone.put("qishu", qishu + "");
+			everyone.put("qishu", id + "");
 
 			StringBuilder stringBuilder2 = new StringBuilder();
 			if (first < 10) {
@@ -2481,15 +2720,14 @@ public class SixOneAction extends BaseAction {
 			IntegerS.add(fifth);
 			IntegerS.add(sixth);
 			IntegerS.add(seventh);
+			// 查询 期数小于 选中期 的其他期数 ,并且降序
 			temps = SixOneServices.way7(qishu);
 			float geshu = 0;
 			float yilouzongshu = 0;
 			StringBuilder stringBuilder = new StringBuilder();
 			for (Integer integer : IntegerS) {
-				logger.info("被找寻的数字--------------第" + qishu + "的" + integer);
 				boolean iscunzai = false;
 				for (SixOne tempsixOne : temps) {
-
 					Integer tempqishu = tempsixOne.getQishu();
 					Integer tempfirst = tempsixOne.getFirst();
 					Integer tempsecond = tempsixOne.getSecond();
@@ -2498,14 +2736,7 @@ public class SixOneAction extends BaseAction {
 					Integer tempfifth = tempsixOne.getFifth();
 					Integer tempsixth = tempsixOne.getSixth();
 					Integer tempseventh = tempsixOne.getSeventh();
-
-					logger.info("--寻找的期数--" + tempqishu + "--球1--" + tempfirst + "--球2--" + tempsecond + "--球3--"
-							+ tempthird + "--球4--" + tempfourth + "--球5--" + tempfifth + "--球6--" + tempsixth + "--球7--"
-							+ tempseventh);
-
 					if (integer == tempfirst) {
-						logger.info("数字" + integer + "在第" + qishu + "期出现");
-						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						if (qishu > 2016000) {
 							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
@@ -2535,8 +2766,6 @@ public class SixOneAction extends BaseAction {
 						iscunzai = true;
 						break;
 					} else if (integer == tempsecond) {
-						logger.info("数字" + integer + "在第" + qishu + "期出现");
-						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						if (qishu > 2016000) {
 							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
@@ -2564,8 +2793,6 @@ public class SixOneAction extends BaseAction {
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempthird) {
-						logger.info("数字" + integer + "在第" + qishu + "期出现");
-						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						if (qishu > 2016000) {
 							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
 						} else {
@@ -2593,8 +2820,6 @@ public class SixOneAction extends BaseAction {
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempfourth) {
-						logger.info("数字" + integer + "在第" + qishu + "期出现");
-						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						if (qishu > 2016000) {
 							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
@@ -2622,8 +2847,6 @@ public class SixOneAction extends BaseAction {
 						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempfifth) {
-						logger.info("数字" + integer + "在第" + qishu + "期出现");
-						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
 						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
 						if (qishu > 2016000) {
 							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
@@ -2740,6 +2963,7 @@ public class SixOneAction extends BaseAction {
 		JSONArray jsonObjectFromMap = JSONArray.fromObject(fenxijieguolist);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();
+
 		return "FUTURECOLDHOTSUCCESS";
 	}
 
