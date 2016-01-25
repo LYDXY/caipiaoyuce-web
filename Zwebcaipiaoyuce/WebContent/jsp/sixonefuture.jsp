@@ -231,7 +231,7 @@
 						</thead>
 					</table></td>
 				<td><table class="table table-bordered">
-						<tbody>
+						<tbody id="cleartbody">
 							<tr>
 								<td><button onclick="getclearYiLouMoShi()" type="button"
 										class="btn btn-primary btn-lg">获取清晰模式</button></td>
@@ -1076,7 +1076,7 @@
 	<script type="text/javascript">
 		function getclearYiLouMoShi() {
 
-			alert();
+			//alert();
 
 			$.ajax({
 						type : "POST",
@@ -1084,7 +1084,20 @@
 					//	data : param,
 						dataType : "json",
 						success : function(data) {
-
+							alert(data);
+							var json = eval('(' + data + ')');
+							
+							
+							for (var i = 0; i < json.clear.length; i++) {
+								var trHtml = '<tr>';
+								var tdHtml = '<td class="info">'
+										+ json.clear[i] + '</td>';
+								trHtml += tdHtml;
+								trHtml += '</tr>';
+								$("#cleartbody").append(trHtml);
+							}
+							
+							
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");

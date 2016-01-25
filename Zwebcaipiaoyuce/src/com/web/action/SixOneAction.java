@@ -58,8 +58,13 @@ public class SixOneAction extends BaseAction {
 	public String clearYiLouMoShi() {
 		logger.info("clearYiLouMoShi");
 		List<SixOne> sixonesTop40 = SixOneServices.way6();
+		logger.info(sixonesTop40.size());
 		Integer maxqishu = SixOneServices.way4();
+		logger.info(maxqishu);
+		logger.info("===============================");
 
+		Map<String, List<List<String>>> map = new HashMap<String, List<List<String>>>();
+		List<List<String>> all = new ArrayList<List<String>>();
 		List<String> clear_zero = new ArrayList<String>();
 		List<String> clear_one = new ArrayList<String>();
 		List<String> clear_two = new ArrayList<String>();
@@ -71,199 +76,359 @@ public class SixOneAction extends BaseAction {
 		List<String> clear_eight = new ArrayList<String>();
 		List<String> clear_nine = new ArrayList<String>();
 		List<String> clear_ten = new ArrayList<String>();
-
+		List<String> clear_eleven = new ArrayList<String>();
+		List<String> clear_twelve = new ArrayList<String>();
+		List<String> clear_thirdteen = new ArrayList<String>();
+		List<String> clear_fourteen = new ArrayList<String>();
+		List<String> clear_fifteen = new ArrayList<String>();
+		List<String> clear_sixteen = new ArrayList<String>();
+		List<String> clear_seventeen = new ArrayList<String>();
+		List<String> clear_eighteen = new ArrayList<String>();
+		List<String> clear_nineteen = new ArrayList<String>();
+		List<String> clear_twenty = new ArrayList<String>();
+		List<String> clear_twenty_one = new ArrayList<String>();
+		List<String> clear_twenty_two = new ArrayList<String>();
+		List<String> clear_twenty_three = new ArrayList<String>();
+		List<String> clear_twenty_four = new ArrayList<String>();
+		List<String> clear_twenty_five = new ArrayList<String>();
+		List<String> clear_twenty_six = new ArrayList<String>();
+		List<String> clear_twenty_seven = new ArrayList<String>();
+		List<String> clear_twenty_eight = new ArrayList<String>();
+		List<String> clear_twenty_nine = new ArrayList<String>();
+		List<String> clear_thirty = new ArrayList<String>();
+		List<String> clear_thirty_one = new ArrayList<String>();
+		List<String> clear_thirty_two = new ArrayList<String>();
+		List<String> clear_thirty_three = new ArrayList<String>();
+		List<String> clear_thirty_four = new ArrayList<String>();
+		List<String> clear_thirty_five = new ArrayList<String>();
+		List<String> clear_thirty_six = new ArrayList<String>();
+		List<String> clear_thirty_seven = new ArrayList<String>();
+		List<String> clear_thirty_eight = new ArrayList<String>();
+		List<String> clear_thirty_nine = new ArrayList<String>();
+		List<String> clear_fourty = new ArrayList<String>();
+        clear_zero.add("遗漏次数为0");
+        clear_one.add("遗漏次数为1");
+        clear_two.add("遗漏次数为2");
+        clear_three.add("遗漏次数为3");
+        clear_four.add("遗漏次数为4");
+        clear_five.add("遗漏次数为5");
+        clear_six.add("遗漏次数为6");
+        clear_seven.add("遗漏次数为7");
+        clear_eight.add("遗漏次数为8");
+        clear_nine.add("遗漏次数为9");
+        clear_ten.add("遗漏次数为10");
+        clear_eleven.add("遗漏次数为11");
+        clear_twelve.add("遗漏次数为12");
+        clear_thirdteen.add("遗漏次数为13");
+        clear_fourteen.add("遗漏次数为14");
+        clear_fifteen.add("遗漏次数为15");
+        clear_sixteen.add("遗漏次数为16");
+        clear_seventeen.add("遗漏次数为17");
+        clear_eighteen.add("遗漏次数为18");
+        clear_nineteen.add("遗漏次数为19");
+        clear_twenty.add("遗漏次数为20");
+        clear_twenty_one.add("遗漏次数为21");
+        clear_twenty_two.add("遗漏次数为22");
+        clear_twenty_three.add("遗漏次数为23");
+        clear_twenty_four.add("遗漏次数为24");
+        clear_twenty_five.add("遗漏次数为25");
+        clear_twenty_six.add("遗漏次数为26");
+        clear_twenty_seven.add("遗漏次数为27");
+        clear_twenty_eight.add("遗漏次数为28");
+        clear_twenty_nine.add("遗漏次数为29");
+        clear_thirty.add("遗漏次数为30");
+        clear_thirty_one.add("遗漏次数为31");
+        clear_thirty_two.add("遗漏次数为32");
+        clear_thirty_three.add("遗漏次数为33");
+        clear_thirty_four.add("遗漏次数为34");
+        clear_thirty_five.add("遗漏次数为35");
+        clear_thirty_six.add("遗漏次数为36");
+        clear_thirty_seven.add("遗漏次数为37");
+        clear_thirty_eight.add("遗漏次数为38");
+        clear_thirty_nine.add("遗漏次数为39");
+        clear_fourty.add("遗漏次数为40");
 		for (int i = 0; i < sixonesTop40.size(); i++) {
-			// 最新一期的情况
-			if (sixonesTop40.get(i).getQishu() == maxqishu) {
-				if (sixonesTop40.get(i).getFirst() < 0) {
-					clear_zero.add("0" + sixonesTop40.get(i).getFirst() + "-");
-				} else {
-					clear_zero.add(sixonesTop40.get(i).getFirst() + "-");
+			// 获取比自己大的期数,并且将其降序
+			List<SixOne> Mintempsixones = SixOneServices.way16(sixonesTop40.get(i).getQishu());
+			List<Integer> sevennumbers = new ArrayList<Integer>();
+			sevennumbers.add(sixonesTop40.get(i).getFirst());
+			sevennumbers.add(sixonesTop40.get(i).getSecond());
+			sevennumbers.add(sixonesTop40.get(i).getThird());
+			sevennumbers.add(sixonesTop40.get(i).getFourth());
+			sevennumbers.add(sixonesTop40.get(i).getFifth());
+			sevennumbers.add(sixonesTop40.get(i).getSixth());
+			sevennumbers.add(sixonesTop40.get(i).getSeventh());
+			// 7个数字
+			for (Integer integer : sevennumbers) {
+				boolean iscunzai = false;
+				for (SixOne sixOne : Mintempsixones) {
+
+					if (integer == sixOne.getFirst()) {
+						iscunzai = true;
+					} else if (integer == sixOne.getSecond()) {
+						iscunzai = true;
+					} else if (integer == sixOne.getThird()) {
+						iscunzai = true;
+					} else if (integer == sixOne.getFourth()) {
+						iscunzai = true;
+					} else if (integer == sixOne.getFifth()) {
+						iscunzai = true;
+					} else if (integer == sixOne.getSixth()) {
+						iscunzai = true;
+					} else if (integer == sixOne.getSeventh()) {
+						iscunzai = true;
+					}
+
 				}
+				if (!iscunzai) {
 
-				if (sixonesTop40.get(i).getSecond() < 0) {
-					clear_zero.add("0" + sixonesTop40.get(i).getSecond() + "-");
-				} else {
-					clear_zero.add(sixonesTop40.get(i).getSecond() + "-");
-				}
-
-				if (sixonesTop40.get(i).getThird() < 0) {
-					clear_zero.add("0" + sixonesTop40.get(i).getThird() + "-");
-				} else {
-					clear_zero.add(sixonesTop40.get(i).getThird() + "-");
-				}
-
-				if (sixonesTop40.get(i).getFourth() < 0) {
-					clear_zero.add("0" + sixonesTop40.get(i).getFourth() + "-");
-				} else {
-					clear_zero.add(sixonesTop40.get(i).getFourth() + "-");
-				}
-
-				if (sixonesTop40.get(i).getFifth() < 0) {
-					clear_zero.add("0" + sixonesTop40.get(i).getFifth() + "-");
-				} else {
-					clear_zero.add(sixonesTop40.get(i).getFifth() + "-");
-				}
-
-				if (sixonesTop40.get(i).getSixth() < 0) {
-					clear_zero.add("0" + sixonesTop40.get(i).getSixth() + "-");
-				} else {
-					clear_zero.add(sixonesTop40.get(i).getSixth() + "-");
-				}
-
-				if (sixonesTop40.get(i).getSeventh() < 0) {
-					clear_zero.add("0" + sixonesTop40.get(i).getSeventh() + "-");
-				} else {
-					clear_zero.add(sixonesTop40.get(i).getSeventh() + "-");
-				}
-
-			} else if (sixonesTop40.get(i).getQishu() < maxqishu) {
-
-				// 获取比自己大的期数,并且将其降序
-				List<SixOne> Mintempsixones = SixOneServices.way16(sixonesTop40.get(i).getQishu());
-				List<Integer> sevennumbers = new ArrayList<Integer>();
-				sevennumbers.add(sixonesTop40.get(i).getFirst());
-				sevennumbers.add(sixonesTop40.get(i).getSecond());
-				sevennumbers.add(sixonesTop40.get(i).getThird());
-				sevennumbers.get(sixonesTop40.get(i).getFourth());
-				sevennumbers.get(sixonesTop40.get(i).getFifth());
-				sevennumbers.get(sixonesTop40.get(i).getSixth());
-				sevennumbers.get(sixonesTop40.get(i).getSeventh());
-				for (Integer integer : sevennumbers) {
-
-					for (SixOne sixOne : Mintempsixones) {
-						if (integer == sixOne.getFirst() || integer == sixOne.getSecond()
-								|| integer == sixOne.getThird() || integer == sixOne.getFourth()
-								|| integer == sixOne.getFifth() || integer == sixOne.getSixth()
-								|| integer == sixOne.getSeventh()) {
-							break;
-
+					if (Mintempsixones.size() == 0) {
+						if (integer < 0) {
+							clear_zero.add("0" + integer);
 						} else {
-							// 表明现在记录的是最近的第二期
-							if (Mintempsixones.size() == 1) {
-								if (integer < 0) {
-									clear_one.add("0" + integer + "-");
-								} else {
-									clear_one.add(integer + "-");
-								}
-
-							} else if (Mintempsixones.size() == 2) {
-								if (integer < 0) {
-									clear_two.add("0" + integer + "-");
-								} else {
-									clear_two.add(integer + "-");
-								}
-							} else if (Mintempsixones.size() == 3) {
-								if (integer < 0) {
-									clear_three.add("0" + integer + "-");
-								} else {
-									clear_three.add(integer + "-");
-								}
-							} else if (Mintempsixones.size() == 4) {
-								if (integer < 0) {
-									clear_four.add("0" + integer + "-");
-								} else {
-									clear_four.add(integer + "-");
-								}
-							} else if (Mintempsixones.size() == 5) {
-								if (integer < 0) {
-									clear_five.add("0" + integer + "-");
-								} else {
-									clear_five.add(integer + "-");
-								}
-							} else if (Mintempsixones.size() == 6) {
-								if (integer < 0) {
-									clear_six.add("0" + integer + "-");
-								} else {
-									clear_six.add(integer + "-");
-								}
-							} else if (Mintempsixones.size() == 7) {
-								if (integer < 0) {
-									clear_seven.add("0" + integer + "-");
-								} else {
-									clear_seven.add(integer + "-");
-								}
-							} else if (Mintempsixones.size() == 8) {
-								if (integer < 0) {
-									clear_eight.add("0" + integer + "-");
-								} else {
-									clear_eight.add(integer + "-");
-								}
-							} else if (Mintempsixones.size() == 9) {
-								if (integer < 0) {
-									clear_nine.add("0" + integer + "-");
-								} else {
-									clear_nine.add(integer + "-");
-								}
-							} else if (Mintempsixones.size() == 10) {
-								if (integer < 0) {
-									clear_ten.add("0" + integer + "-");
-								} else {
-									clear_ten.add(integer + "-");
-								}
-							} else if (Mintempsixones.size() == 11) {
-
-							} else if (Mintempsixones.size() == 12) {
-
-							} else if (Mintempsixones.size() == 13) {
-
-							} else if (Mintempsixones.size() == 14) {
-
-							} else if (Mintempsixones.size() == 15) {
-
-							} else if (Mintempsixones.size() == 16) {
-
-							} else if (Mintempsixones.size() == 17) {
-
-							} else if (Mintempsixones.size() == 18) {
-
-							} else if (Mintempsixones.size() == 19) {
-
-							} else if (Mintempsixones.size() == 20) {
-
-							} else if (Mintempsixones.size() == 21) {
-
-							} else if (Mintempsixones.size() == 22) {
-
-							} else if (Mintempsixones.size() == 23) {
-
-							} else if (Mintempsixones.size() == 24) {
-
-							} else if (Mintempsixones.size() == 25) {
-
-							} else if (Mintempsixones.size() == 26) {
-
-							} else if (Mintempsixones.size() == 27) {
-
-							} else if (Mintempsixones.size() == 28) {
-
-							} else if (Mintempsixones.size() == 29) {
-
-							} else if (Mintempsixones.size() == 30) {
-
-							} else if (Mintempsixones.size() == 31) {
-
-							} else if (Mintempsixones.size() == 32) {
-
-							} else if (Mintempsixones.size() == 33) {
-
-							} else if (Mintempsixones.size() == 34) {
-
-							} else if (Mintempsixones.size() == 35) {
-
-							} else if (Mintempsixones.size() == 36) {
-
-							} else if (Mintempsixones.size() == 37) {
-
-							} else if (Mintempsixones.size() == 38) {
-
-							} else if (Mintempsixones.size() == 39) {
-
-							} else if (Mintempsixones.size() == 40) {
-
-							}
+							clear_zero.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 1) {
+						if (integer < 0) {
+							clear_one.add("0" + integer);
+						} else {
+							clear_one.add(integer + "");
 						}
 
+					} else if (Mintempsixones.size() == 2) {
+						if (integer < 0) {
+							clear_two.add("0" + integer);
+						} else {
+							clear_two.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 3) {
+						if (integer < 0) {
+							clear_three.add("0" + integer);
+						} else {
+							clear_three.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 4) {
+						if (integer < 0) {
+							clear_four.add("0" + integer);
+						} else {
+							clear_four.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 5) {
+						if (integer < 0) {
+							clear_five.add("0" + integer);
+						} else {
+							clear_five.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 6) {
+						if (integer < 0) {
+							clear_six.add("0" + integer);
+						} else {
+							clear_six.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 7) {
+						if (integer < 0) {
+							clear_seven.add("0" + integer);
+						} else {
+							clear_seven.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 8) {
+						if (integer < 0) {
+							clear_eight.add("0" + integer);
+						} else {
+							clear_eight.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 9) {
+						if (integer < 0) {
+							clear_nine.add("0" + integer);
+						} else {
+							clear_nine.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 10) {
+						if (integer < 0) {
+							clear_ten.add("0" + integer);
+						} else {
+							clear_ten.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 11) {
+						if (integer < 0) {
+							clear_eleven.add("0" + integer);
+						} else {
+							clear_eleven.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 12) {
+						if (integer < 0) {
+							clear_twelve.add("0" + integer);
+						} else {
+							clear_twelve.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 13) {
+						if (integer < 0) {
+							clear_thirdteen.add("0" + integer);
+						} else {
+							clear_thirdteen.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 14) {
+						if (integer < 0) {
+							clear_fourteen.add("0" + integer);
+						} else {
+							clear_fourteen.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 15) {
+						if (integer < 0) {
+							clear_fifteen.add("0" + integer);
+						} else {
+							clear_fifteen.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 16) {
+						if (integer < 0) {
+							clear_sixteen.add("0" + integer);
+						} else {
+							clear_sixteen.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 17) {
+						if (integer < 0) {
+							clear_seventeen.add("0" + integer);
+						} else {
+							clear_seventeen.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 18) {
+						if (integer < 0) {
+							clear_eighteen.add("0" + integer);
+						} else {
+							clear_eighteen.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 19) {
+						if (integer < 0) {
+							clear_nineteen.add("0" + integer);
+						} else {
+							clear_nineteen.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 20) {
+						if (integer < 0) {
+							clear_twenty.add("0" + integer);
+						} else {
+							clear_twenty.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 21) {
+						if (integer < 0) {
+							clear_twenty_one.add("0" + integer);
+						} else {
+							clear_twenty_one.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 22) {
+						if (integer < 0) {
+							clear_twenty_two.add("0" + integer);
+						} else {
+							clear_twenty_two.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 23) {
+						if (integer < 0) {
+							clear_twenty_three.add("0" + integer);
+						} else {
+							clear_twenty_three.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 24) {
+						if (integer < 0) {
+							clear_twenty_four.add("0" + integer);
+						} else {
+							clear_twenty_four.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 25) {
+						if (integer < 0) {
+							clear_twenty_five.add("0" + integer);
+						} else {
+							clear_twenty_five.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 26) {
+						if (integer < 0) {
+							clear_twenty_six.add("0" + integer);
+						} else {
+							clear_twenty_six.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 27) {
+						if (integer < 0) {
+							clear_twenty_seven.add("0" + integer);
+						} else {
+							clear_twenty_seven.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 28) {
+						if (integer < 0) {
+							clear_twenty_eight.add("0" + integer);
+						} else {
+							clear_twenty_eight.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 29) {
+						if (integer < 0) {
+							clear_twenty_nine.add("0" + integer);
+						} else {
+							clear_twenty_nine.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 30) {
+						if (integer < 0) {
+							clear_thirty.add("0" + integer);
+						} else {
+							clear_thirty.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 31) {
+						if (integer < 0) {
+							clear_thirty_one.add("0" + integer);
+						} else {
+							clear_thirty_one.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 32) {
+						if (integer < 0) {
+							clear_thirty_two.add("0" + integer);
+						} else {
+							clear_thirty_two.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 33) {
+						if (integer < 0) {
+							clear_thirty_three.add("0" + integer);
+						} else {
+							clear_thirty_three.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 34) {
+						if (integer < 0) {
+							clear_thirty_four.add("0" + integer);
+						} else {
+							clear_thirty_four.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 35) {
+						if (integer < 0) {
+							clear_thirty_five.add("0" + integer);
+						} else {
+							clear_thirty_five.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 36) {
+						if (integer < 0) {
+							clear_thirty_six.add("0" + integer);
+						} else {
+							clear_thirty_six.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 37) {
+						if (integer < 0) {
+							clear_thirty_seven.add("0" + integer);
+						} else {
+							clear_thirty_seven.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 38) {
+						if (integer < 0) {
+							clear_thirty_eight.add("0" + integer);
+						} else {
+							clear_thirty_eight.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 39) {
+						if (integer < 0) {
+							clear_thirty_nine.add("0" + integer);
+						} else {
+							clear_thirty_nine.add(integer + "");
+						}
+					} else if (Mintempsixones.size() == 40) {
+						if (integer < 0) {
+							clear_fourty.add("0" + integer);
+						} else {
+							clear_fourty.add(integer + "");
+						}
 					}
 
 				}
@@ -271,19 +436,92 @@ public class SixOneAction extends BaseAction {
 			}
 
 		}
-
-		logger.info(clear_zero.toString());
-		logger.info(clear_one.toString());
-		logger.info(clear_two.toString());
-		logger.info(clear_three.toString());
-		logger.info(clear_four.toString());
-		logger.info(clear_five.toString());
-		logger.info(clear_six.toString());
-		logger.info(clear_seven.toString());
-		logger.info(clear_eight.toString());
-		logger.info(clear_nine.toString());
-		logger.info(clear_ten.toString());
-
+		logger.info("==============================");
+		logger.info("遗漏次数为0:" + clear_zero.toString());
+		logger.info("遗漏次数为1" + clear_one.toString());
+		logger.info("遗漏次数为2" + clear_two.toString());
+		logger.info("遗漏次数为3" + clear_three.toString());
+		logger.info("遗漏次数为4" + clear_four.toString());
+		logger.info("遗漏次数为5" + clear_five.toString());
+		logger.info("遗漏次数为6" + clear_six.toString());
+		logger.info("遗漏次数为7" + clear_seven.toString());
+		logger.info("遗漏次数为8" + clear_eight.toString());
+		logger.info("遗漏次数为9" + clear_nine.toString());
+		logger.info("遗漏次数为10" + clear_ten.toString());
+		logger.info("遗漏次数为11:" + clear_eleven.toString());
+		logger.info("遗漏次数为12" + clear_twelve.toString());
+		logger.info("遗漏次数为13" + clear_thirdteen.toString());
+		logger.info("遗漏次数为14" + clear_fourteen.toString());
+		logger.info("遗漏次数为15" + clear_fifteen.toString());
+		logger.info("遗漏次数为16" + clear_sixteen.toString());
+		logger.info("遗漏次数为17" + clear_seventeen.toString());
+		logger.info("遗漏次数为18" + clear_eighteen.toString());
+		logger.info("遗漏次数为19" + clear_nineteen.toString());
+		logger.info("遗漏次数为20" + clear_twenty.toString());
+		logger.info("遗漏次数为21" + clear_twenty_one.toString());
+		logger.info("遗漏次数为22" + clear_twenty_two.toString());
+		logger.info("遗漏次数为23" + clear_twenty_three.toString());
+		logger.info("遗漏次数为24" + clear_twenty_four.toString());
+		logger.info("遗漏次数为25" + clear_twenty_five.toString());
+		logger.info("遗漏次数为26" + clear_twenty_six.toString());
+		logger.info("遗漏次数为27" + clear_twenty_seven.toString());
+		logger.info("遗漏次数为28" + clear_twenty_eight.toString());
+		logger.info("遗漏次数为29" + clear_twenty_nine.toString());
+		logger.info("遗漏次数为30" + clear_thirty.toString());
+		logger.info("遗漏次数为31" + clear_thirty_one.toString());
+		logger.info("遗漏次数为32" + clear_thirty_two.toString());
+		logger.info("遗漏次数为33" + clear_thirty_three.toString());
+		logger.info("遗漏次数为34" + clear_thirty_four.toString());
+		logger.info("遗漏次数为35" + clear_thirty_five.toString());
+		logger.info("遗漏次数为36" + clear_thirty_six.toString());
+		logger.info("遗漏次数为37" + clear_thirty_seven.toString());
+		logger.info("遗漏次数为38" + clear_thirty_eight.toString());
+		logger.info("遗漏次数为39" + clear_thirty_nine.toString());
+		logger.info("遗漏次数为40" + clear_fourty.toString());
+		all.add(clear_zero);
+		all.add(clear_one);
+		all.add(clear_three);
+		all.add(clear_four);
+		all.add(clear_five);
+		all.add(clear_six);
+		all.add(clear_seven);
+		all.add(clear_eight);
+		all.add(clear_nine);
+		all.add(clear_ten);
+		all.add(clear_eleven);
+		all.add(clear_twelve);
+		all.add(clear_thirdteen);
+		all.add(clear_fourteen);
+		all.add(clear_fifteen);
+		all.add(clear_sixteen);
+		all.add(clear_seventeen);
+		all.add(clear_eighteen);
+		all.add(clear_nineteen);
+		all.add(clear_twenty);
+		all.add(clear_twenty_one);
+		all.add(clear_twenty_two);
+		all.add(clear_twenty_three);
+		all.add(clear_twenty_four);
+		all.add(clear_twenty_five);
+		all.add(clear_twenty_six);
+		all.add(clear_twenty_seven);
+		all.add(clear_twenty_eight);
+		all.add(clear_twenty_nine);
+		all.add(clear_thirty);
+		all.add(clear_thirty_one);
+		all.add(clear_thirty_two);
+		all.add(clear_thirty_three);
+		all.add(clear_thirty_four);
+		all.add(clear_thirty_five);
+		all.add(clear_thirty_six);
+		all.add(clear_thirty_seven);
+		all.add(clear_thirty_eight);
+		all.add(clear_thirty_nine);
+		all.add(clear_fourty);
+		map.put("clear", all);
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
 		return "CLEARYILOUMOSHI_SUCEESS";
 
 	}
