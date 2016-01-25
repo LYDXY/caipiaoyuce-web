@@ -1085,13 +1085,15 @@
 						dataType : "json",
 						success : function(data) {
 							alert(data);
+							//console.log(json.clear[0])
 							var json = eval('(' + data + ')');
-							
-							
+
 							for (var i = 0; i < json.clear.length; i++) {
 								var trHtml = '<tr>';
-								var tdHtml = '<td class="info">'
-										+ json.clear[i] + '</td>';
+								var tdHtml = '';
+								for(var j=0; j<json.clear[i].length;j++){
+									tdHtml += '<td class="info">' + json.clear[i][j] + '</td>';
+								}
 								trHtml += tdHtml;
 								trHtml += '</tr>';
 								$("#cleartbody").append(trHtml);

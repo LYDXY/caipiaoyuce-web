@@ -183,248 +183,248 @@ public class SixOneAction extends BaseAction {
 				if (!iscunzai) {
 
 					if (Mintempsixones.size() == 0) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_zero.add("0" + integer);
 						} else {
 							clear_zero.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 1) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_one.add("0" + integer);
 						} else {
 							clear_one.add(integer + "");
 						}
 
 					} else if (Mintempsixones.size() == 2) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_two.add("0" + integer);
 						} else {
 							clear_two.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 3) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_three.add("0" + integer);
 						} else {
 							clear_three.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 4) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_four.add("0" + integer);
 						} else {
 							clear_four.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 5) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_five.add("0" + integer);
 						} else {
 							clear_five.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 6) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_six.add("0" + integer);
 						} else {
 							clear_six.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 7) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_seven.add("0" + integer);
 						} else {
 							clear_seven.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 8) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_eight.add("0" + integer);
 						} else {
 							clear_eight.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 9) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_nine.add("0" + integer);
 						} else {
 							clear_nine.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 10) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_ten.add("0" + integer);
 						} else {
 							clear_ten.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 11) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_eleven.add("0" + integer);
 						} else {
 							clear_eleven.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 12) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_twelve.add("0" + integer);
 						} else {
 							clear_twelve.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 13) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_thirdteen.add("0" + integer);
 						} else {
 							clear_thirdteen.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 14) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_fourteen.add("0" + integer);
 						} else {
 							clear_fourteen.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 15) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_fifteen.add("0" + integer);
 						} else {
 							clear_fifteen.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 16) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_sixteen.add("0" + integer);
 						} else {
 							clear_sixteen.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 17) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_seventeen.add("0" + integer);
 						} else {
 							clear_seventeen.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 18) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_eighteen.add("0" + integer);
 						} else {
 							clear_eighteen.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 19) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_nineteen.add("0" + integer);
 						} else {
 							clear_nineteen.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 20) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_twenty.add("0" + integer);
 						} else {
 							clear_twenty.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 21) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_twenty_one.add("0" + integer);
 						} else {
 							clear_twenty_one.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 22) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_twenty_two.add("0" + integer);
 						} else {
 							clear_twenty_two.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 23) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_twenty_three.add("0" + integer);
 						} else {
 							clear_twenty_three.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 24) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_twenty_four.add("0" + integer);
 						} else {
 							clear_twenty_four.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 25) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_twenty_five.add("0" + integer);
 						} else {
 							clear_twenty_five.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 26) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_twenty_six.add("0" + integer);
 						} else {
 							clear_twenty_six.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 27) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_twenty_seven.add("0" + integer);
 						} else {
 							clear_twenty_seven.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 28) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_twenty_eight.add("0" + integer);
 						} else {
 							clear_twenty_eight.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 29) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_twenty_nine.add("0" + integer);
 						} else {
 							clear_twenty_nine.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 30) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_thirty.add("0" + integer);
 						} else {
 							clear_thirty.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 31) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_thirty_one.add("0" + integer);
 						} else {
 							clear_thirty_one.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 32) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_thirty_two.add("0" + integer);
 						} else {
 							clear_thirty_two.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 33) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_thirty_three.add("0" + integer);
 						} else {
 							clear_thirty_three.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 34) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_thirty_four.add("0" + integer);
 						} else {
 							clear_thirty_four.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 35) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_thirty_five.add("0" + integer);
 						} else {
 							clear_thirty_five.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 36) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_thirty_six.add("0" + integer);
 						} else {
 							clear_thirty_six.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 37) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_thirty_seven.add("0" + integer);
 						} else {
 							clear_thirty_seven.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 38) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_thirty_eight.add("0" + integer);
 						} else {
 							clear_thirty_eight.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 39) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_thirty_nine.add("0" + integer);
 						} else {
 							clear_thirty_nine.add(integer + "");
 						}
 					} else if (Mintempsixones.size() == 40) {
-						if (integer < 0) {
+						if (integer < 10) {
 							clear_fourty.add("0" + integer);
 						} else {
 							clear_fourty.add(integer + "");

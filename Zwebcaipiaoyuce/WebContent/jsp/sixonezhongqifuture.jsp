@@ -209,19 +209,21 @@ td{text-align: center;}
 								$("#showmoshi").append(trHtml);
 							}
 							
-							
+							alert(json["futureqingkuang"]);
 							for (var i = 0; i < json["futureqingkuang"].length; i++) {
 								var trHtml = '<tr>';
-								var tdHtml = '<td class="success">';
+								//var tdHtml = '<td class="success">';
+								var tdHtml='';
 								for (var j = 0; j < json["futureqingkuang"][i].length; j++) {
-									if(j==0){
+									tdHtml += '<td class="success">'+json["futureqingkuang"][i][j]+'</td>';
+									/* if(j==0){
 										tdHtml += json["futureqingkuang"][i][j] + '</td><td class="info">';
 										continue;
 									}else{
 										tdHtml += json["futureqingkuang"][i][j];
-									}
+									} */
 								}
-								tdHtml += '</td>';
+								//tdHtml += '</td>';
 								trHtml += tdHtml;
 								trHtml += '</tr>';
 								$("#showfutureYuceMoshi").append(trHtml);
