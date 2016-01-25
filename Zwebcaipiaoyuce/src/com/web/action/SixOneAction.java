@@ -480,6 +480,7 @@ public class SixOneAction extends BaseAction {
 		logger.info("遗漏次数为40" + clear_fourty.toString());
 		all.add(clear_zero);
 		all.add(clear_one);
+		all.add(clear_two);
 		all.add(clear_three);
 		all.add(clear_four);
 		all.add(clear_five);
