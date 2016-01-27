@@ -1,6 +1,7 @@
 package com.web.action;
 
 import java.io.PrintWriter;
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -106,47 +107,47 @@ public class SixOneAction extends BaseAction {
 		List<String> clear_thirty_eight = new ArrayList<String>();
 		List<String> clear_thirty_nine = new ArrayList<String>();
 		List<String> clear_fourty = new ArrayList<String>();
-        clear_zero.add("遗漏次数为0");
-        clear_one.add("遗漏次数为1");
-        clear_two.add("遗漏次数为2");
-        clear_three.add("遗漏次数为3");
-        clear_four.add("遗漏次数为4");
-        clear_five.add("遗漏次数为5");
-        clear_six.add("遗漏次数为6");
-        clear_seven.add("遗漏次数为7");
-        clear_eight.add("遗漏次数为8");
-        clear_nine.add("遗漏次数为9");
-        clear_ten.add("遗漏次数为10");
-        clear_eleven.add("遗漏次数为11");
-        clear_twelve.add("遗漏次数为12");
-        clear_thirdteen.add("遗漏次数为13");
-        clear_fourteen.add("遗漏次数为14");
-        clear_fifteen.add("遗漏次数为15");
-        clear_sixteen.add("遗漏次数为16");
-        clear_seventeen.add("遗漏次数为17");
-        clear_eighteen.add("遗漏次数为18");
-        clear_nineteen.add("遗漏次数为19");
-        clear_twenty.add("遗漏次数为20");
-        clear_twenty_one.add("遗漏次数为21");
-        clear_twenty_two.add("遗漏次数为22");
-        clear_twenty_three.add("遗漏次数为23");
-        clear_twenty_four.add("遗漏次数为24");
-        clear_twenty_five.add("遗漏次数为25");
-        clear_twenty_six.add("遗漏次数为26");
-        clear_twenty_seven.add("遗漏次数为27");
-        clear_twenty_eight.add("遗漏次数为28");
-        clear_twenty_nine.add("遗漏次数为29");
-        clear_thirty.add("遗漏次数为30");
-        clear_thirty_one.add("遗漏次数为31");
-        clear_thirty_two.add("遗漏次数为32");
-        clear_thirty_three.add("遗漏次数为33");
-        clear_thirty_four.add("遗漏次数为34");
-        clear_thirty_five.add("遗漏次数为35");
-        clear_thirty_six.add("遗漏次数为36");
-        clear_thirty_seven.add("遗漏次数为37");
-        clear_thirty_eight.add("遗漏次数为38");
-        clear_thirty_nine.add("遗漏次数为39");
-        clear_fourty.add("遗漏次数为40");
+		clear_zero.add("遗漏次数为0");
+		clear_one.add("遗漏次数为1");
+		clear_two.add("遗漏次数为2");
+		clear_three.add("遗漏次数为3");
+		clear_four.add("遗漏次数为4");
+		clear_five.add("遗漏次数为5");
+		clear_six.add("遗漏次数为6");
+		clear_seven.add("遗漏次数为7");
+		clear_eight.add("遗漏次数为8");
+		clear_nine.add("遗漏次数为9");
+		clear_ten.add("遗漏次数为10");
+		clear_eleven.add("遗漏次数为11");
+		clear_twelve.add("遗漏次数为12");
+		clear_thirdteen.add("遗漏次数为13");
+		clear_fourteen.add("遗漏次数为14");
+		clear_fifteen.add("遗漏次数为15");
+		clear_sixteen.add("遗漏次数为16");
+		clear_seventeen.add("遗漏次数为17");
+		clear_eighteen.add("遗漏次数为18");
+		clear_nineteen.add("遗漏次数为19");
+		clear_twenty.add("遗漏次数为20");
+		clear_twenty_one.add("遗漏次数为21");
+		clear_twenty_two.add("遗漏次数为22");
+		clear_twenty_three.add("遗漏次数为23");
+		clear_twenty_four.add("遗漏次数为24");
+		clear_twenty_five.add("遗漏次数为25");
+		clear_twenty_six.add("遗漏次数为26");
+		clear_twenty_seven.add("遗漏次数为27");
+		clear_twenty_eight.add("遗漏次数为28");
+		clear_twenty_nine.add("遗漏次数为29");
+		clear_thirty.add("遗漏次数为30");
+		clear_thirty_one.add("遗漏次数为31");
+		clear_thirty_two.add("遗漏次数为32");
+		clear_thirty_three.add("遗漏次数为33");
+		clear_thirty_four.add("遗漏次数为34");
+		clear_thirty_five.add("遗漏次数为35");
+		clear_thirty_six.add("遗漏次数为36");
+		clear_thirty_seven.add("遗漏次数为37");
+		clear_thirty_eight.add("遗漏次数为38");
+		clear_thirty_nine.add("遗漏次数为39");
+		clear_fourty.add("遗漏次数为40");
 		for (int i = 0; i < sixonesTop40.size(); i++) {
 			// 获取比自己大的期数,并且将其降序
 			List<SixOne> Mintempsixones = SixOneServices.way16(sixonesTop40.get(i).getQishu());
@@ -1830,7 +1831,7 @@ public class SixOneAction extends BaseAction {
 		List<Integer> sixonesTop5fuhetijianfive = new ArrayList<Integer>();
 
 		for (SixOne sixOne : sixonesTop5fuhetijian) {
-			// 146, 147,148 ,149,150
+			System.out.println(sixOne.getQishu() + "========");
 			Integer qishu = sixOne.getQishu();
 			Integer first = sixOne.getFirst();
 			Integer second = sixOne.getSecond();
@@ -1853,50 +1854,31 @@ public class SixOneAction extends BaseAction {
 				for (SixOne sixOne2 : sixonesTop5fuhetijian) {
 
 					if (sixOne2.getQishu() > qishu) {
-
-						if (integer2 == sixOne2.getFirst() || integer2 == sixOne2.getSecond()
-								|| integer2 == sixOne2.getThird() || integer2 == sixOne2.getFourth()
-								|| integer2 == sixOne2.getFifth() || integer2 == sixOne2.getSixth()
-								|| integer2 == sixOne2.getSeventh()) {
-							logger.info(integer2 + "在第--------------" + qishu + "和" + sixOne2.getQishu() + "出现"
-									+ "遗漏次数是:" + (sixOne2.getQishu() - qishu - 1));
-
-							if (sixOne2.getQishu() - qishu - 1 == 0) {
-								sixonesTop5fuhetijianZero.add(integer2);
-								ischongfu = true;
-								break;
-							}
-							if (sixOne2.getQishu() - qishu - 1 == 1) {
-								sixonesTop5fuhetijianOne.add(integer2);
-								ischongfu = true;
-								break;
-
-							}
-							if (sixOne2.getQishu() - qishu - 1 == 2) {
-								sixonesTop5fuhetijianTwo.add(integer2);
-								ischongfu = true;
-								break;
-							}
-							if (sixOne2.getQishu() - qishu - 1 == 3) {
-								sixonesTop5fuhetijianThree.add(integer2);
-								ischongfu = true;
-								break;
-							}
-							if (sixOne2.getQishu() - qishu - 1 == 4) {
-								sixonesTop5fuhetijianfour.add(integer2);
-								ischongfu = true;
-								break;
-							}
-
+						// 147,148,149,150
+						System.out.println(sixOne2.getQishu() + "========");
+						if (integer2 == sixOne2.getFirst()) {
+							ischongfu = true;
+							break;
+						} else if (integer2 == sixOne2.getSecond()) {
+							ischongfu = true;
+							break;
+						} else if (integer2 == sixOne2.getThird()) {
+							ischongfu = true;
+							break;
+						} else if (integer2 == sixOne2.getFourth()) {
+							ischongfu = true;
+							break;
+						} else if (integer2 == sixOne2.getFifth()) {
+							ischongfu = true;
+							break;
+						} else if (integer2 == sixOne2.getSixth()) {
+							ischongfu = true;
+							break;
+						} else if (integer2 == sixOne2.getSeventh()) {
+							ischongfu = true;
+							break;
 						}
-
-						if (integer2 != sixOne2.getFirst() && integer2 != sixOne2.getSecond()
-								&& integer2 != sixOne2.getThird() && integer2 != sixOne2.getFourth()
-								&& integer2 != sixOne2.getFifth() && integer2 != sixOne2.getSixth()
-								&& integer2 != sixOne2.getSeventh()) {
-
-							yilou++;
-						}
+						yilou++;
 					}
 
 				}
@@ -2897,6 +2879,10 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> temps;
 		List<Map<String, Object>> fenxijieguolist = new ArrayList<Map<String, Object>>();
 		List<StringBuilder> builders = new ArrayList<StringBuilder>();
+		float histoty_zongpingjun = 0.f;
+		float history_geshupingjun = 0.f;
+		// 统计过去5期遗漏次数
+		List<Integer> list5yilou = new ArrayList<Integer>();
 		// 遍历过去40期 降序
 		while (iter.hasNext()) {
 			Map<String, Object> everyone = new HashMap<String, Object>();
@@ -2976,199 +2962,110 @@ public class SixOneAction extends BaseAction {
 					Integer tempsixth = tempsixOne.getSixth();
 					Integer tempseventh = tempsixOne.getSeventh();
 					if (integer == tempfirst) {
-						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						if (qishu > 2016000) {
-							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
-						} else {
-							yilouzongshu += qishu - tempqishu - 1;
-						}
-
-						if ((qishu - tempqishu - 1) < 10) {
+						Integer tempYiLou = qishu - tempqishu - 1;
+						yilouzongshu += tempYiLou;
+						if (tempYiLou < 10) {
 							geshu += 1.f;
-							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
+							stringBuilder.append("0" + tempYiLou + "-");
 						} else {
-							if (qishu > 2016000) {
-								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
-								if (iiii < 10) {
-									geshu += 1.f;
-									stringBuilder.append("0" + iiii + "-");
-								} else {
-									stringBuilder.append(iiii + "-");
-								}
-
-							} else {
-								stringBuilder.append((qishu - tempqishu - 1) + "-");
-							}
-
+							stringBuilder.append(tempYiLou + "-");
 						}
-						logger.info("------------------------------------");
+						// 统计最新5期的情况
+						if ((maxqishu - qishu) < 5) {
+							list5yilou.add(tempYiLou);
+						}
+						//
 						iscunzai = true;
 						break;
 					} else if (integer == tempsecond) {
-						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						if (qishu > 2016000) {
-							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
-						} else {
-							yilouzongshu += qishu - tempqishu - 1;
-						}
+						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							if (qishu > 2016000) {
-								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
-								if (iiii < 10) {
-									geshu += 1.f;
-									stringBuilder.append("0" + iiii + "-");
-								} else {
-									stringBuilder.append(iiii + "-");
-								}
-
-							} else {
-								stringBuilder.append((qishu - tempqishu - 1) + "-");
-							}
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						// 统计最新5期的情况
+						if ((maxqishu - qishu) < 5) {
+							list5yilou.add((qishu - tempqishu - 1));
+						}
+						//
 						iscunzai = true;
-						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempthird) {
-						if (qishu > 2016000) {
-							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
-						} else {
-							yilouzongshu += qishu - tempqishu - 1;
-						}
-						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
+						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							if (qishu > 2016000) {
-								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
-								if (iiii < 10) {
-									geshu += 1.f;
-									stringBuilder.append("0" + iiii + "-");
-								} else {
-									stringBuilder.append(iiii + "-");
-								}
-
-							} else {
-								stringBuilder.append((qishu - tempqishu - 1) + "-");
-							}
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						// 统计最新5期的情况
+						if ((maxqishu - qishu) < 5) {
+							list5yilou.add((qishu - tempqishu - 1));
+						}
+						//
 						iscunzai = true;
-						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempfourth) {
-						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						if (qishu > 2016000) {
-							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
-						} else {
-							yilouzongshu += qishu - tempqishu - 1;
-						}
+						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							if (qishu > 2016000) {
-								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
-								if (iiii < 10) {
-									geshu += 1.f;
-									stringBuilder.append("0" + iiii + "-");
-								} else {
-									stringBuilder.append(iiii + "-");
-								}
-
-							} else {
-								stringBuilder.append((qishu - tempqishu - 1) + "-");
-							}
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						// 统计最新5期的情况
+						if ((maxqishu - qishu) < 5) {
+							list5yilou.add((qishu - tempqishu - 1));
+						}
+						//
 						iscunzai = true;
-						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempfifth) {
-						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						if (qishu > 2016000) {
-							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
-						} else {
-							yilouzongshu += qishu - tempqishu - 1;
-						}
+						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							if (qishu > 2016000) {
-								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
-								if (iiii < 10) {
-									geshu += 1.f;
-									stringBuilder.append("0" + iiii + "-");
-								} else {
-									stringBuilder.append(iiii + "-");
-								}
-
-							} else {
-								stringBuilder.append((qishu - tempqishu - 1) + "-");
-							}
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						// 统计最新5期的情况
+						if ((maxqishu - qishu) < 5) {
+							list5yilou.add((qishu - tempqishu - 1));
+						}
+						//
 						iscunzai = true;
-						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempsixth) {
-						logger.info("数字" + integer + "在第" + qishu + "期出现");
-						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
-						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						if (qishu > 2016000) {
-							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
-						} else {
-							yilouzongshu += qishu - tempqishu - 1;
-						}
+						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							if (qishu > 2016000) {
-								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
-								if (iiii < 10) {
-									geshu += 1.f;
-									stringBuilder.append("0" + iiii + "-");
-								} else {
-									stringBuilder.append(iiii + "-");
-								}
-
-							} else {
-								stringBuilder.append((qishu - tempqishu - 1) + "-");
-							}
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						// 统计最新5期的情况
+						if ((maxqishu - qishu) < 5) {
+							list5yilou.add((qishu - tempqishu - 1));
+						}
+						//
 						iscunzai = true;
-						logger.info("------------------------------------");
 						break;
 					} else if (integer == tempseventh) {
-						logger.info("数字" + integer + "在第" + qishu + "期出现");
-						logger.info("数字" + integer + "在第" + tempqishu + "期出现");
-						logger.info("数字" + integer + "的遗忘间隔次数为" + (qishu - tempqishu - 1));
-						if (qishu > 2016000) {
-							yilouzongshu += (qishu - 2016000 + 2015152) - tempqishu - 1;
-						} else {
-							yilouzongshu += qishu - tempqishu - 1;
-						}
+						yilouzongshu += qishu - tempqishu - 1;
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
 						} else {
-							if (qishu > 2016000) {
-								int iiii = (qishu - 2016000 + 2015152) - tempqishu - 1;
-								if (iiii < 10) {
-									geshu += 1.f;
-									stringBuilder.append("0" + iiii + "-");
-								} else {
-									stringBuilder.append(iiii + "-");
-								}
-
-							} else {
-								stringBuilder.append((qishu - tempqishu - 1) + "-");
-							}
+							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
+						// 统计最新5期的情况
+						if ((maxqishu - qishu) < 5) {
+							list5yilou.add((qishu - tempqishu - 1));
+						}
+						//
 						iscunzai = true;
-						logger.info("------------------------------------");
 						break;
 					}
 
@@ -3186,7 +3083,8 @@ public class SixOneAction extends BaseAction {
 			logger.info("本次遗漏次数在10以内的数字共有" + (int) geshu + "个");
 			logger.info("本期遗漏的次数总数" + yilouzongshu);
 			logger.info("本次遗漏平均个数为" + yilouzongshu / 7.f + "个");
-			// builders.add(stringBuilder);
+			histoty_zongpingjun += yilouzongshu;
+			history_geshupingjun += geshu;
 			fenxijieguolist.add(everyone);
 		}
 		logger.info("分析结果");
@@ -3196,8 +3094,203 @@ public class SixOneAction extends BaseAction {
 			}
 		}
 		logger.info("==============================================");
-		// logger.info(builders.toString());
+		logger.info("最新5期的遗漏情况:" + (list5yilou.size()));
 
+		int zero = 0;
+		int one = 0;
+		int two = 0;
+		int three = 0;
+		int four = 0;
+		int five = 0;
+		int six = 0;
+		int seven = 0;
+		int eight = 0;
+		int nine = 0;
+		int ten = 0;
+		int eleven = 0;
+		int twelve = 0;
+		int thirteen = 0;
+		int fourteen = 0;
+		int fifteen = 0;
+		int sixteen = 0;
+		int seventeen = 0;
+		int eighteen = 0;
+		int nineteen = 0;
+		int twenty = 0;
+		int twenty_one = 0;
+		int twenty_two = 0;
+		int twenty_three = 0;
+		int twenty_four = 0;
+		int twenty_five = 0;
+		int twenty_six = 0;
+		int twenty_seven = 0;
+		int twenty_eight = 0;
+		int twenty_nine = 0;
+		int thirty = 0;
+		int thirty_one = 0;
+		int thirty_two = 0;
+		int thirty_three = 0;
+		int thirty_four = 0;
+		int thirty_five = 0;
+		int thirty_six = 0;
+		int thirty_seven = 0;
+		int thirty_eight = 0;
+		int thirty_nine = 0;
+		int fourty = 0;
+		int fourty_one = 0;
+		int fourty_two = 0;
+		int fourty_three = 0;
+		int fourty_four = 0;
+		int fourty_five = 0;
+		int fourty_six = 0;
+		int fourty_seven = 0;
+		int fourty_eight = 0;
+		int fourty_nine = 0;
+		int fifty = 0;
+		for (int i = 0; i < list5yilou.size(); i++) {
+			for (int j = 0; j < 50; j++) {
+				if (list5yilou.get(i) == j) {
+					if (j == 0) {
+						zero++;
+					} else if (j == 1) {
+						one++;
+					} else if (j == 2) {
+						two++;
+					} else if (j == 3) {
+						three++;
+					} else if (j == 4) {
+						four++;
+					} else if (j == 5) {
+						five++;
+					} else if (j == 6) {
+						six++;
+					} else if (j == 7) {
+						seven++;
+					} else if (j == 8) {
+						eight++;
+					} else if (j == 9) {
+						nine++;
+					} else if (j == 10) {
+						ten++;
+					} else if (j == 11) {
+						eleven++;
+					} else if (j == 12) {
+						twelve++;
+					} else if (j == 13) {
+						thirteen++;
+					} else if (j == 14) {
+						fourteen++;
+					} else if (j == 15) {
+						fifteen++;
+					} else if (j == 16) {
+						sixteen++;
+					} else if (j == 17) {
+						seventeen++;
+					} else if (j == 18) {
+						eighteen++;
+					} else if (j == 19) {
+						nineteen++;
+					} else if (j == 20) {
+						twenty++;
+					} else if (j == 21) {
+						twenty_one++;
+					} else if (j == 22) {
+						twenty_two++;
+					} else if (j == 23) {
+						twenty_three++;
+					} else if (j == 24) {
+						twenty_four++;
+					} else if (j == 25) {
+						twenty_five++;
+					} else if (j == 26) {
+						twenty_six++;
+					} else if (j == 27) {
+						twenty_seven++;
+					} else if (j == 28) {
+						twenty_eight++;
+					} else if (j == 29) {
+						twenty_nine++;
+					} else if (j == 30) {
+						thirty++;
+					} else if (j == 31) {
+						thirty_one++;
+					} else if (j == 32) {
+						thirty_two++;
+					} else if (j == 33) {
+						thirty_three++;
+					} else if (j == 34) {
+						thirty_four++;
+					} else if (j == 35) {
+						thirty_five++;
+					} else if (j == 36) {
+						thirty_six++;
+					} else if (j == 37) {
+						thirty_seven++;
+					} else if (j == 38) {
+						thirty_eight++;
+					} else if (j == 39) {
+						thirty_nine++;
+					} else if (j == 40) {
+						fourty++;
+					} else if (j == 41) {
+						fourty_one++;
+					} else if (j == 42) {
+						fourty_two++;
+					} else if (j == 43) {
+						fourty_three++;
+					} else if (j == 44) {
+						fourty_four++;
+					} else if (j == 45) {
+						fourty_five++;
+					} else if (j == 46) {
+						fourty_six++;
+					} else if (j == 47) {
+						fourty_seven++;
+					} else if (j == 48) {
+						fourty_eight++;
+					} else if (j == 49) {
+						fourty_nine++;
+					} else if (j == 50) {
+						fifty++;
+					}
+				}
+			}
+		}
+		logger.info("0的个数:" + zero);
+		logger.info("1的个数:" + one);
+		logger.info("2的个数:" + two);
+		logger.info("3的个数:" + three);
+		logger.info("4的个数:" + four);
+		logger.info("5的个数:" + five);
+		logger.info("6的个数:" + six);
+		logger.info("7的个数:" + seven);
+		logger.info("8的个数:" + eight);
+		logger.info("9的个数:" + nine);
+		logger.info("10的个数:" + ten);
+		logger.info("11的个数:" + eleven);
+		logger.info("12的个数:" + twelve);
+		logger.info("13的个数:" + thirteen);
+		logger.info("14的个数:" + fourteen);
+		logger.info("15的个数:" + fifteen);
+		logger.info("16的个数:" + sixteen);
+		logger.info("17的个数:" + seventeen);
+		logger.info("18的个数:" + eighteen);
+		logger.info("19的个数:" + nineteen);
+		logger.info("20的个数:" + twenty);
+		logger.info("21的个数:" + twenty_one);
+		logger.info("22的个数:" + twenty_two);
+		logger.info("23的个数:" + twenty_three);
+		logger.info("24的个数:" + twenty_four);
+		logger.info("25的个数:" + twenty_five);
+		logger.info("26的个数:" + twenty_six);
+		logger.info("27的个数:" + twenty_seven);
+		logger.info("28的个数:" + twenty_eight);
+		logger.info("29的个数:" + twenty_nine);
+		logger.info("30的个数:" + thirty);
+
+		logger.info("历史平均总计值" + (histoty_zongpingjun / 40.f));
+		logger.info("历史个数平均值" + (history_geshupingjun / 40.f));
+		logger.info("==============================================");
 		logger.info(fenxijieguolist.toString());
 		JSONArray jsonObjectFromMap = JSONArray.fromObject(fenxijieguolist);
 		logger.info(jsonObjectFromMap.toString());
