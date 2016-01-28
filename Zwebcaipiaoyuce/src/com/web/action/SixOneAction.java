@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 import com.sun.star.io.IOException;
 import com.web.pojo.SixOne;
 import com.web.services.SixOneServices;
+import com.web.yuce.common.utils.DuanQiCommonUtils;
 import com.web.yuce.common.utils.MySelfZuHe;
 
 import net.sf.json.JSONArray;
@@ -521,6 +522,18 @@ public class SixOneAction extends BaseAction {
 		all.add(clear_thirty_nine);
 		all.add(clear_fourty);
 		map.put("clear", all);
+		//每一期进行冒泡排序
+		logger.info("============================冒泡排序");
+		for (SixOne numbers : sixonesTop40) {
+		     int [] k=new int[] {numbers.getFirst(),numbers.getSecond(),numbers.getThird(),numbers.getFourth(),numbers.getFifth(),numbers.getSixth(),numbers.getSeventh()};
+		     DuanQiCommonUtils.bubbleSort(numbers.getId(),k);
+		}
+		logger.info("============================冒泡排序");
+		
+		
+		
+		
+		
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();

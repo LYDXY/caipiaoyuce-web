@@ -26,4 +26,31 @@ public class DuanQiCommonUtils {
 	}
 	
 
+	
+	public static void bubbleSort(Integer qishu,int[] numbers) {   
+	    int temp; // 记录临时中间值   
+	    int size = numbers.length; // 数组大小   
+	    for (int i = 0; i < size - 1; i++) {   
+	        for (int j = i + 1; j < size; j++) {   
+	            if (numbers[i] > numbers[j]) { // 交换两数的位置   
+	                temp = numbers[i];   
+	                numbers[i] = numbers[j];   
+	                numbers[j] = temp;   
+	            }   
+	        }   
+	    }
+	    String string=new String();
+	    string="期数:"+qishu+"--";
+	    for (int i = 0; i < numbers.length; i++) {
+	    	if (numbers[i]<10) {
+	    		string+=("0"+numbers[i]+",");
+			}else {
+				string+=(numbers[i]+",");
+			}
+	    	
+		}
+	    System.out.println(string);
+	}
 }
+
+
