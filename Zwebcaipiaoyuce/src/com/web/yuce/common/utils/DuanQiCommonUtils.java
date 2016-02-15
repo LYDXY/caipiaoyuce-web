@@ -50,7 +50,7 @@ public class DuanQiCommonUtils {
 	    	
 		}
 	    System.out.println(string);
-	    System.out.println();
+	   // System.out.println();
 	}
 }
 
