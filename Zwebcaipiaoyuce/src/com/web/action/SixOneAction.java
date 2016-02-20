@@ -521,19 +521,18 @@ public class SixOneAction extends BaseAction {
 		all.add(clear_thirty_eight);
 		all.add(clear_thirty_nine);
 		all.add(clear_fourty);
-		map.put("clear", all);
-		//每一期进行冒泡排序
+		
+		// 每一期进行冒泡排序
 		logger.info("============================冒泡排序");
+		List<String> strings = new ArrayList<String>();
 		for (SixOne numbers : sixonesTop40) {
-		     int [] k=new int[] {numbers.getFirst(),numbers.getSecond(),numbers.getThird(),numbers.getFourth(),numbers.getFifth(),numbers.getSixth(),numbers.getSeventh()};
-		     DuanQiCommonUtils.bubbleSort(numbers.getId(),k);
+			int[] k = new int[] { numbers.getFirst(), numbers.getSecond(), numbers.getThird(), numbers.getFourth(),
+					numbers.getFifth(), numbers.getSixth(), numbers.getSeventh() };
+			strings.add(DuanQiCommonUtils.bubbleSort(numbers.getId(), k));
 		}
+		all.add(strings);
 		logger.info("============================冒泡排序");
-		
-		
-		
-		
-		
+		map.put("clear", all);
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();
@@ -1697,7 +1696,7 @@ public class SixOneAction extends BaseAction {
 	 * 遗漏数字偏差系统
 	 */
 	public String futureYiLou() {
-		logger.info("----------------------futureYiLou");
+		logger.info("------遗漏数字偏差系统------futureYiLou");
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<SixOne> sixonesTop5 = SixOneServices.way8(5);
 		List<SixOne> sixonesTop6 = SixOneServices.way8(6);
@@ -2884,17 +2883,19 @@ public class SixOneAction extends BaseAction {
 	 * 热门冷门数字偏差追踪系统
 	 */
 	public String futureColdHot() {
-		logger.info("----------------------futureColdHot");
+		logger.info("------热门冷门数字偏差追踪系统----futureColdHot");
 		List<SixOne> sixonesTop40 = SixOneServices.way6();
 		Integer maxqishu = SixOneServices.way4();
+		logger.info("=====================================");
 		logger.info("最新的期数" + maxqishu);
-		Iterator<SixOne> iter = sixonesTop40.iterator();
-		List<SixOne> temps;
+		logger.info("=====================================");
+		Iterator<SixOne> iter = sixonesTop40.iterator();// 获取最近的40期的40个对象
+		List<SixOne> temps; // 存放临时的对象
 		List<Map<String, Object>> fenxijieguolist = new ArrayList<Map<String, Object>>();
-		List<StringBuilder> builders = new ArrayList<StringBuilder>();
-		float histoty_zongpingjun = 0.f;
-		float history_geshupingjun = 0.f;
-		// 统计过去5期遗漏次数
+		
+		float histoty_zongpingjun = 0.f;//历史总平均 (遗漏次数在10一个的所有数字的遗漏数字相加)
+		float history_geshupingjun = 0.f;//历史平均遗漏个数(遗漏次数在10 以内)
+
 		List<Integer> list5yilou = new ArrayList<Integer>();
 		// 遍历过去40期 降序
 		while (iter.hasNext()) {
@@ -2909,8 +2910,8 @@ public class SixOneAction extends BaseAction {
 			Integer fifth = sixOne.getFifth();
 			Integer sixth = sixOne.getSixth();
 			Integer seventh = sixOne.getSeventh();
+			// 记录每一个对象的数据
 			everyone.put("qishu", id + "");
-
 			StringBuilder stringBuilder2 = new StringBuilder();
 			if (first < 10) {
 				stringBuilder2.append("0" + first + "-");
@@ -2950,6 +2951,7 @@ public class SixOneAction extends BaseAction {
 				stringBuilder2.append(seventh);
 			}
 			everyone.put("number", stringBuilder2.toString());
+			// 临时存储每个对象 7个数字的属性值
 			List<Integer> IntegerS = new ArrayList<Integer>();
 			IntegerS.add(first);
 			IntegerS.add(second);
@@ -2958,11 +2960,12 @@ public class SixOneAction extends BaseAction {
 			IntegerS.add(fifth);
 			IntegerS.add(sixth);
 			IntegerS.add(seventh);
-			// 查询 期数小于 选中期 的其他期数 ,并且降序
+			// 查询比自己期数小的 其他对象
 			temps = SixOneServices.way7(qishu);
 			float geshu = 0;
 			float yilouzongshu = 0;
 			StringBuilder stringBuilder = new StringBuilder();
+			// 遍历自己的七个值
 			for (Integer integer : IntegerS) {
 				boolean iscunzai = false;
 				for (SixOne tempsixOne : temps) {
@@ -3002,7 +3005,6 @@ public class SixOneAction extends BaseAction {
 						if ((maxqishu - qishu) < 5) {
 							list5yilou.add((qishu - tempqishu - 1));
 						}
-						//
 						iscunzai = true;
 						break;
 					} else if (integer == tempthird) {
@@ -3017,7 +3019,6 @@ public class SixOneAction extends BaseAction {
 						if ((maxqishu - qishu) < 5) {
 							list5yilou.add((qishu - tempqishu - 1));
 						}
-						//
 						iscunzai = true;
 						break;
 					} else if (integer == tempfourth) {
@@ -3032,7 +3033,6 @@ public class SixOneAction extends BaseAction {
 						if ((maxqishu - qishu) < 5) {
 							list5yilou.add((qishu - tempqishu - 1));
 						}
-						//
 						iscunzai = true;
 						break;
 					} else if (integer == tempfifth) {
@@ -3047,7 +3047,6 @@ public class SixOneAction extends BaseAction {
 						if ((maxqishu - qishu) < 5) {
 							list5yilou.add((qishu - tempqishu - 1));
 						}
-						//
 						iscunzai = true;
 						break;
 					} else if (integer == tempsixth) {
@@ -3062,7 +3061,6 @@ public class SixOneAction extends BaseAction {
 						if ((maxqishu - qishu) < 5) {
 							list5yilou.add((qishu - tempqishu - 1));
 						}
-						//
 						iscunzai = true;
 						break;
 					} else if (integer == tempseventh) {
@@ -3077,7 +3075,6 @@ public class SixOneAction extends BaseAction {
 						if ((maxqishu - qishu) < 5) {
 							list5yilou.add((qishu - tempqishu - 1));
 						}
-						//
 						iscunzai = true;
 						break;
 					}
@@ -3096,11 +3093,11 @@ public class SixOneAction extends BaseAction {
 			logger.info("本次遗漏次数在10以内的数字共有" + (int) geshu + "个");
 			logger.info("本期遗漏的次数总数" + yilouzongshu);
 			logger.info("本次遗漏平均个数为" + yilouzongshu / 7.f + "个");
+			fenxijieguolist.add(everyone);
 			histoty_zongpingjun += yilouzongshu;
 			history_geshupingjun += geshu;
-			fenxijieguolist.add(everyone);
 		}
-		logger.info("分析结果");
+		logger.info("分析结果=====================================");
 		for (Map<String, Object> map : fenxijieguolist) {
 			for (Map.Entry<String, Object> entry : map.entrySet()) {
 				logger.info("Key = " + entry.getKey() + ", Value = " + entry.getValue());
@@ -3303,8 +3300,8 @@ public class SixOneAction extends BaseAction {
 
 		logger.info("历史平均总计值" + (histoty_zongpingjun / 40.f));
 		logger.info("历史个数平均值" + (history_geshupingjun / 40.f));
+		
 		logger.info("==============================================");
-		logger.info(fenxijieguolist.toString());
 		JSONArray jsonObjectFromMap = JSONArray.fromObject(fenxijieguolist);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();

@@ -231,10 +231,16 @@
 						</thead>
 					</table></td>
 				<td><table class="table table-bordered">
+						<tbody id="sorttbody">
+
+						</tbody>
+					</table></td>
+				<td><table class="table table-bordered">
 						<tbody id="cleartbody">
 							<tr>
 								<td><button onclick="getclearYiLouMoShi()" type="button"
 										class="btn btn-primary btn-lg">获取清晰模式</button></td>
+
 							</tr>
 
 						</tbody>
@@ -1088,15 +1094,30 @@
 							//console.log(json.clear[0])
 							var json = eval('(' + data + ')');
 
+						
 							for (var i = 0; i < json.clear.length; i++) {
-								var trHtml = '<tr>';
-								var tdHtml = '';
-								for(var j=0; j<json.clear[i].length;j++){
-									tdHtml += '<td class="info">' + json.clear[i][j] + '</td>';
+								if(i< (json.clear.length-1)){
+									var trHtml = '<tr>';
+									var tdHtml = '';
+									for(var j=0; j<json.clear[i].length;j++){
+										tdHtml += '<td class="info">' + json.clear[i][j] + '</td>';
+									}
+									trHtml += tdHtml;
+									trHtml += '</tr>';
+									$("#cleartbody").append(trHtml);
 								}
-								trHtml += tdHtml;
-								trHtml += '</tr>';
-								$("#cleartbody").append(trHtml);
+								if (i==(json.clear.length-1)) {
+									for(var k=0;k<json.clear[i].length;k++){
+										var trHtml = '<tr>';
+										var tdHtml = '';
+										tdHtml += '<td class="info">' + json.clear[i][k] + '</td>';
+										trHtml += tdHtml;
+										trHtml += '</tr>';
+										$("#sorttbody").append(trHtml);
+									}
+									
+								}
+								
 							}
 							
 							
