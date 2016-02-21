@@ -2953,6 +2953,9 @@ public class SixOneAction extends BaseAction {
 			everyone.put("number", stringBuilder2.toString());
 			// 临时存储每个对象 7个数字的属性值
 			List<Integer> IntegerS = new ArrayList<Integer>();
+			//记录7个数字的遗漏值
+			List<Integer> S2 = new ArrayList<Integer>();
+			
 			IntegerS.add(first);
 			IntegerS.add(second);
 			IntegerS.add(third);
@@ -2977,8 +2980,10 @@ public class SixOneAction extends BaseAction {
 					Integer tempfifth = tempsixOne.getFifth();
 					Integer tempsixth = tempsixOne.getSixth();
 					Integer tempseventh = tempsixOne.getSeventh();
+					//记录每一个对象每一个号码的遗漏
 					if (integer == tempfirst) {
 						Integer tempYiLou = qishu - tempqishu - 1;
+						S2.add(qishu - tempqishu - 1);
 						yilouzongshu += tempYiLou;
 						if (tempYiLou < 10) {
 							geshu += 1.f;
@@ -2995,6 +3000,7 @@ public class SixOneAction extends BaseAction {
 						break;
 					} else if (integer == tempsecond) {
 						yilouzongshu += qishu - tempqishu - 1;
+						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
@@ -3009,6 +3015,7 @@ public class SixOneAction extends BaseAction {
 						break;
 					} else if (integer == tempthird) {
 						yilouzongshu += qishu - tempqishu - 1;
+						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
@@ -3023,6 +3030,7 @@ public class SixOneAction extends BaseAction {
 						break;
 					} else if (integer == tempfourth) {
 						yilouzongshu += qishu - tempqishu - 1;
+						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
@@ -3037,6 +3045,7 @@ public class SixOneAction extends BaseAction {
 						break;
 					} else if (integer == tempfifth) {
 						yilouzongshu += qishu - tempqishu - 1;
+						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
@@ -3051,6 +3060,7 @@ public class SixOneAction extends BaseAction {
 						break;
 					} else if (integer == tempsixth) {
 						yilouzongshu += qishu - tempqishu - 1;
+						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
@@ -3065,6 +3075,7 @@ public class SixOneAction extends BaseAction {
 						break;
 					} else if (integer == tempseventh) {
 						yilouzongshu += qishu - tempqishu - 1;
+						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
 							geshu += 1.f;
 							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
@@ -3086,26 +3097,36 @@ public class SixOneAction extends BaseAction {
 			}
 			logger.info(stringBuilder);
 			everyone.put("yilouqingkuang", stringBuilder.deleteCharAt(stringBuilder.length() - 1) + "");
+			//遗漏情况进行冒泡排序
+			
+			int[] yilouS2 ={S2.get(0),S2.get(1),S2.get(2),S2.get(3),S2.get(4),S2.get(5),S2.get(6)};
+			everyone.put("yilouqingkuangpaixu", DuanQiCommonUtils.bubbleSort(id, yilouS2));
 			everyone.put("zongyilougeshu", (int) geshu + "");
 			everyone.put("yiloucishuzongshu", yilouzongshu + "");
 			everyone.put("yiloupingjungeshu", yilouzongshu / 7.f + "");
-			logger.info("各个数字遗漏情况:" + stringBuilder);
+		/*	logger.info("各个数字遗漏情况:" + stringBuilder);
+			logger.info("各个数字遗漏情况进行排序:" + stringBuilder);
 			logger.info("本次遗漏次数在10以内的数字共有" + (int) geshu + "个");
 			logger.info("本期遗漏的次数总数" + yilouzongshu);
-			logger.info("本次遗漏平均个数为" + yilouzongshu / 7.f + "个");
+			logger.info("本次遗漏平均个数为" + yilouzongshu / 7.f + "个");*/
 			fenxijieguolist.add(everyone);
 			histoty_zongpingjun += yilouzongshu;
 			history_geshupingjun += geshu;
 		}
 		logger.info("分析结果=====================================");
+		logger.info("历史平均总计值" + (histoty_zongpingjun / 40.f));
+		logger.info("历史个数平均值" + (history_geshupingjun / 40.f));
 		for (Map<String, Object> map : fenxijieguolist) {
 			for (Map.Entry<String, Object> entry : map.entrySet()) {
 				logger.info("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 			}
 		}
 		logger.info("==============================================");
-		logger.info("最新5期的遗漏情况:" + (list5yilou.size()));
-
+		logger.info("最新5期的遗漏情况:共35个数字" + (list5yilou.size()));
+		Map<String, Object> tongji = new HashMap<String, Object>();
+		List<String> strings=new ArrayList<>();
+		strings.add("最近40期遗漏次数小于10的个数平均总计值" + (histoty_zongpingjun / 40.f));
+		strings.add("最近40期的遗漏个数总平均值" + (history_geshupingjun / 40.f));
 		int zero = 0;
 		int one = 0;
 		int two = 0;
@@ -3266,41 +3287,59 @@ public class SixOneAction extends BaseAction {
 				}
 			}
 		}
-		logger.info("0的个数:" + zero);
-		logger.info("1的个数:" + one);
-		logger.info("2的个数:" + two);
-		logger.info("3的个数:" + three);
-		logger.info("4的个数:" + four);
-		logger.info("5的个数:" + five);
-		logger.info("6的个数:" + six);
-		logger.info("7的个数:" + seven);
-		logger.info("8的个数:" + eight);
-		logger.info("9的个数:" + nine);
-		logger.info("10的个数:" + ten);
-		logger.info("11的个数:" + eleven);
-		logger.info("12的个数:" + twelve);
-		logger.info("13的个数:" + thirteen);
-		logger.info("14的个数:" + fourteen);
-		logger.info("15的个数:" + fifteen);
-		logger.info("16的个数:" + sixteen);
-		logger.info("17的个数:" + seventeen);
-		logger.info("18的个数:" + eighteen);
-		logger.info("19的个数:" + nineteen);
-		logger.info("20的个数:" + twenty);
-		logger.info("21的个数:" + twenty_one);
-		logger.info("22的个数:" + twenty_two);
-		logger.info("23的个数:" + twenty_three);
-		logger.info("24的个数:" + twenty_four);
-		logger.info("25的个数:" + twenty_five);
-		logger.info("26的个数:" + twenty_six);
-		logger.info("27的个数:" + twenty_seven);
-		logger.info("28的个数:" + twenty_eight);
-		logger.info("29的个数:" + twenty_nine);
-		logger.info("30的个数:" + thirty);
-
-		logger.info("历史平均总计值" + (histoty_zongpingjun / 40.f));
-		logger.info("历史个数平均值" + (history_geshupingjun / 40.f));
-		
+		strings.add("0的个数:" + zero);
+		strings.add("1的个数:" + one);
+		strings.add("2的个数:" + two);
+		strings.add("3的个数:" + three);
+		strings.add("4的个数:" + four);
+		strings.add("5的个数:" + five);
+		strings.add("6的个数:" + six);
+		strings.add("7的个数:" + seven);
+		strings.add("8的个数:" + eight);
+		strings.add("9的个数:" + nine);
+		strings.add("10的个数:" + ten);
+		strings.add("11的个数:" + eleven);
+		strings.add("12的个数:" + twelve);
+		strings.add("13的个数:" + thirteen);
+		strings.add("14的个数:" + fourteen);
+		strings.add("15的个数:" + fifteen);
+		strings.add("16的个数:" + sixteen);
+		strings.add("17的个数:" + seventeen);
+		strings.add("18的个数:" + eighteen);
+		strings.add("19的个数:" + nineteen);
+		strings.add("20的个数:" + twenty);
+		strings.add("21的个数:" + twenty_one);
+		strings.add("22的个数:" + twenty_two);
+		strings.add("23的个数:" + twenty_three);
+		strings.add("24的个数:" + twenty_four);
+		strings.add("25的个数:" + twenty_five);
+		strings.add("26的个数:" + twenty_six);
+		strings.add("27的个数:" + twenty_seven);
+		strings.add("28的个数:" + twenty_eight);
+		strings.add("29的个数:" + twenty_nine);
+		strings.add("30的个数:" + thirty);
+		strings.add("31的个数:" + thirty_one);
+		strings.add("32的个数:" + thirty_two);
+		strings.add("33的个数:" + thirty_three);
+		strings.add("34的个数:" + thirty_four);
+		strings.add("35的个数:" + thirty_five);
+		strings.add("36的个数:" + thirty_six);
+		strings.add("37的个数:" + thirty_seven);
+		strings.add("38的个数:" + thirty_eight);
+		strings.add("39的个数:" + thirty_nine);
+		strings.add("40的个数:" + fourty);
+		strings.add("41的个数:" + fourty_one);
+		strings.add("42的个数:" + fourty_two);
+		strings.add("43的个数:" + fourty_three);
+		strings.add("44的个数:" + fourty_four);
+		strings.add("45的个数:" + fourty_five);
+		strings.add("46的个数:" + fourty_six);
+		strings.add("47的个数:" + fourty_seven);
+		strings.add("48的个数:" + fourty_eight);
+		strings.add("49的个数:" + fourty_nine);
+		strings.add("50的个数:" + fifty);
+		tongji.put("last5qi",strings);
+		fenxijieguolist.add(tongji);
 		logger.info("==============================================");
 		JSONArray jsonObjectFromMap = JSONArray.fromObject(fenxijieguolist);
 		logger.info(jsonObjectFromMap.toString());

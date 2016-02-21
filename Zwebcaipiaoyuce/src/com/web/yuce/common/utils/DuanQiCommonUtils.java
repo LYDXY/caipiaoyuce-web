@@ -40,7 +40,7 @@ public class DuanQiCommonUtils {
 	        }   
 	    }
 	    String string=new String();
-	    string="期数:"+qishu+"------";
+	    string=qishu+"---";
 	    for (int i = 0; i < numbers.length; i++) {
 	    	if (numbers[i]<10) {
 	    		string+=("0"+numbers[i]+",");

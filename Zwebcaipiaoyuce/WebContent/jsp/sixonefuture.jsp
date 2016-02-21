@@ -224,6 +224,7 @@
 								<td>期数</td>
 								<td>开奖数字</td>
 								<td>遗漏情况</td>
+								<td>遗漏情况排序</td>
 								<td>遗漏次数&lt;10 的个数 (和)</td>
 								<td>7个开奖数字的遗漏次数的和</td>
 								<td>遗漏次数的和 除以 7= 遗漏平均次数</td>
@@ -232,6 +233,11 @@
 					</table></td>
 				<td><table class="table table-bordered">
 						<tbody id="sorttbody">
+
+						</tbody>
+					</table> <br />
+					<table class="table table-bordered">
+						<tbody id="fivelasttongji">
 
 						</tbody>
 					</table></td>
@@ -765,25 +771,51 @@
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
-
+							alert(data);
 							for (i = 0; i < json.length; i++) {
 								var classType = '';
 								i % 2 == 0 ? classType = 'info'
 										: classType = 'success';
-								$("#remenlengmenfenxi").append(
-										'<tr class="'+classType+'">' + '<td>'
-												+ json[i].qishu + '</td>'
-												+ '<td>' + json[i].number
-												+ '</td>' + '<td>'
-												+ json[i].yilouqingkuang
-												+ '</td>' + '<td>'
-												+ json[i].zongyilougeshu
-												+ '</td>' + '<td>'
-												+ json[i].yiloucishuzongshu
-												+ '</td>' + '<td>'
-												+ json[i].yiloupingjungeshu
-												+ '</td>')
-										+ '</tr>';
+								if (i == json.length - 1) {
+
+									
+									for (var j = 0; j < json[i].last5qi.length; j++) {
+										//alert(json[i].last5qi[j]);
+										$("#fivelasttongji").append(
+												'<tr class="'+classType+'">'
+														+ '<td>' + json[i].last5qi[j]
+														+ '</td>')
+												+ '</tr>';
+									}
+
+								} else {
+									$("#remenlengmenfenxi")
+											.append(
+													'<tr class="'+classType+'">'
+															+ '<td>'
+															+ json[i].qishu
+															+ '</td>'
+															+ '<td>'
+															+ json[i].number
+															+ '</td>'
+															+ '<td>'
+															+ json[i].yilouqingkuang
+															+ '</td>'
+															+ '<td>'
+															+ json[i].yilouqingkuangpaixu
+															+ '</td>'
+															+ '<td>'
+															+ json[i].zongyilougeshu
+															+ '</td>'
+															+ '<td>'
+															+ json[i].yiloucishuzongshu
+															+ '</td>'
+															+ '<td>'
+															+ json[i].yiloupingjungeshu
+															+ '</td>')
+											+ '</tr>';
+								}
+
 							}
 
 						},
@@ -1084,49 +1116,50 @@
 
 			//alert();
 
-			$.ajax({
+			$
+					.ajax({
 						type : "POST",
 						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionClearYiLouMoShi.action',
-					//	data : param,
+						//	data : param,
 						dataType : "json",
 						success : function(data) {
 							alert(data);
 							//console.log(json.clear[0])
 							var json = eval('(' + data + ')');
 
-						
 							for (var i = 0; i < json.clear.length; i++) {
-								if(i< (json.clear.length-1)){
+								if (i < (json.clear.length - 1)) {
 									var trHtml = '<tr>';
 									var tdHtml = '';
-									for(var j=0; j<json.clear[i].length;j++){
-										tdHtml += '<td class="info">' + json.clear[i][j] + '</td>';
+									for (var j = 0; j < json.clear[i].length; j++) {
+										tdHtml += '<td class="info">'
+												+ json.clear[i][j] + '</td>';
 									}
 									trHtml += tdHtml;
 									trHtml += '</tr>';
 									$("#cleartbody").append(trHtml);
 								}
-								if (i==(json.clear.length-1)) {
-									for(var k=0;k<json.clear[i].length;k++){
+								if (i == (json.clear.length - 1)) {
+									for (var k = 0; k < json.clear[i].length; k++) {
 										var trHtml = '<tr>';
 										var tdHtml = '';
-										tdHtml += '<td class="info">' + json.clear[i][k] + '</td>';
+										tdHtml += '<td class="info">'
+												+ json.clear[i][k] + '</td>';
 										trHtml += tdHtml;
 										trHtml += '</tr>';
 										$("#sorttbody").append(trHtml);
 									}
-									
+
 								}
-								
+
 							}
-							
-							
+
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
 						}
 					});
-		
+
 		}
 	</script>
 
