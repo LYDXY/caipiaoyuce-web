@@ -521,7 +521,7 @@ public class SixOneAction extends BaseAction {
 		all.add(clear_thirty_eight);
 		all.add(clear_thirty_nine);
 		all.add(clear_fourty);
-		
+
 		// 每一期进行冒泡排序
 		logger.info("============================冒泡排序");
 		List<String> strings = new ArrayList<String>();
@@ -2892,11 +2892,16 @@ public class SixOneAction extends BaseAction {
 		Iterator<SixOne> iter = sixonesTop40.iterator();// 获取最近的40期的40个对象
 		List<SixOne> temps; // 存放临时的对象
 		List<Map<String, Object>> fenxijieguolist = new ArrayList<Map<String, Object>>();
-		
-		float histoty_zongpingjun = 0.f;//历史总平均 (遗漏次数在10一个的所有数字的遗漏数字相加)
-		float history_geshupingjun = 0.f;//历史平均遗漏个数(遗漏次数在10 以内)
+
+		float histoty_zongpingjun = 0.f;// 历史总平均 (遗漏次数在10一个的所有数字的遗漏数字相加)
+		float history_geshupingjun = 0.f;// 历史平均遗漏个数(遗漏次数在10 以内)
 
 		List<Integer> list5yilou = new ArrayList<Integer>();
+		List<Integer> list6yilou = new ArrayList<Integer>();
+		List<Integer> list7yilou = new ArrayList<Integer>();
+		List<Integer> list8yilou = new ArrayList<Integer>();
+		List<Integer> list9yilou = new ArrayList<Integer>();
+		List<Integer> list10yilou = new ArrayList<Integer>();
 		// 遍历过去40期 降序
 		while (iter.hasNext()) {
 			Map<String, Object> everyone = new HashMap<String, Object>();
@@ -2953,9 +2958,9 @@ public class SixOneAction extends BaseAction {
 			everyone.put("number", stringBuilder2.toString());
 			// 临时存储每个对象 7个数字的属性值
 			List<Integer> IntegerS = new ArrayList<Integer>();
-			//记录7个数字的遗漏值
+			// 记录7个数字的遗漏值
 			List<Integer> S2 = new ArrayList<Integer>();
-			
+
 			IntegerS.add(first);
 			IntegerS.add(second);
 			IntegerS.add(third);
@@ -2980,7 +2985,7 @@ public class SixOneAction extends BaseAction {
 					Integer tempfifth = tempsixOne.getFifth();
 					Integer tempsixth = tempsixOne.getSixth();
 					Integer tempseventh = tempsixOne.getSeventh();
-					//记录每一个对象每一个号码的遗漏
+					// 记录每一个对象每一个号码的遗漏
 					if (integer == tempfirst) {
 						Integer tempYiLou = qishu - tempqishu - 1;
 						S2.add(qishu - tempqishu - 1);
@@ -2991,14 +2996,31 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append(tempYiLou + "-");
 						}
-						// 统计最新5期的情况
+						// 统计最新5期,6期,7期,8期,9期,10期的情况
 						if ((maxqishu - qishu) < 5) {
 							list5yilou.add(tempYiLou);
 						}
+						if ((maxqishu - qishu) < 6) {
+							list6yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 7) {
+							list7yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 8) {
+							list8yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 9) {
+							list9yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 10) {
+							list10yilou.add(tempYiLou);
+						}
+
 						//
 						iscunzai = true;
 						break;
 					} else if (integer == tempsecond) {
+						Integer tempYiLou = qishu - tempqishu - 1;
 						yilouzongshu += qishu - tempqishu - 1;
 						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
@@ -3007,13 +3029,30 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						// 统计最新5期的情况
+						// 统计最新5期,6期,7期,8期,9期,10期的情况
 						if ((maxqishu - qishu) < 5) {
-							list5yilou.add((qishu - tempqishu - 1));
+							list5yilou.add(tempYiLou);
 						}
+						if ((maxqishu - qishu) < 6) {
+							list6yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 7) {
+							list7yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 8) {
+							list8yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 9) {
+							list9yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 10) {
+							list10yilou.add(tempYiLou);
+						}
+
 						iscunzai = true;
 						break;
 					} else if (integer == tempthird) {
+						Integer tempYiLou = qishu - tempqishu - 1;
 						yilouzongshu += qishu - tempqishu - 1;
 						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
@@ -3022,13 +3061,30 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						// 统计最新5期的情况
+						// 统计最新5期,6期,7期,8期,9期,10期的情况
 						if ((maxqishu - qishu) < 5) {
-							list5yilou.add((qishu - tempqishu - 1));
+							list5yilou.add(tempYiLou);
 						}
+						if ((maxqishu - qishu) < 6) {
+							list6yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 7) {
+							list7yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 8) {
+							list8yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 9) {
+							list9yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 10) {
+							list10yilou.add(tempYiLou);
+						}
+
 						iscunzai = true;
 						break;
 					} else if (integer == tempfourth) {
+						Integer tempYiLou = qishu - tempqishu - 1;
 						yilouzongshu += qishu - tempqishu - 1;
 						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
@@ -3037,13 +3093,30 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						// 统计最新5期的情况
+						// 统计最新5期,6期,7期,8期,9期,10期的情况
 						if ((maxqishu - qishu) < 5) {
-							list5yilou.add((qishu - tempqishu - 1));
+							list5yilou.add(tempYiLou);
 						}
+						if ((maxqishu - qishu) < 6) {
+							list6yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 7) {
+							list7yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 8) {
+							list8yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 9) {
+							list9yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 10) {
+							list10yilou.add(tempYiLou);
+						}
+
 						iscunzai = true;
 						break;
 					} else if (integer == tempfifth) {
+						Integer tempYiLou = qishu - tempqishu - 1;
 						yilouzongshu += qishu - tempqishu - 1;
 						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
@@ -3052,13 +3125,30 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						// 统计最新5期的情况
+						// 统计最新5期,6期,7期,8期,9期,10期的情况
 						if ((maxqishu - qishu) < 5) {
-							list5yilou.add((qishu - tempqishu - 1));
+							list5yilou.add(tempYiLou);
 						}
+						if ((maxqishu - qishu) < 6) {
+							list6yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 7) {
+							list7yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 8) {
+							list8yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 9) {
+							list9yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 10) {
+							list10yilou.add(tempYiLou);
+						}
+
 						iscunzai = true;
 						break;
 					} else if (integer == tempsixth) {
+						Integer tempYiLou = qishu - tempqishu - 1;
 						yilouzongshu += qishu - tempqishu - 1;
 						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
@@ -3067,13 +3157,30 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						// 统计最新5期的情况
+						// 统计最新5期,6期,7期,8期,9期,10期的情况
 						if ((maxqishu - qishu) < 5) {
-							list5yilou.add((qishu - tempqishu - 1));
+							list5yilou.add(tempYiLou);
 						}
+						if ((maxqishu - qishu) < 6) {
+							list6yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 7) {
+							list7yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 8) {
+							list8yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 9) {
+							list9yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 10) {
+							list10yilou.add(tempYiLou);
+						}
+
 						iscunzai = true;
 						break;
 					} else if (integer == tempseventh) {
+						Integer tempYiLou = qishu - tempqishu - 1;
 						yilouzongshu += qishu - tempqishu - 1;
 						S2.add(qishu - tempqishu - 1);
 						if ((qishu - tempqishu - 1) < 10) {
@@ -3082,10 +3189,26 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						// 统计最新5期的情况
+						// 统计最新5期,6期,7期,8期,9期,10期的情况
 						if ((maxqishu - qishu) < 5) {
-							list5yilou.add((qishu - tempqishu - 1));
+							list5yilou.add(tempYiLou);
 						}
+						if ((maxqishu - qishu) < 6) {
+							list6yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 7) {
+							list7yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 8) {
+							list8yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 9) {
+							list9yilou.add(tempYiLou);
+						}
+						if ((maxqishu - qishu) < 10) {
+							list10yilou.add(tempYiLou);
+						}
+
 						iscunzai = true;
 						break;
 					}
@@ -3097,18 +3220,20 @@ public class SixOneAction extends BaseAction {
 			}
 			logger.info(stringBuilder);
 			everyone.put("yilouqingkuang", stringBuilder.deleteCharAt(stringBuilder.length() - 1) + "");
-			//遗漏情况进行冒泡排序
-			
-			int[] yilouS2 ={S2.get(0),S2.get(1),S2.get(2),S2.get(3),S2.get(4),S2.get(5),S2.get(6)};
+			// 遗漏情况进行冒泡排序
+
+			int[] yilouS2 = { S2.get(0), S2.get(1), S2.get(2), S2.get(3), S2.get(4), S2.get(5), S2.get(6) };
 			everyone.put("yilouqingkuangpaixu", DuanQiCommonUtils.bubbleSort(id, yilouS2));
 			everyone.put("zongyilougeshu", (int) geshu + "");
 			everyone.put("yiloucishuzongshu", yilouzongshu + "");
 			everyone.put("yiloupingjungeshu", yilouzongshu / 7.f + "");
-		/*	logger.info("各个数字遗漏情况:" + stringBuilder);
-			logger.info("各个数字遗漏情况进行排序:" + stringBuilder);
-			logger.info("本次遗漏次数在10以内的数字共有" + (int) geshu + "个");
-			logger.info("本期遗漏的次数总数" + yilouzongshu);
-			logger.info("本次遗漏平均个数为" + yilouzongshu / 7.f + "个");*/
+			/*
+			 * logger.info("各个数字遗漏情况:" + stringBuilder);
+			 * logger.info("各个数字遗漏情况进行排序:" + stringBuilder);
+			 * logger.info("本次遗漏次数在10以内的数字共有" + (int) geshu + "个");
+			 * logger.info("本期遗漏的次数总数" + yilouzongshu); logger.info("本次遗漏平均个数为"
+			 * + yilouzongshu / 7.f + "个");
+			 */
 			fenxijieguolist.add(everyone);
 			histoty_zongpingjun += yilouzongshu;
 			history_geshupingjun += geshu;
@@ -3124,221 +3249,21 @@ public class SixOneAction extends BaseAction {
 		logger.info("==============================================");
 		logger.info("最新5期的遗漏情况:共35个数字" + (list5yilou.size()));
 		Map<String, Object> tongji = new HashMap<String, Object>();
-		List<String> strings=new ArrayList<>();
-		strings.add("最近40期遗漏次数小于10的个数平均总计值" + (histoty_zongpingjun / 40.f));
-		strings.add("最近40期的遗漏个数总平均值" + (history_geshupingjun / 40.f));
-		int zero = 0;
-		int one = 0;
-		int two = 0;
-		int three = 0;
-		int four = 0;
-		int five = 0;
-		int six = 0;
-		int seven = 0;
-		int eight = 0;
-		int nine = 0;
-		int ten = 0;
-		int eleven = 0;
-		int twelve = 0;
-		int thirteen = 0;
-		int fourteen = 0;
-		int fifteen = 0;
-		int sixteen = 0;
-		int seventeen = 0;
-		int eighteen = 0;
-		int nineteen = 0;
-		int twenty = 0;
-		int twenty_one = 0;
-		int twenty_two = 0;
-		int twenty_three = 0;
-		int twenty_four = 0;
-		int twenty_five = 0;
-		int twenty_six = 0;
-		int twenty_seven = 0;
-		int twenty_eight = 0;
-		int twenty_nine = 0;
-		int thirty = 0;
-		int thirty_one = 0;
-		int thirty_two = 0;
-		int thirty_three = 0;
-		int thirty_four = 0;
-		int thirty_five = 0;
-		int thirty_six = 0;
-		int thirty_seven = 0;
-		int thirty_eight = 0;
-		int thirty_nine = 0;
-		int fourty = 0;
-		int fourty_one = 0;
-		int fourty_two = 0;
-		int fourty_three = 0;
-		int fourty_four = 0;
-		int fourty_five = 0;
-		int fourty_six = 0;
-		int fourty_seven = 0;
-		int fourty_eight = 0;
-		int fourty_nine = 0;
-		int fifty = 0;
-		for (int i = 0; i < list5yilou.size(); i++) {
-			for (int j = 0; j < 50; j++) {
-				if (list5yilou.get(i) == j) {
-					if (j == 0) {
-						zero++;
-					} else if (j == 1) {
-						one++;
-					} else if (j == 2) {
-						two++;
-					} else if (j == 3) {
-						three++;
-					} else if (j == 4) {
-						four++;
-					} else if (j == 5) {
-						five++;
-					} else if (j == 6) {
-						six++;
-					} else if (j == 7) {
-						seven++;
-					} else if (j == 8) {
-						eight++;
-					} else if (j == 9) {
-						nine++;
-					} else if (j == 10) {
-						ten++;
-					} else if (j == 11) {
-						eleven++;
-					} else if (j == 12) {
-						twelve++;
-					} else if (j == 13) {
-						thirteen++;
-					} else if (j == 14) {
-						fourteen++;
-					} else if (j == 15) {
-						fifteen++;
-					} else if (j == 16) {
-						sixteen++;
-					} else if (j == 17) {
-						seventeen++;
-					} else if (j == 18) {
-						eighteen++;
-					} else if (j == 19) {
-						nineteen++;
-					} else if (j == 20) {
-						twenty++;
-					} else if (j == 21) {
-						twenty_one++;
-					} else if (j == 22) {
-						twenty_two++;
-					} else if (j == 23) {
-						twenty_three++;
-					} else if (j == 24) {
-						twenty_four++;
-					} else if (j == 25) {
-						twenty_five++;
-					} else if (j == 26) {
-						twenty_six++;
-					} else if (j == 27) {
-						twenty_seven++;
-					} else if (j == 28) {
-						twenty_eight++;
-					} else if (j == 29) {
-						twenty_nine++;
-					} else if (j == 30) {
-						thirty++;
-					} else if (j == 31) {
-						thirty_one++;
-					} else if (j == 32) {
-						thirty_two++;
-					} else if (j == 33) {
-						thirty_three++;
-					} else if (j == 34) {
-						thirty_four++;
-					} else if (j == 35) {
-						thirty_five++;
-					} else if (j == 36) {
-						thirty_six++;
-					} else if (j == 37) {
-						thirty_seven++;
-					} else if (j == 38) {
-						thirty_eight++;
-					} else if (j == 39) {
-						thirty_nine++;
-					} else if (j == 40) {
-						fourty++;
-					} else if (j == 41) {
-						fourty_one++;
-					} else if (j == 42) {
-						fourty_two++;
-					} else if (j == 43) {
-						fourty_three++;
-					} else if (j == 44) {
-						fourty_four++;
-					} else if (j == 45) {
-						fourty_five++;
-					} else if (j == 46) {
-						fourty_six++;
-					} else if (j == 47) {
-						fourty_seven++;
-					} else if (j == 48) {
-						fourty_eight++;
-					} else if (j == 49) {
-						fourty_nine++;
-					} else if (j == 50) {
-						fifty++;
-					}
-				}
-			}
-		}
-		strings.add("0的个数:" + zero);
-		strings.add("1的个数:" + one);
-		strings.add("2的个数:" + two);
-		strings.add("3的个数:" + three);
-		strings.add("4的个数:" + four);
-		strings.add("5的个数:" + five);
-		strings.add("6的个数:" + six);
-		strings.add("7的个数:" + seven);
-		strings.add("8的个数:" + eight);
-		strings.add("9的个数:" + nine);
-		strings.add("10的个数:" + ten);
-		strings.add("11的个数:" + eleven);
-		strings.add("12的个数:" + twelve);
-		strings.add("13的个数:" + thirteen);
-		strings.add("14的个数:" + fourteen);
-		strings.add("15的个数:" + fifteen);
-		strings.add("16的个数:" + sixteen);
-		strings.add("17的个数:" + seventeen);
-		strings.add("18的个数:" + eighteen);
-		strings.add("19的个数:" + nineteen);
-		strings.add("20的个数:" + twenty);
-		strings.add("21的个数:" + twenty_one);
-		strings.add("22的个数:" + twenty_two);
-		strings.add("23的个数:" + twenty_three);
-		strings.add("24的个数:" + twenty_four);
-		strings.add("25的个数:" + twenty_five);
-		strings.add("26的个数:" + twenty_six);
-		strings.add("27的个数:" + twenty_seven);
-		strings.add("28的个数:" + twenty_eight);
-		strings.add("29的个数:" + twenty_nine);
-		strings.add("30的个数:" + thirty);
-		strings.add("31的个数:" + thirty_one);
-		strings.add("32的个数:" + thirty_two);
-		strings.add("33的个数:" + thirty_three);
-		strings.add("34的个数:" + thirty_four);
-		strings.add("35的个数:" + thirty_five);
-		strings.add("36的个数:" + thirty_six);
-		strings.add("37的个数:" + thirty_seven);
-		strings.add("38的个数:" + thirty_eight);
-		strings.add("39的个数:" + thirty_nine);
-		strings.add("40的个数:" + fourty);
-		strings.add("41的个数:" + fourty_one);
-		strings.add("42的个数:" + fourty_two);
-		strings.add("43的个数:" + fourty_three);
-		strings.add("44的个数:" + fourty_four);
-		strings.add("45的个数:" + fourty_five);
-		strings.add("46的个数:" + fourty_six);
-		strings.add("47的个数:" + fourty_seven);
-		strings.add("48的个数:" + fourty_eight);
-		strings.add("49的个数:" + fourty_nine);
-		strings.add("50的个数:" + fifty);
-		tongji.put("last5qi",strings);
+		List<List<String>> aLists = new ArrayList<List<String>>();
+		// 最新5期的遗漏情况统计
+		List<String> strings5 = DuanQiCommonUtils.getListString(list5yilou);
+		List<String> strings6 = DuanQiCommonUtils.getListString(list6yilou);
+		List<String> strings7 = DuanQiCommonUtils.getListString(list7yilou);
+		List<String> strings8 = DuanQiCommonUtils.getListString(list8yilou);
+		List<String> strings9 = DuanQiCommonUtils.getListString(list9yilou);
+		List<String> strings10 = DuanQiCommonUtils.getListString(list10yilou);
+		System.out.println(strings5.toString());
+		System.out.println(strings6.toString());
+		System.out.println(strings7.toString());
+		System.out.println(strings8.toString());
+		System.out.println(strings9.toString());
+		System.out.println(strings10.toString());
+		tongji.put("last5qi", strings5);
 		fenxijieguolist.add(tongji);
 		logger.info("==============================================");
 		JSONArray jsonObjectFromMap = JSONArray.fromObject(fenxijieguolist);
