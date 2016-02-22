@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
 
+import com.sun.org.apache.bcel.internal.generic.ARRAYLENGTH;
 import com.sun.star.io.IOException;
 import com.web.pojo.SixOne;
 import com.web.services.SixOneServices;
@@ -2902,6 +2903,8 @@ public class SixOneAction extends BaseAction {
 		List<Integer> list8yilou = new ArrayList<Integer>();
 		List<Integer> list9yilou = new ArrayList<Integer>();
 		List<Integer> list10yilou = new ArrayList<Integer>();
+		// 统计最近10期的遗漏情况
+		List<List<Integer>> list10 = new ArrayList<List<Integer>>();
 		// 遍历过去40期 降序
 		while (iter.hasNext()) {
 			Map<String, Object> everyone = new HashMap<String, Object>();
@@ -2973,6 +2976,7 @@ public class SixOneAction extends BaseAction {
 			float geshu = 0;
 			float yilouzongshu = 0;
 			StringBuilder stringBuilder = new StringBuilder();
+			List<Integer> getnewListTen = new ArrayList<Integer>();
 			// 遍历自己的七个值
 			for (Integer integer : IntegerS) {
 				boolean iscunzai = false;
@@ -2988,7 +2992,7 @@ public class SixOneAction extends BaseAction {
 					// 记录每一个对象每一个号码的遗漏
 					if (integer == tempfirst) {
 						Integer tempYiLou = qishu - tempqishu - 1;
-						S2.add(qishu - tempqishu - 1);
+						S2.add(tempYiLou);
 						yilouzongshu += tempYiLou;
 						if (tempYiLou < 10) {
 							geshu += 1.f;
@@ -3014,6 +3018,7 @@ public class SixOneAction extends BaseAction {
 						}
 						if ((maxqishu - qishu) < 10) {
 							list10yilou.add(tempYiLou);
+							getnewListTen.add(tempYiLou);
 						}
 
 						//
@@ -3021,13 +3026,13 @@ public class SixOneAction extends BaseAction {
 						break;
 					} else if (integer == tempsecond) {
 						Integer tempYiLou = qishu - tempqishu - 1;
-						yilouzongshu += qishu - tempqishu - 1;
+						yilouzongshu += tempYiLou;
 						S2.add(qishu - tempqishu - 1);
-						if ((qishu - tempqishu - 1) < 10) {
+						if ((tempYiLou) < 10) {
 							geshu += 1.f;
-							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
+							stringBuilder.append("0" + tempYiLou + "-");
 						} else {
-							stringBuilder.append((qishu - tempqishu - 1) + "-");
+							stringBuilder.append(tempYiLou + "-");
 						}
 						// 统计最新5期,6期,7期,8期,9期,10期的情况
 						if ((maxqishu - qishu) < 5) {
@@ -3047,19 +3052,20 @@ public class SixOneAction extends BaseAction {
 						}
 						if ((maxqishu - qishu) < 10) {
 							list10yilou.add(tempYiLou);
+							getnewListTen.add(tempYiLou);
 						}
 
 						iscunzai = true;
 						break;
 					} else if (integer == tempthird) {
 						Integer tempYiLou = qishu - tempqishu - 1;
-						yilouzongshu += qishu - tempqishu - 1;
-						S2.add(qishu - tempqishu - 1);
-						if ((qishu - tempqishu - 1) < 10) {
+						yilouzongshu += tempYiLou;
+						S2.add(tempYiLou);
+						if (tempYiLou < 10) {
 							geshu += 1.f;
-							stringBuilder.append("0" + (qishu - tempqishu - 1) + "-");
+							stringBuilder.append("0" + tempYiLou + "-");
 						} else {
-							stringBuilder.append((qishu - tempqishu - 1) + "-");
+							stringBuilder.append(tempYiLou + "-");
 						}
 						// 统计最新5期,6期,7期,8期,9期,10期的情况
 						if ((maxqishu - qishu) < 5) {
@@ -3079,6 +3085,7 @@ public class SixOneAction extends BaseAction {
 						}
 						if ((maxqishu - qishu) < 10) {
 							list10yilou.add(tempYiLou);
+							getnewListTen.add(tempYiLou);
 						}
 
 						iscunzai = true;
@@ -3111,6 +3118,7 @@ public class SixOneAction extends BaseAction {
 						}
 						if ((maxqishu - qishu) < 10) {
 							list10yilou.add(tempYiLou);
+							getnewListTen.add(tempYiLou);
 						}
 
 						iscunzai = true;
@@ -3143,6 +3151,7 @@ public class SixOneAction extends BaseAction {
 						}
 						if ((maxqishu - qishu) < 10) {
 							list10yilou.add(tempYiLou);
+							getnewListTen.add(tempYiLou);
 						}
 
 						iscunzai = true;
@@ -3175,6 +3184,7 @@ public class SixOneAction extends BaseAction {
 						}
 						if ((maxqishu - qishu) < 10) {
 							list10yilou.add(tempYiLou);
+							getnewListTen.add(tempYiLou);
 						}
 
 						iscunzai = true;
@@ -3207,6 +3217,7 @@ public class SixOneAction extends BaseAction {
 						}
 						if ((maxqishu - qishu) < 10) {
 							list10yilou.add(tempYiLou);
+							getnewListTen.add(tempYiLou);
 						}
 
 						iscunzai = true;
@@ -3218,7 +3229,11 @@ public class SixOneAction extends BaseAction {
 					logger.info("数字" + integer + "过去从未出现过");
 				}
 			}
-			logger.info(stringBuilder);
+			logger.info(getnewListTen.toString());
+			if (getnewListTen.size() > 0) {
+				list10.add(getnewListTen);
+			}
+			// logger.info(stringBuilder);
 			everyone.put("yilouqingkuang", stringBuilder.deleteCharAt(stringBuilder.length() - 1) + "");
 			// 遗漏情况进行冒泡排序
 
@@ -3263,6 +3278,51 @@ public class SixOneAction extends BaseAction {
 		System.out.println(strings8.toString());
 		System.out.println(strings9.toString());
 		System.out.println(strings10.toString());
+		logger.info("==============================================");
+		System.out.println(list10.toString());
+		List<Integer> formsmalllist5yilou = new ArrayList<Integer>();
+		List<Integer> formsmalllist6yilou = new ArrayList<Integer>();
+		List<Integer> formsmalllist7yilou = new ArrayList<Integer>();
+		List<Integer> formsmalllist8yilou = new ArrayList<Integer>();
+		List<Integer> formsmalllist9yilou = new ArrayList<Integer>();
+		List<Integer> formsmalllist10yilou = new ArrayList<Integer>();
+		for (int i = list10.size()-1; i >=0; i--) {
+
+			for (int j = 0; j < list10.get(i).size(); j++) {
+
+				Integer tempvalue = list10.get(i).get(j);
+				if (i > 0) {
+					formsmalllist9yilou.add(tempvalue);
+				}
+				if (i > 1) {
+					formsmalllist8yilou.add(tempvalue);
+				}
+				if (i > 2) {
+					formsmalllist7yilou.add(tempvalue);
+				}
+				if (i > 3) {
+					formsmalllist6yilou.add(tempvalue);
+				}
+				if (i > 4) {
+					formsmalllist5yilou.add(tempvalue);
+				}
+				formsmalllist10yilou.add(tempvalue);
+			}
+
+		}
+        List<String> formsmallstrings5 = DuanQiCommonUtils.getListString(formsmalllist5yilou);
+		List<String> formsmallstrings6 = DuanQiCommonUtils.getListString(formsmalllist6yilou);
+		List<String> formsmallstrings7 = DuanQiCommonUtils.getListString(formsmalllist7yilou);
+		List<String> formsmallstrings8 = DuanQiCommonUtils.getListString(formsmalllist8yilou);
+		List<String> formsmallstrings9 = DuanQiCommonUtils.getListString(formsmalllist9yilou);
+		List<String> formsmallstrings10 = DuanQiCommonUtils.getListString(formsmalllist10yilou);
+		logger.info("==============================================");
+		System.out.println(formsmallstrings5.toString());
+		System.out.println(formsmallstrings6.toString());
+		System.out.println(formsmallstrings7.toString());
+		System.out.println(formsmallstrings8.toString());
+		System.out.println(formsmallstrings9.toString());
+		System.out.println(formsmallstrings10.toString());
 		tongji.put("last5qi", strings5);
 		fenxijieguolist.add(tongji);
 		logger.info("==============================================");
