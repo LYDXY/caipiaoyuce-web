@@ -700,60 +700,7 @@
 						success : function(data) {
 							var json = eval('(' + data + ')');
 
-							$("#future5zero").html(json.zeroTop5);
-							$("#future5one").html(json.oneTop5);
-							$("#future5two").html(json.twoTop5);
-							$("#future5three").html(json.threeTop5);
-							$("#future5four").html(json.fourTop5);
-							$("#future5five").html(json.fiveTop5);
-							$("#future5six").html(json.sixTop5);
-							$("#future5seven").html(json.sevenTop5);
-							$("#future5eight").html(json.eightTop5);
-							$("#future5nine").html(json.nineTop5);
-
-							$("#future6zero").html(json.zeroTop6);
-							$("#future6one").html(json.oneTop6);
-							$("#future6two").html(json.twoTop6);
-							$("#future6three").html(json.threeTop6);
-							$("#future6four").html(json.fourTop6);
-							$("#future6five").html(json.fiveTop6);
-							$("#future6six").html(json.sixTop6);
-							$("#future6seven").html(json.sevenTop6);
-							$("#future6eight").html(json.eightTop6);
-							$("#future6nine").html(json.nineTop6);
-
-							$("#future7zero").html(json.zeroTop7);
-							$("#future7one").html(json.oneTop7);
-							$("#future7two").html(json.twoTop7);
-							$("#future7three").html(json.threeTop7);
-							$("#future7four").html(json.fourTop7);
-							$("#future7five").html(json.fiveTop7);
-							$("#future7six").html(json.sixTop7);
-							$("#future7seven").html(json.sevenTop7);
-							$("#future7eight").html(json.eightTop7);
-							$("#future7nine").html(json.nineTop7);
-
-							$("#future8zero").html(json.zeroTop8);
-							$("#future8one").html(json.oneTop8);
-							$("#future8two").html(json.twoTop8);
-							$("#future8three").html(json.threeTop8);
-							$("#future8four").html(json.fourTop8);
-							$("#future8five").html(json.fiveTop8);
-							$("#future8six").html(json.sixTop8);
-							$("#future8seven").html(json.sevenTop8);
-							$("#future8eight").html(json.eightTop8);
-							$("#future8nine").html(json.nineTop8);
-
-							$("#future9zero").html(json.zeroTop9);
-							$("#future9one").html(json.oneTop9);
-							$("#future9two").html(json.twoTop9);
-							$("#future9three").html(json.threeTop9);
-							$("#future9four").html(json.fourTop9);
-							$("#future9five").html(json.fiveTop9);
-							$("#future9six").html(json.sixTop9);
-							$("#future9seven").html(json.sevenTop9);
-							$("#future9eight").html(json.eightTop9);
-							$("#future9nine").html(json.nineTop9);
+							
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
