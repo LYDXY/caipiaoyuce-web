@@ -1186,6 +1186,94 @@ public class SixOneAction extends BaseAction {
 	 * 末位数字偏差系统分析
 	 */
 	public String futureMoWei() {
+		// 降序 获取最新的 10期
+		List<SixOne> sixonesTop10 = SixOneServices.way8(10);
+
+		List<SixOne> smallToBig5 = new ArrayList<SixOne>();
+		List<SixOne> smallToBig6 = new ArrayList<SixOne>();
+		List<SixOne> smallToBig7 = new ArrayList<SixOne>();
+		List<SixOne> smallToBig8 = new ArrayList<SixOne>();
+		List<SixOne> smallToBig9 = new ArrayList<SixOne>();
+
+		List<SixOne> bigToSmall5 = new ArrayList<SixOne>();
+		List<SixOne> bigToSmall6 = new ArrayList<SixOne>();
+		List<SixOne> bigToSmall7 = new ArrayList<SixOne>();
+		List<SixOne> bigToSmall8 = new ArrayList<SixOne>();
+		List<SixOne> bigToSmall9 = new ArrayList<SixOne>();
+
+		// 期数从小到大
+
+		for (int i = sixonesTop10.size()-1; i >= 0; i--) {
+			SixOne sixOne = sixonesTop10.get(i);
+			if (i >= 5) {
+				smallToBig5.add(sixOne);
+			}
+			if (i >= 4) {
+				smallToBig6.add(sixOne);
+			}
+			if (i >= 3) {
+				smallToBig7.add(sixOne);
+			}
+			if (i >= 2) {
+				smallToBig8.add(sixOne);
+			}
+			if (i >= 1) {
+				smallToBig9.add(sixOne);
+			}
+
+		}
+		// 期数从大到小
+		for (int i = 0; i < sixonesTop10.size(); i++) {
+			SixOne sixOne = sixonesTop10.get(i);
+			if (i < 5) {
+				bigToSmall5.add(sixOne);
+			}
+			if (i < 6) {
+				bigToSmall6.add(sixOne);
+			}
+			if (i < 7) {
+				bigToSmall7.add(sixOne);
+			}
+			if (i < 8) {
+				bigToSmall8.add(sixOne);
+			}
+			if (i < 9) {
+				bigToSmall9.add(sixOne);
+			}
+		}
+       
+		logger.info("-----末位数字开始统计--从期数小的排到期数大的");
+		List<String> smallToBig5Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig5);
+		List<String> smallToBig6Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig6);
+		List<String> smallToBig7Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig7);
+		List<String> smallToBig8Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig8);
+		List<String> smallToBig9Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig9);
+		List<String> common10Strings=DuanQiCommonUtils.getMoWeiNumbersCount(sixonesTop10);
+		System.out.println(smallToBig5Strings.toString());
+		System.out.println(smallToBig6Strings.toString());
+		System.out.println(smallToBig7Strings.toString());
+		System.out.println(smallToBig8Strings.toString());
+		System.out.println(smallToBig9Strings.toString());
+		System.out.println(common10Strings.toString());
+		logger.info("-----末位数字开始统计--从期数大的的排到期数小的");
+		List<String> BigToSmall5Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall5);
+		List<String> BigToSmall6Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall6);
+		List<String> BigToSmall7Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall7);
+		List<String> BigToSmall8Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall8);
+		List<String> BigToSmall9Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall9);
+		
+		System.out.println(BigToSmall5Strings.toString());
+		System.out.println(BigToSmall6Strings.toString());
+		System.out.println(BigToSmall7Strings.toString());
+		System.out.println(BigToSmall8Strings.toString());
+		System.out.println(BigToSmall9Strings.toString());
+		System.out.println(common10Strings.toString());
+		
+		
+		
+		
+		
+		
 		logger.info("----------------------futureMoWei");
 		List<SixOne> sixonesTop5 = SixOneServices.way8(5);
 		List<SixOne> sixonesTop6 = SixOneServices.way8(6);
@@ -3286,7 +3374,7 @@ public class SixOneAction extends BaseAction {
 		List<Integer> formsmalllist8yilou = new ArrayList<Integer>();
 		List<Integer> formsmalllist9yilou = new ArrayList<Integer>();
 		List<Integer> formsmalllist10yilou = new ArrayList<Integer>();
-		for (int i = list10.size()-1; i >=0; i--) {
+		for (int i = list10.size() - 1; i >= 0; i--) {
 
 			for (int j = 0; j < list10.get(i).size(); j++) {
 
@@ -3310,7 +3398,7 @@ public class SixOneAction extends BaseAction {
 			}
 
 		}
-        List<String> formsmallstrings5 = DuanQiCommonUtils.getListString(formsmalllist5yilou);
+		List<String> formsmallstrings5 = DuanQiCommonUtils.getListString(formsmalllist5yilou);
 		List<String> formsmallstrings6 = DuanQiCommonUtils.getListString(formsmalllist6yilou);
 		List<String> formsmallstrings7 = DuanQiCommonUtils.getListString(formsmalllist7yilou);
 		List<String> formsmallstrings8 = DuanQiCommonUtils.getListString(formsmalllist8yilou);

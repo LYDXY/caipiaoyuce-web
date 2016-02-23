@@ -3,6 +3,8 @@ package com.web.yuce.common.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.web.pojo.SixOne;
+
 /**
  * @author 林尧
  *
@@ -10,13 +12,13 @@ import java.util.List;
  */
 public class DuanQiCommonUtils {
 
-	//从m 个数字中选 3个进行组合
-	private List<String> strings(List<Integer> integers,int jige) throws Exception{
+	// 从m 个数字中选 3个进行组合
+	private List<String> strings(List<Integer> integers, int jige) throws Exception {
 		int n = integers.size();
 		if (jige > n) {
 			throw new Exception("错误！数组a中只有" + n + "个元素。" + jige + "大于" + 2 + "!!!");
 		}
-		
+
 		List result = new ArrayList();
 		int[] bs = new int[n];
 		for (int i = 0; i < n; i++) {
@@ -24,42 +26,42 @@ public class DuanQiCommonUtils {
 		}
 		return null;
 	}
-	
 
-	
-	public static String bubbleSort(Integer qishu,int[] numbers) {   
-	    int temp; // 记录临时中间值   
-	    int size = numbers.length; // 数组大小   
-	    for (int i = 0; i < size - 1; i++) {   
-	        for (int j = i + 1; j < size; j++) {   
-	            if (numbers[i] > numbers[j]) { // 交换两数的位置   
-	                temp = numbers[i];   
-	                numbers[i] = numbers[j];   
-	                numbers[j] = temp;   
-	            }   
-	        }   
-	    }
-	    String string=new String();
-	    string=qishu+"---";
-	    for (int i = 0; i < numbers.length; i++) {
-	    	if (numbers[i]<10) {
-	    		string+=("0"+numbers[i]+",");
-			}else {
-				string+=(numbers[i]+",");
+	// 冒泡排序
+	public static String bubbleSort(Integer qishu, int[] numbers) {
+		int temp; // 记录临时中间值
+		int size = numbers.length; // 数组大小
+		for (int i = 0; i < size - 1; i++) {
+			for (int j = i + 1; j < size; j++) {
+				if (numbers[i] > numbers[j]) { // 交换两数的位置
+					temp = numbers[i];
+					numbers[i] = numbers[j];
+					numbers[j] = temp;
+				}
 			}
-	    	
 		}
-	    System.out.println(string);
-	    return string;
-	   // System.out.println();
+		String string = new String();
+		string = qishu + "---";
+		for (int i = 0; i < numbers.length; i++) {
+			if (numbers[i] < 10) {
+				string += ("0" + numbers[i] + ",");
+			} else {
+				string += (numbers[i] + ",");
+			}
+
+		}
+		System.out.println(string);
+		return string;
+		// System.out.println();
 	}
-	
+
 	/**
 	 * 
-	 * @param yilouqingkuang  比如最近5期中 35 个数字的 遗漏情况 均放在 List 中 ,再进行统计
+	 * @param yilouqingkuang
+	 *            比如最近5期中 35 个数字的 遗漏情况 均放在 List 中 ,再进行统计
 	 * @return
 	 */
-	public static List<String> getListString(List<Integer> yilouqingkuang){
+	public static List<String> getListString(List<Integer> yilouqingkuang) {
 		List<String> strings = new ArrayList<>();
 		int zero = 0;
 		int one = 0;
@@ -221,12 +223,12 @@ public class DuanQiCommonUtils {
 				}
 			}
 		}
-		
-		strings.add(zero+"");
-		strings.add( one+"");
+
+		strings.add(zero + "");
+		strings.add(one + "");
 		strings.add("" + two);
 		strings.add("" + three);
-		strings.add(""+ four);
+		strings.add("" + four);
 		strings.add("" + five);
 		strings.add("" + six);
 		strings.add("" + seven);
@@ -235,7 +237,7 @@ public class DuanQiCommonUtils {
 		strings.add("" + ten);
 		strings.add("" + eleven);
 		strings.add("" + twelve);
-		strings.add(""+ thirteen);
+		strings.add("" + thirteen);
 		strings.add("" + fourteen);
 		strings.add("" + fifteen);
 		strings.add("" + sixteen);
@@ -275,6 +277,69 @@ public class DuanQiCommonUtils {
 		strings.add("" + fifty);
 		return strings;
 	}
+
+	/**
+	 * 获取连续几期的末位数字统计
+	 */
+	public static List<String> getMoWeiNumbersCount(List<SixOne> sixOnes) {
+
+		int zero = 0;
+		int one = 0;
+		int two = 0;
+		int three = 0;
+		int four = 0;
+		int five = 0;
+		int six = 0;
+		int seven = 0;
+		int eight = 0;
+		int nine = 0;
+		List<Integer> integers = new ArrayList<Integer>();
+		for (SixOne sixOne : sixOnes) {
+
+			integers.add(sixOne.getFirst() % 10);
+			integers.add(sixOne.getSecond() % 10);
+			integers.add(sixOne.getThird() % 10);
+			integers.add(sixOne.getFourth() % 10);
+			integers.add(sixOne.getFifth() % 10);
+			integers.add(sixOne.getSixth() % 10);
+			integers.add(sixOne.getSeventh() % 10);
+
+		}
+		for (Integer integer : integers) {
+			if (integer == 0) {
+				zero++;
+			} else if (integer == 1) {
+				one++;
+			} else if (integer == 2) {
+				two++;
+			} else if (integer == 3) {
+				three++;
+			} else if (integer == 4) {
+				four++;
+			} else if (integer == 5) {
+				five++;
+			} else if (integer == 6) {
+				six++;
+			} else if (integer == 7) {
+				seven++;
+			} else if (integer == 8) {
+				eight++;
+			} else if (integer == 9) {
+				nine++;
+			}
+
+		}
+		List<String> list = new ArrayList<>();
+		list.add(zero + "");
+		list.add(one + "");
+		list.add(two + "");
+		list.add(three + "");
+		list.add(four + "");
+		list.add(five + "");
+		list.add(six + "");
+		list.add(seven + "");
+		list.add(eight + "");
+		list.add(nine + "");
+		return list;
+	}
 }
-
-
