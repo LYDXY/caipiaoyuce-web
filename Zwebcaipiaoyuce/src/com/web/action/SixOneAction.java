@@ -1244,42 +1244,79 @@ public class SixOneAction extends BaseAction {
 			}
 		}
        
-		logger.info("-----末位数字开始统计--从期数小的排到期数大的");
-		List<String> smallToBig5Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig5);
-		List<String> smallToBig6Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig6);
-		List<String> smallToBig7Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig7);
-		List<String> smallToBig8Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig8);
-		List<String> smallToBig9Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig9);
+		logger.info("-----末位数字开始统计--从过去到现在");
+		List<String> weibusmallToBig5Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig5);
+		List<String> weibusmallToBig6Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig6);
+		List<String> weibusmallToBig7Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig7);
+		List<String> weibusmallToBig8Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig8);
+		List<String> weibusmallToBig9Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig9);
 		List<String> common10Strings=DuanQiCommonUtils.getMoWeiNumbersCount(sixonesTop10);
-		System.out.println(smallToBig5Strings.toString());
-		System.out.println(smallToBig6Strings.toString());
-		System.out.println(smallToBig7Strings.toString());
-		System.out.println(smallToBig8Strings.toString());
-		System.out.println(smallToBig9Strings.toString());
+		System.out.println(weibusmallToBig5Strings.toString());
+		System.out.println(weibusmallToBig6Strings.toString());
+		System.out.println(weibusmallToBig7Strings.toString());
+		System.out.println(weibusmallToBig8Strings.toString());
+		System.out.println(weibusmallToBig9Strings.toString());
 		System.out.println(common10Strings.toString());
-		logger.info("-----末位数字开始统计--从期数大的的排到期数小的");
-		List<String> BigToSmall5Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall5);
-		List<String> BigToSmall6Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall6);
-		List<String> BigToSmall7Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall7);
-		List<String> BigToSmall8Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall8);
-		List<String> BigToSmall9Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall9);
-	    System.out.println(BigToSmall5Strings.toString());
-		System.out.println(BigToSmall6Strings.toString());
-		System.out.println(BigToSmall7Strings.toString());
-		System.out.println(BigToSmall8Strings.toString());
-		System.out.println(BigToSmall9Strings.toString());
+		logger.info("-----末位数字开始统计--从现在到过去");
+		List<String> weibuBigToSmall5Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall5);
+		List<String> weibuBigToSmall6Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall6);
+		List<String> weibuBigToSmall7Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall7);
+		List<String> weibuBigToSmall8Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall8);
+		List<String> weibuBigToSmall9Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall9);
+	    System.out.println(weibuBigToSmall5Strings.toString());
+		System.out.println(weibuBigToSmall6Strings.toString());
+		System.out.println(weibuBigToSmall7Strings.toString());
+		System.out.println(weibuBigToSmall8Strings.toString());
+		System.out.println(weibuBigToSmall9Strings.toString());
 		System.out.println(common10Strings.toString());
+		
+		logger.info("-----头部数字开始统计--从过去到现在");
+		List<String> toubusmallToBig5Strings=DuanQiCommonUtils.getTouBu(smallToBig5);
+		List<String> toubusmallToBig6Strings=DuanQiCommonUtils.getTouBu(smallToBig6);
+		List<String> toubusmallToBig7Strings=DuanQiCommonUtils.getTouBu(smallToBig7);
+		List<String> toubusmallToBig8Strings=DuanQiCommonUtils.getTouBu(smallToBig8);
+		List<String> toubusmallToBig9Strings=DuanQiCommonUtils.getTouBu(smallToBig9);
+		List<String> toubucommon10Strings=DuanQiCommonUtils.getTouBu(sixonesTop10);
+		System.out.println(toubusmallToBig5Strings.toString());
+		System.out.println(toubusmallToBig6Strings.toString());
+		System.out.println(toubusmallToBig7Strings.toString());
+		System.out.println(toubusmallToBig8Strings.toString());
+		System.out.println(toubusmallToBig9Strings.toString());
+		System.out.println(toubucommon10Strings.toString());
+		logger.info("-----头部数字开始统计--从现在到过去");
+		List<String> toubuBigToSmall5Strings=DuanQiCommonUtils.getTouBu(bigToSmall5);
+		List<String> toubuBigToSmall6Strings=DuanQiCommonUtils.getTouBu(bigToSmall6);
+		List<String> toubuBigToSmall7Strings=DuanQiCommonUtils.getTouBu(bigToSmall7);
+		List<String> toubuBigToSmall8Strings=DuanQiCommonUtils.getTouBu(bigToSmall8);
+		List<String> toubuBigToSmall9Strings=DuanQiCommonUtils.getTouBu(bigToSmall9);
+		System.out.println(toubuBigToSmall5Strings.toString());
+		System.out.println(toubuBigToSmall6Strings.toString());
+		System.out.println(toubuBigToSmall7Strings.toString());
+		System.out.println(toubuBigToSmall8Strings.toString());
+		System.out.println(toubuBigToSmall9Strings.toString());
+		System.out.println(toubucommon10Strings.toString());
+		
+		
+		
 		
 		
 		Map<String ,Object> map=new HashMap<String ,Object>();
 		List<List<String>> listsmalltobig=new ArrayList<List<String>>();
-		listsmalltobig.add(smallToBig5Strings);
-		listsmalltobig.add(smallToBig6Strings);
-		listsmalltobig.add(smallToBig7Strings);
-		listsmalltobig.add(smallToBig8Strings);
-		listsmalltobig.add(smallToBig9Strings);
+		listsmalltobig.add(weibusmallToBig5Strings);
+		listsmalltobig.add(weibusmallToBig6Strings);
+		listsmalltobig.add(weibusmallToBig7Strings);
+		listsmalltobig.add(weibusmallToBig8Strings);
+		listsmalltobig.add(weibusmallToBig9Strings);
 		listsmalltobig.add(common10Strings);
 		List<List<String>> listbigtosmall=new ArrayList<List<String>>();
+		listbigtosmall.add(weibuBigToSmall5Strings);
+		listbigtosmall.add(weibuBigToSmall6Strings);
+		listbigtosmall.add(weibuBigToSmall7Strings);
+		listbigtosmall.add(weibuBigToSmall8Strings);
+		listbigtosmall.add(weibuBigToSmall9Strings);
+		listbigtosmall.add(common10Strings);
+		map.put("listsmalltobig", listsmalltobig);
+		map.put("listbigtosmall", listbigtosmall);
 		logger.info(map.toString());
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
 		logger.info(jsonObjectFromMap.toString());

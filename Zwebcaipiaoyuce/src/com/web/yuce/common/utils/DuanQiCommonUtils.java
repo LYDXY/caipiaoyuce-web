@@ -342,4 +342,48 @@ public class DuanQiCommonUtils {
 		list.add(nine + "");
 		return list;
 	}
+
+	/**
+	 * 获取连续几期的头部情况统计
+	 */
+	public static List<String> getTouBu(List<SixOne> sixOnes) {
+		List<String> list = new ArrayList<>();
+		List<Integer> integers = new ArrayList<Integer>();
+		int zero = 0;
+		int one = 0;
+		int two = 0;
+		int three = 0;
+		int four = 0;
+		for (SixOne sixOne : sixOnes) {
+
+			integers.add(sixOne.getFirst() / 10);
+			integers.add(sixOne.getSecond() / 10);
+			integers.add(sixOne.getThird() / 10);
+			integers.add(sixOne.getFourth() / 10);
+			integers.add(sixOne.getFifth() / 10);
+			integers.add(sixOne.getSixth() / 10);
+			integers.add(sixOne.getSeventh() / 10);
+
+		}
+		for (Integer integer : integers) {
+			if (integer == 0) {
+				zero++;
+			} else if (integer == 1) {
+				one++;
+			} else if (integer == 2) {
+				two++;
+			} else if (integer == 3) {
+				three++;
+			} else if (integer == 4) {
+				four++;
+			}
+
+		}
+		list.add(zero + "");
+		list.add(one + "");
+		list.add(two + "");
+		list.add(three + "");
+		list.add(four + "");
+		return list;
+	}
 }

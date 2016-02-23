@@ -114,101 +114,47 @@
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
 				<td>
-					<table class="table table-bordered" id="chartgetjisouFutureMoWei">
+					<table class="table table-bordered" id="smallToBigFutureMoWei">
 						<thead>
 							<tr class="active">
-								<td><h3>末位数字</h3></td>
-								<td><h3>过去5期</h3></td>
-								<td><h3>过去6期</h3></td>
-								<td><h3>过去7期</h3></td>
-								<td><h3>过去8期</h3></td>
-								<td><h3>过去9期</h3></td>
+								<td>0</td>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="info">
-								<td>0</td>
-								<td id="future5zero"></td>
-								<td id="future6zero"></td>
-								<td id="future7zero"></td>
-								<td id="future8zero"></td>
-								<td id="future9zero"></td>
-							</tr>
-							<tr class="success">
-								<td>1</td>
-								<td id="future5one"></td>
-								<td id="future6one"></td>
-								<td id="future7one"></td>
-								<td id="future8one"></td>
-								<td id="future9one"></td>
-							</tr>
-							<tr class="info">
-								<td>2</td>
-								<td id="future5two"></td>
-								<td id="future6two"></td>
-								<td id="future7two"></td>
-								<td id="future8two"></td>
-								<td id="future9two"></td>
-							</tr>
-							<tr class="success">
-								<td>3</td>
-								<td id="future5three"></td>
-								<td id="future6three"></td>
-								<td id="future7three"></td>
-								<td id="future8three"></td>
-								<td id="future9three"></td>
-							</tr>
-							<tr class="info">
-								<td>4</td>
-								<td id="future5four"></td>
-								<td id="future6four"></td>
-								<td id="future7four"></td>
-								<td id="future8four"></td>
-								<td id="future9four"></td>
-							</tr>
-							<tr class="success">
-								<td>5</td>
-								<td id="future5five"></td>
-								<td id="future6five"></td>
-								<td id="future7five"></td>
-								<td id="future8five"></td>
-								<td id="future9five"></td>
-							</tr>
-							<tr class="info">
-								<td>6</td>
-								<td id="future5six"></td>
-								<td id="future6six"></td>
-								<td id="future7six"></td>
-								<td id="future8six"></td>
-								<td id="future9six"></td>
-							</tr>
-							<tr class="success">
-								<td>7</td>
-								<td id="future5seven"></td>
-								<td id="future6seven"></td>
-								<td id="future7seven"></td>
-								<td id="future8seven"></td>
-								<td id="future9seven"></td>
-							</tr>
-							<tr class="info">
-								<td>8</td>
-								<td id="future5eight"></td>
-								<td id="future6eight"></td>
-								<td id="future7eight"></td>
-								<td id="future8eight"></td>
-								<td id="future9eight"></td>
-							</tr>
-							<tr class="success">
-								<td>9</td>
-								<td id="future5nine"></td>
-								<td id="future6nine"></td>
-								<td id="future7nine"></td>
-								<td id="future8nine"></td>
-								<td id="future9nine"></td>
-							</tr>
+
 						</tbody>
 					</table>
-				<td></td>
+				<td>
+
+					<table class="table table-bordered" id="bigToSmallFutureMoWei">
+						<thead>
+							<tr class="active">
+								<td>0</td>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+				</td>
 			</tr>
 			<!-- 热门冷门数字偏差系统 -->
 			<tr>
@@ -698,9 +644,10 @@
 						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureMoWei.action',
 						dataType : "json",
 						success : function(data) {
-							var json = eval('(' + data + ')');
-
 							
+							alert(data);
+							var json = eval('(' + data + ')');
+                         
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
