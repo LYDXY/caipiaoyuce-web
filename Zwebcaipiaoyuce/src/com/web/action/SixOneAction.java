@@ -62,11 +62,11 @@ public class SixOneAction extends BaseAction {
 
 	public String clearYiLouMoShi() {
 		logger.info("clearYiLouMoShi");
+		logger.info("====查新最近的40条数据 ---降序=================");
 		List<SixOne> sixonesTop40 = SixOneServices.way6();
 		logger.info(sixonesTop40.size());
 		Integer maxqishu = SixOneServices.way4();
-		logger.info(maxqishu);
-		logger.info("===============================");
+		logger.info("====查新最新数据的期数 ---================="+maxqishu);
 
 		Map<String, List<List<String>>> map = new HashMap<String, List<List<String>>>();
 		List<List<String>> all = new ArrayList<List<String>>();
@@ -111,50 +111,49 @@ public class SixOneAction extends BaseAction {
 		List<String> clear_thirty_eight = new ArrayList<String>();
 		List<String> clear_thirty_nine = new ArrayList<String>();
 		List<String> clear_fourty = new ArrayList<String>();
-		clear_zero.add("遗漏次数为0");
-		clear_one.add("遗漏次数为1");
-		clear_two.add("遗漏次数为2");
-		clear_three.add("遗漏次数为3");
-		clear_four.add("遗漏次数为4");
-		clear_five.add("遗漏次数为5");
-		clear_six.add("遗漏次数为6");
-		clear_seven.add("遗漏次数为7");
-		clear_eight.add("遗漏次数为8");
-		clear_nine.add("遗漏次数为9");
-		clear_ten.add("遗漏次数为10");
-		clear_eleven.add("遗漏次数为11");
-		clear_twelve.add("遗漏次数为12");
-		clear_thirdteen.add("遗漏次数为13");
-		clear_fourteen.add("遗漏次数为14");
-		clear_fifteen.add("遗漏次数为15");
-		clear_sixteen.add("遗漏次数为16");
-		clear_seventeen.add("遗漏次数为17");
-		clear_eighteen.add("遗漏次数为18");
-		clear_nineteen.add("遗漏次数为19");
-		clear_twenty.add("遗漏次数为20");
-		clear_twenty_one.add("遗漏次数为21");
-		clear_twenty_two.add("遗漏次数为22");
-		clear_twenty_three.add("遗漏次数为23");
-		clear_twenty_four.add("遗漏次数为24");
-		clear_twenty_five.add("遗漏次数为25");
-		clear_twenty_six.add("遗漏次数为26");
-		clear_twenty_seven.add("遗漏次数为27");
-		clear_twenty_eight.add("遗漏次数为28");
-		clear_twenty_nine.add("遗漏次数为29");
-		clear_thirty.add("遗漏次数为30");
-		clear_thirty_one.add("遗漏次数为31");
-		clear_thirty_two.add("遗漏次数为32");
-		clear_thirty_three.add("遗漏次数为33");
-		clear_thirty_four.add("遗漏次数为34");
-		clear_thirty_five.add("遗漏次数为35");
-		clear_thirty_six.add("遗漏次数为36");
-		clear_thirty_seven.add("遗漏次数为37");
-		clear_thirty_eight.add("遗漏次数为38");
-		clear_thirty_nine.add("遗漏次数为39");
-		clear_fourty.add("遗漏次数为40");
+		clear_zero.add("00");
+		clear_one.add("01");
+		clear_two.add("02");
+		clear_three.add("03");
+		clear_four.add("04");
+		clear_five.add("05");
+		clear_six.add("06");
+		clear_seven.add("07");
+		clear_eight.add("08");
+		clear_nine.add("09");
+		clear_ten.add("10");
+		clear_eleven.add("11");
+		clear_twelve.add("12");
+		clear_thirdteen.add("13");
+		clear_fourteen.add("14");
+		clear_fifteen.add("15");
+		clear_sixteen.add("16");
+		clear_seventeen.add("17");
+		clear_eighteen.add("18");
+		clear_nineteen.add("19");
+		clear_twenty.add("20");
+		clear_twenty_one.add("21");
+		clear_twenty_two.add("22");
+		clear_twenty_three.add("23");
+		clear_twenty_four.add("24");
+		clear_twenty_five.add("25");
+		clear_twenty_six.add("26");
+		clear_twenty_seven.add("27");
+		clear_twenty_eight.add("28");
+		clear_twenty_nine.add("29");
+		clear_thirty.add("30");
+		clear_thirty_one.add("31");
+		clear_thirty_two.add("32");
+		clear_thirty_three.add("33");
+		clear_thirty_four.add("34");
+		clear_thirty_five.add("35");
+		clear_thirty_six.add("36");
+		clear_thirty_seven.add("37");
+		clear_thirty_eight.add("38");
+		clear_thirty_nine.add("39");
+		clear_fourty.add("40");
 		for (int i = 0; i < sixonesTop40.size(); i++) {
-			// 获取比自己大的期数,并且将其降序
-			List<SixOne> Mintempsixones = SixOneServices.way16(sixonesTop40.get(i).getQishu());
+			//保存自己的7个数字
 			List<Integer> sevennumbers = new ArrayList<Integer>();
 			sevennumbers.add(sixonesTop40.get(i).getFirst());
 			sevennumbers.add(sixonesTop40.get(i).getSecond());
@@ -163,11 +162,13 @@ public class SixOneAction extends BaseAction {
 			sevennumbers.add(sixonesTop40.get(i).getFifth());
 			sevennumbers.add(sixonesTop40.get(i).getSixth());
 			sevennumbers.add(sixonesTop40.get(i).getSeventh());
-			// 7个数字
+			// 获取比自己大的所有期数,并且将其按照期数降序
+			List<SixOne> Mintempsixones = SixOneServices.way16(sixonesTop40.get(i).getQishu());
+			
+			// 将自己的7个数字与大于自己的其他期数 的每7个数字 比较 
 			for (Integer integer : sevennumbers) {
 				boolean iscunzai = false;
 				for (SixOne sixOne : Mintempsixones) {
-
 					if (integer == sixOne.getFirst()) {
 						iscunzai = true;
 					} else if (integer == sixOne.getSecond()) {
@@ -183,10 +184,8 @@ public class SixOneAction extends BaseAction {
 					} else if (integer == sixOne.getSeventh()) {
 						iscunzai = true;
 					}
-
 				}
 				if (!iscunzai) {
-
 					if (Mintempsixones.size() == 0) {
 						if (integer < 10) {
 							clear_zero.add("0" + integer);
@@ -435,54 +434,51 @@ public class SixOneAction extends BaseAction {
 							clear_fourty.add(integer + "");
 						}
 					}
-
 				}
-
 			}
-
 		}
 		logger.info("==============================");
-		logger.info("遗漏次数为0:" + clear_zero.toString());
-		logger.info("遗漏次数为1" + clear_one.toString());
-		logger.info("遗漏次数为2" + clear_two.toString());
-		logger.info("遗漏次数为3" + clear_three.toString());
-		logger.info("遗漏次数为4" + clear_four.toString());
-		logger.info("遗漏次数为5" + clear_five.toString());
-		logger.info("遗漏次数为6" + clear_six.toString());
-		logger.info("遗漏次数为7" + clear_seven.toString());
-		logger.info("遗漏次数为8" + clear_eight.toString());
-		logger.info("遗漏次数为9" + clear_nine.toString());
-		logger.info("遗漏次数为10" + clear_ten.toString());
-		logger.info("遗漏次数为11:" + clear_eleven.toString());
-		logger.info("遗漏次数为12" + clear_twelve.toString());
-		logger.info("遗漏次数为13" + clear_thirdteen.toString());
-		logger.info("遗漏次数为14" + clear_fourteen.toString());
-		logger.info("遗漏次数为15" + clear_fifteen.toString());
-		logger.info("遗漏次数为16" + clear_sixteen.toString());
-		logger.info("遗漏次数为17" + clear_seventeen.toString());
-		logger.info("遗漏次数为18" + clear_eighteen.toString());
-		logger.info("遗漏次数为19" + clear_nineteen.toString());
-		logger.info("遗漏次数为20" + clear_twenty.toString());
-		logger.info("遗漏次数为21" + clear_twenty_one.toString());
-		logger.info("遗漏次数为22" + clear_twenty_two.toString());
-		logger.info("遗漏次数为23" + clear_twenty_three.toString());
-		logger.info("遗漏次数为24" + clear_twenty_four.toString());
-		logger.info("遗漏次数为25" + clear_twenty_five.toString());
-		logger.info("遗漏次数为26" + clear_twenty_six.toString());
-		logger.info("遗漏次数为27" + clear_twenty_seven.toString());
-		logger.info("遗漏次数为28" + clear_twenty_eight.toString());
-		logger.info("遗漏次数为29" + clear_twenty_nine.toString());
-		logger.info("遗漏次数为30" + clear_thirty.toString());
-		logger.info("遗漏次数为31" + clear_thirty_one.toString());
-		logger.info("遗漏次数为32" + clear_thirty_two.toString());
-		logger.info("遗漏次数为33" + clear_thirty_three.toString());
-		logger.info("遗漏次数为34" + clear_thirty_four.toString());
-		logger.info("遗漏次数为35" + clear_thirty_five.toString());
-		logger.info("遗漏次数为36" + clear_thirty_six.toString());
-		logger.info("遗漏次数为37" + clear_thirty_seven.toString());
-		logger.info("遗漏次数为38" + clear_thirty_eight.toString());
-		logger.info("遗漏次数为39" + clear_thirty_nine.toString());
-		logger.info("遗漏次数为40" + clear_fourty.toString());
+		System.out.println("遗漏次数为0:"+clear_zero.toString());
+		System.out.println("遗漏次数为1" + clear_one.toString());
+		System.out.println("遗漏次数为2" + clear_two.toString());
+		System.out.println("遗漏次数为3" + clear_three.toString());
+		System.out.println("遗漏次数为4" + clear_four.toString());
+		System.out.println("遗漏次数为5" + clear_five.toString());
+		System.out.println("遗漏次数为6" + clear_six.toString());
+		System.out.println("遗漏次数为7" + clear_seven.toString());
+		System.out.println("遗漏次数为8" + clear_eight.toString());
+		System.out.println("遗漏次数为9" + clear_nine.toString());
+		System.out.println("遗漏次数为10" + clear_ten.toString());
+		System.out.println("遗漏次数为11:" + clear_eleven.toString());
+		System.out.println("遗漏次数为12" + clear_twelve.toString());
+		System.out.println("遗漏次数为13" + clear_thirdteen.toString());
+		System.out.println("遗漏次数为14" + clear_fourteen.toString());
+		System.out.println("遗漏次数为15" + clear_fifteen.toString());
+		System.out.println("遗漏次数为16" + clear_sixteen.toString());
+		System.out.println("遗漏次数为17" + clear_seventeen.toString());
+		System.out.println("遗漏次数为18" + clear_eighteen.toString());
+		System.out.println("遗漏次数为19" + clear_nineteen.toString());
+		System.out.println("遗漏次数为20" + clear_twenty.toString());
+		System.out.println("遗漏次数为21" + clear_twenty_one.toString());
+		System.out.println("遗漏次数为22" + clear_twenty_two.toString());
+		System.out.println("遗漏次数为23" + clear_twenty_three.toString());
+		System.out.println("遗漏次数为24" + clear_twenty_four.toString());
+		System.out.println("遗漏次数为25" + clear_twenty_five.toString());
+		System.out.println("遗漏次数为26" + clear_twenty_six.toString());
+		System.out.println("遗漏次数为27" + clear_twenty_seven.toString());
+		System.out.println("遗漏次数为28" + clear_twenty_eight.toString());
+		System.out.println("遗漏次数为29" + clear_twenty_nine.toString());
+		System.out.println("遗漏次数为30" + clear_thirty.toString());
+		System.out.println("遗漏次数为31" + clear_thirty_one.toString());
+		System.out.println("遗漏次数为32" + clear_thirty_two.toString());
+		System.out.println("遗漏次数为33" + clear_thirty_three.toString());
+		System.out.println("遗漏次数为34" + clear_thirty_four.toString());
+		System.out.println("遗漏次数为35" + clear_thirty_five.toString());
+		System.out.println("遗漏次数为36" + clear_thirty_six.toString());
+		System.out.println("遗漏次数为37" + clear_thirty_seven.toString());
+		System.out.println("遗漏次数为38" + clear_thirty_eight.toString());
+		System.out.println("遗漏次数为39" + clear_thirty_nine.toString());
+		System.out.println("遗漏次数为40" + clear_fourty.toString());
 		all.add(clear_zero);
 		all.add(clear_one);
 		all.add(clear_two);
@@ -524,7 +520,6 @@ public class SixOneAction extends BaseAction {
 		all.add(clear_thirty_eight);
 		all.add(clear_thirty_nine);
 		all.add(clear_fourty);
-
 		// 每一期进行冒泡排序
 		logger.info("============================冒泡排序");
 		List<String> strings = new ArrayList<String>();
@@ -540,7 +535,6 @@ public class SixOneAction extends BaseAction {
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();
 		return "CLEARYILOUMOSHI_SUCEESS";
-
 	}
 
 	/**
@@ -1185,7 +1179,7 @@ public class SixOneAction extends BaseAction {
 	}
 
 	/**
-	 * 末位数字偏差系统分析
+	 * 末位数字和头部数字偏差系统分析
 	 */
 	public String futureMoWei() {
 		// 降序 获取最新的 10期
@@ -1269,7 +1263,6 @@ public class SixOneAction extends BaseAction {
 		System.out.println(weibuBigToSmall8Strings.toString());
 		System.out.println(weibuBigToSmall9Strings.toString());
 		System.out.println(common10Strings.toString());
-		
 		logger.info("-----头部数字开始统计--从过去到现在");
 		List<String> toubusmallToBig5Strings=DuanQiCommonUtils.getTouBu(smallToBig5);
 		List<String> toubusmallToBig6Strings=DuanQiCommonUtils.getTouBu(smallToBig6);
@@ -1295,28 +1288,39 @@ public class SixOneAction extends BaseAction {
 		System.out.println(toubuBigToSmall8Strings.toString());
 		System.out.println(toubuBigToSmall9Strings.toString());
 		System.out.println(toubucommon10Strings.toString());
-		
-		
-		
-		
-		
 		Map<String ,Object> map=new HashMap<String ,Object>();
-		List<List<String>> listsmalltobig=new ArrayList<List<String>>();
-		listsmalltobig.add(weibusmallToBig5Strings);
-		listsmalltobig.add(weibusmallToBig6Strings);
-		listsmalltobig.add(weibusmallToBig7Strings);
-		listsmalltobig.add(weibusmallToBig8Strings);
-		listsmalltobig.add(weibusmallToBig9Strings);
-		listsmalltobig.add(common10Strings);
-		List<List<String>> listbigtosmall=new ArrayList<List<String>>();
-		listbigtosmall.add(weibuBigToSmall5Strings);
-		listbigtosmall.add(weibuBigToSmall6Strings);
-		listbigtosmall.add(weibuBigToSmall7Strings);
-		listbigtosmall.add(weibuBigToSmall8Strings);
-		listbigtosmall.add(weibuBigToSmall9Strings);
-		listbigtosmall.add(common10Strings);
-		map.put("listsmalltobig", listsmalltobig);
-		map.put("listbigtosmall", listbigtosmall);
+		List<List<String>> weibulistsmalltobig=new ArrayList<List<String>>();
+		weibulistsmalltobig.add(weibusmallToBig5Strings);
+		weibulistsmalltobig.add(weibusmallToBig6Strings);
+		weibulistsmalltobig.add(weibusmallToBig7Strings);
+		weibulistsmalltobig.add(weibusmallToBig8Strings);
+		weibulistsmalltobig.add(weibusmallToBig9Strings);
+		weibulistsmalltobig.add(common10Strings);
+		List<List<String>> weibulistbigtosmall=new ArrayList<List<String>>();
+		weibulistbigtosmall.add(weibuBigToSmall5Strings);
+		weibulistbigtosmall.add(weibuBigToSmall6Strings);
+		weibulistbigtosmall.add(weibuBigToSmall7Strings);
+		weibulistbigtosmall.add(weibuBigToSmall8Strings);
+		weibulistbigtosmall.add(weibuBigToSmall9Strings);
+		weibulistbigtosmall.add(common10Strings);
+		List<List<String>> toubulistsmalltobig=new ArrayList<List<String>>();
+		toubulistsmalltobig.add(toubusmallToBig5Strings);
+		toubulistsmalltobig.add(toubusmallToBig6Strings);
+		toubulistsmalltobig.add(toubusmallToBig7Strings);
+		toubulistsmalltobig.add(toubusmallToBig8Strings);
+		toubulistsmalltobig.add(toubusmallToBig9Strings);
+		toubulistsmalltobig.add(toubucommon10Strings);
+		List<List<String>> toubulistbigtosmall=new ArrayList<List<String>>();
+		toubulistbigtosmall.add(toubuBigToSmall5Strings);
+		toubulistbigtosmall.add(toubuBigToSmall6Strings);
+		toubulistbigtosmall.add(toubuBigToSmall7Strings);
+		toubulistbigtosmall.add(toubuBigToSmall8Strings);
+		toubulistbigtosmall.add(toubuBigToSmall9Strings);
+		toubulistbigtosmall.add(toubucommon10Strings);
+		map.put("weibulistsmalltobig", weibulistsmalltobig);
+		map.put("weibulistbigtosmall", weibulistbigtosmall);
+		map.put("toubulistsmalltobig", toubulistsmalltobig);
+		map.put("toubulistbigtosmall", toubulistbigtosmall);
 		logger.info(map.toString());
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
 		logger.info(jsonObjectFromMap.toString());
@@ -2626,16 +2630,16 @@ public class SixOneAction extends BaseAction {
 	 * 热门冷门数字偏差追踪系统
 	 */
 	public String futureColdHot() {
-		logger.info("------热门冷门数字偏差追踪系统----futureColdHot");
+		logger.info("------热门冷门数字偏差追踪系统----查询最新的40期数据");
 		List<SixOne> sixonesTop40 = SixOneServices.way6();
 		Integer maxqishu = SixOneServices.way4();
-		logger.info("=====================================");
 		logger.info("最新的期数" + maxqishu);
 		logger.info("=====================================");
-		Iterator<SixOne> iter = sixonesTop40.iterator();// 获取最近的40期的40个对象
+		Iterator<SixOne> iter = sixonesTop40.iterator();// 获取40个对象
 		List<SixOne> temps; // 存放临时的对象
+		
 		List<Map<String, Object>> fenxijieguolist = new ArrayList<Map<String, Object>>();
-
+		
 		float histoty_zongpingjun = 0.f;// 历史总平均 (遗漏次数在10一个的所有数字的遗漏数字相加)
 		float history_geshupingjun = 0.f;// 历史平均遗漏个数(遗漏次数在10 以内)
 
@@ -2649,7 +2653,7 @@ public class SixOneAction extends BaseAction {
 		List<List<Integer>> list10 = new ArrayList<List<Integer>>();
 		// 遍历过去40期 降序
 		while (iter.hasNext()) {
-			Map<String, Object> everyone = new HashMap<String, Object>();
+			Map<String, Object> everyone = new HashMap<String, Object>(); //保存每一期的数据
 			SixOne sixOne = iter.next();
 			Integer id = sixOne.getId();
 			Integer qishu = sixOne.getQishu();
@@ -2660,8 +2664,7 @@ public class SixOneAction extends BaseAction {
 			Integer fifth = sixOne.getFifth();
 			Integer sixth = sixOne.getSixth();
 			Integer seventh = sixOne.getSeventh();
-			// 记录每一个对象的数据
-			everyone.put("qishu", id + "");
+			everyone.put("qishu", id + "");//保存期数
 			StringBuilder stringBuilder2 = new StringBuilder();
 			if (first < 10) {
 				stringBuilder2.append("0" + first + "-");
@@ -2673,13 +2676,11 @@ public class SixOneAction extends BaseAction {
 			} else {
 				stringBuilder2.append(second + "-");
 			}
-
 			if (third < 10) {
 				stringBuilder2.append("0" + third + "-");
 			} else {
 				stringBuilder2.append(third + "-");
 			}
-
 			if (fourth < 10) {
 				stringBuilder2.append("0" + fourth + "-");
 			} else {
@@ -2700,12 +2701,8 @@ public class SixOneAction extends BaseAction {
 			} else {
 				stringBuilder2.append(seventh);
 			}
-			everyone.put("number", stringBuilder2.toString());
-			// 临时存储每个对象 7个数字的属性值
-			List<Integer> IntegerS = new ArrayList<Integer>();
-			// 记录7个数字的遗漏值
-			List<Integer> S2 = new ArrayList<Integer>();
-
+			everyone.put("number", stringBuilder2.toString());//保存开奖数字情况
+			List<Integer> IntegerS = new ArrayList<Integer>();// 临时存储每个对象 7个数字
 			IntegerS.add(first);
 			IntegerS.add(second);
 			IntegerS.add(third);
@@ -2713,13 +2710,13 @@ public class SixOneAction extends BaseAction {
 			IntegerS.add(fifth);
 			IntegerS.add(sixth);
 			IntegerS.add(seventh);
-			// 查询比自己期数小的 其他对象
-			temps = SixOneServices.way7(qishu);
+			List<Integer> S2 = new ArrayList<Integer>();// 记录每一期7个数字的遗漏值
+			temps = SixOneServices.way7(qishu);// 查询比自己期数小的 其他对象
 			float geshu = 0;
 			float yilouzongshu = 0;
-			StringBuilder stringBuilder = new StringBuilder();
+			StringBuilder stringBuilder = new StringBuilder();//保存每一个对象的七个数字的七个遗漏值,不用排序,直接累加成字符串
 			List<Integer> getnewListTen = new ArrayList<Integer>();
-			// 遍历自己的七个值
+			// 遍历自己的七个数字
 			for (Integer integer : IntegerS) {
 				boolean iscunzai = false;
 				for (SixOne tempsixOne : temps) {
@@ -2762,8 +2759,6 @@ public class SixOneAction extends BaseAction {
 							list10yilou.add(tempYiLou);
 							getnewListTen.add(tempYiLou);
 						}
-
-						//
 						iscunzai = true;
 						break;
 					} else if (integer == tempsecond) {
@@ -2998,16 +2993,10 @@ public class SixOneAction extends BaseAction {
 		logger.info("分析结果=====================================");
 		logger.info("历史平均总计值" + (histoty_zongpingjun / 40.f));
 		logger.info("历史个数平均值" + (history_geshupingjun / 40.f));
-		for (Map<String, Object> map : fenxijieguolist) {
-			for (Map.Entry<String, Object> entry : map.entrySet()) {
-				logger.info("Key = " + entry.getKey() + ", Value = " + entry.getValue());
-			}
-		}
-		logger.info("==============================================");
-		logger.info("最新5期的遗漏情况:共35个数字" + (list5yilou.size()));
+
+		logger.info("=====统计几期中的遗漏情况======从现在到过去==========");
 		Map<String, Object> tongji = new HashMap<String, Object>();
-		List<List<String>> aLists = new ArrayList<List<String>>();
-		// 最新5期的遗漏情况统计
+		List<List<String>> aLists = new ArrayList<List<String>>(); //为了把数据打包
 		List<String> strings5 = DuanQiCommonUtils.getListString(list5yilou);
 		List<String> strings6 = DuanQiCommonUtils.getListString(list6yilou);
 		List<String> strings7 = DuanQiCommonUtils.getListString(list7yilou);
@@ -3020,7 +3009,13 @@ public class SixOneAction extends BaseAction {
 		System.out.println(strings8.toString());
 		System.out.println(strings9.toString());
 		System.out.println(strings10.toString());
-		logger.info("==============================================");
+		aLists.add(strings5);
+		aLists.add(strings6);
+		aLists.add(strings7);
+		aLists.add(strings8);
+		aLists.add(strings9);
+		aLists.add(strings10);
+		logger.info("=====统计几期中的遗漏情况======从过去到现在=======");
 		System.out.println(list10.toString());
 		List<Integer> formsmalllist5yilou = new ArrayList<Integer>();
 		List<Integer> formsmalllist6yilou = new ArrayList<Integer>();
@@ -3058,16 +3053,22 @@ public class SixOneAction extends BaseAction {
 		List<String> formsmallstrings8 = DuanQiCommonUtils.getListString(formsmalllist8yilou);
 		List<String> formsmallstrings9 = DuanQiCommonUtils.getListString(formsmalllist9yilou);
 		List<String> formsmallstrings10 = DuanQiCommonUtils.getListString(formsmalllist10yilou);
-		logger.info("==============================================");
 		System.out.println(formsmallstrings5.toString());
 		System.out.println(formsmallstrings6.toString());
 		System.out.println(formsmallstrings7.toString());
 		System.out.println(formsmallstrings8.toString());
 		System.out.println(formsmallstrings9.toString());
 		System.out.println(formsmallstrings10.toString());
-		tongji.put("last5qi", strings5);
-		fenxijieguolist.add(tongji);
+		aLists.add(formsmallstrings5);
+		aLists.add(formsmallstrings6);
+		aLists.add(formsmallstrings7);
+		aLists.add(formsmallstrings8);
+		aLists.add(formsmallstrings9);
+		aLists.add(formsmallstrings10);
 		logger.info("==============================================");
+		tongji.put("aLists", aLists);
+		fenxijieguolist.add(tongji);
+		
 		JSONArray jsonObjectFromMap = JSONArray.fromObject(fenxijieguolist);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();

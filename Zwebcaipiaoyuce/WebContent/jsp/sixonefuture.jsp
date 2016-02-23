@@ -41,6 +41,9 @@
 	href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- <style type="text/css">
+td{text-align: center;}
+</style> -->
 </head>
 <body>
 	<table class="table table-bordered">
@@ -109,11 +112,11 @@
 			<!--末位数字偏差系统分析  -->
 			<tr>
 				<td class="info">
-					<h3>末位数字偏差系统分析</h3> <br />
+					<h3></h3> <br />
 					<button id="getMoWeifenxijieguo" onclick="getjisouFutureMoWei()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td>
+				<td>从过去到现在:
 					<table class="table table-bordered" id="smallToBigFutureMoWei">
 						<thead>
 							<tr class="active">
@@ -129,12 +132,9 @@
 								<td>9</td>
 							</tr>
 						</thead>
-						<tbody>
-
+						<tbody id="oooooooo1">
 						</tbody>
-					</table>
-				<td>
-
+					</table> 从现在到过去:
 					<table class="table table-bordered" id="bigToSmallFutureMoWei">
 						<thead>
 							<tr class="active">
@@ -150,8 +150,36 @@
 								<td>9</td>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="oooooooo2">
+						</tbody>
+					</table>
 
+				</td>
+				<td>从过去到现在:
+					<table class="table table-bordered" id="smallToBigFutureTouBu">
+						<thead>
+							<tr class="active">
+								<td>0</td>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+							</tr>
+						</thead>
+						<tbody id="oooooooo3">
+						</tbody>
+					</table> 从现在到过去:
+					<table class="table table-bordered" id="bigToSmallFutureTouBu">
+						<thead>
+							<tr class="active">
+								<td>0</td>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+							</tr>
+						</thead>
+						<tbody id="oooooooo4">
 						</tbody>
 					</table>
 				</td>
@@ -159,7 +187,6 @@
 			<!-- 热门冷门数字偏差系统 -->
 			<tr>
 				<td class="info">
-					<h3>热门冷门偏差系统分析</h3> <br />
 					<button id="getremenlengmenfenxijieguo"
 						onclick="getremenlengmenfenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
@@ -176,25 +203,147 @@
 								<td>遗漏次数的和 除以 7= 遗漏平均次数</td>
 							</tr>
 						</thead>
-					</table></td>
-				<td><table class="table table-bordered">
-						<tbody id="sorttbody">
-
-						</tbody>
-					</table> <br />
+					</table> 从现在到过去
 					<table class="table table-bordered">
-						<tbody id="fivelasttongji">
-
+						<thead>
+							<tr>
+								<td>00</td>
+								<td>01</td>
+								<td>02</td>
+								<td>03</td>
+								<td>04</td>
+								<td>05</td>
+								<td>06</td>
+								<td>07</td>
+								<td>08</td>
+								<td>09</td>
+								<td>10</td>
+								<td>11</td>
+								<td>12</td>
+								<td>13</td>
+								<td>14</td>
+								<td>15</td>
+								<td>16</td>
+								<td>17</td>
+								<td>18</td>
+								<td>19</td>
+								<td>20</td>
+								<td>21</td>
+								<td>22</td>
+								<td>23</td>
+								<td>24</td>
+								<td>25</td>
+								<td>26</td>
+								<td>27</td>
+								<td>28</td>
+								<td>29</td>
+								<td>30</td>
+								<td>31</td>
+								<td>32</td>
+								<td>33</td>
+								<td>34</td>
+								<td>35</td>
+								<td>36</td>
+								<td>37</td>
+								<td>38</td>
+								<td>39</td>
+								<td>40</td>
+								<td>41</td>
+								<td>42</td>
+								<td>43</td>
+								<td>44</td>
+								<td>45</td>
+								<td>46</td>
+								<td>47</td>
+								<td>48</td>
+								<td>49</td>
+								<td>50</td>
+							</tr>
+						</thead>
+						<tbody id="sssssssssss">
+						</tbody>
+					</table> 从过去到现在
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<td>00</td>
+								<td>01</td>
+								<td>02</td>
+								<td>03</td>
+								<td>04</td>
+								<td>05</td>
+								<td>06</td>
+								<td>07</td>
+								<td>08</td>
+								<td>09</td>
+								<td>10</td>
+								<td>11</td>
+								<td>12</td>
+								<td>13</td>
+								<td>14</td>
+								<td>15</td>
+								<td>16</td>
+								<td>17</td>
+								<td>18</td>
+								<td>19</td>
+								<td>20</td>
+								<td>21</td>
+								<td>22</td>
+								<td>23</td>
+								<td>24</td>
+								<td>25</td>
+								<td>26</td>
+								<td>27</td>
+								<td>28</td>
+								<td>29</td>
+								<td>30</td>
+								<td>31</td>
+								<td>32</td>
+								<td>33</td>
+								<td>34</td>
+								<td>35</td>
+								<td>36</td>
+								<td>37</td>
+								<td>38</td>
+								<td>39</td>
+								<td>40</td>
+								<td>41</td>
+								<td>42</td>
+								<td>43</td>
+								<td>44</td>
+								<td>45</td>
+								<td>46</td>
+								<td>47</td>
+								<td>48</td>
+								<td>49</td>
+								<td>50</td>
+							</tr>
+						</thead>
+						<tbody id="uuuuuuu">
 						</tbody>
 					</table></td>
-				<td><table class="table table-bordered">
-						<tbody id="cleartbody">
+
+				<td colspan="2"><table class="table table-bordered">
+
+						<thead>
 							<tr>
 								<td><button onclick="getclearYiLouMoShi()" type="button"
-										class="btn btn-primary btn-lg">获取清晰模式</button></td>
-
+										class="btn btn-primary btn-lg">执行</button></td>
+								<td colspan="7">未来模式</td>
 							</tr>
+						</thead>
+						<tbody id="cleartbody">
 
+
+						</tbody>
+					</table>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<td>最新40期遗漏情况进行排序后结果</td>
+							</tr>
+						</thead>
+						<tbody id="qqqqqqq">
 						</tbody>
 					</table></td>
 			</tr>
@@ -333,12 +482,10 @@
 			<!-- 和数值偏差系统分析 -->
 			<tr>
 				<td class="info">
-					<h3>和数值偏差系统分析</h3> <br />
 					<button id="getheshuzhifenxijieguo"
 						onclick="getheshuzhifenxijieguo()" class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td colspan="2"><div id="chartgetheshuzhifenxijieguo"
-						style="height: 600px;"></div></td>
+				<td colspan="2"></td>
 
 			</tr>
 			<!-- 数字区间偏差分析系统 -->
@@ -501,64 +648,9 @@
 						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureHeShuzhi.action',
 						dataType : "json",
 						success : function(data) {
+							alert(data);
 							var json = eval('(' + data + ')');
-							heshuzhiList = json.heshuzhiList;
-							middlesumiList = json.middlesumiList;
-							ticks2 = json.qishulist;
-							$
-									.jqplot(
-											'chartgetheshuzhifenxijieguo',
-											[ heshuzhiList, middlesumiList ],
-											{
-												seriesDefaults : {
-													renderer : $.jqplot.BarRenderer, //使用柱状图表示
-													rendererOptions : {
-														barMargin : 12,
-														highlightMouseDown : true
-													}
-												},
-												series : [ {
-													label : '和数值 :每一期的数字之和'
-												}, {
-													label : '和中值 :175'
-												} ],
-												legend : {
-													show : true,
-													placement : 'outsideGrid'
-												},
-												title : {
-													text : '和数值偏差系统分析', //设置当前图的标题
-													show : true,//设置当前图的标题是否显示
-												},
-												axes : {
-													xaxis : {
-														ticks : ticks2,
-														renderer : $.jqplot.CategoryAxisRenderer,
-														pad : 1,
-														tickOptions : {
-															fontSize : '13px'
-														},
-														showTicks : true
-													},
-													yaxis : {
-														ticks : [ 85, 90, 95,
-																100, 105, 110,
-																115, 120, 125,
-																130, 135, 140,
-																145, 150, 155,
-																160, 165, 170,
-																175, 180, 185,
-																190, 195, 200,
-																205, 210, 215,
-																220, 225, 230,
-																235, 240, 245,
-																250, 255, 260,
-																265, 270 ],
-														renderer : $.jqplot.LinearAxisRenderer,
-														pad : 1
-													}
-												}
-											});
+
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
@@ -644,10 +736,66 @@
 						url : '${pageContext.request.contextPath }/ajaxSixOneAction/SixOneActionFutureMoWei.action',
 						dataType : "json",
 						success : function(data) {
-							
+
 							alert(data);
 							var json = eval('(' + data + ')');
-                         
+							//	alert(json.weibulistsmalltobig);
+							//	alert(json.weibulistbigtosmall);
+							//	alert(json.toubulistsmalltobig);
+							//	alert(json.toubulistbigtosmall);
+							$("#oooooooo1").empty();
+							$("#oooooooo2").empty();
+							$("#oooooooo3").empty();
+							$("#oooooooo4").empty();
+							for (var i = 0; i < json.weibulistsmalltobig.length; i++) {
+								var trHtml = '<tr>';
+								for (var j = 0; j < json.weibulistsmalltobig[i].length; j++) {
+									var tdHtml = '<td class="info">'
+											+ json.weibulistsmalltobig[i][j];
+									+'</td>';
+									trHtml += tdHtml;
+
+								}
+								trHtml += '</tr>';
+								$("#oooooooo1").append(trHtml);
+							}
+							for (var i = 0; i < json.weibulistbigtosmall.length; i++) {
+								var trHtml = '<tr>';
+								for (var j = 0; j < json.weibulistbigtosmall[i].length; j++) {
+									var tdHtml = '<td class="info">'
+											+ json.weibulistbigtosmall[i][j];
+									+'</td>';
+									trHtml += tdHtml;
+
+								}
+								trHtml += '</tr>';
+								$("#oooooooo2").append(trHtml);
+							}
+							for (var i = 0; i < json.toubulistsmalltobig.length; i++) {
+								var trHtml = '<tr>';
+								for (var j = 0; j < json.toubulistsmalltobig[i].length; j++) {
+									var tdHtml = '<td class="info">'
+											+ json.toubulistsmalltobig[i][j];
+									+'</td>';
+									trHtml += tdHtml;
+
+								}
+								trHtml += '</tr>';
+								$("#oooooooo3").append(trHtml);
+							}
+							for (var i = 0; i < json.toubulistbigtosmall.length; i++) {
+								var trHtml = '<tr>';
+								for (var j = 0; j < json.toubulistbigtosmall[i].length; j++) {
+									var tdHtml = '<td class="info">'
+											+ json.toubulistbigtosmall[i][j];
+									+'</td>';
+									trHtml += tdHtml;
+
+								}
+								trHtml += '</tr>';
+								$("#oooooooo4").append(trHtml);
+							}
+
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
@@ -671,15 +819,36 @@
 								i % 2 == 0 ? classType = 'info'
 										: classType = 'success';
 								if (i == json.length - 1) {
+									//alert(json[i].aLists.length);
 
-									
-									for (var j = 0; j < json[i].last5qi.length; j++) {
-										//alert(json[i].last5qi[j]);
-										$("#fivelasttongji").append(
-												'<tr class="'+classType+'">'
-														+ '<td>' + json[i].last5qi[j]
-														+ '</td>')
-												+ '</tr>';
+									for (var j = 0; j < json[i].aLists.length; j++) {
+										if (j <= 5) {
+											var trHtml = '<tr>';
+											for (var k = 0; k < json[i].aLists[j].length; k++) {
+												var tdHtml = '<td class="success">'
+														+ json[i].aLists[j][k];
+												+'</td>';
+												trHtml += tdHtml;
+
+											}
+											trHtml += '</tr>';
+											$("#sssssssssss").append(trHtml);
+
+										} else {
+											for (var k = 0; k < json[i].aLists[j].length; k++) {
+												var trHtml = '<tr>';
+												for (var k = 0; k < json[i].aLists[j].length; k++) {
+													var tdHtml = '<td class="success">'
+															+ json[i].aLists[j][k];
+													+'</td>';
+													trHtml += tdHtml;
+
+												}
+												trHtml += '</tr>';
+												$("#uuuuuuu").append(trHtml);
+											}
+										}
+
 									}
 
 								} else {
@@ -1020,7 +1189,8 @@
 							alert(data);
 							//console.log(json.clear[0])
 							var json = eval('(' + data + ')');
-
+							$("#qqqqqqq").empty();
+							$("#cleartbody").empty();
 							for (var i = 0; i < json.clear.length; i++) {
 								if (i < (json.clear.length - 1)) {
 									var trHtml = '<tr>';
@@ -1041,7 +1211,7 @@
 												+ json.clear[i][k] + '</td>';
 										trHtml += tdHtml;
 										trHtml += '</tr>';
-										$("#sorttbody").append(trHtml);
+										$("#qqqqqqq").append(trHtml);
 									}
 
 								}
