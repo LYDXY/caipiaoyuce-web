@@ -47,23 +47,14 @@ td{text-align: center;}
 </head>
 <body>
 	<table class="table table-bordered">
-		<thead>
-			<tr class="success">
-				<td>短期预测</td>
-				<td>预测趋势图分析</td>
-				<td>预测结果</td>
-			</tr>
-		</thead>
 		<tbody>
 			<!-- 奇数偶数偏差系统分析 -->
 			<tr>
 				<td class="info">
-					<h3>奇数偶数偏差系统分析</h3> <br />
 					<button id="getjisoufenxijieguo" onclick="getjisoufenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td><div id="chartgetjisoufenxijieguo"
-						style="height: 400px; width: 900px;"></div></td>
+				<td></td>
 				<td width="500px">
 					<table class="table">
 						<thead>
@@ -85,12 +76,10 @@ td{text-align: center;}
 			<!-- 大数小数偏差系统分析 -->
 			<tr>
 				<td class="info">
-					<h3>大数小数偏差系统分析</h3> <br />
 					<button id="getdaxiaofenxijieguo" onclick="getdaxiaofenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td><div id="chatgetdaxiaofenxijieguo"
-						style="height: 400px; width: 900px;"></div></td>
+				<td></td>
 				<td>
 					<table class="table">
 						<thead>
@@ -203,65 +192,6 @@ td{text-align: center;}
 								<td>遗漏次数的和 除以 7= 遗漏平均次数</td>
 							</tr>
 						</thead>
-					</table> 从现在到过去
-					<table class="table table-bordered">
-						<thead>
-							<tr>
-								<td>00</td>
-								<td>01</td>
-								<td>02</td>
-								<td>03</td>
-								<td>04</td>
-								<td>05</td>
-								<td>06</td>
-								<td>07</td>
-								<td>08</td>
-								<td>09</td>
-								<td>10</td>
-								<td>11</td>
-								<td>12</td>
-								<td>13</td>
-								<td>14</td>
-								<td>15</td>
-								<td>16</td>
-								<td>17</td>
-								<td>18</td>
-								<td>19</td>
-								<td>20</td>
-								<td>21</td>
-								<td>22</td>
-								<td>23</td>
-								<td>24</td>
-								<td>25</td>
-								<td>26</td>
-								<td>27</td>
-								<td>28</td>
-								<td>29</td>
-								<td>30</td>
-								<td>31</td>
-								<td>32</td>
-								<td>33</td>
-								<td>34</td>
-								<td>35</td>
-								<td>36</td>
-								<td>37</td>
-								<td>38</td>
-								<td>39</td>
-								<td>40</td>
-								<td>41</td>
-								<td>42</td>
-								<td>43</td>
-								<td>44</td>
-								<td>45</td>
-								<td>46</td>
-								<td>47</td>
-								<td>48</td>
-								<td>49</td>
-								<td>50</td>
-							</tr>
-						</thead>
-						<tbody id="sssssssssss">
-						</tbody>
 					</table> 从过去到现在
 					<table class="table table-bordered">
 						<thead>
@@ -320,6 +250,65 @@ td{text-align: center;}
 							</tr>
 						</thead>
 						<tbody id="uuuuuuu">
+						</tbody>
+					</table> 从现在到过去
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<td>00</td>
+								<td>01</td>
+								<td>02</td>
+								<td>03</td>
+								<td>04</td>
+								<td>05</td>
+								<td>06</td>
+								<td>07</td>
+								<td>08</td>
+								<td>09</td>
+								<td>10</td>
+								<td>11</td>
+								<td>12</td>
+								<td>13</td>
+								<td>14</td>
+								<td>15</td>
+								<td>16</td>
+								<td>17</td>
+								<td>18</td>
+								<td>19</td>
+								<td>20</td>
+								<td>21</td>
+								<td>22</td>
+								<td>23</td>
+								<td>24</td>
+								<td>25</td>
+								<td>26</td>
+								<td>27</td>
+								<td>28</td>
+								<td>29</td>
+								<td>30</td>
+								<td>31</td>
+								<td>32</td>
+								<td>33</td>
+								<td>34</td>
+								<td>35</td>
+								<td>36</td>
+								<td>37</td>
+								<td>38</td>
+								<td>39</td>
+								<td>40</td>
+								<td>41</td>
+								<td>42</td>
+								<td>43</td>
+								<td>44</td>
+								<td>45</td>
+								<td>46</td>
+								<td>47</td>
+								<td>48</td>
+								<td>49</td>
+								<td>50</td>
+							</tr>
+						</thead>
+						<tbody id="sssssssssss">
 						</tbody>
 					</table></td>
 
@@ -537,16 +526,15 @@ td{text-align: center;}
 			</tr>
 			<!-- 统计过去十期出现的数字,越靠前表明最近才出现 -->
 			<tr>
-				<td class="info"><h3>统计过去十期出现的数字,越靠前表明最近才出现</h3> <br />
+				<td class="info">
 					<button onclick="getshuzitongjiguoqutenjieguo()"
 						class="btn btn-primary btn-lg">执行</button></td>
-				<td><table id="lasttenTable" class="table table-bordered"></table></td>
-				<td><table id="notInlasttenTable" class="table table-bordered"></table></td>
+				<td>统计过去十期以内的数字,越靠前表明最近才出现<table id="lasttenTable" class="table table-bordered"></table></td>
+				<td>统计过去十期以外的数字,越靠前表明最近才出现<table id="notInlasttenTable" class="table table-bordered"></table></td>
 			</tr>
 			<!-- 请输入需要组合的数字-->
 			<tr>
-				<td class="info"><h3>请先在右边的表单输入需要组合的数字</h3> <br /></td>
-				<td><form id="choosenNumbersform">
+				<td colspan="2"><form id="choosenNumbersform">
 						<div class="form-group">
 							<label for="choosenNumbers">需要组合的数字,连续输入,用"-"隔开,如
 								12-45-32-12-45-6-7</label> <input class="form-control"
@@ -579,78 +567,7 @@ td{text-align: center;}
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
-							BIGSHU = json.integersBIG;
-							SMALLSHU = json.integersSMALL;
-
-							ticks2 = json.qishulist;
-
-							$("#zongdashu").html(json.zongbig);
-							$("#zongxiaoshu").html(json.zongsmall);
-							$("#zongdaxiaocha").html(json.cha);
-
-							$
-									.jqplot(
-											'chatgetdaxiaofenxijieguo',
-											[ BIGSHU, SMALLSHU ],
-											{
-												seriesDefaults : {
-													renderer : $.jqplot.BarRenderer, //使用柱状图表示
-													rendererOptions : {
-														barMargin : 50,
-														highlightMouseDown : true
-													}
-												},
-												series : [ {
-													label : '大数:>25'
-												}, {
-													label : '小数:<=25'
-												} ],
-												legend : {
-													show : true,
-													placement : 'outsideGrid'
-												},
-												title : {
-													text : '大数小数偏差系统分析', //设置当前图的标题
-													show : true,//设置当前图的标题是否显示
-												},
-												axes : {
-													xaxis : {
-														ticks : ticks2,
-														renderer : $.jqplot.CategoryAxisRenderer,
-														pad : 1,
-														tickOptions : {
-															fontSize : '13px'
-														},
-														showTicks : true
-													},
-													yaxis : {
-														ticks : [ 0, 1, 2, 3,
-																4, 5, 6, 7, 8,
-																9, 10 ],
-														renderer : $.jqplot.LinearAxisRenderer,
-														pad : 1
-													}
-												},
-												cursor : {
-
-													style : 'crosshair', //当鼠标移动到图片上时，鼠标的显示样式，该属性值为css类
-
-													show : true, //是否显示光标
-
-													showTooltip : true, //是否显示提示信息栏
-
-													followMouse : true, //光标的提示信息栏是否随光标(鼠标)一起移动
-
-													tooltipLocation : 'se', //光标提示信息栏的位置设置。如果followMouse=true,那么该位置为提示信息栏相对于光标的位置。否则，为光标提示信息栏在图标中的位置该属性可选值：n, ne, e, se, etc.
-
-													tooltipOffset : 6, //提示信息栏距鼠标(followMouse=true)或坐标轴(followMouse=false)的位置
-
-													showTooltipGridPosition : true
-												//是否在信息提示栏中显示光标位置(取其据图标左和上边缘线像素距离
-
-												}
-
-											});
+							alert(data);
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
@@ -687,58 +604,7 @@ td{text-align: center;}
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
-							JISHU = json.integersODD;
-							OUSHU = json.integersEVEN;
-							ticks2 = json.qishulist;
-							$("#zongjishu").html(json.odd);
-							$("#zongoushu").html(json.even);
-							$("#zongcha").html(json.cha);
-							//显示图表
-							$
-									.jqplot(
-											'chartgetjisoufenxijieguo',
-											[ JISHU, OUSHU ],
-											{
-												seriesDefaults : {
-													renderer : $.jqplot.BarRenderer, //使用柱状图表示
-													rendererOptions : {
-														barMargin : 50,
-														highlightMouseDown : true
-													}
-												},
-												series : [ {
-													label : '奇数'
-												}, {
-													label : '偶数'
-												} ],
-												legend : {
-													show : true,
-													// 设置标识在图表外，元素内（在canvas内）
-													placement : 'outsideGrid'
-												},
-												title : {
-													text : '奇数偶数偏差系统分析', //设置当前图的标题
-													show : true,//设置当前图的标题是否显示
-												},
-												axes : {
-													xaxis : {
-														ticks : ticks2,
-														renderer : $.jqplot.CategoryAxisRenderer,
-														pad : 1,
-														tickOptions : {
-															fontSize : '13px'
-														},
-														showTicks : true
-													},
-													yaxis : {
-														ticks : [ 0, 1, 2, 3,
-																4, 5, 6, 7, 8,
-																9, 10 ],
-														renderer : $.jqplot.LinearAxisRenderer,
-														pad : 1
-													}
-												}
-											});
+							alert(data);
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
