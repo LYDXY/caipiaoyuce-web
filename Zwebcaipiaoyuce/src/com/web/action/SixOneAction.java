@@ -1099,7 +1099,14 @@ public class SixOneAction extends BaseAction {
 		float sum1 = 1 + 2 + 3 + 4 + 5 + 6 + 7;
 		float sum2 = 43 + 44 + 45 + 46 + 47 + 48 + 49;
 		float middlesum = (sum1 + sum2) / 2f;
-		List<SixOne> sixonesTop10 = SixOneServices.way10();
+		List<SixOne> sixonesTop10 = SixOneServices.way9();
+		Map<String, List<List<SixOne>>> map2 = DuanQiCommonUtils.getFenDuan(sixonesTop10); //将这10期 按照正反顺序分成 5,6,7,8,9,10 各个段
+		List<List<SixOne>> zheng=map2.get("zheng"); //6个正序的 段 即是从过去到现在 5,6,7,9,10
+		List<List<SixOne>> fan=map2.get("fan"); //6个反序的段 即是 从现在到过去  5,6,7,8,9,10
+		for (int i = 0; i < zheng.size(); i++) {
+			System.out.println(zheng.get(i).size());
+		}
+		
 		List<Integer> heshuzhiList = new ArrayList<Integer>();
 		List<Integer> qishulist = new ArrayList<Integer>();
 		List<Float> middlesumiList = new ArrayList<Float>();
