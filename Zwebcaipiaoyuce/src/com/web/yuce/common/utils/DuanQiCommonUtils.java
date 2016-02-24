@@ -1,7 +1,9 @@
 package com.web.yuce.common.utils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.web.pojo.SixOne;
 
@@ -386,4 +388,181 @@ public class DuanQiCommonUtils {
 		list.add(four + "");
 		return list;
 	}
+
+	/**
+	 * 获取连续几期中的数字区间情况统计
+	 */
+	public static List<String> getQuJian(List<SixOne> sixOnes) {		
+		List<String> strings = new ArrayList<String>();
+		Integer Integer1to5 = 0;
+		Integer Integer6to10 = 0;
+		Integer Integer11to15 = 0;
+		Integer Integer16to20 = 0;
+		Integer Integer21to25 = 0;
+		Integer Integer26to30 = 0;
+		Integer Integer31to35 = 0;
+		Integer Integer36to40 = 0;
+		Integer Integer41to45 = 0;
+		Integer Integer46to49 = 0;
+		List<Integer> templist = new ArrayList<Integer>();
+		for (int i = 0; i < sixOnes.size(); i++) {
+			templist.add(sixOnes.get(i).getFirst());
+			templist.add(sixOnes.get(i).getSecond());
+			templist.add(sixOnes.get(i).getThird());
+			templist.add(sixOnes.get(i).getFourth());
+			templist.add(sixOnes.get(i).getFifth());
+			templist.add(sixOnes.get(i).getSixth());
+			templist.add(sixOnes.get(i).getSeventh());
+			
+		}
+		for (int i = 0; i < templist.size(); i++) {
+			Integer integer = templist.get(i);
+			if (integer <= 5 ) {
+				Integer1to5++;
+			}
+			if (integer <= 10 && integer > 5) {
+				Integer6to10++;
+			}
+			if (integer <= 15 && integer > 10) {
+				Integer11to15++;
+			} 
+			if (integer <= 20 && integer > 15) {
+				Integer16to20++;
+			}
+		    if (integer <= 25 && integer > 20) {
+				Integer21to25++;
+			} 
+		    if (integer <= 30 && integer > 25) {
+				Integer26to30++;
+			}
+		    if (integer <= 35 && integer > 30) {
+				Integer31to35++;
+			} 
+		    if (integer <= 40 && integer > 35) {
+				Integer36to40++;
+			} 
+		    if (integer <= 45 && integer > 40) {
+				Integer41to45++;
+			} 
+		    if (integer <= 49 && integer > 45) {
+				Integer46to49++;
+			}
+		}
+
+		strings.add(Integer1to5.toString());
+		strings.add(Integer6to10.toString());
+		strings.add(Integer11to15.toString());
+		strings.add(Integer16to20.toString());
+		strings.add(Integer21to25.toString());
+		strings.add(Integer26to30.toString());
+		strings.add(Integer31to35.toString());
+		strings.add(Integer36to40.toString());
+		strings.add(Integer41to45.toString());
+		strings.add(Integer46to49.toString());
+		
+		return strings;
+
+	}
+
+	/**
+	 * 根据获取到的最近的10期数据 按照正反方向拆分成 5 ,6,7,8,9 ,10
+	 */
+	public static Map<String,List<List<SixOne>> > getFenDuan(List<SixOne> sixOnes) {
+		
+		
+		Map<String,List<List<SixOne>>> map =new HashMap<String,List<List<SixOne>>>();
+		
+		List<List<SixOne>> lists = new ArrayList<List<SixOne>>();
+		// 按照顺序来
+		List<SixOne> sixOnes5 = new ArrayList<SixOne>();
+		List<SixOne> sixOnes6 = new ArrayList<SixOne>();
+		List<SixOne> sixOnes7 = new ArrayList<SixOne>();
+		List<SixOne> sixOnes8 = new ArrayList<SixOne>();
+		List<SixOne> sixOnes9 = new ArrayList<SixOne>();
+		
+		for (int i = 0; i < sixOnes.size(); i++) {
+			if (i<5) {
+				sixOnes5.add(sixOnes.get(i));
+			}
+			if (i<6) {
+				sixOnes6.add(sixOnes.get(i));
+			}
+			if (i<7) {
+				sixOnes7.add(sixOnes.get(i));
+			}
+			if (i<8) {
+				sixOnes8.add(sixOnes.get(i));
+			}
+			if (i<9) {
+				sixOnes9.add(sixOnes.get(i));
+			}
+		}
+		System.out.println("=============");
+		for(int i=0;i<sixOnes5.size();i++){
+			System.out.println(sixOnes5.get(i).getId());
+		}
+		System.out.println("=============");
+		for(int i=0;i<sixOnes6.size();i++){
+			System.out.println(sixOnes6.get(i).getId());
+		}
+		System.out.println("=============");
+		for(int i=0;i<sixOnes7.size();i++){
+			System.out.println(sixOnes7.get(i).getId());
+		}
+		System.out.println("=============");
+		for(int i=0;i<sixOnes8.size();i++){
+			System.out.println(sixOnes8.get(i).getId());
+		}
+		System.out.println("=============");
+		for(int i=0;i<sixOnes9.size();i++){
+			System.out.println(sixOnes9.get(i).getId());
+		}
+		System.out.println("=============");
+		for(int i=0;i<sixOnes.size();i++){
+			System.out.println(sixOnes.get(i).getId());
+		}
+		lists.add(sixOnes5);
+		lists.add(sixOnes6);
+		lists.add(sixOnes7);
+		lists.add(sixOnes8);
+		lists.add(sixOnes9);
+		lists.add(sixOnes);
+		map.put("zheng", lists);
+        //按照反方向来
+		List<List<SixOne>> Flists = new ArrayList<List<SixOne>>();
+		List<SixOne> FsixOnes5 = new ArrayList<SixOne>();
+		List<SixOne> FsixOnes6 = new ArrayList<SixOne>();
+		List<SixOne> FsixOnes7 = new ArrayList<SixOne>();
+		List<SixOne> FsixOnes8 = new ArrayList<SixOne>();
+		List<SixOne> FsixOnes9 = new ArrayList<SixOne>();
+		for (int i = sixOnes.size()-1; i >=0; i--) {
+			if (i>=5) {
+				FsixOnes5.add(sixOnes.get(i));
+			}
+			if (i>=4) {
+				FsixOnes6.add(sixOnes.get(i));
+			}
+			if (i>=3) {
+				FsixOnes7.add(sixOnes.get(i));
+			}
+			if (i>=2) {
+				FsixOnes8.add(sixOnes.get(i));
+			}
+			if (i>=1) {
+				FsixOnes9.add(sixOnes.get(i));
+			}
+		}
+		Flists.add(FsixOnes5);
+		Flists.add(FsixOnes6);
+		Flists.add(FsixOnes7);
+		Flists.add(FsixOnes8);
+		Flists.add(FsixOnes9);
+		Flists.add(sixOnes);
+		map.put("fan", Flists);
+	
+		
+		return map;
+
+	}
+
 }

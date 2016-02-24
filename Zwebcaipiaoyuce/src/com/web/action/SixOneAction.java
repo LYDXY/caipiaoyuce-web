@@ -1060,84 +1060,34 @@ public class SixOneAction extends BaseAction {
 	 * 数字区间偏差追踪系统
 	 */
 	public String futureShuZiQuJian() {
-		List<SixOne> sixonesTop10 = SixOneServices.way9();
-		List<Map<String, Object>> list = new ArrayList<>();
-		for (SixOne tempsixOne : sixonesTop10) {
+		
+		Map<String,List<List<String>>> maps=new HashMap<String,List<List<String>>>();//向前端打包数据
+		
+		List<SixOne> sixonesTop10 = SixOneServices.way9(); //查询最近的10期 ,从过去排到现在
+	/*	for(int i =0;i<sixonesTop10.size();i++){
+			System.out.println(sixonesTop10.get(i).getId());
+		}*/
+		Map<String, List<List<SixOne>>> map = DuanQiCommonUtils.getFenDuan(sixonesTop10); //将这10期 按照正反顺序分成 5,6,7,8,9,10 各个段
+		List<List<SixOne>> zheng=map.get("zheng"); //6个正序的 段 即是从过去到现在 5,6,7,9,10
+		List<List<SixOne>> fan=map.get("fan"); //6个反序的段 即是 从现在到过去  5,6,7,8,9,10
+        List<List<String>> zhengListStrings=new ArrayList<List<String>>(); //正序的区间分析结果
+        List<List<String>> fanListStrings=new ArrayList<List<String>>(); //反序的区间分析结果
+        for(int i=0;i<zheng.size();i++){
+        	//System.out.println(zheng.get(i).size());
+        	zhengListStrings.add(DuanQiCommonUtils.getQuJian(zheng.get(i))); //添加每一个分段的结果  正序
+        }
+        for(int i=0;i<fan.size();i++){
+        	fanListStrings.add(DuanQiCommonUtils.getQuJian(fan.get(i))); //添加每一段的结果 反序
+        }
+        System.out.println(zhengListStrings.toString());
+        System.out.println(fanListStrings.toString());
+        
+        maps.put("zhengxu", zhengListStrings);
+		maps.put("fanxu", fanListStrings);
 
-			Map<String, Object> map2 = new HashMap<String, Object>();
-			List<Integer> templist = new ArrayList<Integer>();
-			Integer tempqishu = tempsixOne.getQishu();
-			Integer tempfirst = tempsixOne.getFirst();
-			Integer tempsecond = tempsixOne.getSecond();
-			Integer tempthird = tempsixOne.getThird();
-			Integer tempfourth = tempsixOne.getFourth();
-			Integer tempfifth = tempsixOne.getFifth();
-			Integer tempsixth = tempsixOne.getSixth();
-			Integer tempseventh = tempsixOne.getSeventh();
-			map2.put("qishu", tempqishu);
-			templist.add(tempfirst);
-			templist.add(tempsecond);
-			templist.add(tempthird);
-			templist.add(tempfourth);
-			templist.add(tempfifth);
-			templist.add(tempsixth);
-			templist.add(tempseventh);
-			List<Integer> qishulisttop10 = new ArrayList<Integer>();
-			Integer Integer1to5 = 0;
-			Integer Integer6to10 = 0;
-			Integer Integer11to15 = 0;
-			Integer Integer16to20 = 0;
-			Integer Integer21to25 = 0;
-			Integer Integer26to30 = 0;
-			Integer Integer31to35 = 0;
-			Integer Integer36to40 = 0;
-			Integer Integer41to45 = 0;
-			Integer Integer46to49 = 0;
-			for (Integer integer : templist) {
-
-				if (integer <= 5 && integer >= 1) {
-					Integer1to5++;
-				} else if (integer <= 10 && integer > 5) {
-					Integer6to10++;
-				} else if (integer <= 15 && integer > 10) {
-					Integer11to15++;
-				} else if (integer <= 20 && integer > 15) {
-					Integer16to20++;
-				} else if (integer <= 25 && integer > 20) {
-					Integer21to25++;
-				} else if (integer <= 30 && integer > 25) {
-					Integer26to30++;
-				} else if (integer <= 35 && integer > 30) {
-					Integer31to35++;
-				} else if (integer <= 40 && integer > 35) {
-					Integer36to40++;
-				} else if (integer <= 45 && integer > 40) {
-					Integer41to45++;
-				} else if (integer <= 49 && integer > 45) {
-					Integer46to49++;
-				}
-
-			}
-
-			qishulisttop10.add(Integer1to5);
-			qishulisttop10.add(Integer6to10);
-			qishulisttop10.add(Integer11to15);
-			qishulisttop10.add(Integer16to20);
-			qishulisttop10.add(Integer21to25);
-			qishulisttop10.add(Integer26to30);
-			qishulisttop10.add(Integer31to35);
-			qishulisttop10.add(Integer36to40);
-			qishulisttop10.add(Integer41to45);
-			qishulisttop10.add(Integer46to49);
-			map2.put("qujianqingkuang", qishulisttop10);
-			list.add(map2);
-
-		}
-
-		logger.info(list.toString());
-		JSONArray jsonObjectFromlist = JSONArray.fromObject(list);
-		logger.info(jsonObjectFromlist.toString());
-		result = jsonObjectFromlist.toString();
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(maps);
+		logger.info(jsonObjectFromMap.toString());
+		result = jsonObjectFromMap.toString();
 		return "FUTURESHUZIQUJIANSUCCESS";
 	}
 

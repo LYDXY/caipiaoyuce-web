@@ -323,7 +323,7 @@ td{text-align: center;}
 						</tbody>
 					</table></td>
 
-				<td colspan="2"><table class="table table-bordered">
+				<td><table class="table table-bordered">
 
 						<thead>
 							<tr>
@@ -491,30 +491,49 @@ td{text-align: center;}
 			<!-- 数字区间偏差分析系统 -->
 			<tr>
 				<td class="info">
-					<h3>数字区间偏差分析系统</h3> <br />
 					<button onclick="getshuziqujianfenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td colspan="2"><table class="table table-bordered"
-						id="shuziqujianfenxitable">
+				<td>从过去到现在
+					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<td><h4>期数</h4></td>
-								<td><h4>1&lt;=5</h4></td>
-								<td><h4>6&lt;=10</h4></td>
-								<td><h4>11&lt;=15</h4></td>
-								<td><h4>16&lt;=20</h4></td>
-								<td><h4>21&lt;=25</h4></td>
-								<td><h4>26&lt;=30</h4></td>
-								<td><h4>31&lt;=35</h4></td>
-								<td><h4>36&lt;=40</h4></td>
-								<td><h4>41&lt;=45</h4></td>
-								<td><h4>46&lt;=49</h4></td>
+								<td>1&lt;=5</td>
+								<td>6&lt;=10</td>
+								<td>11&lt;=15</td>
+								<td>16&lt;=20</td>
+								<td>21&lt;=25</td>
+								<td>26&lt;=30</td>
+								<td>31&lt;=35</td>
+								<td>36&lt;=40</td>
+								<td>41&lt;=45</td>
+								<td>46&lt;=49</td>
 
 							</tr>
 						</thead>
-					</table></td>
+						<tbody id="shuziqujianfenxitable1"></tbody>
+					</table>
+				</td>
+				<td>从现在到过去
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<td>1&lt;=5</td>
+								<td>6&lt;=10</td>
+								<td>11&lt;=15</td>
+								<td>16&lt;=20</td>
+								<td>21&lt;=25</td>
+								<td>26&lt;=30</td>
+								<td>31&lt;=35</td>
+								<td>36&lt;=40</td>
+								<td>41&lt;=45</td>
+								<td>46&lt;=49</td>
 
+							</tr>
+						</thead>
+						<tbody id="shuziqujianfenxitable2"></tbody>
+					</table>
+				</td>
 			</tr>
 			<!-- 统计过去十期出现的数字,越靠前表明最近才出现 -->
 			<tr>
@@ -899,33 +918,30 @@ td{text-align: center;}
 						success : function(data) {
 							var json = eval('(' + data + ')');
 							alert(data);
-							for (i = 0; i < json.length; i++) {
-
-								i % 2 == 0 ? classType = 'info'
-										: classType = 'success';
-								var trHtml = '<tr class="'+ classType +'"><td>'
-										+ json[i].qishu + '</td>';
-								for (j = 0; j < json[i].qujianqingkuang.length; j++) {
-
-									if (json[i].qujianqingkuang[j] == 0) {
-
-										var tdHtml = '<td class="danger">'
-												+ json[i].qujianqingkuang[j]
-												+ '</td>';
-									} else {
-										var tdHtml = '<td>'
-												+ json[i].qujianqingkuang[j]
-												+ '</td>';
-									}
-
-									trHtml += tdHtml;
-
+							$("#shuziqujianfenxitable1").empty();
+							$("#shuziqujianfenxitable1").empty();
+							for(var i=0;i<json.zhengxu.length;i++){
+								var trHtml = '<tr>';
+								for(var j=0;j<json.zhengxu[i].length;j++){
+									var tdHtml = '<td>'
+										+ json.zhengxu[i][j] + '</td>';
+								    trHtml += tdHtml;
 								}
-
 								trHtml += '</tr>';
-								$("#shuziqujianfenxitable").append(trHtml);
+								$("#shuziqujianfenxitable1").append(trHtml);
 							}
-
+							for(var i=0;i<json.fanxu.length;i++){
+								var trHtml = '<tr>';
+								for(var j=0;j<json.fanxu[i].length;j++){
+									var tdHtml = '<td>'
+										+ json.fanxu[i][j] + '</td>';
+								    trHtml += tdHtml;
+								}
+								trHtml += '</tr>';
+								$("#shuziqujianfenxitable2").append(trHtml);
+							}
+							
+							
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
