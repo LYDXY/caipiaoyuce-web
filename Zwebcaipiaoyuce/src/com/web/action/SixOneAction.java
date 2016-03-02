@@ -66,7 +66,7 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> sixonesTop40 = SixOneServices.way6();
 		logger.info(sixonesTop40.size());
 		Integer maxqishu = SixOneServices.way4();
-		logger.info("====查新最新数据的期数 ---================="+maxqishu);
+		logger.info("====查新最新数据的期数 ---=================" + maxqishu);
 
 		Map<String, List<List<String>>> map = new HashMap<String, List<List<String>>>();
 		List<List<String>> all = new ArrayList<List<String>>();
@@ -153,7 +153,7 @@ public class SixOneAction extends BaseAction {
 		clear_thirty_nine.add("39");
 		clear_fourty.add("40");
 		for (int i = 0; i < sixonesTop40.size(); i++) {
-			//保存自己的7个数字
+			// 保存自己的7个数字
 			List<Integer> sevennumbers = new ArrayList<Integer>();
 			sevennumbers.add(sixonesTop40.get(i).getFirst());
 			sevennumbers.add(sixonesTop40.get(i).getSecond());
@@ -164,8 +164,8 @@ public class SixOneAction extends BaseAction {
 			sevennumbers.add(sixonesTop40.get(i).getSeventh());
 			// 获取比自己大的所有期数,并且将其按照期数降序
 			List<SixOne> Mintempsixones = SixOneServices.way16(sixonesTop40.get(i).getQishu());
-			
-			// 将自己的7个数字与大于自己的其他期数 的每7个数字 比较 
+
+			// 将自己的7个数字与大于自己的其他期数 的每7个数字 比较
 			for (Integer integer : sevennumbers) {
 				boolean iscunzai = false;
 				for (SixOne sixOne : Mintempsixones) {
@@ -438,7 +438,7 @@ public class SixOneAction extends BaseAction {
 			}
 		}
 		logger.info("==============================");
-		System.out.println("遗漏次数为0:"+clear_zero.toString());
+		System.out.println("遗漏次数为0:" + clear_zero.toString());
 		System.out.println("遗漏次数为1" + clear_one.toString());
 		System.out.println("遗漏次数为2" + clear_two.toString());
 		System.out.println("遗漏次数为3" + clear_three.toString());
@@ -1060,29 +1060,37 @@ public class SixOneAction extends BaseAction {
 	 * 数字区间偏差追踪系统
 	 */
 	public String futureShuZiQuJian() {
-		
-		Map<String,List<List<String>>> maps=new HashMap<String,List<List<String>>>();//向前端打包数据
-		
-		List<SixOne> sixonesTop10 = SixOneServices.way9(); //查询最近的10期 ,从过去排到现在
-	/*	for(int i =0;i<sixonesTop10.size();i++){
-			System.out.println(sixonesTop10.get(i).getId());
-		}*/
-		Map<String, List<List<SixOne>>> map = DuanQiCommonUtils.getFenDuan(sixonesTop10); //将这10期 按照正反顺序分成 5,6,7,8,9,10 各个段
-		List<List<SixOne>> zheng=map.get("zheng"); //6个正序的 段 即是从过去到现在 5,6,7,9,10
-		List<List<SixOne>> fan=map.get("fan"); //6个反序的段 即是 从现在到过去  5,6,7,8,9,10
-        List<List<String>> zhengListStrings=new ArrayList<List<String>>(); //正序的区间分析结果
-        List<List<String>> fanListStrings=new ArrayList<List<String>>(); //反序的区间分析结果
-        for(int i=0;i<zheng.size();i++){
-        	//System.out.println(zheng.get(i).size());
-        	zhengListStrings.add(DuanQiCommonUtils.getQuJian(zheng.get(i))); //添加每一个分段的结果  正序
-        }
-        for(int i=0;i<fan.size();i++){
-        	fanListStrings.add(DuanQiCommonUtils.getQuJian(fan.get(i))); //添加每一段的结果 反序
-        }
-        System.out.println(zhengListStrings.toString());
-        System.out.println(fanListStrings.toString());
-        
-        maps.put("zhengxu", zhengListStrings);
+
+		Map<String, List<List<String>>> maps = new HashMap<String, List<List<String>>>();// 向前端打包数据
+
+		List<SixOne> sixonesTop10 = SixOneServices.way9(); // 查询最近的10期 ,从过去排到现在
+		/*
+		 * for(int i =0;i<sixonesTop10.size();i++){
+		 * System.out.println(sixonesTop10.get(i).getId()); }
+		 */
+		Map<String, List<List<SixOne>>> map = DuanQiCommonUtils.getFenDuan(sixonesTop10); // 将这10期
+																							// 按照正反顺序分成
+																							// 5,6,7,8,9,10
+																							// 各个段
+		List<List<SixOne>> zheng = map.get("zheng"); // 6个正序的 段 即是从过去到现在
+														// 5,6,7,9,10
+		List<List<SixOne>> fan = map.get("fan"); // 6个反序的段 即是 从现在到过去
+													// 5,6,7,8,9,10
+		List<List<String>> zhengListStrings = new ArrayList<List<String>>(); // 正序的区间分析结果
+		List<List<String>> fanListStrings = new ArrayList<List<String>>(); // 反序的区间分析结果
+		for (int i = 0; i < zheng.size(); i++) {
+			// System.out.println(zheng.get(i).size());
+			zhengListStrings.add(DuanQiCommonUtils.getQuJian(zheng.get(i))); // 添加每一个分段的结果
+																				// 正序
+		}
+		for (int i = 0; i < fan.size(); i++) {
+			fanListStrings.add(DuanQiCommonUtils.getQuJian(fan.get(i))); // 添加每一段的结果
+																			// 反序
+		}
+		System.out.println(zhengListStrings.toString());
+		System.out.println(fanListStrings.toString());
+
+		maps.put("zhengxu", zhengListStrings);
 		maps.put("fanxu", fanListStrings);
 
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(maps);
@@ -1100,13 +1108,18 @@ public class SixOneAction extends BaseAction {
 		float sum2 = 43 + 44 + 45 + 46 + 47 + 48 + 49;
 		float middlesum = (sum1 + sum2) / 2f;
 		List<SixOne> sixonesTop10 = SixOneServices.way9();
-		Map<String, List<List<SixOne>>> map2 = DuanQiCommonUtils.getFenDuan(sixonesTop10); //将这10期 按照正反顺序分成 5,6,7,8,9,10 各个段
-		List<List<SixOne>> zheng=map2.get("zheng"); //6个正序的 段 即是从过去到现在 5,6,7,9,10
-		List<List<SixOne>> fan=map2.get("fan"); //6个反序的段 即是 从现在到过去  5,6,7,8,9,10
+		Map<String, List<List<SixOne>>> map2 = DuanQiCommonUtils.getFenDuan(sixonesTop10); // 将这10期
+																							// 按照正反顺序分成
+																							// 5,6,7,8,9,10
+																							// 各个段
+		List<List<SixOne>> zheng = map2.get("zheng"); // 6个正序的 段 即是从过去到现在
+														// 5,6,7,9,10
+		List<List<SixOne>> fan = map2.get("fan"); // 6个反序的段 即是 从现在到过去
+													// 5,6,7,8,9,10
 		for (int i = 0; i < zheng.size(); i++) {
 			System.out.println(zheng.get(i).size());
 		}
-		
+
 		List<Integer> heshuzhiList = new ArrayList<Integer>();
 		List<Integer> qishulist = new ArrayList<Integer>();
 		List<Float> middlesumiList = new ArrayList<Float>();
@@ -1149,14 +1162,10 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> smallToBig9 = new ArrayList<SixOne>();
 
 		List<SixOne> bigToSmall5 = new ArrayList<SixOne>();
-		List<SixOne> bigToSmall6 = new ArrayList<SixOne>();
-		List<SixOne> bigToSmall7 = new ArrayList<SixOne>();
-		List<SixOne> bigToSmall8 = new ArrayList<SixOne>();
-		List<SixOne> bigToSmall9 = new ArrayList<SixOne>();
 
 		// 期数从小到大
 
-		for (int i = sixonesTop10.size()-1; i >= 0; i--) {
+		for (int i = sixonesTop10.size() - 1; i >= 0; i--) {
 			SixOne sixOne = sixonesTop10.get(i);
 			if (i >= 5) {
 				smallToBig5.add(sixOne);
@@ -1175,105 +1184,58 @@ public class SixOneAction extends BaseAction {
 			}
 
 		}
-		// 期数从大到小
+		// 期数从大到小目前最新的5期
 		for (int i = 0; i < sixonesTop10.size(); i++) {
 			SixOne sixOne = sixonesTop10.get(i);
 			if (i < 5) {
 				bigToSmall5.add(sixOne);
 			}
-			if (i < 6) {
-				bigToSmall6.add(sixOne);
-			}
-			if (i < 7) {
-				bigToSmall7.add(sixOne);
-			}
-			if (i < 8) {
-				bigToSmall8.add(sixOne);
-			}
-			if (i < 9) {
-				bigToSmall9.add(sixOne);
-			}
+
 		}
-       
+
 		logger.info("-----末位数字开始统计--从过去到现在");
-		List<String> weibusmallToBig5Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig5);
-		List<String> weibusmallToBig6Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig6);
-		List<String> weibusmallToBig7Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig7);
-		List<String> weibusmallToBig8Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig8);
-		List<String> weibusmallToBig9Strings=DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig9);
-		List<String> common10Strings=DuanQiCommonUtils.getMoWeiNumbersCount(sixonesTop10);
-		System.out.println(weibusmallToBig5Strings.toString());
-		System.out.println(weibusmallToBig6Strings.toString());
-		System.out.println(weibusmallToBig7Strings.toString());
-		System.out.println(weibusmallToBig8Strings.toString());
-		System.out.println(weibusmallToBig9Strings.toString());
-		System.out.println(common10Strings.toString());
+		List<String> weibusmallToBig5Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig5);
+		List<String> weibusmallToBig6Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig6);
+		List<String> weibusmallToBig7Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig7);
+		List<String> weibusmallToBig8Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig8);
+		List<String> weibusmallToBig9Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig9);
+		List<String> common10Strings = DuanQiCommonUtils.getMoWeiNumbersCount(sixonesTop10);
+
 		logger.info("-----末位数字开始统计--从现在到过去");
-		List<String> weibuBigToSmall5Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall5);
-		List<String> weibuBigToSmall6Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall6);
-		List<String> weibuBigToSmall7Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall7);
-		List<String> weibuBigToSmall8Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall8);
-		List<String> weibuBigToSmall9Strings=DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall9);
-	    System.out.println(weibuBigToSmall5Strings.toString());
-		System.out.println(weibuBigToSmall6Strings.toString());
-		System.out.println(weibuBigToSmall7Strings.toString());
-		System.out.println(weibuBigToSmall8Strings.toString());
-		System.out.println(weibuBigToSmall9Strings.toString());
-		System.out.println(common10Strings.toString());
+		List<String> weibuBigToSmall5Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall5);
+
 		logger.info("-----头部数字开始统计--从过去到现在");
-		List<String> toubusmallToBig5Strings=DuanQiCommonUtils.getTouBu(smallToBig5);
-		List<String> toubusmallToBig6Strings=DuanQiCommonUtils.getTouBu(smallToBig6);
-		List<String> toubusmallToBig7Strings=DuanQiCommonUtils.getTouBu(smallToBig7);
-		List<String> toubusmallToBig8Strings=DuanQiCommonUtils.getTouBu(smallToBig8);
-		List<String> toubusmallToBig9Strings=DuanQiCommonUtils.getTouBu(smallToBig9);
-		List<String> toubucommon10Strings=DuanQiCommonUtils.getTouBu(sixonesTop10);
-		System.out.println(toubusmallToBig5Strings.toString());
-		System.out.println(toubusmallToBig6Strings.toString());
-		System.out.println(toubusmallToBig7Strings.toString());
-		System.out.println(toubusmallToBig8Strings.toString());
-		System.out.println(toubusmallToBig9Strings.toString());
-		System.out.println(toubucommon10Strings.toString());
+		List<String> toubusmallToBig5Strings = DuanQiCommonUtils.getTouBu(smallToBig5);
+		List<String> toubusmallToBig6Strings = DuanQiCommonUtils.getTouBu(smallToBig6);
+		List<String> toubusmallToBig7Strings = DuanQiCommonUtils.getTouBu(smallToBig7);
+		List<String> toubusmallToBig8Strings = DuanQiCommonUtils.getTouBu(smallToBig8);
+		List<String> toubusmallToBig9Strings = DuanQiCommonUtils.getTouBu(smallToBig9);
+		List<String> toubucommon10Strings = DuanQiCommonUtils.getTouBu(sixonesTop10);
+
 		logger.info("-----头部数字开始统计--从现在到过去");
-		List<String> toubuBigToSmall5Strings=DuanQiCommonUtils.getTouBu(bigToSmall5);
-		List<String> toubuBigToSmall6Strings=DuanQiCommonUtils.getTouBu(bigToSmall6);
-		List<String> toubuBigToSmall7Strings=DuanQiCommonUtils.getTouBu(bigToSmall7);
-		List<String> toubuBigToSmall8Strings=DuanQiCommonUtils.getTouBu(bigToSmall8);
-		List<String> toubuBigToSmall9Strings=DuanQiCommonUtils.getTouBu(bigToSmall9);
-		System.out.println(toubuBigToSmall5Strings.toString());
-		System.out.println(toubuBigToSmall6Strings.toString());
-		System.out.println(toubuBigToSmall7Strings.toString());
-		System.out.println(toubuBigToSmall8Strings.toString());
-		System.out.println(toubuBigToSmall9Strings.toString());
-		System.out.println(toubucommon10Strings.toString());
-		Map<String ,Object> map=new HashMap<String ,Object>();
-		List<List<String>> weibulistsmalltobig=new ArrayList<List<String>>();
+		List<String> toubuBigToSmall5Strings = DuanQiCommonUtils.getTouBu(bigToSmall5);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<List<String>> weibulistsmalltobig = new ArrayList<List<String>>();
 		weibulistsmalltobig.add(weibusmallToBig5Strings);
 		weibulistsmalltobig.add(weibusmallToBig6Strings);
 		weibulistsmalltobig.add(weibusmallToBig7Strings);
 		weibulistsmalltobig.add(weibusmallToBig8Strings);
 		weibulistsmalltobig.add(weibusmallToBig9Strings);
 		weibulistsmalltobig.add(common10Strings);
-		List<List<String>> weibulistbigtosmall=new ArrayList<List<String>>();
+		List<List<String>> weibulistbigtosmall = new ArrayList<List<String>>();
 		weibulistbigtosmall.add(weibuBigToSmall5Strings);
-		weibulistbigtosmall.add(weibuBigToSmall6Strings);
-		weibulistbigtosmall.add(weibuBigToSmall7Strings);
-		weibulistbigtosmall.add(weibuBigToSmall8Strings);
-		weibulistbigtosmall.add(weibuBigToSmall9Strings);
-		weibulistbigtosmall.add(common10Strings);
-		List<List<String>> toubulistsmalltobig=new ArrayList<List<String>>();
+
+		List<List<String>> toubulistsmalltobig = new ArrayList<List<String>>();
 		toubulistsmalltobig.add(toubusmallToBig5Strings);
 		toubulistsmalltobig.add(toubusmallToBig6Strings);
 		toubulistsmalltobig.add(toubusmallToBig7Strings);
 		toubulistsmalltobig.add(toubusmallToBig8Strings);
 		toubulistsmalltobig.add(toubusmallToBig9Strings);
 		toubulistsmalltobig.add(toubucommon10Strings);
-		List<List<String>> toubulistbigtosmall=new ArrayList<List<String>>();
+		List<List<String>> toubulistbigtosmall = new ArrayList<List<String>>();
 		toubulistbigtosmall.add(toubuBigToSmall5Strings);
-		toubulistbigtosmall.add(toubuBigToSmall6Strings);
-		toubulistbigtosmall.add(toubuBigToSmall7Strings);
-		toubulistbigtosmall.add(toubuBigToSmall8Strings);
-		toubulistbigtosmall.add(toubuBigToSmall9Strings);
-		toubulistbigtosmall.add(toubucommon10Strings);
+
 		map.put("weibulistsmalltobig", weibulistsmalltobig);
 		map.put("weibulistbigtosmall", weibulistbigtosmall);
 		map.put("toubulistsmalltobig", toubulistsmalltobig);
@@ -2594,23 +2556,18 @@ public class SixOneAction extends BaseAction {
 		logger.info("=====================================");
 		Iterator<SixOne> iter = sixonesTop40.iterator();// 获取40个对象
 		List<SixOne> temps; // 存放临时的对象
-		
+
 		List<Map<String, Object>> fenxijieguolist = new ArrayList<Map<String, Object>>();
-		
+
 		float histoty_zongpingjun = 0.f;// 历史总平均 (遗漏次数在10一个的所有数字的遗漏数字相加)
 		float history_geshupingjun = 0.f;// 历史平均遗漏个数(遗漏次数在10 以内)
 
-		List<Integer> list5yilou = new ArrayList<Integer>();
-		List<Integer> list6yilou = new ArrayList<Integer>();
-		List<Integer> list7yilou = new ArrayList<Integer>();
-		List<Integer> list8yilou = new ArrayList<Integer>();
-		List<Integer> list9yilou = new ArrayList<Integer>();
-		List<Integer> list10yilou = new ArrayList<Integer>();
+
 		// 统计最近10期的遗漏情况
 		List<List<Integer>> list10 = new ArrayList<List<Integer>>();
 		// 遍历过去40期 降序
 		while (iter.hasNext()) {
-			Map<String, Object> everyone = new HashMap<String, Object>(); //保存每一期的数据
+			Map<String, Object> everyone = new HashMap<String, Object>(); // 保存每一期的数据
 			SixOne sixOne = iter.next();
 			Integer id = sixOne.getId();
 			Integer qishu = sixOne.getQishu();
@@ -2621,7 +2578,7 @@ public class SixOneAction extends BaseAction {
 			Integer fifth = sixOne.getFifth();
 			Integer sixth = sixOne.getSixth();
 			Integer seventh = sixOne.getSeventh();
-			everyone.put("qishu", id + "");//保存期数
+			everyone.put("qishu", id + "");// 保存期数
 			StringBuilder stringBuilder2 = new StringBuilder();
 			if (first < 10) {
 				stringBuilder2.append("0" + first + "-");
@@ -2658,7 +2615,7 @@ public class SixOneAction extends BaseAction {
 			} else {
 				stringBuilder2.append(seventh);
 			}
-			everyone.put("number", stringBuilder2.toString());//保存开奖数字情况
+			everyone.put("number", stringBuilder2.toString());// 保存开奖数字情况
 			List<Integer> IntegerS = new ArrayList<Integer>();// 临时存储每个对象 7个数字
 			IntegerS.add(first);
 			IntegerS.add(second);
@@ -2671,7 +2628,7 @@ public class SixOneAction extends BaseAction {
 			temps = SixOneServices.way7(qishu);// 查询比自己期数小的 其他对象
 			float geshu = 0;
 			float yilouzongshu = 0;
-			StringBuilder stringBuilder = new StringBuilder();//保存每一个对象的七个数字的七个遗漏值,不用排序,直接累加成字符串
+			StringBuilder stringBuilder = new StringBuilder();// 保存每一个对象的七个数字的七个遗漏值,不用排序,直接累加成字符串
 			List<Integer> getnewListTen = new ArrayList<Integer>();
 			// 遍历自己的七个数字
 			for (Integer integer : IntegerS) {
@@ -2696,24 +2653,9 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append(tempYiLou + "-");
 						}
-						// 统计最新5期,6期,7期,8期,9期,10期的情况
-						if ((maxqishu - qishu) < 5) {
-							list5yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 6) {
-							list6yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 7) {
-							list7yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 8) {
-							list8yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 9) {
-							list9yilou.add(tempYiLou);
-						}
+					
 						if ((maxqishu - qishu) < 10) {
-							list10yilou.add(tempYiLou);
+							
 							getnewListTen.add(tempYiLou);
 						}
 						iscunzai = true;
@@ -2728,24 +2670,8 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append(tempYiLou + "-");
 						}
-						// 统计最新5期,6期,7期,8期,9期,10期的情况
-						if ((maxqishu - qishu) < 5) {
-							list5yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 6) {
-							list6yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 7) {
-							list7yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 8) {
-							list8yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 9) {
-							list9yilou.add(tempYiLou);
-						}
+						
 						if ((maxqishu - qishu) < 10) {
-							list10yilou.add(tempYiLou);
 							getnewListTen.add(tempYiLou);
 						}
 
@@ -2761,24 +2687,7 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append(tempYiLou + "-");
 						}
-						// 统计最新5期,6期,7期,8期,9期,10期的情况
-						if ((maxqishu - qishu) < 5) {
-							list5yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 6) {
-							list6yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 7) {
-							list7yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 8) {
-							list8yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 9) {
-							list9yilou.add(tempYiLou);
-						}
 						if ((maxqishu - qishu) < 10) {
-							list10yilou.add(tempYiLou);
 							getnewListTen.add(tempYiLou);
 						}
 
@@ -2794,24 +2703,8 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						// 统计最新5期,6期,7期,8期,9期,10期的情况
-						if ((maxqishu - qishu) < 5) {
-							list5yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 6) {
-							list6yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 7) {
-							list7yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 8) {
-							list8yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 9) {
-							list9yilou.add(tempYiLou);
-						}
+						
 						if ((maxqishu - qishu) < 10) {
-							list10yilou.add(tempYiLou);
 							getnewListTen.add(tempYiLou);
 						}
 
@@ -2827,24 +2720,8 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						// 统计最新5期,6期,7期,8期,9期,10期的情况
-						if ((maxqishu - qishu) < 5) {
-							list5yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 6) {
-							list6yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 7) {
-							list7yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 8) {
-							list8yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 9) {
-							list9yilou.add(tempYiLou);
-						}
+					
 						if ((maxqishu - qishu) < 10) {
-							list10yilou.add(tempYiLou);
 							getnewListTen.add(tempYiLou);
 						}
 
@@ -2860,24 +2737,8 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						// 统计最新5期,6期,7期,8期,9期,10期的情况
-						if ((maxqishu - qishu) < 5) {
-							list5yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 6) {
-							list6yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 7) {
-							list7yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 8) {
-							list8yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 9) {
-							list9yilou.add(tempYiLou);
-						}
+						
 						if ((maxqishu - qishu) < 10) {
-							list10yilou.add(tempYiLou);
 							getnewListTen.add(tempYiLou);
 						}
 
@@ -2893,24 +2754,9 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						// 统计最新5期,6期,7期,8期,9期,10期的情况
-						if ((maxqishu - qishu) < 5) {
-							list5yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 6) {
-							list6yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 7) {
-							list7yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 8) {
-							list8yilou.add(tempYiLou);
-						}
-						if ((maxqishu - qishu) < 9) {
-							list9yilou.add(tempYiLou);
-						}
+						
+						
 						if ((maxqishu - qishu) < 10) {
-							list10yilou.add(tempYiLou);
 							getnewListTen.add(tempYiLou);
 						}
 
@@ -2950,82 +2796,36 @@ public class SixOneAction extends BaseAction {
 		logger.info("分析结果=====================================");
 		logger.info("历史平均总计值" + (histoty_zongpingjun / 40.f));
 		logger.info("历史个数平均值" + (history_geshupingjun / 40.f));
-
-		logger.info("=====统计几期中的遗漏情况======从现在到过去==========");
-		Map<String, Object> tongji = new HashMap<String, Object>();
-		List<List<String>> aLists = new ArrayList<List<String>>(); //为了把数据打包
-		List<String> strings5 = DuanQiCommonUtils.getListString(list5yilou);
-		List<String> strings6 = DuanQiCommonUtils.getListString(list6yilou);
-		List<String> strings7 = DuanQiCommonUtils.getListString(list7yilou);
-		List<String> strings8 = DuanQiCommonUtils.getListString(list8yilou);
-		List<String> strings9 = DuanQiCommonUtils.getListString(list9yilou);
-		List<String> strings10 = DuanQiCommonUtils.getListString(list10yilou);
-		System.out.println(strings5.toString());
-		System.out.println(strings6.toString());
-		System.out.println(strings7.toString());
-		System.out.println(strings8.toString());
-		System.out.println(strings9.toString());
-		System.out.println(strings10.toString());
-		aLists.add(strings5);
-		aLists.add(strings6);
-		aLists.add(strings7);
-		aLists.add(strings8);
-		aLists.add(strings9);
-		aLists.add(strings10);
-		logger.info("=====统计几期中的遗漏情况======从过去到现在=======");
-		System.out.println(list10.toString());
-		List<Integer> formsmalllist5yilou = new ArrayList<Integer>();
-		List<Integer> formsmalllist6yilou = new ArrayList<Integer>();
-		List<Integer> formsmalllist7yilou = new ArrayList<Integer>();
-		List<Integer> formsmalllist8yilou = new ArrayList<Integer>();
-		List<Integer> formsmalllist9yilou = new ArrayList<Integer>();
-		List<Integer> formsmalllist10yilou = new ArrayList<Integer>();
-		for (int i = list10.size() - 1; i >= 0; i--) {
-
-			for (int j = 0; j < list10.get(i).size(); j++) {
-
-				Integer tempvalue = list10.get(i).get(j);
-				if (i > 0) {
-					formsmalllist9yilou.add(tempvalue);
-				}
-				if (i > 1) {
-					formsmalllist8yilou.add(tempvalue);
-				}
-				if (i > 2) {
-					formsmalllist7yilou.add(tempvalue);
-				}
-				if (i > 3) {
-					formsmalllist6yilou.add(tempvalue);
-				}
-				if (i > 4) {
-					formsmalllist5yilou.add(tempvalue);
-				}
-				formsmalllist10yilou.add(tempvalue);
-			}
-
-		}
-		List<String> formsmallstrings5 = DuanQiCommonUtils.getListString(formsmalllist5yilou);
-		List<String> formsmallstrings6 = DuanQiCommonUtils.getListString(formsmalllist6yilou);
-		List<String> formsmallstrings7 = DuanQiCommonUtils.getListString(formsmalllist7yilou);
-		List<String> formsmallstrings8 = DuanQiCommonUtils.getListString(formsmalllist8yilou);
-		List<String> formsmallstrings9 = DuanQiCommonUtils.getListString(formsmalllist9yilou);
-		List<String> formsmallstrings10 = DuanQiCommonUtils.getListString(formsmalllist10yilou);
-		System.out.println(formsmallstrings5.toString());
-		System.out.println(formsmallstrings6.toString());
-		System.out.println(formsmallstrings7.toString());
-		System.out.println(formsmallstrings8.toString());
-		System.out.println(formsmallstrings9.toString());
-		System.out.println(formsmallstrings10.toString());
-		aLists.add(formsmallstrings5);
-		aLists.add(formsmallstrings6);
-		aLists.add(formsmallstrings7);
-		aLists.add(formsmallstrings8);
-		aLists.add(formsmallstrings9);
-		aLists.add(formsmallstrings10);
-		logger.info("==============================================");
-		tongji.put("aLists", aLists);
-		fenxijieguolist.add(tongji);
+        for(int i=0;i<list10.size();i++){
+        	System.out.println(list10.get(i).toString());
+        }
 		
+        Map<String, List<Integer>> map =DuanQiCommonUtils.getyiloufenduan(list10);
+		List<String> now5=DuanQiCommonUtils.getListString(map.get("now5"));
+		List<String> last5=DuanQiCommonUtils.getListString(map.get("last5"));
+		List<String> last6=DuanQiCommonUtils.getListString(map.get("last6"));
+		List<String> last7=DuanQiCommonUtils.getListString(map.get("last7"));
+		List<String> last8=DuanQiCommonUtils.getListString(map.get("last8"));
+		List<String> last9=DuanQiCommonUtils.getListString(map.get("last9"));
+		List<String> last10=DuanQiCommonUtils.getListString(map.get("last10"));
+		System.out.println(now5.toString());
+		System.out.println(last5.toString());
+		System.out.println(last6.toString());
+		System.out.println(last7.toString());
+		System.out.println(last8.toString());
+		System.out.println(last9.toString());
+		System.out.println(last10.toString());
+		List<List<String>> tongji=new ArrayList<>();
+		tongji.add(now5);
+		tongji.add(last5);
+		tongji.add(last6);
+		tongji.add(last7);
+		tongji.add(last8);
+		tongji.add(last9);
+		tongji.add(last10);
+		Map<String, Object> map2=new HashMap<String, Object>();
+		map2.put("tongji", tongji);
+		fenxijieguolist.add(map2);
 		JSONArray jsonObjectFromMap = JSONArray.fromObject(fenxijieguolist);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();

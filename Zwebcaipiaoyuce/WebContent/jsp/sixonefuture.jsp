@@ -105,10 +105,10 @@ td{text-align: center;}
 					<button id="getMoWeifenxijieguo" onclick="getjisouFutureMoWei()"
 						class="btn btn-primary btn-lg">执行</button>
 				</td>
-				<td>从过去到现在:
+				<td>尾部<br>从过去到现在:
 					<table class="table table-bordered" id="smallToBigFutureMoWei">
 						<thead>
-							<tr class="active">
+							<tr class="info">
 								<td>0</td>
 								<td>1</td>
 								<td>2</td>
@@ -126,7 +126,7 @@ td{text-align: center;}
 					</table> 从现在到过去:
 					<table class="table table-bordered" id="bigToSmallFutureMoWei">
 						<thead>
-							<tr class="active">
+							<tr class="info">
 								<td>0</td>
 								<td>1</td>
 								<td>2</td>
@@ -144,10 +144,10 @@ td{text-align: center;}
 					</table>
 
 				</td>
-				<td>从过去到现在:
+				<td>头部<br>从过去到现在:
 					<table class="table table-bordered" id="smallToBigFutureTouBu">
 						<thead>
-							<tr class="active">
+							<tr class="info">
 								<td>0</td>
 								<td>1</td>
 								<td>2</td>
@@ -160,7 +160,7 @@ td{text-align: center;}
 					</table> 从现在到过去:
 					<table class="table table-bordered" id="bigToSmallFutureTouBu">
 						<thead>
-							<tr class="active">
+							<tr class="info">
 								<td>0</td>
 								<td>1</td>
 								<td>2</td>
@@ -182,7 +182,7 @@ td{text-align: center;}
 				</td>
 				<td><table id="remenlengmenfenxi" class="table table-bordered">
 						<thead>
-							<tr>
+							<tr class="info">
 								<td>期数</td>
 								<td>开奖数字</td>
 								<td>遗漏情况</td>
@@ -192,69 +192,10 @@ td{text-align: center;}
 								<td>遗漏次数的和 除以 7= 遗漏平均次数</td>
 							</tr>
 						</thead>
-					</table> 从过去到现在
+					</table> 遗漏情况<br>从过去到现在
 					<table class="table table-bordered">
 						<thead>
-							<tr>
-								<td>00</td>
-								<td>01</td>
-								<td>02</td>
-								<td>03</td>
-								<td>04</td>
-								<td>05</td>
-								<td>06</td>
-								<td>07</td>
-								<td>08</td>
-								<td>09</td>
-								<td>10</td>
-								<td>11</td>
-								<td>12</td>
-								<td>13</td>
-								<td>14</td>
-								<td>15</td>
-								<td>16</td>
-								<td>17</td>
-								<td>18</td>
-								<td>19</td>
-								<td>20</td>
-								<td>21</td>
-								<td>22</td>
-								<td>23</td>
-								<td>24</td>
-								<td>25</td>
-								<td>26</td>
-								<td>27</td>
-								<td>28</td>
-								<td>29</td>
-								<td>30</td>
-								<td>31</td>
-								<td>32</td>
-								<td>33</td>
-								<td>34</td>
-								<td>35</td>
-								<td>36</td>
-								<td>37</td>
-								<td>38</td>
-								<td>39</td>
-								<td>40</td>
-								<td>41</td>
-								<td>42</td>
-								<td>43</td>
-								<td>44</td>
-								<td>45</td>
-								<td>46</td>
-								<td>47</td>
-								<td>48</td>
-								<td>49</td>
-								<td>50</td>
-							</tr>
-						</thead>
-						<tbody id="uuuuuuu">
-						</tbody>
-					</table> 从现在到过去
-					<table class="table table-bordered">
-						<thead>
-							<tr>
+							<tr class="info">
 								<td>00</td>
 								<td>01</td>
 								<td>02</td>
@@ -310,12 +251,71 @@ td{text-align: center;}
 						</thead>
 						<tbody id="sssssssssss">
 						</tbody>
+					</table> 从现在到过去
+					<table class="table table-bordered">
+						<thead>
+							<tr class="info">
+								<td>00</td>
+								<td>01</td>
+								<td>02</td>
+								<td>03</td>
+								<td>04</td>
+								<td>05</td>
+								<td>06</td>
+								<td>07</td>
+								<td>08</td>
+								<td>09</td>
+								<td>10</td>
+								<td>11</td>
+								<td>12</td>
+								<td>13</td>
+								<td>14</td>
+								<td>15</td>
+								<td>16</td>
+								<td>17</td>
+								<td>18</td>
+								<td>19</td>
+								<td>20</td>
+								<td>21</td>
+								<td>22</td>
+								<td>23</td>
+								<td>24</td>
+								<td>25</td>
+								<td>26</td>
+								<td>27</td>
+								<td>28</td>
+								<td>29</td>
+								<td>30</td>
+								<td>31</td>
+								<td>32</td>
+								<td>33</td>
+								<td>34</td>
+								<td>35</td>
+								<td>36</td>
+								<td>37</td>
+								<td>38</td>
+								<td>39</td>
+								<td>40</td>
+								<td>41</td>
+								<td>42</td>
+								<td>43</td>
+								<td>44</td>
+								<td>45</td>
+								<td>46</td>
+								<td>47</td>
+								<td>48</td>
+								<td>49</td>
+								<td>50</td>
+							</tr>
+						</thead>
+						<tbody id="uuuuuuu">
+						</tbody>
 					</table></td>
 
 				<td><table class="table table-bordered">
 
 						<thead>
-							<tr>
+							<tr class="info">
 								<td><button onclick="getclearYiLouMoShi()" type="button"
 										class="btn btn-primary btn-lg">执行</button></td>
 								<td colspan="7">未来模式</td>
@@ -328,7 +328,7 @@ td{text-align: center;}
 					</table>
 					<table class="table table-bordered">
 						<thead>
-							<tr>
+							<tr class="info">
 								<td>最新40期遗漏情况进行排序后结果</td>
 							</tr>
 						</thead>
@@ -486,7 +486,7 @@ td{text-align: center;}
 				<td>从过去到现在
 					<table class="table table-bordered">
 						<thead>
-							<tr>
+							<tr class="info">
 								<td>1&lt;=5</td>
 								<td>6&lt;=10</td>
 								<td>11&lt;=15</td>
@@ -506,7 +506,7 @@ td{text-align: center;}
 				<td>从现在到过去
 					<table class="table table-bordered">
 						<thead>
-							<tr>
+							<tr class="info">
 								<td>1&lt;=5</td>
 								<td>6&lt;=10</td>
 								<td>11&lt;=15</td>
@@ -528,9 +528,14 @@ td{text-align: center;}
 			<tr>
 				<td class="info">
 					<button onclick="getshuzitongjiguoqutenjieguo()"
-						class="btn btn-primary btn-lg">执行</button></td>
-				<td>统计过去十期以内的数字,越靠前表明最近才出现<table id="lasttenTable" class="table table-bordered"></table></td>
-				<td>统计过去十期以外的数字,越靠前表明最近才出现<table id="notInlasttenTable" class="table table-bordered"></table></td>
+						class="btn btn-primary btn-lg">执行</button>
+				</td>
+				<td>统计过去十期以内的数字,越靠前表明最近才出现
+					<table id="lasttenTable" class="table table-bordered"></table>
+				</td>
+				<td>统计过去十期以外的数字,越靠前表明最近才出现
+					<table id="notInlasttenTable" class="table table-bordered"></table>
+				</td>
 			</tr>
 			<!-- 请输入需要组合的数字-->
 			<tr>
@@ -635,7 +640,7 @@ td{text-align: center;}
 							for (var i = 0; i < json.weibulistsmalltobig.length; i++) {
 								var trHtml = '<tr>';
 								for (var j = 0; j < json.weibulistsmalltobig[i].length; j++) {
-									var tdHtml = '<td class="info">'
+									var tdHtml = '<td class="active">'
 											+ json.weibulistsmalltobig[i][j];
 									+'</td>';
 									trHtml += tdHtml;
@@ -647,7 +652,7 @@ td{text-align: center;}
 							for (var i = 0; i < json.weibulistbigtosmall.length; i++) {
 								var trHtml = '<tr>';
 								for (var j = 0; j < json.weibulistbigtosmall[i].length; j++) {
-									var tdHtml = '<td class="info">'
+									var tdHtml = '<td class="active">'
 											+ json.weibulistbigtosmall[i][j];
 									+'</td>';
 									trHtml += tdHtml;
@@ -659,7 +664,7 @@ td{text-align: center;}
 							for (var i = 0; i < json.toubulistsmalltobig.length; i++) {
 								var trHtml = '<tr>';
 								for (var j = 0; j < json.toubulistsmalltobig[i].length; j++) {
-									var tdHtml = '<td class="info">'
+									var tdHtml = '<td class="active">'
 											+ json.toubulistsmalltobig[i][j];
 									+'</td>';
 									trHtml += tdHtml;
@@ -671,7 +676,7 @@ td{text-align: center;}
 							for (var i = 0; i < json.toubulistbigtosmall.length; i++) {
 								var trHtml = '<tr>';
 								for (var j = 0; j < json.toubulistbigtosmall[i].length; j++) {
-									var tdHtml = '<td class="info">'
+									var tdHtml = '<td class="active">'
 											+ json.toubulistbigtosmall[i][j];
 									+'</td>';
 									trHtml += tdHtml;
@@ -701,36 +706,38 @@ td{text-align: center;}
 							alert(data);
 							for (i = 0; i < json.length; i++) {
 								var classType = '';
-								i % 2 == 0 ? classType = 'info'
-										: classType = 'success';
+								i % 2 == 0 ? classType = 'active'
+										: classType = 'active';
 								if (i == json.length - 1) {
 									//alert(json[i].aLists.length);
 
-									for (var j = 0; j < json[i].aLists.length; j++) {
-										if (j <= 5) {
+									for (var j = 0; j < json[i].tongji.length; j++) {
+										//获取现在5期
+										if (j == 0) {
 											var trHtml = '<tr>';
-											for (var k = 0; k < json[i].aLists[j].length; k++) {
-												var tdHtml = '<td class="success">'
-														+ json[i].aLists[j][k];
+											for (var k = 0; k < json[i].tongji[j].length; k++) {
+												var tdHtml = '<td class="active">'
+														+ json[i].tongji[j][k];
 												+'</td>';
 												trHtml += tdHtml;
 
 											}
 											trHtml += '</tr>';
-											$("#sssssssssss").append(trHtml);
+											$("#uuuuuuu").append(trHtml);
 
 										} else {
-											for (var k = 0; k < json[i].aLists[j].length; k++) {
+											for (var k = 0; k < json[i].tongji[j].length; k++) {
 												var trHtml = '<tr>';
-												for (var k = 0; k < json[i].aLists[j].length; k++) {
-													var tdHtml = '<td class="success">'
-															+ json[i].aLists[j][k];
+												for (var k = 0; k < json[i].tongji[j].length; k++) {
+													var tdHtml = '<td class="active">'
+															+ json[i].tongji[j][k];
 													+'</td>';
 													trHtml += tdHtml;
 
 												}
 												trHtml += '</tr>';
-												$("#uuuuuuu").append(trHtml);
+												$("#sssssssssss")
+														.append(trHtml);
 											}
 										}
 
@@ -786,28 +793,27 @@ td{text-align: center;}
 							alert(data);
 							$("#shuziqujianfenxitable1").empty();
 							$("#shuziqujianfenxitable1").empty();
-							for(var i=0;i<json.zhengxu.length;i++){
+							for (var i = 0; i < json.zhengxu.length; i++) {
 								var trHtml = '<tr>';
-								for(var j=0;j<json.zhengxu[i].length;j++){
-									var tdHtml = '<td>'
-										+ json.zhengxu[i][j] + '</td>';
-								    trHtml += tdHtml;
+								for (var j = 0; j < json.zhengxu[i].length; j++) {
+									var tdHtml = '<td>' + json.zhengxu[i][j]
+											+ '</td>';
+									trHtml += tdHtml;
 								}
 								trHtml += '</tr>';
 								$("#shuziqujianfenxitable1").append(trHtml);
 							}
-							for(var i=0;i<json.fanxu.length;i++){
+							for (var i = 0; i < json.fanxu.length; i++) {
 								var trHtml = '<tr>';
-								for(var j=0;j<json.fanxu[i].length;j++){
-									var tdHtml = '<td>'
-										+ json.fanxu[i][j] + '</td>';
-								    trHtml += tdHtml;
+								for (var j = 0; j < json.fanxu[i].length; j++) {
+									var tdHtml = '<td>' + json.fanxu[i][j]
+											+ '</td>';
+									trHtml += tdHtml;
 								}
 								trHtml += '</tr>';
 								$("#shuziqujianfenxitable2").append(trHtml);
 							}
-							
-							
+
 						},
 						error : function(data) {
 							alert("系统异常,请重新尝试");
@@ -980,7 +986,7 @@ td{text-align: center;}
 							alert(data)
 							var trHtml = '<tr>';
 							for (var i = 0; i < json.integers.length; i++) {
-								var tdHtml = '<td class="danger">'
+								var tdHtml = '<td class="active">'
 										+ json.integers[i] + '</td>';
 								trHtml += tdHtml;
 							}
@@ -989,7 +995,7 @@ td{text-align: center;}
 
 							var trHtml2 = '<tr>';
 							for (var j = 0; j < json.integers2.length; j++) {
-								var tdHtml2 = '<td class="info">'
+								var tdHtml2 = '<td class="active">'
 										+ json.integers2[j] + '</td>';
 								trHtml2 += tdHtml2;
 							}
@@ -1030,8 +1036,8 @@ td{text-align: center;}
 							var json = eval('(' + data + ')');
 							var trHtml = '<tr>', addNum = 1;
 							for (var i = 0; i < json.zuhe.length; i++) {
-								var tdHtml = '<td class="info">' + json.zuhe[i]
-										+ '</td>';
+								var tdHtml = '<td class="active">'
+										+ json.zuhe[i] + '</td>';
 								if (addNum == 5) {
 									addNum = 1;
 									trHtml += tdHtml + '</tr><tr>';
@@ -1078,7 +1084,7 @@ td{text-align: center;}
 									var trHtml = '<tr>';
 									var tdHtml = '';
 									for (var j = 0; j < json.clear[i].length; j++) {
-										tdHtml += '<td class="info">'
+										tdHtml += '<td class="active">'
 												+ json.clear[i][j] + '</td>';
 									}
 									trHtml += tdHtml;
@@ -1089,7 +1095,7 @@ td{text-align: center;}
 									for (var k = 0; k < json.clear[i].length; k++) {
 										var trHtml = '<tr>';
 										var tdHtml = '';
-										tdHtml += '<td class="info">'
+										tdHtml += '<td class="active">'
 												+ json.clear[i][k] + '</td>';
 										trHtml += tdHtml;
 										trHtml += '</tr>';
