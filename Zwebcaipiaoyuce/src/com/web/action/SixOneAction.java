@@ -3056,7 +3056,7 @@ public class SixOneAction extends BaseAction {
 		for (int i = 0; i < all_sixones.size(); i++) {
 
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("qishu", all_sixones.get(i).getQishu() + "");
+			map.put("qishu", all_sixones.get(i).getId()+ "");
 			map.put("first", all_sixones.get(i).getFirst() + "");
 			map.put("second", all_sixones.get(i).getSecond() + "");
 			map.put("third", all_sixones.get(i).getThird() + "");
