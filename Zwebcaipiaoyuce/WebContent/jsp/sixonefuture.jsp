@@ -49,9 +49,7 @@ td{text-align: center;}
 
 	<table class="table table-bordered">
 		<tbody>
-
 			<tr>
-				<!-- 热门冷门数字偏差系统 -->
 				<td><button id="getremenlengmenfenxijieguo"
 						onclick="getremenlengmenfenxijieguo()" class="btn btn-default">执行</button>
 					<table id="remenlengmenfenxi" class="table table-bordered">
@@ -184,11 +182,15 @@ td{text-align: center;}
 						</thead>
 						<tbody id="uuuuuuu">
 						</tbody>
-					</table>
+					</table></td>
+			</tr>
+
+
+			<tr>
+				<td>
 					<table class="table table-bordered">
 						<tr>
 							<td>
-
 								<table class="table table-bordered">
 									<thead>
 										<tr class="info">
@@ -249,11 +251,12 @@ td{text-align: center;}
 									</tr>
 								</table></td>
 						</tr>
-					</table></td>
+					</table>
+
+
+				</td>
+
 			</tr>
-
-
-
 			<tr>
 				<td>
 					<table class="table table-bordered">
