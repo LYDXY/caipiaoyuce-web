@@ -46,141 +46,16 @@ td{text-align: center;}
 </style> -->
 </head>
 <body>
+
 	<table class="table table-bordered">
 		<tbody>
-			<!-- 奇数偶数偏差系统分析 -->
-			<tr>
-				<td class="info">
-					<button id="getjisoufenxijieguo" onclick="getjisoufenxijieguo()"
-						class="btn btn-primary btn-lg">执行</button>
-				</td>
-				<td></td>
-				<td width="500px">
-					<table class="table">
-						<thead>
-							<tr>
-								<td>总奇数</td>
-								<td>总偶数</td>
-								<td>差</td>
-							</tr>
-						</thead>
-						<tr>
-							<td id="zongjishu"></td>
-							<td id="zongoushu"></td>
-							<td id="zongcha"></td>
 
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<!-- 大数小数偏差系统分析 -->
 			<tr>
-				<td class="info">
-					<button id="getdaxiaofenxijieguo" onclick="getdaxiaofenxijieguo()"
-						class="btn btn-primary btn-lg">执行</button>
-				</td>
-				<td></td>
-				<td>
-					<table class="table">
-						<thead>
-							<tr>
-								<td>总大数</td>
-								<td>总小数</td>
-								<td>差</td>
-							</tr>
-						</thead>
-						<tr>
-							<td id="zongdashu"></td>
-							<td id="zongxiaoshu"></td>
-							<td id="zongdaxiaocha"></td>
-
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<!--末位数字偏差系统分析  -->
-			<tr>
-				<td class="info">
-					<h3></h3> <br />
-					<button id="getMoWeifenxijieguo" onclick="getjisouFutureMoWei()"
-						class="btn btn-primary btn-lg">执行</button>
-				</td>
-				<td>尾部<br>从过去到现在:
-					<table class="table table-bordered" id="smallToBigFutureMoWei">
-						<thead>
-							<tr class="info">
-								<td>0</td>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-								<td>5</td>
-								<td>6</td>
-								<td>7</td>
-								<td>8</td>
-								<td>9</td>
-							</tr>
-						</thead>
-						<tbody id="oooooooo1">
-						</tbody>
-					</table> 从现在到过去:
-					<table class="table table-bordered" id="bigToSmallFutureMoWei">
-						<thead>
-							<tr class="info">
-								<td>0</td>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-								<td>5</td>
-								<td>6</td>
-								<td>7</td>
-								<td>8</td>
-								<td>9</td>
-							</tr>
-						</thead>
-						<tbody id="oooooooo2">
-						</tbody>
-					</table>
-
-				</td>
-				<td>头部<br>从过去到现在:
-					<table class="table table-bordered" id="smallToBigFutureTouBu">
-						<thead>
-							<tr class="info">
-								<td>0</td>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-							</tr>
-						</thead>
-						<tbody id="oooooooo3">
-						</tbody>
-					</table> 从现在到过去:
-					<table class="table table-bordered" id="bigToSmallFutureTouBu">
-						<thead>
-							<tr class="info">
-								<td>0</td>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-							</tr>
-						</thead>
-						<tbody id="oooooooo4">
-						</tbody>
-					</table>
-				</td>
-			</tr>
 			<!-- 热门冷门数字偏差系统 -->
-			<tr>
-				<td class="info">
-					<button id="getremenlengmenfenxijieguo"
+				<td><button id="getremenlengmenfenxijieguo"
 						onclick="getremenlengmenfenxijieguo()"
 						class="btn btn-primary btn-lg">执行</button>
-				</td>
-				<td><table id="remenlengmenfenxi" class="table table-bordered">
+					<table id="remenlengmenfenxi" class="table table-bordered">
 						<thead>
 							<tr class="info">
 								<td>期数</td>
@@ -310,180 +185,91 @@ td{text-align: center;}
 						</thead>
 						<tbody id="uuuuuuu">
 						</tbody>
-					</table></td>
-
-				<td><table class="table table-bordered">
-
-						<thead>
-							<tr class="info">
-								<td><button onclick="getclearYiLouMoShi()" type="button"
-										class="btn btn-primary btn-lg">执行</button></td>
-								<td colspan="7">未来模式</td>
-							</tr>
-						</thead>
-						<tbody id="cleartbody">
-
-
-						</tbody>
 					</table>
 					<table class="table table-bordered">
-						<thead>
-							<tr class="info">
-								<td>最新40期遗漏情况进行排序后结果</td>
-							</tr>
-						</thead>
-						<tbody id="qqqqqqq">
-						</tbody>
+						<tr>
+							<td><table class="table table-bordered">
+									<thead>
+										<tr class="info">
+											<td><button onclick="getclearYiLouMoShi()" type="button">执行</button></td>
+											<td colspan="7">未来模式</td>
+										</tr>
+									</thead>
+									<tbody id="cleartbody">
+									</tbody>
+								</table></td>
+							<td><table class="table table-bordered">
+									<thead>
+										<tr class="info">
+											<td>最新40期遗漏情况进行排序后结果</td>
+										</tr>
+									</thead>
+									<tbody id="qqqqqqq">
+									</tbody>
+								</table></td>
+							<td>
+								<table class="table table-bordered">
+									<tr>
+										<!-- 奇数偶数偏差系统分析 -->
+										<td>
+											<button id="getjisoufenxijieguo"
+												onclick="getjisoufenxijieguo()"
+												class="btn btn-primary btn-lg">执行</button>
+											<table class="table">
+												<thead>
+													<tr>
+														<td>总奇数</td>
+														<td>总偶数</td>
+														<td>差</td>
+													</tr>
+												</thead>
+												<tr>
+													<td id="zongjishu"></td>
+													<td id="zongoushu"></td>
+													<td id="zongcha"></td>
+
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<!-- 大数小数偏差系统分析 -->
+										<td><button id="getdaxiaofenxijieguo"
+												onclick="getdaxiaofenxijieguo()"
+												class="btn btn-primary btn-lg">执行</button>
+											<table class="table">
+												<thead>
+													<tr>
+														<td>总大数</td>
+														<td>总小数</td>
+														<td>差</td>
+													</tr>
+												</thead>
+												<tr>
+													<td id="zongdashu"></td>
+													<td id="zongxiaoshu"></td>
+													<td id="zongdaxiaocha"></td>
+
+												</tr>
+											</table></td>
+									</tr>
+
+								</table>
+							</td>
+						</tr>
 					</table></td>
 			</tr>
-			<!-- 遗漏数字偏差系统 -->
+
+
 			<tr>
-				<td class="info"><h3>遗漏数字偏差分析系统</h3> <br />
-					<button onclick="getyiloufenxijieguo()"
-						class="btn btn-primary btn-lg">执行</button></td>
-				<td colspan="2"><table class="table table-bordered">
-						<thead>
-							<tr>
-								<td><h4>过去期数</h4></td>
-								<td><h4>遗漏次数为0</h4></td>
-								<td><h4>符合条件的数字</h4></td>
-								<td><h4>遗漏次数为1</h4></td>
-								<td><h4>符合条件的数字</h4></td>
-								<td><h4>遗漏次数为2</h4></td>
-								<td><h4>符合条件的数字</h4></td>
-								<td><h4>遗漏次数为3</h4></td>
-								<td><h4>符合条件的数字</h4></td>
-								<td><h4>遗漏次数为4</h4></td>
-								<td><h4>符合条件的数字</h4></td>
-								<td><h4>遗漏次数为5</h4></td>
-								<td><h4>符合条件的数字</h4></td>
-								<td><h4>遗漏次数为6-9</h4></td>
-								<td><h4>符合条件的数字</h4></td>
-								<td><h4>遗漏次数为 &gt;=10</h4></td>
-								<td><h4>符合条件的数字</h4></td>
-							</tr>
-
-						</thead>
-						<tbody>
-							<tr>
-								<td>过去5期</td>
-								<td id=yilouZeroInTop5></td>
-								<td id=sixonesTop5fuhetijianZero class="success"></td>
-								<td id="yilouOneInTop5"></td>
-								<td id=sixonesTop5fuhetijianOne class="success"></td>
-								<td id="yilouTwoInTop5"></td>
-								<td id=sixonesTop5fuhetijianTwo class="success"></td>
-								<td id="yilouThreeInTop5"></td>
-								<td id=sixonesTop5fuhetijianThree class="success"></td>
-								<td id="yilouFourInTop5"></td>
-								<td id=sixonesTop5fuhetijianfour class="success"></td>
-								<td id="yilouFiveInTop5"></td>
-								<td id=sixonesTop5fuhetijianfive class="success"></td>
-								<td id="yilouSixToNineInTop5"></td>
-								<td class="success"></td>
-								<td id="yilouTenAndMoreInTop5"></td>
-								<td class="success"></td>
-							</tr>
-							<tr>
-								<td>过去6期</td>
-								<td id=yilouZeroInTop6></td>
-								<td id=sixonesTop6fuhetijianZero class="success"></td>
-								<td id="yilouOneInTop6"></td>
-								<td id=sixonesTop6fuhetijianOne class="success"></td>
-								<td id="yilouTwoInTop6"></td>
-								<td id=sixonesTop6fuhetijianTwo class="success"></td>
-								<td id="yilouThreeInTop6"></td>
-								<td id=sixonesTop6fuhetijianThree class="success"></td>
-								<td id="yilouFourInTop6"></td>
-								<td id=sixonesTop6fuhetijianfour class="success"></td>
-								<td id="yilouFiveInTop6"></td>
-								<td id=sixonesTop6fuhetijianfive class="success"></td>
-								<td id="yilouSixToNineInTop6"></td>
-								<td id="sixonesTop6fuhetijiansix" class="success"></td>
-								<td id="yilouTenAndMoreInTop6"></td>
-								<td class="success"></td>
-							</tr>
-							<tr>
-								<td>过去7期</td>
-
-								<td id=yilouZeroInTop7></td>
-								<td id=sixonesTop7fuhetijianZero class="success"></td>
-								<td id="yilouOneInTop7"></td>
-								<td id=sixonesTop7fuhetijianOne class="success"></td>
-								<td id="yilouTwoInTop7"></td>
-								<td id=sixonesTop7fuhetijianTwo class="success"></td>
-								<td id="yilouThreeInTop7"></td>
-								<td id=sixonesTop7fuhetijianThree class="success"></td>
-								<td id="yilouFourInTop7"></td>
-								<td id=sixonesTop7fuhetijianfour class="success"></td>
-								<td id="yilouFiveInTop7"></td>
-								<td id=sixonesTop7fuhetijianfive class="success"></td>
-								<td id="yilouSixToNineInTop7"></td>
-								<td id="sixonesTop7fuhetijiansix" class="success"></td>
-								<td id="yilouTenAndMoreInTop7"></td>
-								<td class="success"></td>
-							</tr>
-							<tr>
-								<td>过去8期</td>
-
-								<td id=yilouZeroInTop8></td>
-								<td id=sixonesTop8fuhetijianZero class="success"></td>
-								<td id="yilouOneInTop8"></td>
-								<td id=sixonesTop8fuhetijianOne class="success"></td>
-								<td id="yilouTwoInTop8"></td>
-								<td id=sixonesTop8fuhetijianTwo class="success"></td>
-								<td id="yilouThreeInTop8"></td>
-								<td id=sixonesTop8fuhetijianThree class="success"></td>
-								<td id="yilouFourInTop8"></td>
-								<td id=sixonesTop8fuhetijianfour class="success"></td>
-								<td id="yilouFiveInTop8"></td>
-								<td id=sixonesTop8fuhetijianfive class="success"></td>
-								<td id="yilouSixToNineInTop8"></td>
-								<td id="sixonesTop8fuhetijiansix" class="success"></td>
-								<td id="yilouTenAndMoreInTop8"></td>
-								<td class="success"></td>
-							</tr>
-							<tr>
-								<td>过去9期</td>
-
-								<td id=yilouZeroInTop9></td>
-								<td id=sixonesTop9fuhetijianZero class="success"></td>
-								<td id="yilouOneInTop9"></td>
-								<td id=sixonesTop9fuhetijianOne class="success"></td>
-								<td id="yilouTwoInTop9"></td>
-								<td id=sixonesTop9fuhetijianTwo class="success"></td>
-								<td id="yilouThreeInTop9"></td>
-								<td id=sixonesTop9fuhetijianThree class="success"></td>
-								<td id="yilouFourInTop9"></td>
-								<td id=sixonesTop9fuhetijianfour class="success"></td>
-								<td id="yilouFiveInTop9"></td>
-								<td id=sixonesTop9fuhetijianfive class="success"></td>
-								<td id="yilouSixToNineInTop9"></td>
-								<td id="sixonesTop9fuhetijiansix" class="success"></td>
-								<td id="yilouTenAndMoreInTop9"></td>
-								<td class="success"></td>
-							</tr>
-
-						</tbody>
-					</table></td>
+				
+				<td></td>
+				<td></td>
 				<td></td>
 			</tr>
-			<!-- 和数值偏差系统分析 -->
 			<tr>
-				<td class="info">
-					<button id="getheshuzhifenxijieguo"
-						onclick="getheshuzhifenxijieguo()" class="btn btn-primary btn-lg">执行</button>
-				</td>
-				<td colspan="2"></td>
-
-			</tr>
-			<!-- 数字区间偏差分析系统 -->
-			<tr>
-				<td class="info">
-					<button onclick="getshuziqujianfenxijieguo()"
-						class="btn btn-primary btn-lg">执行</button>
-				</td>
-				<td>从过去到现在
+			    <td><button onclick="getshuziqujianfenxijieguo()"
+						class="btn btn-primary btn-lg">执行</button>从过去到现在
 					<table class="table table-bordered">
 						<thead>
 							<tr class="info">
@@ -501,9 +287,7 @@ td{text-align: center;}
 							</tr>
 						</thead>
 						<tbody id="shuziqujianfenxitable1"></tbody>
-					</table>
-				</td>
-				<td>从现在到过去
+					</table> 从现在到过去
 					<table class="table table-bordered">
 						<thead>
 							<tr class="info">
@@ -521,8 +305,112 @@ td{text-align: center;}
 							</tr>
 						</thead>
 						<tbody id="shuziqujianfenxitable2"></tbody>
+					</table></td>
+				<!--末位数字偏差系统分析  -->
+				<td>
+					<button id="getMoWeifenxijieguo" onclick="getjisouFutureMoWei()"
+						class="btn btn-primary btn-lg">执行</button> 尾部<br>从过去到现在:
+					<table class="table table-bordered" id="smallToBigFutureMoWei">
+						<thead>
+							<tr class="info">
+								<td>0</td>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+							</tr>
+						</thead>
+						<tbody id="oooooooo1">
+						</tbody>
+					</table> 从现在到过去:
+					<table class="table table-bordered" id="bigToSmallFutureMoWei">
+						<thead>
+							<tr class="info">
+								<td>0</td>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+							</tr>
+						</thead>
+						<tbody id="oooooooo2">
+						</tbody>
+					</table> 头部<br>从过去到现在:
+					<table class="table table-bordered" id="smallToBigFutureTouBu">
+						<thead>
+							<tr class="info">
+								<td>0</td>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+							</tr>
+						</thead>
+						<tbody id="oooooooo3">
+						</tbody>
+					</table> 从现在到过去:
+					<table class="table table-bordered" id="bigToSmallFutureTouBu">
+						<thead>
+							<tr class="info">
+								<td>0</td>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+							</tr>
+						</thead>
+						<tbody id="oooooooo4">
+						</tbody>
+					</table>
+				</td>				
+			</tr>
+			<!-- 遗漏数字偏差系统 -->
+			<tr>
+				<td>
+					<button onclick="getyiloufenxijieguo()"
+						class="btn btn-primary btn-lg">执行</button>
+					<table class="table table-bordered">
+						<thead>
+							<tr class="info">
+								<td>过去期数</td>
+								<td>遗漏次数为0</td>
+								<td>符合条件的数字</td>
+								<td>遗漏次数为1</td>
+								<td>符合条件的数字</td>
+								<td>遗漏次数为2</td>
+								<td>符合条件的数字</td>
+								<td>遗漏次数为3</td>
+								<td>符合条件的数字</td>
+								<td>遗漏次数为4</td>
+								<td>符合条件的数字</td>
+								<td>遗漏次数为5</td>
+								<td>符合条件的数字</td>
+								<td>遗漏次数为6-9</td>
+								<td>符合条件的数字</td>
+								<td>遗漏次数为 &gt;=10</td>
+								<td>符合条件的数字</td>
+							</tr>
+
+						</thead>
+
 					</table>
 				</td>
+			</tr>
+
+			<tr>
+				<td class="info"></td>
+				<td></td>
+				<td></td>
 			</tr>
 			<!-- 统计过去十期出现的数字,越靠前表明最近才出现 -->
 			<tr>
@@ -705,15 +593,12 @@ td{text-align: center;}
 							var json = eval('(' + data + ')');
 							alert(data);
 							for (i = 0; i < json.length; i++) {
-								var classType = '';
-								i % 2 == 0 ? classType = 'active'
-										: classType = 'active';
+
 								if (i == json.length - 1) {
-									//alert(json[i].aLists.length);
 
 									for (var j = 0; j < json[i].tongji.length; j++) {
 										//获取现在5期
-										if (j == 0) {
+										if (j < 5) {
 											var trHtml = '<tr>';
 											for (var k = 0; k < json[i].tongji[j].length; k++) {
 												var tdHtml = '<td class="active">'
@@ -746,7 +631,7 @@ td{text-align: center;}
 								} else {
 									$("#remenlengmenfenxi")
 											.append(
-													'<tr class="'+classType+'">'
+													'<tr class="active">'
 															+ '<td>'
 															+ json[i].qishu
 															+ '</td>'

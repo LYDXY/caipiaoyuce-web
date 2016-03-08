@@ -93,7 +93,7 @@
 	</select>
 	
 	
-	<!-- 查询 最近 5 到 8期的集合 -->
+
 	<select id="way8" resultType="SixOne" parameterType="Integer" >
      <include refid="sixone_column1" />  ORDER BY qishu DESC limit #{top}
     </select>

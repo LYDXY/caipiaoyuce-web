@@ -1154,7 +1154,10 @@ public class SixOneAction extends BaseAction {
 	public String futureMoWei() {
 		// 降序 获取最新的 10期
 		List<SixOne> sixonesTop10 = SixOneServices.way8(10);
-
+		List<SixOne> smallToBig1 = new ArrayList<SixOne>();
+		List<SixOne> smallToBig2 = new ArrayList<SixOne>();
+		List<SixOne> smallToBig3 = new ArrayList<SixOne>();
+		List<SixOne> smallToBig4 = new ArrayList<SixOne>();
 		List<SixOne> smallToBig5 = new ArrayList<SixOne>();
 		List<SixOne> smallToBig6 = new ArrayList<SixOne>();
 		List<SixOne> smallToBig7 = new ArrayList<SixOne>();
@@ -1162,11 +1165,27 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> smallToBig9 = new ArrayList<SixOne>();
 
 		List<SixOne> bigToSmall5 = new ArrayList<SixOne>();
+		List<SixOne> bigToSmall4 = new ArrayList<SixOne>();
+		List<SixOne> bigToSmall3 = new ArrayList<SixOne>();
+		List<SixOne> bigToSmall2 = new ArrayList<SixOne>();
+		List<SixOne> bigToSmall1 = new ArrayList<SixOne>();
 
 		// 期数从小到大
 
 		for (int i = sixonesTop10.size() - 1; i >= 0; i--) {
 			SixOne sixOne = sixonesTop10.get(i);
+			if (i >= 9) {
+				smallToBig1.add(sixOne);
+			}
+			if (i >= 8) {
+				smallToBig2.add(sixOne);
+			}
+			if (i >= 7) {
+				smallToBig3.add(sixOne);
+			}
+			if (i >= 6) {
+				smallToBig4.add(sixOne);
+			}
 			if (i >= 5) {
 				smallToBig5.add(sixOne);
 			}
@@ -1190,10 +1209,25 @@ public class SixOneAction extends BaseAction {
 			if (i < 5) {
 				bigToSmall5.add(sixOne);
 			}
-
+			if (i>0 &&i < 5) {
+				bigToSmall4.add(sixOne);
+			}
+			if (i>1&&i < 5) {
+				bigToSmall3.add(sixOne);
+			}
+			if (i>2&&i < 5) {
+				bigToSmall2.add(sixOne);
+			}
+			if (i>3 &&i <5 ) {
+				bigToSmall1.add(sixOne);
+			}
 		}
 
 		logger.info("-----末位数字开始统计--从过去到现在");
+		List<String> weibusmallToBig1Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig1);
+		List<String> weibusmallToBig2Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig2);
+		List<String> weibusmallToBig3Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig3);
+		List<String> weibusmallToBig4Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig4);
 		List<String> weibusmallToBig5Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig5);
 		List<String> weibusmallToBig6Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig6);
 		List<String> weibusmallToBig7Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig7);
@@ -1203,8 +1237,16 @@ public class SixOneAction extends BaseAction {
 
 		logger.info("-----末位数字开始统计--从现在到过去");
 		List<String> weibuBigToSmall5Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall5);
+		List<String> weibuBigToSmall4Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall4);
+		List<String> weibuBigToSmall3Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall3);
+		List<String> weibuBigToSmall2Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall2);
+		List<String> weibuBigToSmall1Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall1);
 
 		logger.info("-----头部数字开始统计--从过去到现在");
+		List<String> toubusmallToBig1Strings = DuanQiCommonUtils.getTouBu(smallToBig1);
+		List<String> toubusmallToBig2Strings = DuanQiCommonUtils.getTouBu(smallToBig2);
+		List<String> toubusmallToBig3Strings = DuanQiCommonUtils.getTouBu(smallToBig3);
+		List<String> toubusmallToBig4Strings = DuanQiCommonUtils.getTouBu(smallToBig4);
 		List<String> toubusmallToBig5Strings = DuanQiCommonUtils.getTouBu(smallToBig5);
 		List<String> toubusmallToBig6Strings = DuanQiCommonUtils.getTouBu(smallToBig6);
 		List<String> toubusmallToBig7Strings = DuanQiCommonUtils.getTouBu(smallToBig7);
@@ -1214,9 +1256,17 @@ public class SixOneAction extends BaseAction {
 
 		logger.info("-----头部数字开始统计--从现在到过去");
 		List<String> toubuBigToSmall5Strings = DuanQiCommonUtils.getTouBu(bigToSmall5);
+		List<String> toubuBigToSmall4Strings = DuanQiCommonUtils.getTouBu(bigToSmall4);
+		List<String> toubuBigToSmall3Strings = DuanQiCommonUtils.getTouBu(bigToSmall3);
+		List<String> toubuBigToSmall2Strings = DuanQiCommonUtils.getTouBu(bigToSmall2);
+		List<String> toubuBigToSmall1Strings = DuanQiCommonUtils.getTouBu(bigToSmall1);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<List<String>> weibulistsmalltobig = new ArrayList<List<String>>();
+		weibulistsmalltobig.add(weibusmallToBig1Strings);
+		weibulistsmalltobig.add(weibusmallToBig2Strings);
+		weibulistsmalltobig.add(weibusmallToBig3Strings);
+		weibulistsmalltobig.add(weibusmallToBig4Strings);
 		weibulistsmalltobig.add(weibusmallToBig5Strings);
 		weibulistsmalltobig.add(weibusmallToBig6Strings);
 		weibulistsmalltobig.add(weibusmallToBig7Strings);
@@ -1224,9 +1274,19 @@ public class SixOneAction extends BaseAction {
 		weibulistsmalltobig.add(weibusmallToBig9Strings);
 		weibulistsmalltobig.add(common10Strings);
 		List<List<String>> weibulistbigtosmall = new ArrayList<List<String>>();
+		weibulistbigtosmall.add(weibuBigToSmall1Strings);
+		weibulistbigtosmall.add(weibuBigToSmall2Strings);
+		weibulistbigtosmall.add(weibuBigToSmall3Strings);
+		weibulistbigtosmall.add(weibuBigToSmall4Strings);
 		weibulistbigtosmall.add(weibuBigToSmall5Strings);
+		
+		
 
 		List<List<String>> toubulistsmalltobig = new ArrayList<List<String>>();
+		toubulistsmalltobig.add(toubusmallToBig1Strings);
+		toubulistsmalltobig.add(toubusmallToBig2Strings);
+		toubulistsmalltobig.add(toubusmallToBig3Strings);
+		toubulistsmalltobig.add(toubusmallToBig4Strings);
 		toubulistsmalltobig.add(toubusmallToBig5Strings);
 		toubulistsmalltobig.add(toubusmallToBig6Strings);
 		toubulistsmalltobig.add(toubusmallToBig7Strings);
@@ -1234,6 +1294,10 @@ public class SixOneAction extends BaseAction {
 		toubulistsmalltobig.add(toubusmallToBig9Strings);
 		toubulistsmalltobig.add(toubucommon10Strings);
 		List<List<String>> toubulistbigtosmall = new ArrayList<List<String>>();
+		toubulistbigtosmall.add(toubuBigToSmall1Strings);
+		toubulistbigtosmall.add(toubuBigToSmall2Strings);
+		toubulistbigtosmall.add(toubuBigToSmall3Strings);
+		toubulistbigtosmall.add(toubuBigToSmall4Strings);
 		toubulistbigtosmall.add(toubuBigToSmall5Strings);
 
 		map.put("weibulistsmalltobig", weibulistsmalltobig);
@@ -2801,14 +2865,30 @@ public class SixOneAction extends BaseAction {
         }
 		
         Map<String, List<Integer>> map =DuanQiCommonUtils.getyiloufenduan(list10);
+        List<String> now1=DuanQiCommonUtils.getListString(map.get("now1"));
+        List<String> now2=DuanQiCommonUtils.getListString(map.get("now2"));
+        List<String> now3=DuanQiCommonUtils.getListString(map.get("now3"));
+        List<String> now4=DuanQiCommonUtils.getListString(map.get("now4"));
 		List<String> now5=DuanQiCommonUtils.getListString(map.get("now5"));
+		List<String> last1=DuanQiCommonUtils.getListString(map.get("last1"));
+		List<String> last2=DuanQiCommonUtils.getListString(map.get("last2"));
+		List<String> last3=DuanQiCommonUtils.getListString(map.get("last3"));
+		List<String> last4=DuanQiCommonUtils.getListString(map.get("last4"));
 		List<String> last5=DuanQiCommonUtils.getListString(map.get("last5"));
 		List<String> last6=DuanQiCommonUtils.getListString(map.get("last6"));
 		List<String> last7=DuanQiCommonUtils.getListString(map.get("last7"));
 		List<String> last8=DuanQiCommonUtils.getListString(map.get("last8"));
 		List<String> last9=DuanQiCommonUtils.getListString(map.get("last9"));
 		List<String> last10=DuanQiCommonUtils.getListString(map.get("last10"));
+		System.out.println(now1.toString());
+		System.out.println(now2.toString());
+		System.out.println(now3.toString());
+		System.out.println(now4.toString());
 		System.out.println(now5.toString());
+		System.out.println(last1.toString());
+		System.out.println(last2.toString());
+		System.out.println(last3.toString());
+		System.out.println(last4.toString());
 		System.out.println(last5.toString());
 		System.out.println(last6.toString());
 		System.out.println(last7.toString());
@@ -2816,7 +2896,15 @@ public class SixOneAction extends BaseAction {
 		System.out.println(last9.toString());
 		System.out.println(last10.toString());
 		List<List<String>> tongji=new ArrayList<>();
+		tongji.add(now1);
+		tongji.add(now2);
+		tongji.add(now3);
+		tongji.add(now4);
 		tongji.add(now5);
+		tongji.add(last1);
+		tongji.add(last2);
+		tongji.add(last3);
+		tongji.add(last4);
 		tongji.add(last5);
 		tongji.add(last6);
 		tongji.add(last7);

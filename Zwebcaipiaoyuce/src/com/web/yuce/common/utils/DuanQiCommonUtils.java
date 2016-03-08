@@ -561,9 +561,13 @@ public class DuanQiCommonUtils {
 	 * 根据获取到的最近的10期遗漏 按照正反方向拆分成 5 ,6,7,8,9 ,10
 	 */
 
-	public static Map<String,List<Integer>> getyiloufenduan(List<List<Integer>> list10) {
+	public static Map<String, List<Integer>> getyiloufenduan(List<List<Integer>> list10) {
 		Map<String, List<Integer>> map = new HashMap<String, List<Integer>>();
 		List<Integer> now5 = new ArrayList<>();
+		List<Integer> now4 = new ArrayList<>();
+		List<Integer> now3 = new ArrayList<>();
+		List<Integer> now2 = new ArrayList<>();
+		List<Integer> now1 = new ArrayList<>();
 		// 从现在到过去的5期
 		for (int i = 0; i < list10.size(); i++) {
 			if (i < 5) {
@@ -571,8 +575,36 @@ public class DuanQiCommonUtils {
 					now5.add(list10.get(i).get(j));
 				}
 			}
+			if (i > 0 && i < 5) {
+				for (int j = 0; j < list10.get(i).size(); j++) {
+					now4.add(list10.get(i).get(j));
+				}
+			}
+			if (i > 1 && i < 5) {
+				for (int j = 0; j < list10.get(i).size(); j++) {
+					now3.add(list10.get(i).get(j));
+				}
+			}
+			if (i > 2 && i < 5) {
+				for (int j = 0; j < list10.get(i).size(); j++) {
+					now2.add(list10.get(i).get(j));
+				}
+			}
+			if (i > 3 && i < 5) {
+				for (int j = 0; j < list10.get(i).size(); j++) {
+					now1.add(list10.get(i).get(j));
+				}
+			}
 		}
+		map.put("now1", now1);
+		map.put("now2", now2);
+		map.put("now3", now3);
+		map.put("now4", now4);
 		map.put("now5", now5);
+		List<Integer> last1 = new ArrayList<>();
+		List<Integer> last2 = new ArrayList<>();
+		List<Integer> last3 = new ArrayList<>();
+		List<Integer> last4 = new ArrayList<>();
 		List<Integer> last5 = new ArrayList<>();
 		List<Integer> last6 = new ArrayList<>();
 		List<Integer> last7 = new ArrayList<>();
@@ -582,6 +614,19 @@ public class DuanQiCommonUtils {
 		for (int i = list10.size() - 1; i >= 0; i--) {
 
 			for (int j = 0; j < list10.get(i).size(); j++) {
+
+				if (i >= 9) {
+					last1.add(list10.get(i).get(j));
+				}
+				if (i >= 8) {
+					last2.add(list10.get(i).get(j));
+				}
+				if (i >= 7) {
+					last3.add(list10.get(i).get(j));
+				}
+				if (i >= 6) {
+					last4.add(list10.get(i).get(j));
+				}
 
 				if (i >= 5) {
 					last5.add(list10.get(i).get(j));
@@ -602,6 +647,10 @@ public class DuanQiCommonUtils {
 			}
 
 		}
+		map.put("last1", last1);
+		map.put("last2", last2);
+		map.put("last3", last3);
+		map.put("last4", last4);
 		map.put("last5", last5);
 		map.put("last6", last6);
 		map.put("last7", last7);
