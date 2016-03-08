@@ -51,10 +51,9 @@ td{text-align: center;}
 		<tbody>
 
 			<tr>
-			<!-- 热门冷门数字偏差系统 -->
+				<!-- 热门冷门数字偏差系统 -->
 				<td><button id="getremenlengmenfenxijieguo"
-						onclick="getremenlengmenfenxijieguo()"
-						class="btn btn-primary btn-lg">执行</button>
+						onclick="getremenlengmenfenxijieguo()" class="btn btn-default">执行</button>
 					<table id="remenlengmenfenxi" class="table table-bordered">
 						<thead>
 							<tr class="info">
@@ -188,17 +187,9 @@ td{text-align: center;}
 					</table>
 					<table class="table table-bordered">
 						<tr>
-							<td><table class="table table-bordered">
-									<thead>
-										<tr class="info">
-											<td><button onclick="getclearYiLouMoShi()" type="button">执行</button></td>
-											<td colspan="7">未来模式</td>
-										</tr>
-									</thead>
-									<tbody id="cleartbody">
-									</tbody>
-								</table></td>
-							<td><table class="table table-bordered">
+							<td>
+
+								<table class="table table-bordered">
 									<thead>
 										<tr class="info">
 											<td>最新40期遗漏情况进行排序后结果</td>
@@ -206,179 +197,190 @@ td{text-align: center;}
 									</thead>
 									<tbody id="qqqqqqq">
 									</tbody>
-								</table></td>
-							<td>
-								<table class="table table-bordered">
-									<tr>
-										<!-- 奇数偶数偏差系统分析 -->
-										<td>
-											<button id="getjisoufenxijieguo"
-												onclick="getjisoufenxijieguo()"
-												class="btn btn-primary btn-lg">执行</button>
-											<table class="table">
-												<thead>
-													<tr>
-														<td>总奇数</td>
-														<td>总偶数</td>
-														<td>差</td>
-													</tr>
-												</thead>
-												<tr>
-													<td id="zongjishu"></td>
-													<td id="zongoushu"></td>
-													<td id="zongcha"></td>
-
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<!-- 大数小数偏差系统分析 -->
-										<td><button id="getdaxiaofenxijieguo"
-												onclick="getdaxiaofenxijieguo()"
-												class="btn btn-primary btn-lg">执行</button>
-											<table class="table">
-												<thead>
-													<tr>
-														<td>总大数</td>
-														<td>总小数</td>
-														<td>差</td>
-													</tr>
-												</thead>
-												<tr>
-													<td id="zongdashu"></td>
-													<td id="zongxiaoshu"></td>
-													<td id="zongdaxiaocha"></td>
-
-												</tr>
-											</table></td>
-									</tr>
-
 								</table>
 							</td>
+							<td><table class="table table-bordered">
+									<thead>
+										<tr class="info">
+											<td><button class="btn btn-default"
+													onclick="getclearYiLouMoShi()" type="button">执行</button></td>
+											<td colspan="7">未来模式</td>
+										</tr>
+									</thead>
+									<tbody id="cleartbody">
+									</tbody>
+								</table></td>
+
+							<td><button id="getjisoufenxijieguo"
+									onclick="getjisoufenxijieguo()" class="btn btn-default">执行</button>
+								<table class="table">
+									<thead>
+										<tr>
+											<td>总奇数</td>
+											<td>总偶数</td>
+											<td>差</td>
+										</tr>
+									</thead>
+									<tr>
+										<td id="zongjishu"></td>
+										<td id="zongoushu"></td>
+										<td id="zongcha"></td>
+
+									</tr>
+								</table></td>
+
+
+							<!-- 大数小数偏差系统分析 -->
+							<td><button id="getdaxiaofenxijieguo"
+									onclick="getdaxiaofenxijieguo()" class="btn btn-default">执行</button>
+								<table class="table">
+									<thead>
+										<tr>
+											<td>总大数</td>
+											<td>总小数</td>
+											<td>差</td>
+										</tr>
+									</thead>
+									<tr>
+										<td id="zongdashu"></td>
+										<td id="zongxiaoshu"></td>
+										<td id="zongdaxiaocha"></td>
+
+									</tr>
+								</table></td>
 						</tr>
 					</table></td>
 			</tr>
 
 
-			<tr>
-				
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-			    <td><button onclick="getshuziqujianfenxijieguo()"
-						class="btn btn-primary btn-lg">执行</button>从过去到现在
-					<table class="table table-bordered">
-						<thead>
-							<tr class="info">
-								<td>1&lt;=5</td>
-								<td>6&lt;=10</td>
-								<td>11&lt;=15</td>
-								<td>16&lt;=20</td>
-								<td>21&lt;=25</td>
-								<td>26&lt;=30</td>
-								<td>31&lt;=35</td>
-								<td>36&lt;=40</td>
-								<td>41&lt;=45</td>
-								<td>46&lt;=49</td>
 
-							</tr>
-						</thead>
-						<tbody id="shuziqujianfenxitable1"></tbody>
-					</table> 从现在到过去
-					<table class="table table-bordered">
-						<thead>
-							<tr class="info">
-								<td>1&lt;=5</td>
-								<td>6&lt;=10</td>
-								<td>11&lt;=15</td>
-								<td>16&lt;=20</td>
-								<td>21&lt;=25</td>
-								<td>26&lt;=30</td>
-								<td>31&lt;=35</td>
-								<td>36&lt;=40</td>
-								<td>41&lt;=45</td>
-								<td>46&lt;=49</td>
-
-							</tr>
-						</thead>
-						<tbody id="shuziqujianfenxitable2"></tbody>
-					</table></td>
-				<!--末位数字偏差系统分析  -->
+			<tr>
 				<td>
-					<button id="getMoWeifenxijieguo" onclick="getjisouFutureMoWei()"
-						class="btn btn-primary btn-lg">执行</button> 尾部<br>从过去到现在:
-					<table class="table table-bordered" id="smallToBigFutureMoWei">
-						<thead>
-							<tr class="info">
-								<td>0</td>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-								<td>5</td>
-								<td>6</td>
-								<td>7</td>
-								<td>8</td>
-								<td>9</td>
-							</tr>
-						</thead>
-						<tbody id="oooooooo1">
-						</tbody>
-					</table> 从现在到过去:
-					<table class="table table-bordered" id="bigToSmallFutureMoWei">
-						<thead>
-							<tr class="info">
-								<td>0</td>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-								<td>5</td>
-								<td>6</td>
-								<td>7</td>
-								<td>8</td>
-								<td>9</td>
-							</tr>
-						</thead>
-						<tbody id="oooooooo2">
-						</tbody>
-					</table> 头部<br>从过去到现在:
-					<table class="table table-bordered" id="smallToBigFutureTouBu">
-						<thead>
-							<tr class="info">
-								<td>0</td>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-							</tr>
-						</thead>
-						<tbody id="oooooooo3">
-						</tbody>
-					</table> 从现在到过去:
-					<table class="table table-bordered" id="bigToSmallFutureTouBu">
-						<thead>
-							<tr class="info">
-								<td>0</td>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-							</tr>
-						</thead>
-						<tbody id="oooooooo4">
-						</tbody>
+					<table class="table table-bordered">
+						<tr>
+							<td><button onclick="getshuziqujianfenxijieguo()"
+									class="btn btn-default">执行</button> 从过去到现在
+								<table class="table table-bordered">
+									<thead>
+										<tr class="info">
+											<td>1&lt;=5</td>
+											<td>6&lt;=10</td>
+											<td>11&lt;=15</td>
+											<td>16&lt;=20</td>
+											<td>21&lt;=25</td>
+											<td>26&lt;=30</td>
+											<td>31&lt;=35</td>
+											<td>36&lt;=40</td>
+											<td>41&lt;=45</td>
+											<td>46&lt;=49</td>
+
+										</tr>
+									</thead>
+									<tbody id="shuziqujianfenxitable1"></tbody>
+								</table></td>
+							<td><button id="getMoWeifenxijieguo"
+									onclick="getjisouFutureMoWei()" class="btn btn-default">执行</button>
+								尾部从过去到现在:
+								<table class="table table-bordered" id="smallToBigFutureMoWei">
+									<thead>
+										<tr class="info">
+											<td>0</td>
+											<td>1</td>
+											<td>2</td>
+											<td>3</td>
+											<td>4</td>
+											<td>5</td>
+											<td>6</td>
+											<td>7</td>
+											<td>8</td>
+											<td>9</td>
+										</tr>
+									</thead>
+									<tbody id="oooooooo1">
+									</tbody>
+								</table></td>
+							<td>头部从过去到现在:
+								<table class="table table-bordered" id="smallToBigFutureTouBu">
+									<thead>
+										<tr class="info">
+											<td>0</td>
+											<td>1</td>
+											<td>2</td>
+											<td>3</td>
+											<td>4</td>
+										</tr>
+									</thead>
+									<tbody id="oooooooo3">
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>从现在到过去
+								<table class="table table-bordered">
+									<thead>
+										<tr class="info">
+											<td>1&lt;=5</td>
+											<td>6&lt;=10</td>
+											<td>11&lt;=15</td>
+											<td>16&lt;=20</td>
+											<td>21&lt;=25</td>
+											<td>26&lt;=30</td>
+											<td>31&lt;=35</td>
+											<td>36&lt;=40</td>
+											<td>41&lt;=45</td>
+											<td>46&lt;=49</td>
+
+										</tr>
+									</thead>
+									<tbody id="shuziqujianfenxitable2"></tbody>
+								</table>
+							</td>
+							<td>从现在到过去:
+								<table class="table table-bordered" id="bigToSmallFutureMoWei">
+									<thead>
+										<tr class="info">
+											<td>0</td>
+											<td>1</td>
+											<td>2</td>
+											<td>3</td>
+											<td>4</td>
+											<td>5</td>
+											<td>6</td>
+											<td>7</td>
+											<td>8</td>
+											<td>9</td>
+										</tr>
+									</thead>
+									<tbody id="oooooooo2">
+									</tbody>
+								</table>
+							</td>
+							<td>从现在到过去:
+								<table class="table table-bordered" id="bigToSmallFutureTouBu">
+									<thead>
+										<tr class="info">
+											<td>0</td>
+											<td>1</td>
+											<td>2</td>
+											<td>3</td>
+											<td>4</td>
+										</tr>
+									</thead>
+									<tbody id="oooooooo4">
+									</tbody>
+								</table>
+							</td>
+						</tr>
 					</table>
-				</td>				
+				</td>
+				<!--末位数字偏差系统分析  -->
+
 			</tr>
 			<!-- 遗漏数字偏差系统 -->
 			<tr>
 				<td>
-					<button onclick="getyiloufenxijieguo()"
-						class="btn btn-primary btn-lg">执行</button>
+					<button onclick="getyiloufenxijieguo()" class="btn btn-default">执行</button>
 					<table class="table table-bordered">
 						<thead>
 							<tr class="info">
@@ -406,39 +408,33 @@ td{text-align: center;}
 					</table>
 				</td>
 			</tr>
-
-			<tr>
-				<td class="info"></td>
-				<td></td>
-				<td></td>
-			</tr>
 			<!-- 统计过去十期出现的数字,越靠前表明最近才出现 -->
 			<tr>
-				<td class="info">
-					<button onclick="getshuzitongjiguoqutenjieguo()"
-						class="btn btn-primary btn-lg">执行</button>
-				</td>
-				<td>统计过去十期以内的数字,越靠前表明最近才出现
-					<table id="lasttenTable" class="table table-bordered"></table>
-				</td>
-				<td>统计过去十期以外的数字,越靠前表明最近才出现
-					<table id="notInlasttenTable" class="table table-bordered"></table>
-				</td>
-			</tr>
-			<!-- 请输入需要组合的数字-->
-			<tr>
-				<td colspan="2"><form id="choosenNumbersform">
-						<div class="form-group">
-							<label for="choosenNumbers">需要组合的数字,连续输入,用"-"隔开,如
-								12-45-32-12-45-6-7</label> <input class="form-control"
-								id="choosenNumbers">
-						</div>
-						<button type="button" onclick="getChoosenshuzitenjieguo()"
-							class="btn btn-default">确定</button>
+				<td>
+					<table class="table table-bordered">
+						<tr>
+							<td><button onclick="getshuzitongjiguoqutenjieguo()"
+									class="btn btn-default">执行</button>
+								<table id="lasttenTable" class="table table-bordered"></table>
+								<table id="notInlasttenTable" class="table table-bordered"></table></td>
+							<td><form id="choosenNumbersform">
+									<div class="form-group">
+										<label for="choosenNumbers">需要组合的数字,连续输入,用"-"隔开,如
+											12-45-32-12-45-6-7</label> <input class="form-control"
+											id="choosenNumbers">
+									</div>
+									<button type="button" onclick="getChoosenshuzitenjieguo()"
+										class="btn btn-default">确定</button>
 
-					</form></td>
-				<td><table id="zuhejieguo" class="table table-bordered"></table></td>
+								</form></td>
+							<td><table id="zuhejieguo" class="table table-bordered"></table></td>
+
+						</tr>
+					</table>
+
+				</td>
 			</tr>
+
 
 		</tbody>
 	</table>
