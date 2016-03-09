@@ -218,17 +218,20 @@ td{text-align: center;}
 								<table class="table">
 									<thead>
 										<tr>
-											<td>总奇数</td>
-											<td>总偶数</td>
-											<td>差</td>
+											<td>奇数</td>
+											<td>偶数</td>
 										</tr>
 									</thead>
-									<tr>
-										<td id="zongjishu"></td>
-										<td id="zongoushu"></td>
-										<td id="zongcha"></td>
-
-									</tr>
+									<tbody id="jioushu"></tbody>
+								</table>
+								<table class="table">
+									<thead>
+										<tr>
+											<td>奇数</td>
+											<td>偶数</td>
+										</tr>
+									</thead>
+									<tbody id="jioushu2"></tbody>
 								</table></td>
 
 
@@ -238,17 +241,20 @@ td{text-align: center;}
 								<table class="table">
 									<thead>
 										<tr>
-											<td>总大数</td>
-											<td>总小数</td>
-											<td>差</td>
+											<td>大数</td>
+											<td>小数</td>
 										</tr>
 									</thead>
-									<tr>
-										<td id="zongdashu"></td>
-										<td id="zongxiaoshu"></td>
-										<td id="zongdaxiaocha"></td>
-
-									</tr>
+									<tbody id="daxiaoshu"></tbody>
+								</table>
+								<table class="table">
+									<thead>
+										<tr>
+											<td>大数</td>
+											<td>小数</td>
+										</tr>
+									</thead>
+									<tbody id="daxiaoshu2"></tbody>
 								</table></td>
 						</tr>
 					</table>
@@ -496,6 +502,33 @@ td{text-align: center;}
 						dataType : "json",
 						success : function(data) {
 							var json = eval('(' + data + ')');
+							$("#jioushu").empty();
+							$("#jioushu2").empty();
+							for (var i = 0; i < json.zheng.length; i++) {
+
+								var trHtml = '<tr>';
+								for (var j = 0; j < json.zheng[i].length; j++) {
+									var tdHtml = '<td class="active">'
+											+ json.zheng[i][j];
+									+'</td>';
+									trHtml += tdHtml;
+								}
+								trHtml += '</tr>';
+								$("#jioushu").append(trHtml);
+							}
+
+							for (var i = 0; i < json.fan.length; i++) {
+								var trHtml = '<tr>';
+								for (var j = 0; j < json.fan[i].length; j++) {
+									var tdHtml = '<td class="active">'
+											+ json.fan[i][j];
+									+'</td>';
+									trHtml += tdHtml;
+								}
+								trHtml += '</tr>';
+								$("#jioushu2").append(trHtml);
+							}
+
 							alert(data);
 						},
 						error : function(data) {

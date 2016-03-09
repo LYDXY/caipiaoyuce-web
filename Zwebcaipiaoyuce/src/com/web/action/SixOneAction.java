@@ -1064,10 +1064,6 @@ public class SixOneAction extends BaseAction {
 		Map<String, List<List<String>>> maps = new HashMap<String, List<List<String>>>();// 向前端打包数据
 
 		List<SixOne> sixonesTop10 = SixOneServices.way9(); // 查询最近的10期 ,从过去排到现在
-		/*
-		 * for(int i =0;i<sixonesTop10.size();i++){
-		 * System.out.println(sixonesTop10.get(i).getId()); }
-		 */
 		Map<String, List<List<SixOne>>> map = DuanQiCommonUtils.getFenDuan(sixonesTop10); // 将这10期
 																							// 按照正反顺序分成
 																							// 5,6,7,8,9,10
@@ -1209,16 +1205,16 @@ public class SixOneAction extends BaseAction {
 			if (i < 5) {
 				bigToSmall5.add(sixOne);
 			}
-			if (i>0 &&i < 5) {
+			if (i > 0 && i < 5) {
 				bigToSmall4.add(sixOne);
 			}
-			if (i>1&&i < 5) {
+			if (i > 1 && i < 5) {
 				bigToSmall3.add(sixOne);
 			}
-			if (i>2&&i < 5) {
+			if (i > 2 && i < 5) {
 				bigToSmall2.add(sixOne);
 			}
-			if (i>3 &&i <5 ) {
+			if (i > 3 && i < 5) {
 				bigToSmall1.add(sixOne);
 			}
 		}
@@ -1279,8 +1275,6 @@ public class SixOneAction extends BaseAction {
 		weibulistbigtosmall.add(weibuBigToSmall3Strings);
 		weibulistbigtosmall.add(weibuBigToSmall4Strings);
 		weibulistbigtosmall.add(weibuBigToSmall5Strings);
-		
-		
 
 		List<List<String>> toubulistsmalltobig = new ArrayList<List<String>>();
 		toubulistsmalltobig.add(toubusmallToBig1Strings);
@@ -2626,7 +2620,6 @@ public class SixOneAction extends BaseAction {
 		float histoty_zongpingjun = 0.f;// 历史总平均 (遗漏次数在10一个的所有数字的遗漏数字相加)
 		float history_geshupingjun = 0.f;// 历史平均遗漏个数(遗漏次数在10 以内)
 
-
 		// 统计最近10期的遗漏情况
 		List<List<Integer>> list10 = new ArrayList<List<Integer>>();
 		// 遍历过去40期 降序
@@ -2717,9 +2710,9 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append(tempYiLou + "-");
 						}
-					
+
 						if ((maxqishu - qishu) < 10) {
-							
+
 							getnewListTen.add(tempYiLou);
 						}
 						iscunzai = true;
@@ -2734,7 +2727,7 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append(tempYiLou + "-");
 						}
-						
+
 						if ((maxqishu - qishu) < 10) {
 							getnewListTen.add(tempYiLou);
 						}
@@ -2767,7 +2760,7 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						
+
 						if ((maxqishu - qishu) < 10) {
 							getnewListTen.add(tempYiLou);
 						}
@@ -2784,7 +2777,7 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-					
+
 						if ((maxqishu - qishu) < 10) {
 							getnewListTen.add(tempYiLou);
 						}
@@ -2801,7 +2794,7 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						
+
 						if ((maxqishu - qishu) < 10) {
 							getnewListTen.add(tempYiLou);
 						}
@@ -2818,8 +2811,7 @@ public class SixOneAction extends BaseAction {
 						} else {
 							stringBuilder.append((qishu - tempqishu - 1) + "-");
 						}
-						
-						
+
 						if ((maxqishu - qishu) < 10) {
 							getnewListTen.add(tempYiLou);
 						}
@@ -2860,26 +2852,26 @@ public class SixOneAction extends BaseAction {
 		logger.info("分析结果=====================================");
 		logger.info("历史平均总计值" + (histoty_zongpingjun / 40.f));
 		logger.info("历史个数平均值" + (history_geshupingjun / 40.f));
-        for(int i=0;i<list10.size();i++){
-        	System.out.println(list10.get(i).toString());
-        }
-		
-        Map<String, List<Integer>> map =DuanQiCommonUtils.getyiloufenduan(list10);
-        List<String> now1=DuanQiCommonUtils.getListString(map.get("now1"));
-        List<String> now2=DuanQiCommonUtils.getListString(map.get("now2"));
-        List<String> now3=DuanQiCommonUtils.getListString(map.get("now3"));
-        List<String> now4=DuanQiCommonUtils.getListString(map.get("now4"));
-		List<String> now5=DuanQiCommonUtils.getListString(map.get("now5"));
-		List<String> last1=DuanQiCommonUtils.getListString(map.get("last1"));
-		List<String> last2=DuanQiCommonUtils.getListString(map.get("last2"));
-		List<String> last3=DuanQiCommonUtils.getListString(map.get("last3"));
-		List<String> last4=DuanQiCommonUtils.getListString(map.get("last4"));
-		List<String> last5=DuanQiCommonUtils.getListString(map.get("last5"));
-		List<String> last6=DuanQiCommonUtils.getListString(map.get("last6"));
-		List<String> last7=DuanQiCommonUtils.getListString(map.get("last7"));
-		List<String> last8=DuanQiCommonUtils.getListString(map.get("last8"));
-		List<String> last9=DuanQiCommonUtils.getListString(map.get("last9"));
-		List<String> last10=DuanQiCommonUtils.getListString(map.get("last10"));
+		for (int i = 0; i < list10.size(); i++) {
+			System.out.println(list10.get(i).toString());
+		}
+
+		Map<String, List<Integer>> map = DuanQiCommonUtils.getyiloufenduan(list10);
+		List<String> now1 = DuanQiCommonUtils.getListString(map.get("now1"));
+		List<String> now2 = DuanQiCommonUtils.getListString(map.get("now2"));
+		List<String> now3 = DuanQiCommonUtils.getListString(map.get("now3"));
+		List<String> now4 = DuanQiCommonUtils.getListString(map.get("now4"));
+		List<String> now5 = DuanQiCommonUtils.getListString(map.get("now5"));
+		List<String> last1 = DuanQiCommonUtils.getListString(map.get("last1"));
+		List<String> last2 = DuanQiCommonUtils.getListString(map.get("last2"));
+		List<String> last3 = DuanQiCommonUtils.getListString(map.get("last3"));
+		List<String> last4 = DuanQiCommonUtils.getListString(map.get("last4"));
+		List<String> last5 = DuanQiCommonUtils.getListString(map.get("last5"));
+		List<String> last6 = DuanQiCommonUtils.getListString(map.get("last6"));
+		List<String> last7 = DuanQiCommonUtils.getListString(map.get("last7"));
+		List<String> last8 = DuanQiCommonUtils.getListString(map.get("last8"));
+		List<String> last9 = DuanQiCommonUtils.getListString(map.get("last9"));
+		List<String> last10 = DuanQiCommonUtils.getListString(map.get("last10"));
 		System.out.println(now1.toString());
 		System.out.println(now2.toString());
 		System.out.println(now3.toString());
@@ -2895,7 +2887,7 @@ public class SixOneAction extends BaseAction {
 		System.out.println(last8.toString());
 		System.out.println(last9.toString());
 		System.out.println(last10.toString());
-		List<List<String>> tongji=new ArrayList<>();
+		List<List<String>> tongji = new ArrayList<>();
 		tongji.add(now1);
 		tongji.add(now2);
 		tongji.add(now3);
@@ -2911,7 +2903,7 @@ public class SixOneAction extends BaseAction {
 		tongji.add(last8);
 		tongji.add(last9);
 		tongji.add(last10);
-		Map<String, Object> map2=new HashMap<String, Object>();
+		Map<String, Object> map2 = new HashMap<String, Object>();
 		map2.put("tongji", tongji);
 		fenxijieguolist.add(map2);
 		JSONArray jsonObjectFromMap = JSONArray.fromObject(fenxijieguolist);
@@ -2926,107 +2918,23 @@ public class SixOneAction extends BaseAction {
 	 */
 	public String futureOddEven() {
 		logger.info("奇数偶数偏差系统分析------------futureOddEven----");
-		List<SixOne> sixonesTop10 = SixOneServices.way5();
-		int odd = 0;// 存放奇数的总个数
-		int even = 0;// 存放偶数的总个数
-
-		SixOne sixOne;
-		List<Integer> integersODD = new ArrayList<Integer>();
-		List<Integer> integersEVEN = new ArrayList<Integer>();
-		List<Integer> qishulist = new ArrayList<Integer>();
-		for (int i = 0; i < sixonesTop10.size(); i++) {
-			int everyoneOdd = 0;// 存放每个对象的奇数
-			int everyoneEven = 0;// 存放每个对象的偶数
-			sixOne = sixonesTop10.get(i);
-
-			if (sixOne.getFirst() != null) {
-				if (sixOne.getFirst() % 2 == 0) {
-					even++;
-					everyoneEven++;
-				} else {
-					odd++;
-					everyoneOdd++;
-
-				}
-			}
-			if (sixOne.getSecond() != null) {
-				if (sixOne.getSecond() % 2 == 0) {
-					even++;
-					everyoneEven++;
-				} else {
-					odd++;
-					everyoneOdd++;
-				}
-			}
-			if (sixOne.getThird() != null) {
-				if (sixOne.getThird() % 2 == 0) {
-					even++;
-					everyoneEven++;
-				} else {
-					odd++;
-					everyoneOdd++;
-				}
-			}
-			if (sixOne.getFourth() != null) {
-				if (sixOne.getFourth() % 2 == 0) {
-					even++;
-					everyoneEven++;
-				} else {
-					odd++;
-					everyoneOdd++;
-				}
-			}
-			if (sixOne.getFifth() != null) {
-				if (sixOne.getFifth() % 2 == 0) {
-					even++;
-					everyoneEven++;
-				} else {
-					odd++;
-					everyoneOdd++;
-				}
-			}
-			if (sixOne.getSixth() != null) {
-				if (sixOne.getSixth() % 2 == 0) {
-					even++;
-					everyoneEven++;
-				} else {
-					odd++;
-					everyoneOdd++;
-				}
-			}
-			if (sixOne.getSeventh() != null) {
-				if (sixOne.getSeventh() % 2 == 0) {
-					even++;
-					everyoneEven++;
-				} else {
-					odd++;
-					everyoneOdd++;
-				}
-			}
-			integersODD.add(everyoneOdd);
-			integersEVEN.add(everyoneEven);
-			qishulist.add(sixOne.getQishu());
+		List<SixOne> sixonesTop10 = SixOneServices.way9(); // 查询最近的10期 ,从过去排到现在
+		Map<String, List<List<Integer>>> maps = new HashMap<String, List<List<Integer>>>();// 向前端打包数据
+		Map<String, List<List<SixOne>>> data = DuanQiCommonUtils.getFenDuan(sixonesTop10);
+		List<List<SixOne>> zheng = data.get("zheng"); 	
+		List<List<SixOne>> fan = data.get("fan");
+		List<List<Integer>> zhengListStrings = new ArrayList<List<Integer>>();
+		List<List<Integer>> fanListStrings = new ArrayList<List<Integer>>();
+		for (int i = 0; i < zheng.size(); i++) {
+			zhengListStrings.add(DuanQiCommonUtils.getjioushu(zheng.get(i))); 
 		}
-		logger.info(qishulist.toString());
-		logger.info(integersODD.toString());
-		logger.info(integersEVEN.toString());
-		logger.info("奇数的个数为" + odd);
-		logger.info("偶数的个数为" + even);
-		logger.info("======================");
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("qishulist", qishulist);
-		map.put("integersODD", integersODD);
-		map.put("integersEVEN", integersEVEN);
-		map.put("odd", odd);
-		map.put("even", even);
-		if (odd > even) {
-			map.put("cha", odd - even);
-		}
-		if (odd < even) {
-			map.put("cha", even - odd);
-		}
-		logger.info(map.toString());
-		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
+		for (int i = 0; i < fan.size(); i++) {
+			fanListStrings.add(DuanQiCommonUtils.getjioushu(fan.get(i))); 																			// 反序
+		}		
+	
+		maps.put("zheng", zhengListStrings);
+		maps.put("fan", fanListStrings);
+		JSONObject jsonObjectFromMap = JSONObject.fromObject(maps);
 		logger.info(jsonObjectFromMap.toString());
 		result = jsonObjectFromMap.toString();
 		return "FUTUREODDEVENSUCCESS";
@@ -3144,7 +3052,7 @@ public class SixOneAction extends BaseAction {
 		for (int i = 0; i < all_sixones.size(); i++) {
 
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("qishu", all_sixones.get(i).getId()+ "");
+			map.put("qishu", all_sixones.get(i).getId() + "");
 			map.put("first", all_sixones.get(i).getFirst() + "");
 			map.put("second", all_sixones.get(i).getSecond() + "");
 			map.put("third", all_sixones.get(i).getThird() + "");

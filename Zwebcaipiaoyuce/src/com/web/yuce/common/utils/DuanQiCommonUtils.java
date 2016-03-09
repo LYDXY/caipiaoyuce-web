@@ -473,6 +473,10 @@ public class DuanQiCommonUtils {
 
 		List<List<SixOne>> lists = new ArrayList<List<SixOne>>();
 		// 按照顺序来
+		List<SixOne> sixOnes1 = new ArrayList<SixOne>();
+		List<SixOne> sixOnes2 = new ArrayList<SixOne>();
+		List<SixOne> sixOnes3 = new ArrayList<SixOne>();
+		List<SixOne> sixOnes4 = new ArrayList<SixOne>();
 		List<SixOne> sixOnes5 = new ArrayList<SixOne>();
 		List<SixOne> sixOnes6 = new ArrayList<SixOne>();
 		List<SixOne> sixOnes7 = new ArrayList<SixOne>();
@@ -480,6 +484,18 @@ public class DuanQiCommonUtils {
 		List<SixOne> sixOnes9 = new ArrayList<SixOne>();
 
 		for (int i = 0; i < sixOnes.size(); i++) {
+			if (i < 1) {
+				sixOnes1.add(sixOnes.get(i));
+			}
+			if (i < 2) {
+				sixOnes2.add(sixOnes.get(i));
+			}
+			if (i < 3) {
+				sixOnes3.add(sixOnes.get(i));
+			}
+			if (i < 4) {
+				sixOnes4.add(sixOnes.get(i));
+			}
 			if (i < 5) {
 				sixOnes5.add(sixOnes.get(i));
 			}
@@ -520,6 +536,10 @@ public class DuanQiCommonUtils {
 		for (int i = 0; i < sixOnes.size(); i++) {
 			System.out.println(sixOnes.get(i).getId());
 		}
+		lists.add(sixOnes1);
+		lists.add(sixOnes2);
+		lists.add(sixOnes3);
+		lists.add(sixOnes4);
 		lists.add(sixOnes5);
 		lists.add(sixOnes6);
 		lists.add(sixOnes7);
@@ -530,27 +550,32 @@ public class DuanQiCommonUtils {
 		// 按照反方向来
 		List<List<SixOne>> Flists = new ArrayList<List<SixOne>>();
 		List<SixOne> FsixOnes5 = new ArrayList<SixOne>();
-		// List<SixOne> FsixOnes6 = new ArrayList<SixOne>();
-		// List<SixOne> FsixOnes7 = new ArrayList<SixOne>();
-		// List<SixOne> FsixOnes8 = new ArrayList<SixOne>();
-		// List<SixOne> FsixOnes9 = new ArrayList<SixOne>();
+		List<SixOne> FsixOnes4 = new ArrayList<SixOne>();
+		List<SixOne> FsixOnes3 = new ArrayList<SixOne>();
+		List<SixOne> FsixOnes2 = new ArrayList<SixOne>();
+		List<SixOne> FsixOnes1 = new ArrayList<SixOne>();
 		for (int i = sixOnes.size() - 1; i >= 0; i--) {
 			if (i >= 5) {
 				FsixOnes5.add(sixOnes.get(i));
 			}
-			/*
-			 * if (i>=4) { FsixOnes6.add(sixOnes.get(i)); } if (i>=3) {
-			 * FsixOnes7.add(sixOnes.get(i)); } if (i>=2) {
-			 * FsixOnes8.add(sixOnes.get(i)); } if (i>=1) {
-			 * FsixOnes9.add(sixOnes.get(i)); }
-			 */
+			if (i >= 5 && i <= 8) {
+				FsixOnes4.add(sixOnes.get(i));
+			}
+			if (i >= 5 && i <= 7) {
+				FsixOnes3.add(sixOnes.get(i));
+			}
+			if (i >= 5 && i <= 6) {
+				FsixOnes2.add(sixOnes.get(i));
+			}
+			if (i == 5) {
+				FsixOnes1.add(sixOnes.get(i));
+			}
 		}
+		Flists.add(FsixOnes1);
+		Flists.add(FsixOnes2);
+		Flists.add(FsixOnes3);
+		Flists.add(FsixOnes4);
 		Flists.add(FsixOnes5);
-		// Flists.add(FsixOnes6);
-		// Flists.add(FsixOnes7);
-		// Flists.add(FsixOnes8);
-		// Flists.add(FsixOnes9);
-		// Flists.add(sixOnes);
 		map.put("fan", Flists);
 
 		return map;
@@ -659,4 +684,82 @@ public class DuanQiCommonUtils {
 		map.put("last10", last10);
 		return map;
 	}
+
+	public static List<Integer> getjioushu(List<SixOne> sixOnes) {
+		List<Integer> aList = new ArrayList<>();
+		int odd = 0;// 存放奇数的总个数
+		int even = 0;// 存放偶数的总个数
+		for (int i = 0; i < sixOnes.size(); i++) {
+
+			if (sixOnes.get(i).getFirst() != null) {
+				if (sixOnes.get(i).getFirst() % 2 == 0) {
+					even++;
+
+				} else {
+					odd++;
+
+				}
+			}
+			if (sixOnes.get(i).getSecond() != null) {
+				if (sixOnes.get(i).getSecond() % 2 == 0) {
+					even++;
+
+				} else {
+					odd++;
+
+				}
+			}
+			if (sixOnes.get(i).getThird() != null) {
+				if (sixOnes.get(i).getThird() % 2 == 0) {
+					even++;
+
+				} else {
+					odd++;
+
+				}
+			}
+			if (sixOnes.get(i).getFourth() != null) {
+				if (sixOnes.get(i).getFourth() % 2 == 0) {
+					even++;
+
+				} else {
+					odd++;
+
+				}
+			}
+			if (sixOnes.get(i).getFifth() != null) {
+				if (sixOnes.get(i).getFifth() % 2 == 0) {
+					even++;
+
+				} else {
+					odd++;
+
+				}
+			}
+			if (sixOnes.get(i).getSixth() != null) {
+				if (sixOnes.get(i).getSixth() % 2 == 0) {
+					even++;
+
+				} else {
+					odd++;
+
+				}
+			}
+			if (sixOnes.get(i).getSeventh() != null) {
+				if (sixOnes.get(i).getSeventh() % 2 == 0) {
+					even++;
+
+				} else {
+					odd++;
+
+				}
+			}
+
+		}
+		System.out.println(odd + "----------" +even);
+		aList.add(odd);
+		aList.add(even);
+		return aList;
+	}
+
 }
