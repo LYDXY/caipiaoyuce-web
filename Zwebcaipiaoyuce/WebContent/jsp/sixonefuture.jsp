@@ -94,7 +94,7 @@ td{text-align: center;}
 								<td>23</td>
 								<td>24</td>
 								<td>25</td>
-								<td>26</td>
+								<!-- <td>26</td>
 								<td>27</td>
 								<td>28</td>
 								<td>29</td>
@@ -118,13 +118,12 @@ td{text-align: center;}
 								<td>47</td>
 								<td>48</td>
 								<td>49</td>
-								<td>50</td>
+								<td>50</td> -->
 							</tr>
 						</thead>
-						<tbody id="sssssssssss">
+						<tbody id="sssssssssss" >
 						</tbody>
-					</table> 从现在到过去
-					<table class="table table-bordered">
+					</table> 从现在到过去 <!-- <table class="table table-bordered">
 						<thead>
 							<tr class="info">
 								<td>00</td>
@@ -182,7 +181,7 @@ td{text-align: center;}
 						</thead>
 						<tbody id="uuuuuuu">
 						</tbody>
-					</table></td>
+					</table> --></td>
 			</tr>
 
 
@@ -324,7 +323,7 @@ td{text-align: center;}
 								</table>
 							</td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<td>从现在到过去
 								<table class="table table-bordered">
 									<thead>
@@ -380,7 +379,7 @@ td{text-align: center;}
 									</tbody>
 								</table>
 							</td>
-						</tr>
+						</tr> -->
 					</table>
 				</td>
 				<!--末位数字偏差系统分析  -->
@@ -508,7 +507,7 @@ td{text-align: center;}
 
 								var trHtml = '<tr>';
 								for (var j = 0; j < json.zheng[i].length; j++) {
-									var tdHtml = '<td class="active">'
+									var tdHtml = '<td class="success">'
 											+ json.zheng[i][j];
 									+'</td>';
 									trHtml += tdHtml;
@@ -520,7 +519,7 @@ td{text-align: center;}
 							for (var i = 0; i < json.fan.length; i++) {
 								var trHtml = '<tr>';
 								for (var j = 0; j < json.fan[i].length; j++) {
-									var tdHtml = '<td class="active">'
+									var tdHtml = '<td class="success">'
 											+ json.fan[i][j];
 									+'</td>';
 									trHtml += tdHtml;
@@ -560,7 +559,7 @@ td{text-align: center;}
 							for (var i = 0; i < json.weibulistsmalltobig.length; i++) {
 								var trHtml = '<tr>';
 								for (var j = 0; j < json.weibulistsmalltobig[i].length; j++) {
-									var tdHtml = '<td class="active">'
+									var tdHtml = '<td class="success">'
 											+ json.weibulistsmalltobig[i][j];
 									+'</td>';
 									trHtml += tdHtml;
@@ -569,7 +568,7 @@ td{text-align: center;}
 								trHtml += '</tr>';
 								$("#oooooooo1").append(trHtml);
 							}
-							for (var i = 0; i < json.weibulistbigtosmall.length; i++) {
+							/* for (var i = 0; i < json.weibulistbigtosmall.length; i++) {
 								var trHtml = '<tr>';
 								for (var j = 0; j < json.weibulistbigtosmall[i].length; j++) {
 									var tdHtml = '<td class="active">'
@@ -580,11 +579,11 @@ td{text-align: center;}
 								}
 								trHtml += '</tr>';
 								$("#oooooooo2").append(trHtml);
-							}
+							} */
 							for (var i = 0; i < json.toubulistsmalltobig.length; i++) {
 								var trHtml = '<tr>';
 								for (var j = 0; j < json.toubulistsmalltobig[i].length; j++) {
-									var tdHtml = '<td class="active">'
+									var tdHtml = '<td class="success">'
 											+ json.toubulistsmalltobig[i][j];
 									+'</td>';
 									trHtml += tdHtml;
@@ -593,7 +592,7 @@ td{text-align: center;}
 								trHtml += '</tr>';
 								$("#oooooooo3").append(trHtml);
 							}
-							for (var i = 0; i < json.toubulistbigtosmall.length; i++) {
+							/* for (var i = 0; i < json.toubulistbigtosmall.length; i++) {
 								var trHtml = '<tr>';
 								for (var j = 0; j < json.toubulistbigtosmall[i].length; j++) {
 									var tdHtml = '<td class="active">'
@@ -604,7 +603,7 @@ td{text-align: center;}
 								}
 								trHtml += '</tr>';
 								$("#oooooooo4").append(trHtml);
-							}
+							} */
 
 						},
 						error : function(data) {
@@ -625,45 +624,22 @@ td{text-align: center;}
 							var json = eval('(' + data + ')');
 							alert(data);
 							for (i = 0; i < json.length; i++) {
-
 								if (i == json.length - 1) {
-
 									for (var j = 0; j < json[i].tongji.length; j++) {
-										//获取现在5期
-										if (j < 5) {
-											var trHtml = '<tr>';
-											for (var k = 0; k < json[i].tongji[j].length; k++) {
-												var tdHtml = '<td class="active">'
-														+ json[i].tongji[j][k];
-												+'</td>';
-												trHtml += tdHtml;
-
-											}
-											trHtml += '</tr>';
-											$("#uuuuuuu").append(trHtml);
-
-										} else {
-											for (var k = 0; k < json[i].tongji[j].length; k++) {
-												var trHtml = '<tr>';
-												for (var k = 0; k < json[i].tongji[j].length; k++) {
-													var tdHtml = '<td class="active">'
-															+ json[i].tongji[j][k];
-													+'</td>';
-													trHtml += tdHtml;
-
-												}
-												trHtml += '</tr>';
-												$("#sssssssssss")
-														.append(trHtml);
-											}
+										var trHtml = '<tr>';
+										for (var k = 0; k < json[i].tongji[j].length; k++) {
+											var tdHtml = '<td class="success">'
+													+ json[i].tongji[j][k];
+											+'</td>';
+											trHtml += tdHtml;
 										}
-
+										trHtml += '</tr>';
+										$("#sssssssssss").append(trHtml);
 									}
-
 								} else {
 									$("#remenlengmenfenxi")
 											.append(
-													'<tr class="active">'
+													'<tr class="success">'
 															+ '<td>'
 															+ json[i].qishu
 															+ '</td>'
@@ -709,9 +685,9 @@ td{text-align: center;}
 							var json = eval('(' + data + ')');
 							alert(data);
 							$("#shuziqujianfenxitable1").empty();
-							$("#shuziqujianfenxitable1").empty();
+							$("#shuziqujianfenxitable2").empty();
 							for (var i = 0; i < json.zhengxu.length; i++) {
-								var trHtml = '<tr>';
+								var trHtml = '<tr class="success">';
 								for (var j = 0; j < json.zhengxu[i].length; j++) {
 									var tdHtml = '<td>' + json.zhengxu[i][j]
 											+ '</td>';
@@ -720,16 +696,16 @@ td{text-align: center;}
 								trHtml += '</tr>';
 								$("#shuziqujianfenxitable1").append(trHtml);
 							}
-							for (var i = 0; i < json.fanxu.length; i++) {
-								var trHtml = '<tr>';
-								for (var j = 0; j < json.fanxu[i].length; j++) {
-									var tdHtml = '<td>' + json.fanxu[i][j]
-											+ '</td>';
-									trHtml += tdHtml;
-								}
-								trHtml += '</tr>';
-								$("#shuziqujianfenxitable2").append(trHtml);
-							}
+							/* 	for (var i = 0; i < json.fanxu.length; i++) {
+									var trHtml = '<tr>';
+									for (var j = 0; j < json.fanxu[i].length; j++) {
+										var tdHtml = '<td>' + json.fanxu[i][j]
+												+ '</td>';
+										trHtml += tdHtml;
+									}
+									trHtml += '</tr>';
+									$("#shuziqujianfenxitable2").append(trHtml);
+								} */
 
 						},
 						error : function(data) {
@@ -901,18 +877,18 @@ td{text-align: center;}
 							$("#notInlasttenTable").empty();
 							var json = eval('(' + data + ')');
 							alert(data)
-							var trHtml = '<tr>';
+							var trHtml = '<tr class="success">';
 							for (var i = 0; i < json.integers.length; i++) {
-								var tdHtml = '<td class="active">'
+								var tdHtml = '<td>'
 										+ json.integers[i] + '</td>';
 								trHtml += tdHtml;
 							}
 							trHtml += '</tr>';
 							$("#lasttenTable").append(trHtml);
 
-							var trHtml2 = '<tr>';
+							var trHtml2 = '<tr class="success">';
 							for (var j = 0; j < json.integers2.length; j++) {
-								var tdHtml2 = '<td class="active">'
+								var tdHtml2 = '<td>'
 										+ json.integers2[j] + '</td>';
 								trHtml2 += tdHtml2;
 							}
@@ -951,9 +927,9 @@ td{text-align: center;}
 						success : function(data) {
 							$("#zuhejieguo").empty();
 							var json = eval('(' + data + ')');
-							var trHtml = '<tr>', addNum = 1;
+							var trHtml = '<tr class="success">', addNum = 1;
 							for (var i = 0; i < json.zuhe.length; i++) {
-								var tdHtml = '<td class="active">'
+								var tdHtml = '<td>'
 										+ json.zuhe[i] + '</td>';
 								if (addNum == 5) {
 									addNum = 1;
@@ -998,10 +974,10 @@ td{text-align: center;}
 							$("#cleartbody").empty();
 							for (var i = 0; i < json.clear.length; i++) {
 								if (i < (json.clear.length - 1)) {
-									var trHtml = '<tr>';
+									var trHtml = '<tr class="success">';
 									var tdHtml = '';
 									for (var j = 0; j < json.clear[i].length; j++) {
-										tdHtml += '<td class="active">'
+										tdHtml += '<td>'
 												+ json.clear[i][j] + '</td>';
 									}
 									trHtml += tdHtml;
@@ -1010,9 +986,9 @@ td{text-align: center;}
 								}
 								if (i == (json.clear.length - 1)) {
 									for (var k = 0; k < json.clear[i].length; k++) {
-										var trHtml = '<tr>';
+										var trHtml = '<tr class="success">';
 										var tdHtml = '';
-										tdHtml += '<td class="active">'
+										tdHtml += '<td>'
 												+ json.clear[i][k] + '</td>';
 										trHtml += tdHtml;
 										trHtml += '</tr>';

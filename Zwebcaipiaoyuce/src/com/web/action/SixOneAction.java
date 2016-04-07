@@ -510,16 +510,6 @@ public class SixOneAction extends BaseAction {
 		all.add(clear_twenty_eight);
 		all.add(clear_twenty_nine);
 		all.add(clear_thirty);
-		all.add(clear_thirty_one);
-		all.add(clear_thirty_two);
-		all.add(clear_thirty_three);
-		all.add(clear_thirty_four);
-		all.add(clear_thirty_five);
-		all.add(clear_thirty_six);
-		all.add(clear_thirty_seven);
-		all.add(clear_thirty_eight);
-		all.add(clear_thirty_nine);
-		all.add(clear_fourty);
 		// 每一期进行冒泡排序
 		logger.info("============================冒泡排序");
 		List<String> strings = new ArrayList<String>();
@@ -1070,24 +1060,24 @@ public class SixOneAction extends BaseAction {
 																							// 各个段
 		List<List<SixOne>> zheng = map.get("zheng"); // 6个正序的 段 即是从过去到现在
 														// 5,6,7,9,10
-		List<List<SixOne>> fan = map.get("fan"); // 6个反序的段 即是 从现在到过去
+	//	List<List<SixOne>> fan = map.get("fan"); // 6个反序的段 即是 从现在到过去
 													// 5,6,7,8,9,10
 		List<List<String>> zhengListStrings = new ArrayList<List<String>>(); // 正序的区间分析结果
-		List<List<String>> fanListStrings = new ArrayList<List<String>>(); // 反序的区间分析结果
+	//	List<List<String>> fanListStrings = new ArrayList<List<String>>(); // 反序的区间分析结果
 		for (int i = 0; i < zheng.size(); i++) {
 			// System.out.println(zheng.get(i).size());
 			zhengListStrings.add(DuanQiCommonUtils.getQuJian(zheng.get(i))); // 添加每一个分段的结果
 																				// 正序
 		}
-		for (int i = 0; i < fan.size(); i++) {
-			fanListStrings.add(DuanQiCommonUtils.getQuJian(fan.get(i))); // 添加每一段的结果
+	//	for (int i = 0; i < fan.size(); i++) {
+	//		fanListStrings.add(DuanQiCommonUtils.getQuJian(fan.get(i))); // 添加每一段的结果
 																			// 反序
-		}
+//		}
 		System.out.println(zhengListStrings.toString());
-		System.out.println(fanListStrings.toString());
+//		System.out.println(fanListStrings.toString());
 
 		maps.put("zhengxu", zhengListStrings);
-		maps.put("fanxu", fanListStrings);
+	//	maps.put("fanxu", fanListStrings);
 
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(maps);
 		logger.info(jsonObjectFromMap.toString());
@@ -1160,11 +1150,11 @@ public class SixOneAction extends BaseAction {
 		List<SixOne> smallToBig8 = new ArrayList<SixOne>();
 		List<SixOne> smallToBig9 = new ArrayList<SixOne>();
 
-		List<SixOne> bigToSmall5 = new ArrayList<SixOne>();
-		List<SixOne> bigToSmall4 = new ArrayList<SixOne>();
-		List<SixOne> bigToSmall3 = new ArrayList<SixOne>();
-		List<SixOne> bigToSmall2 = new ArrayList<SixOne>();
-		List<SixOne> bigToSmall1 = new ArrayList<SixOne>();
+//		List<SixOne> bigToSmall5 = new ArrayList<SixOne>();
+//		List<SixOne> bigToSmall4 = new ArrayList<SixOne>();
+//		List<SixOne> bigToSmall3 = new ArrayList<SixOne>();
+//		List<SixOne> bigToSmall2 = new ArrayList<SixOne>();
+//		List<SixOne> bigToSmall1 = new ArrayList<SixOne>();
 
 		// 期数从小到大
 
@@ -1200,24 +1190,24 @@ public class SixOneAction extends BaseAction {
 
 		}
 		// 期数从大到小目前最新的5期
-		for (int i = 0; i < sixonesTop10.size(); i++) {
-			SixOne sixOne = sixonesTop10.get(i);
-			if (i < 5) {
-				bigToSmall5.add(sixOne);
-			}
-			if (i > 0 && i < 5) {
-				bigToSmall4.add(sixOne);
-			}
-			if (i > 1 && i < 5) {
-				bigToSmall3.add(sixOne);
-			}
-			if (i > 2 && i < 5) {
-				bigToSmall2.add(sixOne);
-			}
-			if (i > 3 && i < 5) {
-				bigToSmall1.add(sixOne);
-			}
-		}
+//		for (int i = 0; i < sixonesTop10.size(); i++) {
+//			SixOne sixOne = sixonesTop10.get(i);
+//			if (i < 5) {
+//				bigToSmall5.add(sixOne);
+//			}
+//			if (i > 0 && i < 5) {
+//				bigToSmall4.add(sixOne);
+//			}
+//			if (i > 1 && i < 5) {
+//				bigToSmall3.add(sixOne);
+//			}
+//			if (i > 2 && i < 5) {
+//				bigToSmall2.add(sixOne);
+//			}
+//			if (i > 3 && i < 5) {
+//				bigToSmall1.add(sixOne);
+//			}
+//		}
 
 		logger.info("-----末位数字开始统计--从过去到现在");
 		List<String> weibusmallToBig1Strings = DuanQiCommonUtils.getMoWeiNumbersCount(smallToBig1);
@@ -1232,11 +1222,11 @@ public class SixOneAction extends BaseAction {
 		List<String> common10Strings = DuanQiCommonUtils.getMoWeiNumbersCount(sixonesTop10);
 
 		logger.info("-----末位数字开始统计--从现在到过去");
-		List<String> weibuBigToSmall5Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall5);
-		List<String> weibuBigToSmall4Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall4);
-		List<String> weibuBigToSmall3Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall3);
-		List<String> weibuBigToSmall2Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall2);
-		List<String> weibuBigToSmall1Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall1);
+//		List<String> weibuBigToSmall5Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall5);
+//		List<String> weibuBigToSmall4Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall4);
+//		List<String> weibuBigToSmall3Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall3);
+//		List<String> weibuBigToSmall2Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall2);
+//		List<String> weibuBigToSmall1Strings = DuanQiCommonUtils.getMoWeiNumbersCount(bigToSmall1);
 
 		logger.info("-----头部数字开始统计--从过去到现在");
 		List<String> toubusmallToBig1Strings = DuanQiCommonUtils.getTouBu(smallToBig1);
@@ -1251,11 +1241,11 @@ public class SixOneAction extends BaseAction {
 		List<String> toubucommon10Strings = DuanQiCommonUtils.getTouBu(sixonesTop10);
 
 		logger.info("-----头部数字开始统计--从现在到过去");
-		List<String> toubuBigToSmall5Strings = DuanQiCommonUtils.getTouBu(bigToSmall5);
-		List<String> toubuBigToSmall4Strings = DuanQiCommonUtils.getTouBu(bigToSmall4);
-		List<String> toubuBigToSmall3Strings = DuanQiCommonUtils.getTouBu(bigToSmall3);
-		List<String> toubuBigToSmall2Strings = DuanQiCommonUtils.getTouBu(bigToSmall2);
-		List<String> toubuBigToSmall1Strings = DuanQiCommonUtils.getTouBu(bigToSmall1);
+//		List<String> toubuBigToSmall5Strings = DuanQiCommonUtils.getTouBu(bigToSmall5);
+//		List<String> toubuBigToSmall4Strings = DuanQiCommonUtils.getTouBu(bigToSmall4);
+//		List<String> toubuBigToSmall3Strings = DuanQiCommonUtils.getTouBu(bigToSmall3);
+//		List<String> toubuBigToSmall2Strings = DuanQiCommonUtils.getTouBu(bigToSmall2);
+//		List<String> toubuBigToSmall1Strings = DuanQiCommonUtils.getTouBu(bigToSmall1);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<List<String>> weibulistsmalltobig = new ArrayList<List<String>>();
@@ -1269,12 +1259,12 @@ public class SixOneAction extends BaseAction {
 		weibulistsmalltobig.add(weibusmallToBig8Strings);
 		weibulistsmalltobig.add(weibusmallToBig9Strings);
 		weibulistsmalltobig.add(common10Strings);
-		List<List<String>> weibulistbigtosmall = new ArrayList<List<String>>();
-		weibulistbigtosmall.add(weibuBigToSmall1Strings);
-		weibulistbigtosmall.add(weibuBigToSmall2Strings);
-		weibulistbigtosmall.add(weibuBigToSmall3Strings);
-		weibulistbigtosmall.add(weibuBigToSmall4Strings);
-		weibulistbigtosmall.add(weibuBigToSmall5Strings);
+	//	List<List<String>> weibulistbigtosmall = new ArrayList<List<String>>();
+//		weibulistbigtosmall.add(weibuBigToSmall1Strings);
+//		weibulistbigtosmall.add(weibuBigToSmall2Strings);
+//		weibulistbigtosmall.add(weibuBigToSmall3Strings);
+//		weibulistbigtosmall.add(weibuBigToSmall4Strings);
+//		weibulistbigtosmall.add(weibuBigToSmall5Strings);
 
 		List<List<String>> toubulistsmalltobig = new ArrayList<List<String>>();
 		toubulistsmalltobig.add(toubusmallToBig1Strings);
@@ -1287,17 +1277,17 @@ public class SixOneAction extends BaseAction {
 		toubulistsmalltobig.add(toubusmallToBig8Strings);
 		toubulistsmalltobig.add(toubusmallToBig9Strings);
 		toubulistsmalltobig.add(toubucommon10Strings);
-		List<List<String>> toubulistbigtosmall = new ArrayList<List<String>>();
-		toubulistbigtosmall.add(toubuBigToSmall1Strings);
-		toubulistbigtosmall.add(toubuBigToSmall2Strings);
-		toubulistbigtosmall.add(toubuBigToSmall3Strings);
-		toubulistbigtosmall.add(toubuBigToSmall4Strings);
-		toubulistbigtosmall.add(toubuBigToSmall5Strings);
+	//	List<List<String>> toubulistbigtosmall = new ArrayList<List<String>>();
+//		toubulistbigtosmall.add(toubuBigToSmall1Strings);
+//		toubulistbigtosmall.add(toubuBigToSmall2Strings);
+//		toubulistbigtosmall.add(toubuBigToSmall3Strings);
+//		toubulistbigtosmall.add(toubuBigToSmall4Strings);
+//		toubulistbigtosmall.add(toubuBigToSmall5Strings);
 
 		map.put("weibulistsmalltobig", weibulistsmalltobig);
-		map.put("weibulistbigtosmall", weibulistbigtosmall);
+	//	map.put("weibulistbigtosmall", weibulistbigtosmall);
 		map.put("toubulistsmalltobig", toubulistsmalltobig);
-		map.put("toubulistbigtosmall", toubulistbigtosmall);
+	//	map.put("toubulistbigtosmall", toubulistbigtosmall);
 		logger.info(map.toString());
 		JSONObject jsonObjectFromMap = JSONObject.fromObject(map);
 		logger.info(jsonObjectFromMap.toString());
@@ -2857,11 +2847,11 @@ public class SixOneAction extends BaseAction {
 		}
 
 		Map<String, List<Integer>> map = DuanQiCommonUtils.getyiloufenduan(list10);
-		List<String> now1 = DuanQiCommonUtils.getListString(map.get("now1"));
-		List<String> now2 = DuanQiCommonUtils.getListString(map.get("now2"));
-		List<String> now3 = DuanQiCommonUtils.getListString(map.get("now3"));
-		List<String> now4 = DuanQiCommonUtils.getListString(map.get("now4"));
-		List<String> now5 = DuanQiCommonUtils.getListString(map.get("now5"));
+//		List<String> now1 = DuanQiCommonUtils.getListString(map.get("now1"));
+//		List<String> now2 = DuanQiCommonUtils.getListString(map.get("now2"));
+//		List<String> now3 = DuanQiCommonUtils.getListString(map.get("now3"));
+//		List<String> now4 = DuanQiCommonUtils.getListString(map.get("now4"));
+//		List<String> now5 = DuanQiCommonUtils.getListString(map.get("now5"));
 		List<String> last1 = DuanQiCommonUtils.getListString(map.get("last1"));
 		List<String> last2 = DuanQiCommonUtils.getListString(map.get("last2"));
 		List<String> last3 = DuanQiCommonUtils.getListString(map.get("last3"));
@@ -2872,11 +2862,11 @@ public class SixOneAction extends BaseAction {
 		List<String> last8 = DuanQiCommonUtils.getListString(map.get("last8"));
 		List<String> last9 = DuanQiCommonUtils.getListString(map.get("last9"));
 		List<String> last10 = DuanQiCommonUtils.getListString(map.get("last10"));
-		System.out.println(now1.toString());
+		/*System.out.println(now1.toString());
 		System.out.println(now2.toString());
 		System.out.println(now3.toString());
 		System.out.println(now4.toString());
-		System.out.println(now5.toString());
+		System.out.println(now5.toString());*/
 		System.out.println(last1.toString());
 		System.out.println(last2.toString());
 		System.out.println(last3.toString());
@@ -2888,11 +2878,11 @@ public class SixOneAction extends BaseAction {
 		System.out.println(last9.toString());
 		System.out.println(last10.toString());
 		List<List<String>> tongji = new ArrayList<>();
-		tongji.add(now1);
+		/*tongji.add(now1);
 		tongji.add(now2);
 		tongji.add(now3);
 		tongji.add(now4);
-		tongji.add(now5);
+		tongji.add(now5);*/
 		tongji.add(last1);
 		tongji.add(last2);
 		tongji.add(last3);

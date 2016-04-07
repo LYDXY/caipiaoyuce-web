@@ -252,7 +252,7 @@ public class DuanQiCommonUtils {
 		strings.add("" + twenty_three);
 		strings.add("" + twenty_four);
 		strings.add("" + twenty_five);
-		strings.add("" + twenty_six);
+		/*strings.add("" + twenty_six);
 		strings.add("" + twenty_seven);
 		strings.add("" + twenty_eight);
 		strings.add("" + twenty_nine);
@@ -276,7 +276,7 @@ public class DuanQiCommonUtils {
 		strings.add("" + fourty_seven);
 		strings.add("" + fourty_eight);
 		strings.add("" + fourty_nine);
-		strings.add("" + fifty);
+		strings.add("" + fifty);*/
 		return strings;
 	}
 
